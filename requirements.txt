@@ -1,0 +1,24 @@
+# Notebook deps — mirrored from CAM C301 course venv (Python 3.12)
+pandas==2.3.3
+numpy==2.0.2
+nltk==3.9.2
+bertopic==0.17.3
+sentence-transformers==5.1.2
+gensim==4.4.0
+transformers==4.57.6
+torch==2.8.0
+matplotlib==3.9.4
+seaborn>=0.13
+scikit-learn==1.6.1
+umap-learn==0.5.12
+hdbscan==0.8.42
+plotly==6.8.0
+ipykernel==6.31.0
+pypdf==6.14.2
+pdfplumber>=0.11
+openpyxl>=3.1
+pyarrow>=14
+tf-keras>=2.17
+datasets>=2.14
+accelerate>=0.26
+evaluate>=0.4

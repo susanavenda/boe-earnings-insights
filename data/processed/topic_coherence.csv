@@ -1,0 +1,3 @@
+model,coherence_c_v,n_topics
+BERTopic,0.47804740234382787,3
+LDA,0.3511293364397866,10

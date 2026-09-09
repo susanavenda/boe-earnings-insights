@@ -1,0 +1,4 @@
+bank,quarter,finbert_note,event_context,aligns_with_topics
+hsbc,2025-interim,Softest HSBC print in sample (net ≈ −0.13),H1 results: cost/efficiency and forward guidance dominate analyst Q&A; wealth/management themes also active,"Topic 1 (costs/questions), Topic 2 (wealth)"
+barclays,2026-q2,Softest Barclays print in sample (net ≈ −0.11),Q2 results window: impairment / risk and cost questions relatively more salient vs growth franchise talk,Topic 1 (costs/questions); Topic 0 still large
+both,2025-annual,Year-end packs — denser metric discussion,"Full-year CET1, income, costs, impairment all in IR packs → best window for structured-vs-unstructured compare",Mixed; use for metric tagging QA
