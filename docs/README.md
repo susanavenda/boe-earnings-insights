@@ -14,12 +14,14 @@ One entry point for Group 9. Pick the surface that matches the job.
 | Live tasks & roadmap | [GitHub Project — Roadmap](https://github.com/users/susanavenda/projects/3/views/2) | Board / Roadmap / Table views |
 | Milestones & issues | [Milestones](https://github.com/susanavenda/boe-earnings-insights/milestones) · [Issues](https://github.com/susanavenda/boe-earnings-insights/issues) | GitHub |
 | Final PDF / submission | [`assignment1/`](assignment1/) | Word / Preview |
+| A2 pitch + pipelines | [`assignment2/`](assignment2/) | Pitch outline · pipeline map |
 | Repo overview | [`../README.md`](../README.md) | Markdown preview (`Cmd+Shift+V`) |
 
 ## Folder layout (docs)
 
 | Path | Contents |
 |---|---|
+| [`assignment2/`](assignment2/) | A2 pitch outline + pipeline map |
 | [`assignment1/`](assignment1/) | A1 PDF/DOCX, scope MD mirror, technical report; see [`assignment1/README.md`](assignment1/README.md) |
 | [`project/`](project/) | GitHub setup notes, `issues.csv` |
 | [`assets/`](assets/) | Roadmap images |

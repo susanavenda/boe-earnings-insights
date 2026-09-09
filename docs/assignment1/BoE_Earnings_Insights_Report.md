@@ -176,6 +176,21 @@ Keyword-tagged narrative vs Excel-reported directions (CET1, income, costs, impa
 
 ---
 
+
+
+## 6.5 Supervisory episode (HSBC 2025-H1)
+
+Concrete case study for Assignment 2 pitch (`docs/assignment2/A2_pitch_outline.md`):
+
+- Softest Q&A print: **HSBC 2025-interim** (FinBERT net ≈ **−0.13**); Topic 1 = 5/8 turns (40% negative).
+- Matched **2025-H1**: HSBC −0.13 (n=8) vs Barclays **0.00** (n=6, all FinBERT-neutral). Gap equals HSBC’s net → **not A2-eligible** (peer quality gate).
+- Claim-vs-source vs **2025-q2** pack: Q&A tone **agrees** with reported directions → **A3 WATCH**.
+- Missing Q&A metric hits now score **n/a**, not agreement. Verdicts: `supervisory_episodes.json`.
+
+**Pipelines** (ingest → topics → sentiment → baselines → decision → PRA note): `docs/assignment2/pipelines.md`.
+
+**Stage 9:** Second episode **Barclays 2026-q2** = WATCH (A3); dual PRA notes in `docs/assignment2/pra_notes/`; extractive metric briefs in `metric_briefs_faithful.csv`; re-run checklist `docs/assignment2/rerun_checklist.md`.
+
 ## 7. Recommendations
 
 | # | Recommendation | Evidence |
