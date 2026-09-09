@@ -1,0 +1,27 @@
+title,body,labels,milestone,start_date,due_date
+Sign team charter,Each member signs and submits their own copy of the PREACH charter (0.4). Gates the Welcome to the course module.,phase:initiation,A1 — Scope & plan,2026-09-07,2026-09-07
+Kick-off meeting,90-minute kick-off: agree bank(s) and business questions PREACH charter roles and section ownership cadence and tools. Actions read back with owners and dates.,phase:initiation,A1 — Scope & plan,2026-09-07,2026-09-07
+Verify transcript availability,Confirm downloadable Q&A transcripts exist for HSBC and Barclays across enough recent quarters before scope is finalised.,phase:initiation,A1 — Scope & plan,2026-09-07,2026-09-08
+Resolve open scope question,Decide via WhatsApp whether to add a third US-based bank for geopolitical comparison. Currently undecided.,phase:initiation,A1 — Scope & plan,2026-09-07,2026-09-09
+Build project roadmap,Build roadmap against the four 1.1.5 inclusions (goals initiatives milestones progress). Post to discussion board and reply to one other group via 3CQ.,phase:planning,A1 — Scope & plan,2026-09-08,2026-09-09
+Porter's Five Forces analysis,Run and post the Porter's Five Forces market analysis (1.3.4).,phase:planning;research,A1 — Scope & plan,2026-09-09,2026-09-10
+Draft Assignment 1 sections,Each section owner drafts their part in the single shared document roughly to word budget.,phase:planning;writing,A1 — Scope & plan,2026-09-10,2026-09-11
+Consolidate to 1000 words,One editor unifies tone and cuts the draft to 1000 words plus or minus 10 percent.,phase:planning;writing,A1 — Scope & plan,2026-09-11,2026-09-12
+Final review against marking guide,Whole team reviews the draft against the four marking criteria then exports to PDF and checks formatting.,phase:planning;writing,A1 — Scope & plan,2026-09-12,2026-09-13
+Submit Assignment 1,Designated member submits Group9_CAM_EP_Assignment1.pdf by midday UK.,phase:planning;milestone,A1 — Scope & plan,2026-09-14,2026-09-14
+Source transcripts,Source Q&A transcripts and earnings reports for HSBC and Barclays from investor relations pages.,phase:execution;data,A2 — Solution pitch,2026-09-15,2026-09-17
+Preprocess transcripts,Clean and preprocess transcript text with speaker segmentation.,phase:execution;data,A2 — Solution pitch,2026-09-17,2026-09-20
+Topic modelling pipeline,Build BERTopic clustering pipeline on analyst Q&A themes. Themes are data-driven after initial feature engineering not fixed in advance.,phase:execution;modelling,A2 — Solution pitch,2026-09-18,2026-09-25
+Sentiment analysis pipeline,Build sentiment pipeline combining FinBERT with LDSA per topic cluster.,phase:execution;modelling,A2 — Solution pitch,2026-09-20,2026-09-26
+Draft preliminary findings,Draft preliminary findings for the Assignment 2 pitch.,phase:execution;writing,A2 — Solution pitch,2026-09-24,2026-09-26
+Build presentation deck,Build and record the Assignment 2 presentation deck. 15 minutes.,phase:execution;presentation,A2 — Solution pitch,2026-09-25,2026-09-27
+Submit Assignment 2,Submit the Assignment 2 deck PDF and recording.,phase:execution;milestone,A2 — Solution pitch,2026-09-28,2026-09-28
+Summarisation pipeline,Build LLM summarisation pipeline grouped by metric.,phase:execution;modelling,A3 — Final report,2026-09-29,2026-10-04
+Refine topic modelling,Repeat topic modelling on the clusters that turn out to matter based on initial results.,phase:execution;modelling,A3 — Final report,2026-10-01,2026-10-06
+Hand-validate model outputs,Hand-validate a sample of topic assignments and sentiment labels. Report FinBERT's known weakness on hedged bank language explicitly.,phase:execution;modelling,A3 — Final report,2026-10-05,2026-10-08
+Evaluate against three baselines,Evaluate results against temporal peer and structured-versus-unstructured baselines rather than a single accuracy figure.,phase:execution;modelling,A3 — Final report,2026-10-06,2026-10-09
+Write final report,Write the final report. 1500 words. State what re-running the pipeline next quarter would cost.,phase:execution;writing,A3 — Final report,2026-10-07,2026-10-11
+Prepare final presentation,Prepare the final live presentation deck for the Bank of England.,phase:execution;presentation,A3 — Final report,2026-10-08,2026-10-11
+Submit Assignment 3,Submit the final report code and deck then give the live presentation.,phase:execution;milestone,A3 — Final report,2026-10-12,2026-10-12
+Team retrospective,Hold a team retrospective before final submission.,phase:closure,A4 — Reflection,2026-10-13,2026-10-16
+Submit Assignment 4,Each member submits their individual reflection. 500 words.,phase:closure;milestone,A4 — Reflection,2026-10-17,2026-10-19
