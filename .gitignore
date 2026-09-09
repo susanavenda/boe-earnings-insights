@@ -221,3 +221,6 @@ __marimo__/
 .venv/
 models/
 *.safetensors
+
+.DS_Store
+**/.DS_Store
