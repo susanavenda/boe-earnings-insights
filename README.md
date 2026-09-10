@@ -31,7 +31,7 @@ a firm's prudential condition that reported financial metrics alone don't captur
 | Aidan | Pending | — |
 | Bupathi | Pending | — |
 | Debanjan | Pending | — |
-| Rafael | Structured Financial Data & Validation Lead| Specialist |
+| Rafael | Data Pipeline and Integration Lead| Specialist |
 
 Data/pipeline, summarisation, business & regulatory research, and editor/QA roles
 are still being assigned.
