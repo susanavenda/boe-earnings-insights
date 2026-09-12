@@ -1,9 +1,10 @@
 # Data
 
-| Path | Contents |
+| Path | Role |
 |---|---|
-| `raw/transcripts/{hsbc,barclays}/` | Earnings / analyst Q&A PDFs |
-| `structured/{hsbc,barclays}/` | Excel data packs and financial tables |
-| `processed/` | Outputs from the notebook pipeline (CSV, PNG) |
+| `raw/transcripts/` | **INPUT** — HSBC / Barclays Q&A PDFs |
+| `structured/` | **INPUT** — Excel data packs |
+| `boe.sqlite` | **System of record** — notebook + scripts (gitignored) |
+| `processed/` | Unused placeholder (do not rely on CSVs here) |
 
-Re-run Stages 1+ in `notebooks/boe_earnings_insights.ipynb` to refresh `processed/`.
+Rebuild the DB by running the notebook (Stage 0+) or product scripts under `scripts/`.

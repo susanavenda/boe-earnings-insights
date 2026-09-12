@@ -1,0 +1,39 @@
+{
+  "n_hand_sample": 50,
+  "n_human_reviewed_flag": 20,
+  "n_provisional_queue": 30,
+  "n_corpus_labels": 118,
+  "metrics": [
+    {
+      "name": "finbert_vs_silver_gold",
+      "n": 118,
+      "accuracy": 0.6186440677966102,
+      "macro_f1": 0.45634920634920634
+    },
+    {
+      "name": "ldsa_vs_silver_gold",
+      "n": 118,
+      "accuracy": 0.9576271186440678,
+      "macro_f1": 0.949707314893427
+    },
+    {
+      "name": "finbert_vs_ldsa",
+      "n": 118,
+      "accuracy": 0.576271186440678,
+      "macro_f1": 0.3827145077145077
+    },
+    {
+      "name": "finbert_vs_hand_sample_gold",
+      "n": 20,
+      "accuracy": 0.5,
+      "macro_f1": 0.4365079365079365
+    },
+    {
+      "name": "finetuned_vs_silver_gold",
+      "n": 118,
+      "accuracy": 0.5508474576271186,
+      "macro_f1": 0.5084624040011322
+    }
+  ],
+  "pitch_line": "Hand sample n=20: FinBERT accuracy 50% vs sample gold (macro-F1 0.44)."
+}

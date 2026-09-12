@@ -222,5 +222,12 @@ __marimo__/
 models/
 *.safetensors
 
+# Pipeline SQLite is the system of record (rebuild via scripts/migrate_to_db.py
+# or by re-running the notebook). Optional CSV mirrors via BOE_EXPORT_CSV=1.
+data/boe.sqlite
+data/boe.sqlite-*
+data/processed/*
+!data/processed/.gitkeep
+
 .DS_Store
 **/.DS_Store

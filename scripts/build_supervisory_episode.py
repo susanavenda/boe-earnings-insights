@@ -5,11 +5,15 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from store import load_df, save_df, save_json  # noqa: E402
+
 PROC = ROOT / "data" / "processed"
 
 # Default case studies for A2/A3
@@ -297,17 +301,16 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
 
 
 def main(only_id: str | None = None):
-    PROC.mkdir(parents=True, exist_ok=True)
-    corp = pd.read_csv(PROC / "corpus_analyst.csv")
-    reported = pd.read_csv(PROC / "reported_metrics.csv")
-    peer = pd.read_csv(PROC / "peer_matched_quarters.csv")
+    corp = load_df("corpus_analyst")
+    reported = load_df("reported_metrics")
+    peer = load_df("peer_matched_quarters")
 
     specs = [e for e in EPISODES if only_id is None or e["id"] == only_id]
     if not specs:
         raise SystemExit(f"No episode matched id={only_id}")
 
     protocol = build_protocol()
-    protocol.to_csv(PROC / "alert_null_protocol.csv", index=False)
+    save_df("alert_null_protocol", protocol)
 
     all_eps, all_briefs, all_quotes, all_topics, all_timeline = [], [], [], [], []
     for spec in specs:
@@ -323,17 +326,26 @@ def main(only_id: str | None = None):
     topics_df = pd.concat(all_topics, ignore_index=True)
     timeline_df = pd.DataFrame(all_timeline)
 
-    briefs_df.to_csv(PROC / "episode_metric_briefs.csv", index=False)
-    quotes_df.to_csv(PROC / "episode_quotes.csv", index=False)
-    topics_df.to_csv(PROC / "episode_topic_share.csv", index=False)
-    timeline_df.to_csv(PROC / "event_timeline.csv", index=False)
+    save_df("episode_metric_briefs", briefs_df)
+    save_df("episode_quotes", quotes_df)
+    save_df("episode_topic_share", topics_df)
+    save_df("event_timeline", timeline_df)
 
     primary = all_eps[0]
-    (PROC / "supervisory_episode.json").write_text(json.dumps(primary, indent=2))
-    (PROC / "supervisory_episodes.json").write_text(json.dumps(all_eps, indent=2))
+    save_json("supervisory_episode", primary)
+    save_json("supervisory_episodes", all_eps)
+
+    if {"calendar_period", "bank", "sentiment_net"}.issubset(peer.columns):
+        pivot = peer.pivot_table(
+            index="calendar_period", columns="bank", values="sentiment_net", aggfunc="mean"
+        )
+        if "hsbc" in pivot.columns and "barclays" in pivot.columns:
+            gap = pivot.copy()
+            gap["gap"] = gap["hsbc"] - gap["barclays"]
+            save_df("peer_gap_matched", gap.reset_index())
 
     print(json.dumps(all_eps, indent=2))
-    print(f"wrote {len(all_eps)} episodes → {PROC}")
+    print(f"wrote {len(all_eps)} episodes → data/boe.sqlite")
 
 
 if __name__ == "__main__":
