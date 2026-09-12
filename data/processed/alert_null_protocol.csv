@@ -1,5 +1,0 @@
-rule_id,severity,condition,action
-A1,alert,Topic 1 negative share rises vs prior print AND credit_impairment narrative disagrees with reported direction,Desk review: pull Q&A quotes + ECL pack; escalate if both persist next quarter
-A2,alert,"Matched peer gap (HSBC−Barclays) < −0.10 on H1/FY, both banks n≥3, and peer side not 100% FinBERT-neutral",Compare cost/impairment themes across banks; check if idiosyncratic or sector
-A3,watch,FinBERT net soft (< −0.08) but structured metrics agree with narrative,Log only — tone soft without metric contradiction
-N1,null,"Topics stable, FinBERT net ≈ flat, structured↔unstructured agree",Report ‘no early-warning edge from Q&A this quarter’ — valid outcome

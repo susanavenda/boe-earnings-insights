@@ -1,7 +1,0 @@
-topic,n,finbert_net,neg_share,episode_id,bank,quarter
-0,2,0.0,0.0,hsbc_2025_h1,hsbc,2025-interim
-1,5,-0.20121614933013915,0.4,hsbc_2025_h1,hsbc,2025-interim
-2,1,0.0,0.0,hsbc_2025_h1,hsbc,2025-interim
--1,3,0.0,0.0,barclays_2026_h1,barclays,2026-q2
-0,3,-0.25015074014663696,0.3333333333333333,barclays_2026_h1,barclays,2026-q2
-1,1,0.0,0.0,barclays_2026_h1,barclays,2026-q2

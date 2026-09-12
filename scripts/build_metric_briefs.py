@@ -9,11 +9,15 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from store import load_df, save_df  # noqa: E402
+
 PROC = ROOT / "data" / "processed"
 
 METRIC_LABELS = {
@@ -63,8 +67,7 @@ def extractive_brief(text: str, metric: str, max_sents: int = 2) -> tuple[str, f
 
 
 def main():
-    PROC.mkdir(parents=True, exist_ok=True)
-    corp = pd.read_csv(PROC / "corpus_analyst.csv")
+    corp = load_df("corpus_analyst")
     # Focus on the two episode windows + a few Topic 1 negatives
     windows = [
         ("hsbc", "2025-interim"),
@@ -113,10 +116,10 @@ def main():
             print("USE_GEN failed:", e)
 
     df = pd.DataFrame(rows)
-    df.to_csv(PROC / "metric_briefs_faithful.csv", index=False)
+    save_df("metric_briefs_faithful", df)
     print(df.groupby(["bank", "quarter", "method"]).size())
     print("mean faithfulness", df["faithfulness_overlap"].mean())
-    print("wrote", PROC / "metric_briefs_faithful.csv")
+    print("wrote metric_briefs_faithful → data/boe.sqlite")
 
 
 if __name__ == "__main__":

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Stage 3.4 — Build silver labels and lightly fine-tune FinBERT for earnings Q&A.
 
-Writes:
-  data/processed/sentiment_labels.csv
-  data/processed/sentiment_finetuned.csv
-  data/processed/finetune_metrics.json
-  models/finbert-domain-ft/
+Writes into ``data/boe.sqlite``:
+  sentiment_labels, sentiment_finetuned, finetune_metrics (JSON doc),
+  and refreshes analyst_turns (corpus_analyst).
+
+Also writes model weights to ``models/finbert-domain-ft/``.
 
 Usage (from repo root):
   .venv/bin/python scripts/finetune_sentiment.py
@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import random
+import sys
 import warnings
 from pathlib import Path
 
@@ -22,7 +23,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
+from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Dataset
 from transformers import (
@@ -34,6 +35,9 @@ from transformers import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from store import load_df, save_df, save_json  # noqa: E402
+
 PROC = ROOT / "data" / "processed"
 DOCS = ROOT / "docs"
 MODEL_DIR = ROOT / "models" / "finbert-domain-ft"
@@ -114,10 +118,9 @@ def main():
     torch.manual_seed(42)
     device = torch.device("cpu")  # avoid MPS placeholder issues on macOS
 
-    PROC.mkdir(parents=True, exist_ok=True)
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
-    corpus = pd.read_csv(PROC / "corpus_analyst.csv")
+    corpus = load_df("corpus_analyst")
     # Drop prior FT columns before rebuild
     for c in ("ft_sentiment", "ft_score", "gold_label"):
         if c in corpus.columns:
@@ -130,7 +133,7 @@ def main():
         "finbert_sentiment", "finbert_score", "ldsa_sentiment", "ldsa_net",
         "gold_label", "label_method", "human_reviewed",
     ]
-    labeled[keep].to_csv(PROC / "sentiment_labels.csv", index=False)
+    save_df("sentiment_labels", labeled[keep])
 
     train_df, test_df = train_test_split(
         labeled, test_size=0.25, random_state=42, stratify=labeled["y"]
@@ -250,14 +253,14 @@ def main():
                 ft_all.append({"ft_sentiment": ID2LAB[idx], "ft_score": float(probs[j][idx])})
 
     out_full = pd.concat([labeled[keep].reset_index(drop=True), pd.DataFrame(ft_all)], axis=1)
-    out_full.to_csv(PROC / "sentiment_finetuned.csv", index=False)
+    save_df("sentiment_finetuned", out_full)
 
-    corp = pd.read_csv(PROC / "corpus_analyst.csv")
+    corp = load_df("corpus_analyst")
     for c in ("ft_sentiment", "ft_score", "gold_label"):
         if c in corp.columns:
             corp = corp.drop(columns=[c])
     corp = corp.merge(out_full[["text", "ft_sentiment", "ft_score", "gold_label"]], on="text", how="left")
-    corp.to_csv(PROC / "corpus_analyst.csv", index=False)
+    save_df("corpus_analyst", corp)
 
     summary = {
         "n_labeled": int(len(labeled)),
@@ -284,8 +287,9 @@ def main():
         "confusion_finetuned": confusion_matrix(true_y, ft_preds).tolist(),
         "model_path": str(MODEL_DIR.relative_to(ROOT)),
     }
-    (PROC / "finetune_metrics.json").write_text(json.dumps(summary, indent=2))
+    save_json("finetune_metrics", summary)
     print(json.dumps(summary, indent=2))
+    print("wrote FT artifacts → data/boe.sqlite")
 
 
 if __name__ == "__main__":

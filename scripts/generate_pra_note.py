@@ -4,12 +4,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from store import load_df, load_json, save_text  # noqa: E402
+
 PROC = ROOT / "data" / "processed"
 OUT = ROOT / "docs" / "assignment2" / "pra_notes"
 
@@ -110,39 +114,32 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 ---
 
-*Generated from `data/processed/supervisory_episodes.json` via `scripts/generate_pra_note.py`.*
+*Generated from ``data/boe.sqlite`` (supervisory_episodes) via ``scripts/generate_pra_note.py``.*
 """
 
 
 def main(episode_id: str | None = None):
     OUT.mkdir(parents=True, exist_ok=True)
-    multi = PROC / "supervisory_episodes.json"
-    single = PROC / "supervisory_episode.json"
-    if multi.exists():
-        episodes = json.loads(multi.read_text())
-    else:
-        episodes = [json.loads(single.read_text())]
+    try:
+        episodes = load_json("supervisory_episodes")
+    except FileNotFoundError:
+        episodes = [load_json("supervisory_episode")]
 
     if episode_id:
         episodes = [e for e in episodes if e.get("id") == episode_id]
         if not episodes:
             raise SystemExit(f"episode id not found: {episode_id}")
 
-    briefs = pd.read_csv(PROC / "episode_metric_briefs.csv")
-    protocol = pd.read_csv(PROC / "alert_null_protocol.csv")
+    briefs = load_df("episode_metric_briefs")
+    protocol = load_df("alert_null_protocol")
 
-    written = []
-    for ep in episodes:
-        md = render_note(ep, briefs, protocol)
-        path = OUT / f"pra_note_{ep.get('id', ep['bank'])}.md"
-        path.write_text(md)
-        written.append(path)
-        print("wrote", path)
-
-    # Combined pack for A3 appendix
-    pack = "\n\n---\n\n".join(p.read_text() for p in written)
-    (OUT / "pra_notes_pack.md").write_text(pack)
-    print("wrote", OUT / "pra_notes_pack.md")
+    notes = [render_note(ep, briefs, protocol) for ep in episodes]
+    pack = "\n\n---\n\n".join(notes)
+    pack_path = OUT / "pra_notes.md"
+    pack_path.write_text(pack)
+    save_text("pra_notes.md", pack, mime="text/markdown")
+    print("wrote", pack_path)
+    print("wrote pra_notes.md → data/boe.sqlite")
 
 
 if __name__ == "__main__":

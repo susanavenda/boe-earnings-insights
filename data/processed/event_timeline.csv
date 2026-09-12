@@ -1,7 +1,0 @@
-episode_id,date_anchor,bank,event,signal
-hsbc_2025_h1,2025-H1,hsbc,HSBC 2025-interim (H1) — supervisory episode window,finbert_net=-0.126; Topic 1 dominates (5 turns)
-hsbc_2025_h1,2025-q2,hsbc,Structured data pack directions,total_income=down; credit_impairment=down; operating_costs=down; cet1_ratio=flat
-hsbc_2025_h1,2025-H1 peer,both,Matched peer window,HSBC−Barclays gap=-0.126
-barclays_2026_h1,2026-H1,barclays,Barclays 2026-q2 (H1) — supervisory episode window,finbert_net=-0.107; Topic 1 dominates (1 turns)
-barclays_2026_h1,2026-q2,barclays,Structured data pack directions,total_income=up; operating_costs=down; credit_impairment=down; cet1_ratio=flat
-barclays_2026_h1,2026-H1 peer,both,Matched peer window,HSBC−Barclays gap=0.079

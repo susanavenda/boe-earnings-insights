@@ -2,7 +2,7 @@
 
 **NLP topic modelling, financial sentiment analysis, and LLM-assisted summarisation across HSBC and Barclays earnings-call transcripts**
 
-> **Not Assignment 1.** A1 (scope & plan) is `Group9_CAM_EP_Assignment1.pdf`. This document is the **findings / methods write-up** for A2–A3, aligned to that scope.
+> **Not Assignment 1.** A1 (scope & plan) is `Group9_CAM_EP_Assignment1.pdf`. This document is the **findings / methods write-up** for A2–A3, aligned to that scope. A2 **pitch** sells the same automation pipeline: `docs/assignment2/A2_pitch_outline.md`. Demo desk: sibling `boe-earnings-demo`.
 
 Cambridge Data Science Career Accelerator · Group 9 · 2026
 
@@ -29,14 +29,15 @@ The Bank of England's Prudential Regulation Authority needs earlier warning of p
 ### Findings
 
 - **Corpus:** 13 transcript PDFs → **118 analyst Q&A turns** (HSBC 71, Barclays 47) across 2025–2026 reporting labels; 12 Excel packs for structured comparison.
-- **Topic × period:** FinBERT net heatmaps by topic×quarter×bank (`sentiment_topic_quarter.csv`) answer how theme tone shifts across prints.
+- **Topic × period:** FinBERT net heatmaps by topic×quarter×bank answer how theme tone shifts across prints.
 - **Topics:** Dominant BERTopic themes — (0) growth / US / franchise; (1) **costs and forward-looking questions**; (2) wealth management (HSBC-tilted). Topic 1 has the highest FinBERT negative share (**10%**).
-- **Sentiment:** FinBERT is heavily **neutral (90%)** — consistent with hedged bank Q&A. LDSA lexicon is less neutral and agrees with FinBERT on **58%** of turns.
-- **Structured vs unstructured:** Among **31** overlapping bank×quarter×metric observations, narrative tone and reported metric direction **disagree 74%** of the time. Credit impairment shows **0% agreement** on this sample. Treat as a preliminary divergence signal: FinBERT’s neutral bias compresses many narrative scores toward “flat”.
+- **Sentiment:** FinBERT is heavily **neutral (90%)** — consistent with hedged bank Q&A. LDSA lexicon is less neutral and agrees with FinBERT on **~58%** of turns.
+- **Structured vs unstructured:** Among overlapping bank×quarter×metric observations, narrative tone and reported metric direction often **disagree**. Credit impairment is a recurring divergence hotspot. Treat carefully: FinBERT’s neutral bias compresses many narrative scores toward “flat”.
+- **Supervisory episode (A2 proof):** HSBC 2025-interim (H1) → **WATCH (A3)** — softest Q&A print in sample, but packs **agree** on direction. Matched Barclays peer is all FinBERT-neutral → **do not** fire a peer-gap ALERT. Dual episode + PRA one-pagers publish via Stage 9 into the Demo desk.
 
 ### Recommendation
 
-Prioritise Topic 1 (cost / forward questions) and credit-impairment narrative for supervisory monitoring; expand matched-quarter coverage and hand-validate FinBERT negatives before treating divergence rates as operational alerts.
+Ship a **repeatable automation pipeline** (IR → alert/watch/null pack), not a one-off notebook chart. Prioritise Topic 1 (cost / forward) and impairment narrative for monitoring; expand true human labels before promoting FT models; keep peer ALERT gated on informative peers. Demo desk = supervisor-facing output of that pipeline.
 
 ---
 
@@ -83,7 +84,7 @@ HSBC and Barclays are UK-incorporated G-SIBs under full PRA oversight. The proje
 | 1 | 30 | question / costs / cost / year |
 | 2 | 12 | wealth / management / hsbc |
 
-**Interpretation:** Topic 0 dominates franchise/growth language. Topic 1 is the clearest cost / questioning cluster. Topic 2 is wealth-management oriented. Focused re-clustering on elevated-negative topics recovered wealth and cost/question sub-themes (`data/processed/refined_topic_info.csv`).
+**Interpretation:** Topic 0 dominates franchise/growth language. Topic 1 is the clearest cost / questioning cluster. Topic 2 is wealth-management oriented. Focused re-clustering on elevated-negative topics recovered wealth and cost/question sub-themes (refined topic tables in `data/boe.sqlite`).
 
 **Coherence (c_v):** BERTopic **0.48** vs LDA **0.35** on the same analyst corpus (`topic_coherence.csv`). Soft prints cross-checked against known results windows in `known_events_crosscheck.csv` (HSBC 2025-interim; Barclays 2026-q2).
 
@@ -187,9 +188,9 @@ Concrete case study for Assignment 2 pitch (`docs/assignment2/A2_pitch_outline.m
 - Claim-vs-source vs **2025-q2** pack: Q&A tone **agrees** with reported directions → **A3 WATCH**.
 - Missing Q&A metric hits now score **n/a**, not agreement. Verdicts: `supervisory_episodes.json`.
 
-**Pipelines** (ingest → topics → sentiment → baselines → decision → PRA note): `docs/assignment2/pipelines.md`.
+**Pipelines + re-run:** `docs/assignment2/README.md`.
 
-**Stage 9:** Second episode **Barclays 2026-q2** = WATCH (A3); dual PRA notes in `docs/assignment2/pra_notes/`; extractive metric briefs in `metric_briefs_faithful.csv`; re-run checklist `docs/assignment2/rerun_checklist.md`.
+**Stage 9:** Second episode **Barclays 2026-q2** = WATCH (A3); PRA pack `docs/assignment2/pra_notes/pra_notes.md`; extractive briefs in `metric_briefs_faithful.csv`.
 
 ## 7. Recommendations
 
@@ -216,6 +217,6 @@ Concrete case study for Assignment 2 pitch (`docs/assignment2/A2_pitch_outline.m
 - Repo: https://github.com/susanavenda/boe-earnings-insights  
 - Notebook: `notebooks/boe_earnings_insights.ipynb`  
 - Kernel: Python 3.12 (BoE Earnings) · `requirements.txt`  
-- Fine-tune: `scripts/finetune_sentiment.py` · metrics `data/processed/finetune_metrics.json`  
-- Outputs: `data/processed/*.csv` · `docs/hand_validation_sample.csv`  
+- Fine-tune: `scripts/finetune_sentiment.py` · metrics in `data/boe.sqlite` (`finetune_metrics`)  
+- Outputs: `data/boe.sqlite` · `docs/hand_validation_sample.csv`  
 - Local model weights: `models/finbert-domain-ft/` (gitignored; rebuild via script)

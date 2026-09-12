@@ -2,6 +2,8 @@
 
 Cambridge Data Science Career Accelerator — employer project with the Bank of England.
 
+**Sell:** an **automation pipeline** that turns IR PDFs + Excel into a versioned **alert / watch / null** supervisory pack (desk UI = output surface; notebook/scripts = factory).
+
 - [Assignment 1 Google Doc](https://docs.google.com/document/d/10211H1XyqjrHAKa_ikN5uuYuyTPrDPteUXeQl-QJJlY/edit?usp=drive_link)
 - [HSBC investor results](https://www.hsbc.com/investors/results-and-announcements)
 - [Barclays financial results](https://home.barclays/investor-relations/reports-and-events/financial-results/)
@@ -10,6 +12,20 @@ Cambridge Data Science Career Accelerator — employer project with the Bank of 
 
 Do quarterly earnings announcements and analyst Q&A carry a leading signal about
 a firm's prudential condition that reported financial metrics alone don't capture?
+
+## How the open tabs fit together
+
+| Piece | Role |
+|---|---|
+| **Pipeline** (this repo) | Factory — notebook + `scripts/` → `data/boe.sqlite` |
+| **Demo** (`../boe-earnings-demo`) | PRA Earnings Desk — presents the frozen pack |
+| **A2 pitch** | [`docs/assignment2/A2_pitch_outline.md`](docs/assignment2/A2_pitch_outline.md) — 15‑min Background → Approach → Conclusion |
+| **Technical report** | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
+| **A1 scope** | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
+
+Open both folders via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspace).
+
+**Proof episode:** HSBC 2025-interim (H1) → **WATCH (A3)** — soft Q&A, packs agree; peer gap not ALERT (Barclays matched print all-neutral).
 
 ## Scope
 
@@ -33,38 +49,38 @@ a firm's prudential condition that reported financial metrics alone don't captur
 | Debanjan | Pending | — |
 | Rafael | Data Pipeline and Integration Lead| Specialist |
 
-Data/pipeline, summarisation, business & regulatory research, and editor/QA roles
-are still being assigned.
-
-## Where to view / edit
-
-See **[`docs/README.md`](docs/README.md)** for the full map.
+## Where things live
 
 | Job | Place |
 |---|---|
+| Analysis (factory) | [`notebooks/boe_earnings_insights.ipynb`](notebooks/boe_earnings_insights.ipynb) |
+| Product desk (Demo) | Sibling [`boe-earnings-demo`](../boe-earnings-demo) → `streamlit run app.py` |
+| A1 submission | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
+| Technical findings | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
+| A2 pitch + checklist | [`docs/assignment2/`](docs/assignment2/) |
+| Tasks / roadmap | [GitHub Project](https://github.com/users/susanavenda/projects/3/views/2) |
 | Shared write-up | [Assignment 1 Google Doc](https://docs.google.com/document/d/10211H1XyqjrHAKa_ikN5uuYuyTPrDPteUXeQl-QJJlY/edit?usp=sharing) |
-| Analysis | [`notebooks/boe_earnings_insights.ipynb`](notebooks/boe_earnings_insights.ipynb) |
-| Tasks / roadmap | [Project roadmap](https://github.com/users/susanavenda/projects/3/views/2) |
-| Submission files | [`docs/assignment1/`](docs/assignment1/) |
+
+**Rule of thumb:** Notebook/scripts = build the pack · Demo = show the pack · A2 PDF+MP4 = sell the pipeline · Google Doc = team comments.
 
 ## Repository structure
 
 ```
 ├── README.md
 ├── requirements.txt
-├── Boe_Earnings.code-workspace
-├── notebooks/                 # analysis notebooks
-│   └── boe_earnings_insights.ipynb
+├── notebooks/boe_earnings_insights.ipynb
 ├── data/
-│   ├── raw/transcripts/       # HSBC / Barclays Q&A PDFs
-│   ├── structured/            # Excel data packs / financial tables
-│   └── processed/             # pipeline outputs (CSV, charts)
+│   ├── raw/transcripts/       # INPUT — Q&A PDFs
+│   ├── structured/            # INPUT — Excel packs
+│   ├── boe.sqlite             # system of record (gitignored; rebuild via notebook/scripts)
+│   └── processed/             # empty placeholder (legacy CSVs removed)
 ├── docs/
-│   ├── README.md              # view/edit map
-│   ├── assignment1/           # scope plan, Word/PDF deliverables
-│   ├── project/               # GitHub setup notes, issues.csv
-│   └── assets/                # roadmap images
-└── scripts/                   # label/milestone/issue helpers
+│   ├── assignment1/           # A1 PDF/DOCX + technical report
+│   ├── assignment2/           # pitch, PRA notes, re-run guide
+│   ├── project/issues.csv
+│   ├── assets/
+│   └── hand_validation_sample.csv  # INPUT — human labels
+└── scripts/                   # store + episode / PRA / FT helpers
 ```
 
 ## Milestones
@@ -99,12 +115,6 @@ valid, reportable outcome, not a failure of the analysis. Model outputs are
 hand-validated on a sample rather than trusted on metric alone, and FinBERT's
 known weakness on hedged, heavily-lawyered bank language is reported explicitly.
 
-## Tooling
-
-VS Code / Cursor with the Jupyter plugin, run locally rather than on Colab, to avoid
-session timeouts over the six-week timeline. Code lives here; the report lives
-in one shared Google Doc.
-
 ## Setup
 
 ```bash
@@ -117,5 +127,10 @@ pip install -r requirements.txt
 
 Open `notebooks/boe_earnings_insights.ipynb` and run from Stage 0.
 
-See the **Issues** and **Projects** tabs for the full task breakdown and a live,
-editable version of the roadmap above.
+**Data store:** notebook keeps an **in-memory SQLite** working set that auto-flushes to
+**`data/boe.sqlite`** (shared with Pipeline scripts).  
+**Inputs** are files only (`data/raw/transcripts/`, `data/structured/`, hand-label CSV).  
+Optional CSV/PNG mirrors: `BOE_EXPORT_CSV=1`.  
+One-shot import of legacy files: `.venv/bin/python scripts/migrate_to_db.py`.
+
+Next-quarter ops / Demo desk: sibling `boe-earnings-demo` → [`docs/assignment2/README.md`](docs/assignment2/README.md).
