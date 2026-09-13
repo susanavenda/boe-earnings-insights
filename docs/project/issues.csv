@@ -25,3 +25,69 @@ Prepare final presentation,Prepare the final live presentation deck for the Bank
 Submit Assignment 3,Submit the final report code and deck then give the live presentation.,phase:execution;milestone,A3 — Final report,2026-10-12,2026-10-12
 Team retrospective,Hold a team retrospective before final submission.,phase:closure,A4 — Reflection,2026-10-13,2026-10-16
 Submit Assignment 4,Each member submits their individual reflection. 500 words.,phase:closure;milestone,A4 — Reflection,2026-10-17,2026-10-19
+M1 — Corpus acquired and verified,"**Gate:** M1 — Tue 16 Sep 2026
+**Owner:** Evidence pair
+
+**Test:** Corpus acquired and verified. Manifest lists 20 documents (2 banks × 10 quarters) with zero missing quarters and a recorded source and publication date for each.
+
+**If blocked:** Missing quarter: reduce to eight quarters per bank, log the decision, proceed the same day.",phase:execution;data;owner:evidence-pair;gate,A2 — Solution pitch,2026-09-15,2026-09-16
+M2 — Evidence table built,"**Gate:** M2 — Fri 19 Sep 2026
+**Owner:** Evidence pair
+
+**Test:** Evidence table built. Turns and question-answer pairs extracted for every document; at least 95% of turns attributed to a named speaker and speaker type; every row carries bank, quarter, date, section and provenance.
+
+**If blocked:** Layout variance between banks: build a parser per bank; two days of buffer held in week 3.",phase:execution;data;owner:evidence-pair;gate,A2 — Solution pitch,2026-09-17,2026-09-19
+M3 — Numeric claims extracted,"**Gate:** M3 — Tue 23 Sep 2026
+**Owner:** Evidence pair
+
+**Test:** Numeric claims extracted, each with value, unit and time horizon; precision of at least 0.8 measured on a 50-row manual audit.
+
+**If blocked:** Below threshold: restrict to a defined metric list rather than open extraction.",phase:execution;data;owner:evidence-pair;gate,A2 — Solution pitch,2026-09-20,2026-09-23
+M4 — Topics and sentiment assigned,"**Gate:** M4 — Fri 26 Sep 2026
+**Owner:** Signals pair
+
+**Test:** Topics and sentiment assigned. Every question-answer pair carries a topic label and separate question and answer sentiment; at least 70% agreement with human labels on a 60-pair stratified sample.
+
+**If blocked:** Unstable clusters: fall back to the seeded keyword taxonomy. Decision point fixed on this date.",phase:execution;modelling;owner:signals-pair;gate,A2 — Solution pitch,2026-09-24,2026-09-26
+M5 — Assignment 2 submitted,"**Gate:** M5 — Mon 28 Sep 2026
+**Owner:** Synthesis
+
+**Test:** Assignment 2 submitted: deck as PDF plus a recording of 15 minutes ±10%.
+
+**If blocked:** Dry run held 26 September so re-recording remains possible.",phase:execution;milestone;presentation;owner:synthesis;gate,A2 — Solution pitch,2026-09-26,2026-09-28
+M6 — Behavioural signals computed,"**Gate:** M6 — Wed 30 Sep 2026
+**Owner:** Signals pair
+
+**Test:** Behavioural signals computed. Answer directness, metric-request coverage and topic-substitution rate calculated per pair and aggregated per bank-quarter.
+
+**If blocked:** Reduce to directness and metric coverage; substitution rate is the droppable measure.",phase:execution;modelling;owner:signals-pair;gate,A3 — Final report,2026-09-29,2026-09-30
+M7 — Supervisory mapping complete,"**Gate:** M7 — Fri 2 Oct 2026
+**Owner:** Domain analyst
+
+**Test:** Supervisory mapping complete. Every observed topic mapped to one of eight prudential categories, dual-coded by two members with disagreements resolved and recorded.
+
+**If blocked:** Runs in parallel from week 3 and therefore never sits on the critical path.",phase:execution;research;owner:domain-analyst;gate,A3 — Final report,2026-09-21,2026-10-02
+M8 — Snapshots and comparisons produced,"**Gate:** M8 — Tue 6 Oct 2026
+**Owner:** Synthesis
+
+**Test:** Snapshots and comparisons produced. One state summary per bank-quarter plus all three comparison views, rendered with axes and sample sizes labelled.
+
+**If blocked:** Drop the peer comparison first; the other two carry the argument alone.",phase:execution;modelling;owner:synthesis;gate,A3 — Final report,2026-10-03,2026-10-06
+M9 — Findings validated,"**Gate:** M9 — Thu 8 Oct 2026
+**Owner:** Synthesis
+
+**Test:** Findings validated. Every headline finding traced to at least three evidence records by identifier; limitations section written and agreed by the team.
+
+**If blocked:** A finding that cannot be traced is cut rather than softened.",phase:execution;writing;owner:synthesis;gate,A3 — Final report,2026-10-07,2026-10-08
+M10 — Report and presentation complete,"**Gate:** M10 — Sat 10 Oct 2026
+**Owner:** Synthesis
+
+**Test:** Report and presentation complete. Report at 1,500 words ±10%, deck timed at 15 minutes ±10% in a full dry run, code runnable end to end from the artefact files.
+
+**If blocked:** Two days of buffer to the deadline by design.",phase:execution;writing;presentation;owner:synthesis;gate,A3 — Final report,2026-10-09,2026-10-10
+A3 live — Assignment 3 submitted to Bank of England,"**Gate:** A3 submit — Mon 12 Oct 2026
+**Owner:** Project lead
+
+**Test:** Assignment 3 submitted: report, code, deck and live presentation to the Bank of England.
+
+**If blocked:** None specified — M10 buffer (two days) is the contingency.",phase:execution;milestone;owner:project-lead;gate,A3 — Final report,2026-10-12,2026-10-12

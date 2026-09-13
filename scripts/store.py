@@ -66,6 +66,13 @@ _TABLE_ALIASES = {
     "supervisory_episodes": "episodes_json",
     "supervisory_episode": "episode_json",
     "finetune_metrics": "finetune_metrics",
+    "corpus_manifest": "corpus_manifest",
+    "qa_pairs": "qa_pairs",
+    "numeric_claims": "numeric_claims",
+    "behavioural_signals": "behavioural_signals",
+    "prudential_map": "prudential_map",
+    "state_summary": "state_summary",
+    "numeric_claims_audit": "numeric_claims_audit",
 }
 
 

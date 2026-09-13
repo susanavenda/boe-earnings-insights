@@ -1,5 +1,5 @@
 bank,quarter,speaker,firm,topic,finbert_sentiment,finbert_score,ldsa_sentiment,text,gold_label,human_reviewed,label_note
-hsbc,2025-q1,KATHERINE LEI,JP MORGAN,1,neutral,0.8925901651382446,positive,"Thank you. I have two questions. The first one, I still want to
+hsbc,2025-q1,KATHERINE LEI,JP MORGAN,0,neutral,0.8925901651382446,positive,"Thank you. I have two questions. The first one, I still want to
 ask about the tariff scenario, because I think for at least investors in this part of the world, I
 think it’s widely expected that the Chinese government will have more stimulus policy because
 of the tariffs. So in your downside scenario analysis, have you incorporated some of the
@@ -10,7 +10,7 @@ muted loan demands in 2025. When we’re giving this type of guidance, what sort
 environments are we incorporating? Also, is there any guidance on, say, for example, deposit
 growth and also banking asset or interest-generating asset growth? How should we look at
 this whole thing? Thank you.",positive,1,in_hand_sample
-hsbc,2025-interim,KATHERINE LEI,JP MORGAN,-1,neutral,0.9281997680664062,negative,"I have three questions. The first is that I would want to ask
+hsbc,2025-interim,KATHERINE LEI,JP MORGAN,0,neutral,0.9281997680664062,negative,"I have three questions. The first is that I would want to ask
 about what are the outstanding parts of the threshold deduction related to the BoCom, if there
 is further impairment on BoCom? If there’s further impairment on BoCom, what would the
 amount be in order for that future impairment to have an impact on your CET1 ratios and share
@@ -50,7 +50,7 @@ we've done around the tenure of the hedge and extending it from 3% to 3.5% is on
 increase that momentum for longer. So that remains there as a, if you like an underpin for product
 margins.
 ",neutral,1,in_hand_sample
-barclays,2026-q2,Edward Firth,KBW,-1,neutral,0.8425618410110474,positive,"The only thing I would add is that, on your Slide 10, you show £1.2 billion of additional revenue
+barclays,2026-q2,Edward Firth,KBW,0,neutral,0.8425618410110474,positive,"The only thing I would add is that, on your Slide 10, you show £1.2 billion of additional revenue
 from the hedge and yet if I'm looking at your guidance, banking NII is not going to grow by £1.2
 billion, it's going to be somewhat less than that.
 So that would sort of imply that despite all the volume growth, the underlying NII, if it wasn't for
@@ -74,7 +74,7 @@ balance of NII. Of course, at the moment, this is being disproportionately drive
 hedge, but at some point in the future, beyond 2028, it's really important that the diversi�cation
 within NII comes through, and those asset balances start to carry that momentum from there on
 in. That's what we're very much focused on.",positive,1,in_hand_sample
-barclays,2025-q3,Chris Cant,Autonomous,-1,neutral,0.8345164060592651,neutral,"Good morning. Thanks for taking my questions. I just wanted to follow-up on the US Consumer
+barclays,2025-q3,Chris Cant,Autonomous,0,neutral,0.8345164060592651,neutral,"Good morning. Thanks for taking my questions. I just wanted to follow-up on the US Consumer
 [Bank] and then another one around sort of risks that investors are worrying about of late.
 So, on the US Consumer Bank, we've had this target for a while for the business to get to a greater
 than 12% RoTE for next year. I appreciate that quite a few things have changed over the last 18
@@ -91,7 +91,7 @@ the pond, given that's where most of these innovations are being deployed first.
 to invite you to comment, Venkat, in terms of how you think that potentially shapes up for the
 business longer term. Thank you.
 Anna Cross",neutral,1,in_hand_sample
-hsbc,2026-interim,ED FIRTH,KBW,-1,neutral,0.9172082543373108,neutral,"I’ve just got two, and they’re really strategic questions rather than detailed.
+hsbc,2026-interim,ED FIRTH,KBW,0,neutral,0.9172082543373108,neutral,"I’ve just got two, and they’re really strategic questions rather than detailed.
 The first one is, if I look at your current strategic direction and compare you with what looks like
 it’ll be the second biggest bank in the UK, every week or so, we see a regular announcement
 of you closing parts of your business or selling off parts of your business, and yet, in contrast,
@@ -108,14 +108,14 @@ be interested and where you feel you could add? I think you’ve talked about we
 management in the past, but are there other things that perhaps, if you wanted to use those
 shares rather than to buy them back, but to use them as a currency, where might we be thinking
 about opportunities?",neutral,1,in_hand_sample
-hsbc,2025-annual,NICK LORD,MORGAN STANLEY,4,neutral,0.798988938331604,neutral,"Thank you very much for taking my question. I will put it as
+hsbc,2025-annual,NICK LORD,MORGAN STANLEY,0,neutral,0.798988938331604,neutral,"Thank you very much for taking my question. I will put it as
 one question in two parts. I am interested in your revenue target by 2028 of achieving 5%
 revenue growth. I wonder if you could talk about some of the components of how you would
 get there. Presumably Wealth is part of that, and so maybe you could talk about the Wealth
 trajectory and how sustainable that is. Presumably, at some stage we are going to see a kick-in
 of development of Markets in Asia, and that Markets business can grow more, so I wonder if
 you could talk a little bit about how you want to grow that Markets business in Asia.",neutral,1,in_hand_sample
-barclays,2025-q1,Amit Goel,Mediobanca,-1,neutral,0.6796335577964783,neutral,"Hi, thank you, and thanks for that extra disclosure on USCB. And I just want to check, I mean,
+barclays,2025-q1,Amit Goel,Mediobanca,0,neutral,0.6796335577964783,neutral,"Hi, thank you, and thanks for that extra disclosure on USCB. And I just want to check, I mean,
 obviously, BUK NII has been guided up and the IB Q1 performance has been strong. And so just
 thinking about the 11% ROTE guidance for this year, which has remained the same. So just
 curious, is that to reflect perhaps a bit more uncertainty in the environment or is it just a case of
@@ -133,7 +133,7 @@ operating leverage and we were pleased with that performance. But it's only the 
 the year. So all we've done is we've repeated our circa 11% guidance and are not signaling
 anything by repeating that guidance, whether that be in income, costs or impairments. I'm
 merely repeating it.",neutral,1,in_hand_sample
-hsbc,2026-q1,GUY STEBBINGS,BNP PARIBAS,4,neutral,0.6735067963600159,positive,"Hi. Good morning and afternoon, everyone. Thanks for
+hsbc,2026-q1,GUY STEBBINGS,BNP PARIBAS,0,neutral,0.6735067963600159,positive,"Hi. Good morning and afternoon, everyone. Thanks for
 taking questions. The first one was on wealth. Clearly, another very good performance,
 particularly on Investment Distribution and Insurance. Can you talk about what you’re seeing
 in terms of flows in the competitive landscape in Hong Kong right now? Mindful it’s been a very
@@ -147,7 +147,7 @@ $400 million hit in Q1, and you’ve not identified anything comparable in the b
 peers has signalled partially stepping away from some exposures in this segment as they’ve
 assessed levels of financial controls. I know you said this wasn’t a big growth driver in the plan
 but are you changing how you are thinking about this segment in any way? Thank you.",positive,1,in_hand_sample
-hsbc,2025-annual,AMAN RAKKAR,BARCLAYS,-1,neutral,0.8768907785415649,positive,"I had two questions, please. One is around capital. There looks
+hsbc,2025-annual,AMAN RAKKAR,BARCLAYS,0,neutral,0.8768907785415649,positive,"I had two questions, please. One is around capital. There looks
 like a decent chance that you’ll be within your target CET1 range in Q1, based on historical
 and perhaps projected capital generation estimates. Obviously, it raises the prospect as to
 whether you might be able to reintroduce a buyback earlier than planned. I don’t know if you’re
@@ -171,7 +171,7 @@ options that have appeared in the press, how do you see upside to distribution v
 firepower for M&A? Whether that's a portfolio in the US or something else, if you can maybe
 walk us through your thinking.
 And second, on the Investment Bank, obviously Trading, you have explained Anna, very strong.",positive,1,in_hand_sample
-hsbc,2026-interim,ANDREW COOMBS,CITI,1,neutral,0.7537801265716553,positive,"Coming back to the costs, there are a lot of moving parts. You are
+hsbc,2026-interim,ANDREW COOMBS,CITI,0,neutral,0.7537801265716553,positive,"Coming back to the costs, there are a lot of moving parts. You are
 talking about accelerating the investment spend next year. At the same time, you’ve slightly
 increased the simplification saves. And then on slide 29 you’ve got a whole host of divestments
 that are going to drop away on both the revenue line and the cost line. It is just this very simple
@@ -180,12 +180,12 @@ $35.4 billion next year?
 The second question related to that is that you’ve talked about accelerating investment spend,
 but there’s no change in your revenue growth targets. What is the payback on this incremental
 investment, and what’s the timeframe?",positive,1,in_hand_sample
-barclays,2025-q1,Chris Hallam,Goldman Sachs,-1,neutral,0.9253233075141908,neutral,"Yeah, good morning, everybody. Thanks for taking my questions. Two quick ones. So given the
+barclays,2025-q1,Chris Hallam,Goldman Sachs,0,neutral,0.9253233075141908,neutral,"Yeah, good morning, everybody. Thanks for taking my questions. Two quick ones. So given the
 conservative banking wallet already embedded in your planning assumptions, which I guess you
 just referenced. Are there any initiatives, either on the cost side or the investment side, that you
 would need to either undertake or delay should 2025 indeed play out as per those wallet
 assumptions? That's the first question.",neutral,1,in_hand_sample
-hsbc,2026-q1,KUNPENG MA,CHINA SECURITIES,2,neutral,0.8934231996536255,positive,"Morning, Pam. I’ve got two questions for you and the
+hsbc,2026-q1,KUNPENG MA,CHINA SECURITIES,1,neutral,0.8934231996536255,positive,"Morning, Pam. I’ve got two questions for you and the
 first one is about Hang Seng. I’m glad to hear the momentum in deposit and wealth
 management in the first quarter and the pick up in the momentum from April. What proportion
 of such momentum could be attributed to the synergies out of the Hang Seng deal? Also, some
@@ -194,15 +194,15 @@ The second question is on HSBC’s global footprint. This is out of the proposed
 Indonesian retail business. The Indonesian market is quite important. It’s not some marginal or
 less important market. I want to know HSBC’s views on your global franchise. Which markets
 are important to you or which markets and which businesses are less important? Thank you.",positive,1,in_hand_sample
-barclays,2026-q2,Benjamin Toms,RBC,4,negative,0.7504522204399109,negative,"Good morning both. Thank you for taking my question. The �rst one's on PBWM. Net New AUM
+barclays,2026-q2,Benjamin Toms,RBC,0,negative,0.7504522204399109,negative,"Good morning both. Thank you for taking my question. The �rst one's on PBWM. Net New AUM
 in PBWM in Q2 was relatively weak. What's impacting performance here? I think I was a little
 surprised, my feeling was you've been quite active in trying to make your proposition more
 attractive in this space.",negative,1,in_hand_sample
-barclays,2025-q3,Ed Firth,KBW,-1,neutral,0.5616593956947327,neutral,"Thanks very much. Good morning, everybody. I just had a question on your 2026 targets, actually,
+barclays,2025-q3,Ed Firth,KBW,0,neutral,0.5616593956947327,neutral,"Thanks very much. Good morning, everybody. I just had a question on your 2026 targets, actually,
 because if I look across the piece, I mean, you're pretty much nailing every one and some by some
 margin, but I guess the one that stands out is the Investment Bank RWAs, which I can see you've
 reiterated today at 50%, which is still quite a long way from where we are today.",neutral,1,in_hand_sample
-hsbc,2025-interim,GURPREET SINGH SAHI,GOLDMAN SACHS,3,neutral,0.3993456661701202,positive,"I have two, please. The first is on FX. It’s good
+hsbc,2025-interim,GURPREET SINGH SAHI,GOLDMAN SACHS,0,neutral,0.3993456661701202,positive,"I have two, please. The first is on FX. It’s good
 to see strong growth all across non-banking NII, but on FX, you called out good growth, but I
 wonder, we’ve seen some unusual currency volatility in the quarter; did that not lead us to
 generate above normal FX growth, and at 7%, would you call it above normal? So what were
@@ -211,7 +211,7 @@ Because I see, Q on Q, also, it’s down.
 And then, on loan growth, we see some pick-up in the UK book, but then, in Hong Kong, China
 region, with the lower interest rates, are we seeing client demand come back in for loan growth,
 and how do we see the outlook there? Thank you.",positive,1,in_hand_sample
-barclays,2025-annual,Kian Abouhossein,JP Morgan,1,neutral,0.920157253742218,neutral,"Two questions. The �rst question is on the capital return of over £15 billion. If you could just put
+barclays,2025-annual,Kian Abouhossein,JP Morgan,0,neutral,0.920157253742218,neutral,"Two questions. The �rst question is on the capital return of over £15 billion. If you could just put
 this in context of capacity to support investment and growth. How should we think about this
 capacity that you're outlining? It looks like there's quite a bit of bufer. So we would like to
 understand that.
@@ -222,7 +222,7 @@ investments. Just what the focus is and how should we think about post 2028 basi
 respect?
 C.S. Venkatakrishnan
 Anna, do you want to start on the capital and then we can come back to the other one?",neutral,1,in_hand_sample
-hsbc,2026-q1,ALASTAIR WARR,AUTONOMOUS,5,neutral,0.8567747473716736,neutral,"Good morning, Pam. Thank you for taking our questions.
+hsbc,2026-q1,ALASTAIR WARR,AUTONOMOUS,0,neutral,0.8567747473716736,neutral,"Good morning, Pam. Thank you for taking our questions.
 Just a couple of follow-ups on the credit costs and on the insurance that we touched on just a
 moment ago. If you’ve got 52 basis points booked in for the first quarter on credit costs, it looks
 like, therefore, to get to your 45bps over the rest of the year, that you’d be looking at a little bit
@@ -235,7 +235,7 @@ on some big-ticket, quite short payment period products that some of your big-na
 Hong Kong are not necessary so keen on. Can I just confirm – you talked about a tenth there
 – that your release rate in years is about 10 years and that this shorter payment period thing
 doesn’t turn up in a shorter release rate as well? Thank you.",neutral,1,in_hand_sample
-hsbc,2026-interim,GUY STEBBINGS,BNP PARIBAS,4,neutral,0.7650678753852844,positive,"I have a couple of questions around growth. It does sound
+hsbc,2026-interim,GUY STEBBINGS,BNP PARIBAS,0,neutral,0.7650678753852844,positive,"I have a couple of questions around growth. It does sound
 like part of the message today is that there’s more opportunities out there to deploy capital into
 the business, so it’s more of a priority over buybacks from here. I have two questions falling off
 that. What metrics are you looking at when making that decision? Presumably there’s a
