@@ -7,9 +7,10 @@ Desk UI = output surface · Notebook/scripts = factory.
 |---|---|
 | [`A2_pitch_outline.md`](A2_pitch_outline.md) | **15-min run-of-show** (Background · Approach · Conclusion) |
 | [`A2_checklist.md`](A2_checklist.md) | Submit + dry-run checklist |
-| [`label_agreement.json`](label_agreement.json) | Eval numbers for the pitch |
+| [`label_agreement.json`](label_agreement.json) | FinBERT vs hand-sample gold (sentiment) |
+| [`human_labels/`](human_labels/) | **Aidan M2a dual-code** · Debanjan/Alfred/Dan topics · Rafael metric briefs |
 | [`pra_notes/pra_notes.md`](pra_notes/pra_notes.md) | PRA one-pagers |
-| Notebook Stages 7–9 | Technical walkthrough segment |
+| Notebook Stages 7–9 | Technical walkthrough + machine vs Aidan score |
 
 **Canvas submit:** PDF slides + MP4 recording only.
 

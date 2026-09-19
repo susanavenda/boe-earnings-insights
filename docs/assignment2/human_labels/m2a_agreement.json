@@ -1,0 +1,166 @@
+{
+  "n_sample": 60,
+  "n_low_confidence": 6,
+  "n_usable_not_low": 54,
+  "machine_coder1_vs_aidan_pair": {
+    "n": 60,
+    "n_agree": 30,
+    "pct": 0.5
+  },
+  "machine_coder1_vs_aidan_pair_excluding_low_confidence": {
+    "n": 54,
+    "n_agree": 25,
+    "pct": 0.463
+  },
+  "machine_coder2_vs_aidan_pair": {
+    "n": 60,
+    "n_agree": 19,
+    "pct": 0.3167
+  },
+  "machine_coder1_vs_coder2": {
+    "n": 60,
+    "n_agree": 21,
+    "pct": 0.35
+  },
+  "aidan_q_vs_aidan_a": {
+    "n": 60,
+    "n_agree": 37,
+    "pct": 0.6167
+  },
+  "m4_bar": "60-pair sample; 70% human agreement is the M4/M7 evaluation bar, not a method claim",
+  "confusion_coder1_rows_aidan_cols": {
+    "asset_quality_credit": {
+      "asset_quality_credit": 4,
+      "business_model_strategy": 1,
+      "capital_adequacy": 1,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 2,
+      "operational_efficiency": 0,
+      "profitability_earnings": 1,
+      "untagged": 0
+    },
+    "business_model_strategy": {
+      "asset_quality_credit": 2,
+      "business_model_strategy": 1,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 0,
+      "operational_efficiency": 0,
+      "profitability_earnings": 1,
+      "untagged": 0
+    },
+    "capital_adequacy": {
+      "asset_quality_credit": 0,
+      "business_model_strategy": 0,
+      "capital_adequacy": 3,
+      "conduct_operational": 1,
+      "liquidity_funding": 0,
+      "market_traded_risk": 1,
+      "operational_efficiency": 0,
+      "profitability_earnings": 0,
+      "untagged": 0
+    },
+    "conduct_operational": {
+      "asset_quality_credit": 1,
+      "business_model_strategy": 0,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 0,
+      "operational_efficiency": 0,
+      "profitability_earnings": 0,
+      "untagged": 1
+    },
+    "liquidity_funding": {
+      "asset_quality_credit": 0,
+      "business_model_strategy": 0,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 2,
+      "market_traded_risk": 1,
+      "operational_efficiency": 0,
+      "profitability_earnings": 0,
+      "untagged": 0
+    },
+    "market_traded_risk": {
+      "asset_quality_credit": 0,
+      "business_model_strategy": 0,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 1,
+      "operational_efficiency": 0,
+      "profitability_earnings": 2,
+      "untagged": 0
+    },
+    "operational_efficiency": {
+      "asset_quality_credit": 0,
+      "business_model_strategy": 3,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 0,
+      "operational_efficiency": 8,
+      "profitability_earnings": 3,
+      "untagged": 1
+    },
+    "profitability_earnings": {
+      "asset_quality_credit": 1,
+      "business_model_strategy": 3,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 1,
+      "operational_efficiency": 0,
+      "profitability_earnings": 6,
+      "untagged": 2
+    },
+    "untagged": {
+      "asset_quality_credit": 0,
+      "business_model_strategy": 0,
+      "capital_adequacy": 0,
+      "conduct_operational": 0,
+      "liquidity_funding": 0,
+      "market_traded_risk": 1,
+      "operational_efficiency": 0,
+      "profitability_earnings": 0,
+      "untagged": 5
+    }
+  },
+  "n_disagreements_coder1_vs_aidan": 30,
+  "disagreement_pair_ids": [
+    "barclays_2024-annual_003",
+    "barclays_2024-annual_004",
+    "barclays_2024-q2_003",
+    "barclays_2024-q3_004",
+    "barclays_2025-q1_001",
+    "barclays_2025-q1_006",
+    "barclays_2025-q3_002",
+    "barclays_2025-q3_006",
+    "barclays_2026-q1_001",
+    "barclays_2026-q1_008",
+    "barclays_2026-q2_003",
+    "hsbc_2024-annual_002",
+    "hsbc_2024-annual_008",
+    "hsbc_2024-interim_006",
+    "hsbc_2024-interim_007",
+    "hsbc_2024-q1_003",
+    "hsbc_2024-q3_008",
+    "hsbc_2025-q1_003",
+    "hsbc_2025-q1_009",
+    "hsbc_2025-q1_010",
+    "hsbc_2025-q1_011",
+    "hsbc_2025-q3_002",
+    "hsbc_2025-q3_003",
+    "hsbc_2025-q3_008",
+    "hsbc_2026-interim_001",
+    "hsbc_2026-interim_003",
+    "hsbc_2026-q1_001",
+    "hsbc_2026-q1_002",
+    "hsbc_2026-q1_005",
+    "hsbc_2026-q1_008"
+  ],
+  "pitch_line": "Aidan vs machine coder1 on n=60: 50% agreement. Keyword dual-code is the method; this is the independent check."
+}
