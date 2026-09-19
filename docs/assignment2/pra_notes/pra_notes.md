@@ -1,6 +1,6 @@
 # PRA supervisory note — HSBC 2025-interim (H1)
 
-**Date:** 2026-09-13 · **Group 9** · Bank of England employer project  
+**Date:** 2026-09-19 · **Group 9** · Bank of England employer project  
 **Window:** 2025-H1 (narrative `2025-interim` · pack `2025-q2`)
 
 ---
@@ -9,13 +9,13 @@
 
 **WATCH — soft Q&A tone but narrative broadly agrees with pack directions**
 
-HSBC 2025-interim (H1): FinBERT net -0.13; Topic 1=1 turns; peer on 2025-H1: HSBC=-0.126 (n=8) vs Barclays=0.000 (n=6); gap=-0.126 — Matched 2025-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=-0.126, n=8, non-neut=25%; Barclays net=0.000, n=6, non-neut=0%). Gap -0.126 is not treated as an A2 alert.
+HSBC 2025-interim (H1): FinBERT net -0.13; Topic 1=0 turns; peer on 2025-H1: HSBC=-0.126 (n=8) vs Barclays=0.000 (n=6); gap=-0.126 — Matched 2025-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=-0.126, n=8, non-neut=25%; Barclays net=0.000, n=6, non-neut=0%). Gap -0.126 is not treated as an A2 alert.
 
 | KPI | Value |
 |---|---|
 | Analyst turns | 8 |
 | FinBERT net | -0.126 |
-| Topic 1 turns / neg share | 1 / 0% |
+| Topic 1 turns / neg share | 0 / 0% |
 | Peer sides (matched) | HSBC -0.126 (n=8, non-neut 25%) · Barclays 0.000 (n=6, non-neut 0%) |
 | Peer gap (HSBC − Barclays) | -0.126 · **not used for A2** |
 | Rules fired | A3 |
@@ -67,7 +67,7 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 # PRA supervisory note — Barclays 2026-q2 (H1)
 
-**Date:** 2026-09-13 · **Group 9** · Bank of England employer project  
+**Date:** 2026-09-19 · **Group 9** · Bank of England employer project  
 **Window:** 2026-H1 (narrative `2026-q2` · pack `2026-q2`)
 
 ---

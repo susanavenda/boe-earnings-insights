@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Dataset
 from transformers import (
@@ -36,7 +36,7 @@ from transformers import (
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from store import load_df, save_df, save_json  # noqa: E402
+from store import configure, has_df, load_df, save_df, save_json  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
 DOCS = ROOT / "docs"
@@ -87,9 +87,14 @@ def build_labels(corpus: pd.DataFrame) -> pd.DataFrame:
     out = corpus.copy()
     out["gold_label"] = list(labs)
     out["label_method"] = list(methods)
-    hand = pd.read_csv(DOCS / "hand_validation_sample.csv")
-    hand_keys = set(hand["text"].astype(str).str.slice(0, 120))
-    out["human_reviewed"] = out["text"].astype(str).str.slice(0, 120).isin(hand_keys)
+    hand_path = DOCS / "hand_validation_sample.csv"
+    if hand_path.is_file():
+        hand = pd.read_csv(hand_path)
+        hand_keys = set(hand["text"].astype(str).str.slice(0, 120))
+        out["human_reviewed"] = out["text"].astype(str).str.slice(0, 120).isin(hand_keys)
+    else:
+        print(f"hand sample missing at {hand_path} — human_reviewed=False")
+        out["human_reviewed"] = False
     return out
 
 
@@ -116,11 +121,25 @@ def main():
     random.seed(42)
     np.random.seed(42)
     torch.manual_seed(42)
-    device = torch.device("cpu")  # avoid MPS placeholder issues on macOS
+    # CUDA if Colab/GPU; CPU otherwise. Skip MPS (placeholder issues on macOS).
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    use_cpu = device.type == "cpu"
+    configure(memory=False, path=ROOT / "data" / "boe.sqlite")
 
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
+    if not has_df("corpus_analyst"):
+        raise SystemExit(
+            "corpus_analyst missing from data/boe.sqlite — run notebook Stages 1–3 "
+            "and ensure the notebook flushed to disk before this script."
+        )
     corpus = load_df("corpus_analyst")
+    need = ["text", "finbert_sentiment", "finbert_score", "ldsa_sentiment", "ldsa_net"]
+    missing = [c for c in need if c not in corpus.columns]
+    if missing:
+        raise SystemExit(
+            f"corpus_analyst missing {missing} — run Stage 3 FinBERT + LDSA before fine-tune."
+        )
     # Drop prior FT columns before rebuild
     for c in ("ft_sentiment", "ft_score", "gold_label"):
         if c in corpus.columns:
@@ -133,6 +152,7 @@ def main():
         "finbert_sentiment", "finbert_score", "ldsa_sentiment", "ldsa_net",
         "gold_label", "label_method", "human_reviewed",
     ]
+    keep = [c for c in keep if c in labeled.columns]
     save_df("sentiment_labels", labeled[keep])
 
     train_df, test_df = train_test_split(
@@ -184,14 +204,13 @@ def main():
     print(classification_report(true_y, zs_y, target_names=LABELS, digits=3))
 
     def make_args(out, epochs, lr):
-        return TrainingArguments(
+        kwargs = dict(
             output_dir=str(out),
             num_train_epochs=epochs,
             per_device_train_batch_size=8,
             per_device_eval_batch_size=8,
             learning_rate=lr,
             weight_decay=0.01,
-            eval_strategy="epoch",
             save_strategy="epoch",
             load_best_model_at_end=True,
             metric_for_best_model="macro_f1",
@@ -199,8 +218,18 @@ def main():
             logging_steps=5,
             report_to=[],
             seed=42,
-            use_cpu=True,
         )
+        # transformers ≥4.46: eval_strategy; older: evaluation_strategy
+        kwargs["eval_strategy"] = "epoch"
+        try:
+            return TrainingArguments(use_cpu=use_cpu, **kwargs)
+        except TypeError:
+            kwargs.pop("eval_strategy", None)
+            kwargs["evaluation_strategy"] = "epoch"
+            try:
+                return TrainingArguments(use_cpu=use_cpu, **kwargs)
+            except TypeError:
+                return TrainingArguments(**kwargs)
 
     ft = AutoModelForSequenceClassification.from_pretrained(
         BASE, num_labels=3, id2label=ID2LAB, label2id=LAB2ID, ignore_mismatched_sizes=True
@@ -293,4 +322,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import traceback
+
+        traceback.print_exc()
+        sys.exit(1)

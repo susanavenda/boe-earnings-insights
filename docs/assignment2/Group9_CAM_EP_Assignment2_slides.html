@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Group 9 · CAM EP Assignment 2</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #fff;
+    color: #0b1f33;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    line-height: 1.28;
+  }
+  .slide {
+    width: 13.333in;
+    height: 7.5in;
+    padding: 0.38in 0.48in 0.42in;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .kicker {
+    font-size: 14pt; color: #486581; letter-spacing: 0.04em;
+    text-transform: uppercase; font-weight: 700; margin: 0 0 0.08in;
+  }
+  h1 {
+    font-size: 28pt; line-height: 1.15; margin: 0 0 0.18in; font-weight: 700;
+  }
+  h2 {
+    font-size: 22pt; line-height: 1.15; margin: 0 0 0.16in; font-weight: 700;
+  }
+  h3 {
+    font-size: 14pt; margin: 0 0 0.08in; font-weight: 700; color: #1a3d5c;
+  }
+  p { margin: 0 0 0.1in; }
+  .footer {
+    position: absolute; left: 0.48in; right: 0.48in; bottom: 0.18in;
+    display: flex; justify-content: space-between;
+    font-size: 14pt; color: #627d98;
+    border-top: 2px solid #c4a35a; padding-top: 0.08in;
+  }
+  .stats { display: flex; gap: 0.16in; margin: 0.12in 0 0.16in; }
+  .stat {
+    flex: 1; background: #f4f7fa; border: 1px solid #d9e2ec;
+    padding: 0.12in 0.14in; text-align: center;
+  }
+  .stat .v { font-size: 22pt; font-weight: 700; color: #0b1f33; }
+  .stat .l { font-size: 14pt; color: #486581; margin-top: 0.04in; }
+  .stat.warn .v { color: #6b4e12; }
+  .stat.danger .v { color: #7a1f12; }
+  .callout {
+    background: #fff8eb; border-left: 6px solid #c4a35a;
+    padding: 0.12in 0.16in; margin: 0.1in 0 0.14in;
+  }
+  .callout.info { background: #eef4f8; border-left-color: #1a3d5c; }
+  .callout.ok { background: #e8f3ea; border-left-color: #1e4d2b; }
+  .callout.bad { background: #f8ece8; border-left-color: #7a1f12; }
+  .callout .t { font-weight: 700; margin-bottom: 0.04in; }
+  table { width: 100%; border-collapse: collapse; margin: 0.08in 0 0.12in; }
+  th, td {
+    border: 1px solid #d9e2ec; padding: 0.06in 0.08in;
+    text-align: left; vertical-align: top; font-size: 14pt;
+  }
+  th { background: #0b1f33; color: #fff; font-weight: 700; }
+  tr:nth-child(even) td { background: #f7f9fb; }
+  td.yes { color: #1e4d2b; font-weight: 700; }
+  .cols { display: flex; gap: 0.22in; }
+  .cols > div { flex: 1; }
+  .muted { color: #486581; }
+  svg.chart { width: 100%; height: 2.15in; display: block; margin: 0.06in 0; }
+  .src { font-size: 14pt; color: #627d98; margin-top: 0.02in; }
+  .quote {
+    background: #f7f9fb; border-left: 5px solid #1a3d5c;
+    padding: 0.1in 0.14in; margin-top: 0.08in;
+  }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="kicker">Group 9 · Bank of England PRA · Assignment 2 · 15 minutes</div>
+  <h1>Supervisory earnings pipeline</h1>
+  <div class="callout">
+    <div class="t">Sell line</div>
+    IR files in → versioned alert / watch / null pack out. A PRA desk can re-run next quarter in under two hours. Automation with brakes, not a chatbot.
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="v">118</div><div class="l">Analyst Q&amp;A pairs</div></div>
+    <div class="stat"><div class="v">2</div><div class="l">Banks · HSBC + Barclays</div></div>
+    <div class="stat"><div class="v">3</div><div class="l">Baselines with n</div></div>
+    <div class="stat warn"><div class="v">WATCH</div><div class="l">HSBC H1 2025 verdict</div></div>
+  </div>
+  <p>Audience: PRA supervisors. Success is a reproducible method, including a well-supported <strong>null</strong> — not a rating of either firm.</p>
+  <div class="footer"><span>Early warning from earnings Q&amp;A</span><span>1 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Background · 0:30–2:00</div>
+  <h2>PRA already sees the packs. Q&amp;A is the gap.</h2>
+  <div class="cols">
+    <div>
+      <h3>What is already clear</h3>
+      <p>Structured returns: total income, operating costs, credit impairment / ECL, CET1. Those four lines stay locked.</p>
+      <h3>What is hard to use</h3>
+      <p>Earnings-call Q&amp;A is public, hedged, speaker-messy, and not in the supervisory scan every quarter.</p>
+    </div>
+    <div>
+      <div class="callout info">
+        <div class="t">Business question</div>
+        Does analyst Q&amp;A carry a leading signal those four reported lines miss — a temporal shift, a peer divergence, or a split between pack direction and narrative tone?
+      </div>
+    </div>
+  </div>
+  <p><strong>Our bet:</strong> yes when theme tone and reported direction diverge. When they agree but tone is soft, that is WATCH, not noise.</p>
+  <p class="muted">Public research frame: earnings language as a complement to regulatory returns, not a substitute. Supervisors need evidence IDs, not a black-box score.</p>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>2 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Background · 2:00–3:00</div>
+  <h2>Locked scope so the episode story stays tight</h2>
+  <table>
+    <tr><th style="width:50%">In</th><th>Out</th></tr>
+    <tr><td>HSBC + Barclays (UK PRA perimeter)</td><td>More banks before the episode is tight</td></tr>
+    <tr><td>Public IR PDFs + Excel packs</td><td>Video / webcast / private returns</td></tr>
+    <tr><td>Four metrics only (income, costs, ECL, CET1)</td><td>RoTE, CIR, NPL, extra KPI catalogue</td></tr>
+    <tr><td>Sentiment: Positive / Negative / Neutral</td><td>Avoidance as a FinBERT class</td></tr>
+    <tr><td>Alert / watch / null as protocol output</td><td>A PRA risk rating of either firm</td></tr>
+  </table>
+  <p class="muted">Extra Stage 8 protocol and desk UI prove the method can emit a pack. They are not a licence to rate the firms.</p>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>3 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 3:00–4:30</div>
+  <h2>Repeatable chain: files in, pack out</h2>
+  <table>
+    <tr><th style="width:18%">Step</th><th>What happens</th><th style="width:16%">Who</th></tr>
+    <tr><td>1 Ingest</td><td>IR PDFs + Excel under data/raw and data/structured</td><td>Auto</td></tr>
+    <tr><td>2 Prepare</td><td>pdfplumber → speaker regex → analyst Q&amp;A pairs</td><td>Auto</td></tr>
+    <tr><td>3 Model</td><td>Seeded topics then BERTopic; FinBERT Q vs A; LDSA check</td><td>Auto</td></tr>
+    <tr><td>4 Evaluate</td><td>Temporal shift · matched peer · struct ↔ Q&amp;A, all with n</td><td>Auto</td></tr>
+    <tr><td>5 Decide</td><td>Rules → alert / watch / null (not a firm rating)</td><td>Rules</td></tr>
+    <tr><td>6 Publish</td><td>PRA one-pager + desk.sqlite for the supervisor surface</td><td>Auto</td></tr>
+    <tr><td>Recalibrate</td><td>Promote a new FinBERT head only if hold-out does not regress</td><td>Gated human</td></tr>
+  </table>
+  <div class="callout">
+    <div class="t">Next-quarter cost</div>
+    45–90 minutes when new IR files land. No GPU rebuild. Labels grow offline; promotion is a gate, not a cron job.
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>4 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 4:30–5:30 · data preparation</div>
+  <h2>Messy transcript text, not Kaggle defaults</h2>
+  <table>
+    <tr><th style="width:14%">Stage</th><th>What we did</th><th>Why it fits this data</th></tr>
+    <tr><td>Gather</td><td>13 IR PDFs (not 20) + 12 Excel packs into SQLite</td><td>Public transcripts are the unstructured feed PRA can re-run without confidential returns</td></tr>
+    <tr><td>Clean</td><td>pdfplumber extract; bank-specific speaker regex; 325 turns 100% named</td><td>HSBC and Barclays layouts differ; unnamed turns would poison Q vs A</td></tr>
+    <tr><td>Pair</td><td>118 analyst Q&amp;A pairs; Barclays bleed-split (8 empty answers remain)</td><td>Question tone and answer tone must be scored separately</td></tr>
+    <tr><td>Represent</td><td>clean_text for topics; raw text for FinBERT; four pack metrics only</td><td>Transformers need raw hedges; topics need stripped tokens</td></tr>
+    <tr><td>Store</td><td>Intermediates in data/boe.sqlite; desk reads a product subset</td><td>Files stay inputs; the pack is versioned and re-runnable</td></tr>
+  </table>
+  <p class="muted">A1 fallback logged: 13 transcripts, not 20. Human 60-pair / 70% sample is still the evaluation bar, not a claim we have already met.</p>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>5 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 5:30–6:45 · method choice</div>
+  <h2>Fit the domain, then justify</h2>
+  <table>
+    <tr><th style="width:28%">Choice</th><th>Why it fits earnings Q&amp;A</th><th>Rejected alternative</th></tr>
+    <tr><td>Seeded taxonomy then BERTopic</td><td>Themes emerge from analyst language; seed keeps M7 eight categories comparable</td><td>Force a fixed taxonomy on day one</td></tr>
+    <tr><td>LDA + c_v</td><td>Independent sanity check on clusters</td><td>Trust one topic model</td></tr>
+    <tr><td>FinBERT on Q and A separately</td><td>Finance-domain prior; Q vs A is the leading-signal unit</td><td>One score on the whole turn</td></tr>
+    <tr><td>LDSA lexicon</td><td>Cross-check when transformers over-neutralise hedges</td><td>Treat FinBERT neutrality as ground truth</td></tr>
+    <tr><td>M6 behaviour scores</td><td>Directness, metric coverage, substitution — Avoidance is behaviour</td><td>A fourth FinBERT class called Avoidance</td></tr>
+    <tr><td>Rules protocol</td><td>Supervisors need a reproducible verdict with evidence IDs</td><td>Opaque score or LLM chatbot</td></tr>
+  </table>
+  <div class="callout">
+    <div class="t">Fine-tune policy</div>
+    Light domain FT is optional and gated. Silver labels amplify FinBERT’s own biases. We score with the frozen (or zero-shot) head until human labels and hold-out macro-F1 both pass.
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>6 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 6:45–8:15 · evaluation</div>
+  <h2>Honest bars — do not pitch 70%</h2>
+  <h3>Label agreement (accuracy, percent)</h3>
+  <svg class="chart" viewBox="0 0 900 210" role="img" aria-label="Accuracy percent for four comparisons versus 70 percent target">
+    <text x="8" y="18" font-size="13" fill="#486581" font-family="Arial">Accuracy (%)</text>
+    <line x1="70" y1="20" x2="70" y2="155" stroke="#d9e2ec" />
+    <line x1="70" y1="155" x2="880" y2="155" stroke="#9fb3c8" />
+    <line x1="70" y1="48" x2="880" y2="48" stroke="#1a3d5c" stroke-dasharray="6 5" />
+    <text x="886" y="52" font-size="12" fill="#1a3d5c" font-family="Arial">70% target</text>
+    <rect x="110" y="88" width="90" height="67" fill="#c4a35a" />
+    <text x="155" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">50</text>
+    <text x="155" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
+    <text x="155" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">hand gold</text>
+    <rect x="310" y="72" width="90" height="83" fill="#c4a35a" />
+    <text x="355" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">62</text>
+    <text x="355" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
+    <text x="355" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">silver</text>
+    <rect x="510" y="77" width="90" height="78" fill="#c4a35a" />
+    <text x="555" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">58</text>
+    <text x="555" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
+    <text x="555" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">LDSA</text>
+    <rect x="710" y="81" width="90" height="74" fill="#c4a35a" />
+    <text x="755" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">55</text>
+    <text x="755" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FT candidate</text>
+    <text x="755" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs silver</text>
+  </svg>
+  <p class="src">Source: label_agreement.json · hand gold n=20 (macro-F1 0.44) · silver n=118. LDSA-vs-silver is circular and is not shown.</p>
+  <div class="cols">
+    <div>
+      <h3>Three baselines (all with n)</h3>
+      <p>Temporal: topic tone across quarters. Matched peer: HSBC vs Barclays on the same window. Struct ↔ Q&amp;A: pack direction vs narrative on the four metrics.</p>
+    </div>
+    <div>
+      <h3>Verification still open</h3>
+      <p>Manual: n=20 reviewed; 50-row claims audit queued. Dual-code with Aidan not yet in. Fine-tune: 20 / 40 human-label gate — not promoted.</p>
+    </div>
+  </div>
+  <div class="callout bad">
+    <div class="t">Brake we will say once</div>
+    FinBERT at 50% on the hand sample is why peer ALERT is quality-gated and why we treat over-neutral hedges as a risk, not a feature.
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>7 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 8:15–9:45 · episode proof</div>
+  <h2>HSBC 2025-interim is WATCH, not a rating</h2>
+  <div class="stats">
+    <div class="stat danger"><div class="v">−0.13</div><div class="l">FinBERT net</div></div>
+    <div class="stat"><div class="v">5 / 8</div><div class="l">Topic 1 turns</div></div>
+    <div class="stat warn"><div class="v">40%</div><div class="l">Topic 1 negative</div></div>
+    <div class="stat warn"><div class="v">WATCH</div><div class="l">Rule A3 fired</div></div>
+  </div>
+  <div class="cols">
+    <div>
+      <h3>Matched peer gap (HSBC − Barclays FinBERT net)</h3>
+      <svg class="chart" viewBox="0 0 520 160" style="height:1.7in" role="img" aria-label="HSBC minus Barclays FinBERT net by period">
+        <line x1="40" y1="80" x2="500" y2="80" stroke="#9fb3c8" />
+        <text x="8" y="84" font-size="11" fill="#486581" font-family="Arial">0</text>
+        <rect x="55" y="80" width="48" height="6" fill="#c4a35a" />
+        <text x="79" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">H1q1</text>
+        <rect x="130" y="80" width="48" height="70" fill="#7a1f12" />
+        <text x="154" y="74" text-anchor="middle" font-size="11" font-weight="700" fill="#7a1f12" font-family="Arial">−0.13</text>
+        <text x="154" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">2025-H1</text>
+        <rect x="205" y="80" width="48" height="33" fill="#c4a35a" />
+        <text x="229" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">Q3</text>
+        <rect x="280" y="80" width="48" height="22" fill="#c4a35a" />
+        <text x="304" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">FY</text>
+        <rect x="355" y="80" width="48" height="17" fill="#c4a35a" />
+        <text x="379" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">26 H1q1</text>
+        <rect x="430" y="36" width="48" height="44" fill="#1e4d2b" />
+        <text x="454" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#1e4d2b" font-family="Arial">+0.08</text>
+        <text x="454" y="150" text-anchor="middle" font-size="10" fill="#0b1f33" font-family="Arial">2026-H1</text>
+      </svg>
+      <p class="src">2025-H1 maps HSBC interim ↔ Barclays q2. Barclays n=6 is 100% FinBERT-neutral, so A2-usable = no.</p>
+    </div>
+    <div>
+      <h3>Struct vs Q&amp;A (four metrics)</h3>
+      <table>
+        <tr><th>Metric</th><th>Pack</th><th>Q&amp;A</th><th>Agree</th></tr>
+        <tr><td>credit_impairment</td><td>down</td><td>down</td><td class="yes">yes</td></tr>
+        <tr><td>operating_costs</td><td>down</td><td>down</td><td class="yes">yes</td></tr>
+        <tr><td>cet1_ratio</td><td>flat</td><td>flat</td><td class="yes">yes</td></tr>
+        <tr><td>total_income</td><td>down</td><td>down</td><td class="yes">yes</td></tr>
+      </table>
+      <div class="quote">Kunpeng Ma (negative): BoCom impairment, VIU, Hong Kong CRE — any chance CRE pressure further increases ECL assumptions going forward?</div>
+    </div>
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>8 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Approach · 9:45–11:45 · walkthrough</div>
+  <h2>Product first, then factory — two minutes</h2>
+  <div class="cols">
+    <div>
+      <h3>Desk (general audience)</h3>
+      <p>Open http://localhost:8501 · start on HSBC H1</p>
+      <table>
+        <tr><th>Click</th><th>Show</th></tr>
+        <tr><td>Episodes</td><td>WATCH pill + headline</td></tr>
+        <tr><td>Evidence</td><td>Packs agree + one quote</td></tr>
+        <tr><td>Peer &amp; protocol</td><td>A2-usable no · A3 only</td></tr>
+        <tr><td>PRA note</td><td>Download the pack</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Notebook (technical audience)</h3>
+      <p>Point at cells. Do not linear-read 64 cells.</p>
+      <table>
+        <tr><th>Stage</th><th>Salient point</th></tr>
+        <tr><td>1.1–1.4</td><td>Gather, speaker split, pairs</td></tr>
+        <tr><td>3.1b</td><td>FinBERT on Q and A separately</td></tr>
+        <tr><td>6</td><td>Three views with n</td></tr>
+        <tr><td>8 / 9</td><td>Protocol → pack → desk</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="callout info">
+    <div class="t">If the app dies</div>
+    Backup: slide 8 (episode) plus the quote. Do not debug live.
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>9 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Close · 11:45–12:45</div>
+  <h2>What we can stand behind</h2>
+  <table>
+    <tr><th>Finding</th><th>Evidence</th><th>Do not claim</th></tr>
+    <tr><td>Narrative can flag a soft quarter packs already move with</td><td>HSBC interim FinBERT net −0.13; Topic 1 costs / forward</td><td>That HSBC is weaker prudentially</td></tr>
+    <tr><td>Soft + packs agree → WATCH (A3)</td><td>Four-metric agree column all yes</td><td>WATCH equals an alert the desk must escalate</td></tr>
+    <tr><td>Naive peer gaps are dangerous when one side is model-flat</td><td>Barclays 2025-q2 n=6 all FinBERT-neutral</td><td>A peer ALERT on 2025-H1</td></tr>
+    <tr><td>Null is allowed and reportable</td><td>Protocol N1: flat tone and agreement</td><td>Null means the pipeline failed</td></tr>
+  </table>
+  <p class="muted">Extra technique that helped: quality gate on peer ALERT (both sides informative). Extra still open: grow gold from n=20 toward 60 pairs / 70%.</p>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>10 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Close · 12:45–13:45 · integration</div>
+  <h2>Workflow fit — and what will block it</h2>
+  <div class="cols">
+    <div>
+      <h3>How it sits on a desk</h3>
+      <p>Overnight or quarterly job when IR files land. Output is a versioned pack: verdict, n, quotes, four-metric agree column, PRA one-pager. Human accepts or rejects the verdict.</p>
+    </div>
+    <div>
+      <h3>Obstacles</h3>
+      <p>Hedged language → transformer over-neutral. Small N / flat peers break gap rules. Labels are scarce — do not automate promotion. Change management: trust rules plus evidence, not model mystique.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="t">Ethical / sustainable</div>
+    We do not conclude either firm’s prudential condition. Alert / watch / null is a method on public text versus public packs. Confidential returns stay out of scope.
+  </div>
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>11 / 12</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Close · 13:45–15:00</div>
+  <h2>Ask, then sit down</h2>
+  <div class="cols">
+    <div class="callout info">
+      <div class="t">For the Bank of England</div>
+      Is alert / watch / null the right product shape for a supervisor desk — and is a 45–90 minute re-run acceptable each quarter?
+    </div>
+    <div class="callout">
+      <div class="t">For markers</div>
+      Depth on two G-SIBs, an honest 50% hand-sample, and a repeatable pipeline with an explicit null beats breadth.
+    </div>
+  </div>
+  <div class="callout ok">
+    <div class="t">Close — say the sell line again</div>
+    We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — Topic 1 soft, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.
+  </div>
+  <div class="footer"><span>Group9_CAM_EP_Assignment2_slides.pdf</span><span>12 / 12</span></div>
+</section>
+
+</body>
+</html>
