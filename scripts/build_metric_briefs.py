@@ -70,6 +70,7 @@ def main():
     corp = load_df("corpus_analyst")
     # Focus on the two episode windows + a few Topic 1 negatives
     windows = [
+        ("hsbc", "2024-annual"),
         ("hsbc", "2025-interim"),
         ("barclays", "2026-q2"),
     ]

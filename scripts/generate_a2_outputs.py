@@ -19,6 +19,7 @@ from gensim.models.coherencemodel import CoherenceModel
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from periods import calendar_period  # noqa: E402
 from store import load_df, save_bytes, save_df  # noqa: E402
 
 
@@ -80,6 +81,26 @@ def main():
                 ),
                 "aligns_with_topics": "Mixed; use for metric tagging QA",
             },
+            {
+                "bank": "hsbc",
+                "quarter": "2024-q1",
+                "finbert_note": "CEO succession announced on the Q1 print",
+                "event_context": (
+                    "30 Apr 2024: Noel Quinn retirement announced; extra 2024 year "
+                    "vs A1 2025–26 sample"
+                ),
+                "aligns_with_topics": "Qualitative context for 2024 window",
+            },
+            {
+                "bank": "both",
+                "quarter": "2024-annual",
+                "finbert_note": "FY 2024 packs — extra year in corpus",
+                "event_context": (
+                    "Full-year 2024 CET1, income, costs, impairment in IR packs; "
+                    "HSBC annual ↔ Barclays fy on calendar 2024-FY"
+                ),
+                "aligns_with_topics": "Use for pack↔Q&A join on 2024-FY",
+            },
         ]
     )
     save_df("known_events_crosscheck", known_events)
@@ -115,20 +136,10 @@ def main():
     save_bytes("sentiment_topic_quarter.png", buf.getvalue(), mime="image/png")
     print("heatmap rows", len(shift))
 
-    quarter_to_period = {
-        "2025-q1": "2025-H1q1",
-        "2025-interim": "2025-H1",
-        "2025-q2": "2025-H1",
-        "2025-q3": "2025-Q3",
-        "2025-annual": "2025-FY",
-        "2026-q1": "2026-H1q1",
-        "2026-interim": "2026-H1",
-        "2026-q2": "2026-H1",
-    }
     peer = corpus_df.groupby(["bank", "quarter"], as_index=False).agg(
         sentiment_net=("finbert_net", "mean")
     )
-    peer["calendar_period"] = peer["quarter"].map(quarter_to_period).fillna(peer["quarter"])
+    peer["calendar_period"] = peer["quarter"].map(calendar_period)
     save_df("peer_matched_quarters", peer)
     both = int(peer.groupby("calendar_period")["bank"].nunique().ge(2).sum())
     pivot = peer.pivot_table(

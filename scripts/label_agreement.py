@@ -91,11 +91,18 @@ def expand_hand_sample(labels: pd.DataFrame) -> pd.DataFrame:
 
     def prio(r: pd.Series) -> int:
         s = 0
-        if r["quarter"] in {"2025-interim", "2025-q2", "2026-q2"}:
+        if r["quarter"] in {
+            "2024-interim",
+            "2024-q2",
+            "2024-annual",
+            "2025-interim",
+            "2025-q2",
+            "2026-q2",
+        }:
             s += 3
         if bool(r["disagree"]):
             s += 2
-        if r["bank"] == "hsbc" and r["quarter"] == "2025-interim":
+        if r["bank"] == "hsbc" and r["quarter"] in {"2024-interim", "2025-interim"}:
             s += 2
         if r["finbert_sentiment"] == "neutral" and r["ldsa_sentiment"] != "neutral":
             s += 1

@@ -12,6 +12,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from periods import calendar_period  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
@@ -100,13 +101,8 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
 
     period = spec["calendar_period"]
     # Build peer sides from corpus (not pre-agg alone) so missing ≠ silent zero
-    period_map = {
-        "2025-q1": "2025-H1q1", "2025-interim": "2025-H1", "2025-q2": "2025-H1",
-        "2025-q3": "2025-Q3", "2025-annual": "2025-FY",
-        "2026-q1": "2026-H1q1", "2026-interim": "2026-H1", "2026-q2": "2026-H1",
-    }
     corp_p = corp.copy()
-    corp_p["calendar_period"] = corp_p["quarter"].map(period_map).fillna(corp_p["quarter"])
+    corp_p["calendar_period"] = corp_p["quarter"].map(calendar_period)
     side = (
         corp_p[corp_p["calendar_period"] == period]
         .groupby("bank")

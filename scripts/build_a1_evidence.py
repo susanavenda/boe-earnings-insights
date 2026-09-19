@@ -19,7 +19,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from store import configure, load_df, save_df  # noqa: E402
+from periods import calendar_period  # noqa: E402
+from store import configure, has_df, load_df, save_df  # noqa: E402
 
 MONTHS = (
     "January|February|March|April|May|June|July|August|"
@@ -229,6 +230,7 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
                     "date": "",
                     "analyst": row.get("speaker"),
                     "analyst_firm": row.get("firm"),
+                    "speaker_type": row.get("role") or "analyst",
                     "question_text": qtext,
                     "answer_text": atext,
                     "n_answer_turns": len(answers),
@@ -341,10 +343,16 @@ def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFra
         substitution_rate=("topic_substitution", "mean"),
     )
     if reported is not None and len(reported):
-        wide = reported.pivot_table(
-            index=["bank", "quarter"], columns="metric", values="direction", aggfunc="first"
+        # Pack labels (q2/h1/4q) vs transcript labels (interim/annual) join on calendar period
+        left = agg.copy()
+        left["calendar_period"] = left["quarter"].map(calendar_period)
+        right = reported.copy()
+        right["calendar_period"] = right["quarter"].map(calendar_period)
+        wide = right.pivot_table(
+            index=["bank", "calendar_period"], columns="metric", values="direction", aggfunc="first"
         ).reset_index()
-        agg = agg.merge(wide, on=["bank", "quarter"], how="left")
+        left = left.merge(wide, on=["bank", "calendar_period"], how="left")
+        agg = left.drop(columns=["calendar_period"])
     agg["n"] = agg["n_pairs"]
     return agg
 
@@ -393,7 +401,13 @@ def main(*, configure_store: bool = True) -> None:
     save_df("prudential_map", pmap)
     print("prudential disagreements", int(pmap["disagreement"].sum()), "/", len(pmap))
 
-    reported = load_df("reported_metrics")
+    reported = load_df("reported_metrics") if has_df("reported_metrics") else None
+    if reported is None or reported.empty:
+        print(
+            "reported_metrics not in sqlite yet — state_summary without Excel "
+            "directions. Stage 6.3 parses the packs."
+        )
+        reported = None
     ss = state_summary(beh, reported)
     save_df("state_summary", ss)
     print("state_summary\n", ss.to_string(index=False))
