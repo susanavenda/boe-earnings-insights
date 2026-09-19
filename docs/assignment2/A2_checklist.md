@@ -32,4 +32,5 @@ Open http://localhost:8501
 - [ ] Backup slide: quote + agree-row  
 
 ## Honest metrics (say once)
-Hand sample n=20: FinBERT ~50% vs sample gold — reason we gate peer ALERT and promotion.
+Hand sample n=20: FinBERT ~50% vs sample gold — reason we gate peer ALERT and promotion.  
+Aidan vs machine coder1 n=60: **50%** (below 70%) — eight-way map is a method, not a category law. Topics 0 and 3 still dual-code-disagree.

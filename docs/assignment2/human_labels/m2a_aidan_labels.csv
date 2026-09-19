@@ -1,0 +1,61 @@
+pair_id,aidan_q,aidan_a,aidan_pair,aidan_confidence,aidan_note
+barclays_2024-annual_001,untagged,business_model_strategy,untagged,low,Q is courtesy only; pair has no analyst ask. A is plan execution / RoTE / £10bn — do not back-fill the Q from the A.
+barclays_2024-annual_002,liquidity_funding,liquidity_funding,liquidity_funding,high,Ring-fence deposits funding the rest of the group plus LTV/affordability — deposit-use and funding perimeter not a P&L line.
+barclays_2024-annual_003,operational_efficiency,operational_efficiency,operational_efficiency,high,Absolute cost walk 2024-26; Tesco double-run and inflation vs efficiency.
+barclays_2024-annual_004,market_traded_risk,market_traded_risk,market_traded_risk,medium,First ask is FICC/equities market share. Tesco-customer franchise is secondary.
+barclays_2024-q1_001,profitability_earnings,liquidity_funding,profitability_earnings,high,Q is BUK NII/NIM vs balance sheet. A spends more time on deposit mix — Q/A split is real.
+barclays_2024-q2_001,operational_efficiency,operational_efficiency,operational_efficiency,high,Structural cost actions and full-year cost guidance.
+barclays_2024-q2_003,profitability_earnings,untagged,profitability_earnings,medium,Structural-hedge slide; empty answer after bleed. Hedge here is an NII building block not a VaR ask.
+barclays_2024-q2_005,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,US cards NPL and provision cycle.
+barclays_2024-q2_006,untagged,liquidity_funding,untagged,low,Q truncated to BUK and US consumer with no metric. Do not infer a category from the leftover answer fragment.
+barclays_2024-q3_001,profitability_earnings,profitability_earnings,profitability_earnings,high,BUK margin/NII walk and hedge tailwind volatility.
+barclays_2024-q3_004,capital_adequacy,untagged,capital_adequacy,high,CET1 range US-cards timing 2025 distribution. A is off-topic (GM cards) — parser/bleed mismatch; still file the Q as capital.
+barclays_2024-q3_007,profitability_earnings,profitability_earnings,profitability_earnings,high,Year-one rate sensitivity vs hedge roll and managed margin. Second limb (RWA methodology) is capital but not the lead ask.
+barclays_2024-q3_009,market_traded_risk,market_traded_risk,market_traded_risk,high,Asked as IRRBB: does a large hedge raise long-rate sensitivity vs a parallel shift.
+barclays_2025-annual_003,business_model_strategy,business_model_strategy,business_model_strategy,medium,Premier product gaps and UK loan-growth drivers. A then drifts into hedge duration — substitution not the Q.
+barclays_2025-q1_001,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,US cards impairment write-offs vs PMA/reserve build.
+barclays_2025-q1_004,operational_efficiency,untagged,operational_efficiency,medium,Would they cut or delay cost/investment if the banking wallet is as conservative as planned. Empty A.
+barclays_2025-q1_006,market_traded_risk,market_traded_risk,market_traded_risk,medium,Lead ask is FICC mix vs peers; mortgages are the second question. A almost empty.
+barclays_2025-q1_009,untagged,untagged,untagged,low,Courtesy close only (Thanks a lot / Anna Cross). Parser leftover — not a prudential turn.
+barclays_2025-q2_001,capital_adequacy,market_traded_risk,capital_adequacy,high,CET1 after buyback FRTB delay distribution vs M&A. A answers Markets/IB (second question).
+barclays_2025-q3_001,profitability_earnings,profitability_earnings,profitability_earnings,high,USCB NIM NII and whether non-interest income is lumpy.
+barclays_2025-q3_002,capital_adequacy,conduct_operational,capital_adequacy,medium,Lead is extra capital/Prime capacity after stress-test changes. NBFI/controls is the second limb.
+barclays_2025-q3_006,conduct_operational,untagged,conduct_operational,high,NBFI book review — qualification monitoring financial-control check. Empty A.
+barclays_2026-q1_001,untagged,asset_quality_credit,untagged,low,Q is the analyst name only. A discusses structured-financing / asset-backed lenders — do not treat that as the Q.
+barclays_2026-q1_003,operational_efficiency,untagged,operational_efficiency,medium,BUK cost follow-up; empty A.
+barclays_2026-q1_005,liquidity_funding,liquidity_funding,liquidity_funding,high,Hedge notional vs deposit stickiness (rate-insensitive balances) including non-UK. ECL is the second question.
+barclays_2026-q1_008,asset_quality_credit,capital_adequacy,asset_quality_credit,medium,What macro path would make the book a problem (oil / Middle East). A replies with RoTE/CET1 plan delivery — substitution.
+barclays_2026-q2_002,untagged,untagged,untagged,low,Courtesy close only.
+barclays_2026-q2_003,business_model_strategy,profitability_earnings,business_model_strategy,high,PBWM net-new AUM and whether the proposition is working. A talks mortgages — substitution.
+barclays_2026-q2_004,untagged,business_model_strategy,untagged,low,Follow-up thanks; A is franchise/product widening (Premier Tesco GoHenry).
+barclays_2026-q2_005,operational_efficiency,untagged,operational_efficiency,high,Is the BUK costs-down-every-year commitment still live after extra H2 investment. Empty A.
+hsbc_2024-annual_002,operational_efficiency,operational_efficiency,operational_efficiency,high,$1.5bn cost reallocation associated revenue/RWA/returns. Tariff/CRE curveballs are the second question.
+hsbc_2024-annual_006,capital_adequacy,capital_adequacy,capital_adequacy,high,Buyback $2bn vs $3bn and whether that is a permanent step-down. Costs are the second question.
+hsbc_2024-annual_008,operational_efficiency,asset_quality_credit,operational_efficiency,medium,Lead is whether the second $1.5bn is inside mid-teens RoTE. A leads on CRE — Q/A split.
+hsbc_2024-annual_009,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,HK CRE stage-3 ECL coverage falling 67% to about 26%.
+hsbc_2024-annual_011,operational_efficiency,operational_efficiency,operational_efficiency,high,Line of sight on the $1.5bn save and restructuring-charge multiple.
+hsbc_2024-interim_006,profitability_earnings,profitability_earnings,profitability_earnings,high,After the CEO handover courtesy the live ask is banking NII $43bn and Argentina drop-out.
+hsbc_2024-interim_007,operational_efficiency,profitability_earnings,operational_efficiency,medium,First live ask is the quantum of performance-related pay. Wealth run-rate is second.
+hsbc_2024-q1_003,liquidity_funding,liquidity_funding,liquidity_funding,high,HK CASA/deposit outflow vs peers; hedge is the second question.
+hsbc_2024-q3_008,asset_quality_credit,business_model_strategy,asset_quality_credit,high,$1.1bn HK stage-3 — is it all CRE. US election/reorg is second; A answers the second.
+hsbc_2025-annual_007,operational_efficiency,operational_efficiency,operational_efficiency,high,IT as % of expenses cloud/platforms. CRE coverage is second.
+hsbc_2025-interim_003,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,BoCom VIU trigger and HK CRE outlook — the episode credit-impairment window.
+hsbc_2025-interim_008,capital_adequacy,conduct_operational,capital_adequacy,high,BoCom further impairment vs CET1/buyback/EPS. Tokenised deposits/KYC is third; A leads on KYC.
+hsbc_2025-q1_002,profitability_earnings,business_model_strategy,profitability_earnings,medium,Plausible-downside revenue impact on the trade franchise. A answers positioning more than the P&L number.
+hsbc_2025-q1_003,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,Trade-scenario vs ECL-scenario assumptions then HK CRE.
+hsbc_2025-q1_006,profitability_earnings,profitability_earnings,profitability_earnings,high,Can mid-teens RoTE still hold in the plausible tariff downside without extra cost action.
+hsbc_2025-q1_009,operational_efficiency,profitability_earnings,operational_efficiency,medium,Cost (and revenue) guidance FX base; then are we already in the downside. Lead is the cost-guidance FX point.
+hsbc_2025-q1_010,profitability_earnings,business_model_strategy,profitability_earnings,medium,Did the tariff downside include China stimulus. Loan/deposit growth is second.
+hsbc_2025-q1_011,business_model_strategy,business_model_strategy,business_model_strategy,high,How clients react to tariffs and how HSBC supports them — franchise/trade not a line item.
+hsbc_2025-q3_002,profitability_earnings,profitability_earnings,profitability_earnings,high,Banking NII guide drivers (deposits HIBOR hedge) and insurance CSM run-rate.
+hsbc_2025-q3_003,profitability_earnings,profitability_earnings,profitability_earnings,high,HK composite deposit cost / CASA vs NII then CRE. Lead is NII.
+hsbc_2025-q3_008,business_model_strategy,business_model_strategy,business_model_strategy,medium,UK investment (wealth RMs wealth centre) and a tick-up in impairment; Madoff is second. Lead is the UK franchise investment.
+hsbc_2025-q3_010,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,HK CRE high-LTV migration collateral and why ECL could fall.
+hsbc_2026-interim_001,operational_efficiency,business_model_strategy,operational_efficiency,high,Outer-year cost drivers (wage/tech inflation vs saves). ODI/China clients is second; A answers second first.
+hsbc_2026-interim_003,profitability_earnings,profitability_earnings,profitability_earnings,high,Wealth transactional churn vs annuity / high equity-market base.
+hsbc_2026-interim_006,operational_efficiency,operational_efficiency,operational_efficiency,high,Confidence in accelerated investment spend and jaws. CIB-Wealth referral mix is second.
+hsbc_2026-interim_008,operational_efficiency,operational_efficiency,operational_efficiency,medium,Effective tax is not an M2a bucket; second ask (variable pay as % of opex) is. File on the opex limb.
+hsbc_2026-q1_001,profitability_earnings,profitability_earnings,profitability_earnings,high,HK wealth flows/CSM. Private-markets $400m / controls is second.
+hsbc_2026-q1_002,operational_efficiency,operational_efficiency,operational_efficiency,high,Intra-year cost growth vs 1% guide; Middle East ECL is second.
+hsbc_2026-q1_005,conduct_operational,conduct_operational,conduct_operational,high,Idiosyncratic fraud / $0.4bn — one-off vs step-up. ECL weight 45% is second. Fraud is conduct not a generic ECL print.
+hsbc_2026-q1_008,asset_quality_credit,asset_quality_credit,asset_quality_credit,high,52bp credit cost vs 45bp FY guide after fraud and Middle East overlay. CSM is second.
