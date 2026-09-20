@@ -12,11 +12,11 @@ Full run-of-show: [`A2_pitch_outline.md`](A2_pitch_outline.md)
 - [ ] `Group9_CAM_EP_Assignment2_presentation.mp4` (15 min ±10%)
 
 ## 15-min blocks
-- [ ] **Background** (3) — client problem + scope  
-- [ ] **Approach** (9) — pipeline diagram · data prep · methods · eval/FT · HSBC episode · desk + notebook  
-- [ ] **Conclusion** (3) — findings · integration/obstacles · ask  
+- [ ] **Background** (3) — **Taz** — client problem + scope  
+- [ ] **Approach** (9) — pipeline **Susana** · methods **Debanjan / Alfred / Bupathi / Aidan / Rafael** · eval **Aidan + Alfred** · HSBC episode **Rafael + Bupathi** · desk + notebook **Susana**  
+- [ ] **Conclusion** (3) — **Taz** (findings with **Rafael** if time) · integration/obstacles · ask  
 
-## Desk walkthrough (inside Approach)
+## Desk walkthrough (inside Approach) · **Susana**
 Open http://localhost:8501
 
 1. **Episodes** — HSBC 2025-interim (H1) · WATCH  
@@ -26,11 +26,11 @@ Open http://localhost:8501
 
 **Line:** “Null is allowed. We don’t invent a peer ALERT from a flat-neutral Barclays print.”
 
-## Tech ready
+## Tech ready · **Susana** (factory/desk) · **Taz** (PDF/MP4)
 - [ ] `data/boe.sqlite` + episode scripts + `label_agreement.py`  
 - [ ] Demo frozen pack opens offline  
 - [ ] Backup slide: quote + agree-row  
 
 ## Honest metrics (say once)
-Hand sample n=20: FinBERT ~50% vs sample gold — reason we gate peer ALERT and promotion.  
-Aidan vs machine coder1 n=60: **50%** (below 70%) — eight-way map is a method, not a category law. Topics 0 and 3 still dual-code-disagree.
+Hand sample n=20: FinBERT **75% accuracy / 0.61 macro-F1** vs sample gold — reason we gate peer ALERT and promotion.  
+**Headline:** machine coder1 vs coder2 n=60 = **35%**. Aidan vs coder1 = **50%** (below 70%). Eight-way is a method, not a category law. Disagreement clusters on costs↔earnings↔franchise and credit↔IRRBB, not uniform noise. Topics 0 and 3 still dual-code-disagree.

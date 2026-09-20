@@ -162,5 +162,5 @@
     "hsbc_2026-q1_005",
     "hsbc_2026-q1_008"
   ],
-  "pitch_line": "Aidan vs machine coder1 on n=60: 50% agreement. Keyword dual-code is the method; this is the independent check."
+  "pitch_line": "Machine coder1 vs coder2 on n=60: 35%. The 8-way does not stabilize even without a human. Aidan vs coder1 is 50% (below 70%)."
 }

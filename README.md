@@ -39,15 +39,17 @@ Open both folders via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspac
 
 ## Team
 
-| Name | Role | Belbin |
+A1 Appendix D. Use these names on the pitch, not the old placeholders.
+
+| Name | Owns | Speaks (A2 MP4) |
 |---|---|---|
-| Taz | Coordinator | Coordinator / Implementer |
-| Alfred | Sentiment lead (FinBERT + LDSA) | Specialist / Plant / Shaper |
-| Susana Venda | Topic modelling lead (BERTopic) | — |
-| Aidan | Pending | — |
-| Bupathi | Pending | — |
-| Debanjan | Pending | — |
-| Rafael | Data Pipeline and Integration Lead| Specialist |
+| **Taz** | Coordinator · editor/QA · A2 deck | Slides 1–3, 11–12 |
+| **Susana Venda** | Data pipeline · notebook · desk | Slides 4–5, 9 |
+| **Debanjan** | Topics · BERTopic · LDA | Slide 6 topics |
+| **Alfred (Qianyi)** | FinBERT · LDSA · FT gate | Slide 6 sentiment, 7 FinBERT |
+| **Bupathi** | M6 behavioural signals | Slide 6 M6, 8 protocol |
+| **Rafael** | Summarisation · metric briefs · PRA note | Slides 8, 10 |
+| **Aidan** | M2a taxonomy · human dual-code · rules | Slide 7 8-way |
 
 ## Where things live
 

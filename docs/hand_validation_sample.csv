@@ -7,14 +7,14 @@ own expectations. So any colour once the transactions you've currently got in th
 group centre income and cost run-rate look like? And I appreciate that there's still the payments business in there,
 which may or may not go at some point, but what's the go-to run-rate as things stand for the transactions once the
 transactions you've got in the train are done?",neutral,1,in_hand_sample
-barclays,2025-q1,Ed Firth,KBW,-1,negative,0.7106807827949524,neutral,"Good morning, everybody. Thanks very much. Yeah, I just have two questions. Number one,
+barclays,2025-q1,Ed Firth,KBW,1,negative,0.7106807827949524,neutral,"Good morning, everybody. Thanks very much. Yeah, I just have two questions. Number one,
 [BUK] fees look very weak. They're down about I think, 9% year-on-year, and they're certainly
 annualizing at no more than about £1 billion, I guess, and that's in the UK business. So could you
 tell us a little bit about what's going on there and how we should expect that going forward? Is
 the [greater than £250 million] run-rate we should be thinking about or is there something that
 was in there that means it might pick up as the rest of the year progresses? So I guess that's my
 first question.",negative,1,in_hand_sample
-hsbc,2026-q1,GUY STEBBINGS,BNP PARIBAS,-1,neutral,0.6735067963600159,positive,"Hi. Good morning and afternoon, everyone. Thanks for
+hsbc,2026-q1,GUY STEBBINGS,BNP PARIBAS,0,neutral,0.6735067963600159,positive,"Hi. Good morning and afternoon, everyone. Thanks for
 taking questions. The first one was on wealth. Clearly, another very good performance,
 particularly on Investment Distribution and Insurance. Can you talk about what you’re seeing
 in terms of flows in the competitive landscape in Hong Kong right now? Mindful it’s been a very
@@ -51,7 +51,7 @@ NII guidance in relation to the time it will take HIBOR to return to normalised 
 And then, secondly, on cost of risk, the guidance range is 30 to 40 basis points, and you’ve
 been at the top end of that range now for a couple of years. Is it a sensible assumption really
 to think that you’ll remain in the top half of this range for at least FY26? Thank you.",neutral,1,in_hand_sample
-barclays,2024-q2,Ed Firth,KBW,5,positive,0.5004602074623108,neutral,"Yes, morning, everybody. I had two questions, please. The first one was US cards credit quality. I think it's
+barclays,2024-q2,Ed Firth,KBW,3,positive,0.5004602074623108,neutral,"Yes, morning, everybody. I had two questions, please. The first one was US cards credit quality. I think it's
 good to see the provision charge has turned, but if I look at your non-performing loans in the quarter, they
 were up, I think, 7% or 8%. So just trying to get a sense as to where we are in that cycle and how we should
 expect that to progress from here, if that's okay.",positive,1,in_hand_sample
@@ -114,7 +114,7 @@ modernisation. It is around process optimisation. It is around change delivery m
 in so doing making the organisation simpler on a permanent and enduring basis. So clearly what
 that investment does is it gives us greater con�dence that we will be able to achieve our results in
 the short to medium term.",neutral,1,in_hand_sample
-hsbc,2025-q1,AMAN RAKKAR,BARCLAYS,5,neutral,0.8134979605674744,neutral,"Hey, Georges. Hey, Pam. Thanks very much for the various
+hsbc,2025-q1,AMAN RAKKAR,BARCLAYS,-1,neutral,0.8134979605674744,neutral,"Hey, Georges. Hey, Pam. Thanks very much for the various
 updates and sensitivities that you’ve given us. I had two questions just around customer
 behaviour. So I just wondered if you’d observed any material shift in the way that your
 customers are transacting with you. Have you seen any forward indicators around sentiment,
@@ -153,7 +153,7 @@ didn’t subscribe for new shares with the capital raise, which I assume you wou
 you had thought it really was worth that much more. Should we be expecting you to correct
 that down to what would be a market price rather than just the $1.6bn? Should we be revisiting
 how you do the – I think you call it value in use, something like that. Thanks very much.",neutral,1,in_hand_sample
-hsbc,2024-annual,KUNPENG MA,CHINA SECURITIES,3,neutral,0.8612120151519775,neutral,"Thank you. Thank you for taking my question. This is
+hsbc,2024-annual,KUNPENG MA,CHINA SECURITIES,-1,neutral,0.8612120151519775,neutral,"Thank you. Thank you for taking my question. This is
 Kunpeng of China Securities. And congratulations to the very strong result. I also have two
 questions. The first question is a little bit out of the bank itself. And Georges, could you please
 share some colour on the global trade business and also the wealth management business? I
@@ -163,7 +163,7 @@ The second is about the new business areas you mentioned, along with your reform
 many of them are non-capital consuming. So to what level should we expect the revenue
 structure to change to, going forward? Maybe the non-NII portion will be much higher than one-
 third. Yeah, that’s my two questions. Thank you.",neutral,1,in_hand_sample
-hsbc,2026-q1,KUNPENG MA,CHINA SECURITIES,3,neutral,0.8934231996536255,positive,"Morning, Pam. I’ve got two questions for you and the
+hsbc,2026-q1,KUNPENG MA,CHINA SECURITIES,2,neutral,0.8934231996536255,positive,"Morning, Pam. I’ve got two questions for you and the
 first one is about Hang Seng. I’m glad to hear the momentum in deposit and wealth
 management in the first quarter and the pick up in the momentum from April. What proportion
 of such momentum could be attributed to the synergies out of the Hang Seng deal? Also, some
@@ -216,7 +216,7 @@ off and maybe activity comes down and you find it more difficult to allocate the
 to the UK business, do you have a plan B? Would you do acquisition to top it up and make sure
 you hit £30 billion? And if that's the case, how would you think about that in the context of the
 £10 billion distribution? So I guess that's number one.",neutral,1,in_hand_sample
-hsbc,2025-q3,JOSEPH DICKERSON,JEFFERIES,2,neutral,0.8016311526298523,neutral,"Great, thanks. It’s just more of a conceptual question,
+hsbc,2025-q3,JOSEPH DICKERSON,JEFFERIES,-1,neutral,0.8016311526298523,neutral,"Great, thanks. It’s just more of a conceptual question,
 really, in terms of the return profile of the bank. Why isn’t HSBC post-Hang Seng integration
 more of a high-teens bank than a mid-teens bank? Clearly, the exit rate for this year on banking
 NII is going to be much higher, I think, than what most analysts would have thought, particularly
@@ -228,7 +228,7 @@ And then, if you look at your invested assets in Wealth, you clearly have a stro
 there that continues to grow and the marginal ROE is much higher. Throw in Hang Seng, you’re
 70-80 bps just from the minority deduction. Why don’t we get to a number that’s in the high
 teens here as opposed to mid-teens?",neutral,1,in_hand_sample
-hsbc,2024-annual,AMIT GOEL,MEDIOBANCA,-1,neutral,0.8484254479408264,positive,"Thank you. Two questions then from me. One is, again, just
+hsbc,2024-annual,AMIT GOEL,MEDIOBANCA,0,neutral,0.8484254479408264,positive,"Thank you. Two questions then from me. One is, again, just
 when you’re talking about the mid-teens RoTE target, so this year on a reported basis it was
 14.6%, on ex. notable items 16%. I just wanted to see, are you thinking about that more in line
 with the underlying ex. notable items level that you’ve achieved this year and that you can

@@ -24,24 +24,24 @@ IR PDFs + Excel
 
 ## 15-minute run-of-show (Canvas 3-block structure)
 
-| Block | Time | Job |
-|---|---|---|
-| **1. Background** | 0:00–3:00 | Client context + business question |
-| **2. Approach** | 3:00–12:00 | Pipeline · models · eval · episode · desk/notebook walkthrough |
-| **3. Conclusion** | 12:00–15:00 | Findings · workflow fit · obstacles · ask |
+| Block | Time | Job | Speaks |
+|---|---|---|---|
+| **1. Background** | 0:00–3:00 | Client context + business question | **Taz** |
+| **2. Approach** | 3:00–12:00 | Pipeline · models · eval · episode · desk/notebook | see slides below |
+| **3. Conclusion** | 12:00–15:00 | Findings · workflow fit · obstacles · ask | **Taz** |
 
 ---
 
 ### BLOCK 1 — Background (~3 min)
 
-#### Slide 1 — Title / hook (30s)
+#### Slide 1 — Title / hook (30s) · **Taz**
 **Title:** Supervisory earnings pipeline — early warning from Q&A  
 **Subtitle:** Group 9 · Bank of England employer project  
 **On slide:** sell line + KPI strip — 118 analyst turns · HSBC + Barclays · 3 baselines · dual episodes  
 
 **Say:** “We’re not pitching another sentiment model. We’re pitching a **repeatable supervisory pipeline** that ends in alert, watch, or null.”
 
-#### Slide 2 — Client problem (90s)
+#### Slide 2 — Client problem (90s) · **Taz**
 - PRA already sees **structured returns** clearly  
 - Earnings **Q&A is messy, hedged, hard to scan every quarter**  
 - **Business question:** Does narrative carry a leading signal metrics alone miss?  
@@ -49,7 +49,7 @@ IR PDFs + Excel
 
 **Say:** “Our bet: yes — when theme tone and reported direction **diverge**. When they **agree** but tone is soft, that’s **WATCH**, not noise.”
 
-#### Slide 3 — Scope (60s)
+#### Slide 3 — Scope (60s) · **Taz**
 | In | Out |
 |---|---|
 | HSBC + Barclays (UK PRA perimeter) | Video / webcast |
@@ -60,21 +60,21 @@ IR PDFs + Excel
 
 ### BLOCK 2 — Approach (~9 min)
 
-#### Slide 4 — The automation pipeline (90s) ★ centrepiece
+#### Slide 4 — The automation pipeline (90s) ★ centrepiece · **Susana**
 One left→right diagram (big boxes, few words):
 
-1. **Ingest** — PDFs + Excel  
-2. **Prepare** — clean, segment analyst vs management  
-3. **Model** — BERTopic (+ LDA / c_v) · FinBERT + LDSA (+ light domain FT)  
-4. **Evaluate** — temporal · matched peer · struct↔Q&A  
-5. **Decide** — protocol → episode  
-6. **Publish** — PRA note + desk (`desk.sqlite`)
+1. **Ingest** — PDFs + Excel · **Susana**
+2. **Prepare** — clean, segment analyst vs management · **Susana**
+3. **Model** — BERTopic (**Debanjan**) · FinBERT + LDSA (**Alfred**) · M6 behaviour (**Bupathi**) · eight-way (**Aidan**)
+4. **Evaluate** — temporal · matched peer · struct↔Q&A · **Susana** (views) · **Aidan** (human dual-code)
+5. **Decide** — protocol → episode · **Aidan** (rules) · **Bupathi** (M6 inputs)
+6. **Publish** — PRA note (**Rafael**) + desk (`desk.sqlite`) (**Susana**)
 
 **Footer:** Next-quarter re-run **45–90 min** when new IR files land.
 
 **Say:** “Every arrow is automated enough to re-run. Recalibration is **gated** — we do **not** retrain on every PDF drop-in.”
 
-#### Slide 5 — Data preparation (60s) ← rubric
+#### Slide 5 — Data preparation (60s) ← rubric · **Susana**
 - **Gather:** IR PDFs under `data/raw/transcripts/`; Excel packs under `data/structured/`  
 - **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus  
 - **Represent:** `clean_text` for topics; raw text for FinBERT; metrics table from Excel  
@@ -82,25 +82,28 @@ One left→right diagram (big boxes, few words):
 
 **Say:** “Preprocessing is justified for **messy transcript text**, not tabular Kaggle defaults.”
 
-#### Slide 6 — Method choice & why (75s) ← rubric
-| Choice | Why it fits this domain |
-|---|---|
-| **BERTopic** | Themes emerge from Q&A; we don’t force a fixed taxonomy day one |
-| **LDA + c_v** | Independent sanity check on clusters |
-| **FinBERT** | Finance-domain sentiment prior |
-| **LDSA** | Lexicon cross-check when transformers over-neutralise hedges |
-| **Light FT** | Domain adapt only when human labels grow — promote if hold-out doesn’t regress |
-| **Rules protocol** | Supervisors need **reproducible** alert/watch/null, not opaque scores |
+#### Slide 6 — Method choice & why (75s) ← rubric · **Debanjan** (topics) · **Alfred** (sentiment) · **Bupathi** (M6, 20s)
+| Choice | Why it fits this domain | Owner |
+|---|---|---|
+| **BERTopic** | Themes emerge from Q&A; we don’t force a fixed taxonomy day one | **Debanjan** |
+| **LDA + c_v** | Independent sanity check on clusters | **Debanjan** |
+| **FinBERT** | Finance-domain sentiment prior | **Alfred (Qianyi)** |
+| **LDSA** | Lexicon cross-check when transformers over-neutralise hedges | **Alfred (Qianyi)** |
+| **Light FT** | Domain adapt only when human labels grow — promote if hold-out doesn’t regress | **Alfred (Qianyi)** |
+| **M6 behaviour** | Directness, coverage, substitution — Avoidance is behaviour, not a FinBERT class | **Bupathi** |
+| **Extractive briefs** | Four-metric quotes a supervisor can check | **Rafael** |
+| **Rules protocol** | Supervisors need **reproducible** alert/watch/null, not opaque scores | **Aidan** |
 
-#### Slide 7 — Evaluation, fine-tune, verification (90s) ← rubric
+#### Slide 7 — Evaluation, fine-tune, verification (90s) ← rubric · **Aidan** (8-way) · **Alfred** (FinBERT / FT)
 - **Baselines:** temporal shift · matched peer gap · structured vs unstructured direction  
-- **Hand sample:** 50-row review queue; 20 flagged reviewed — FinBERT ≈ **50%** vs sample gold (honest limit)  
-- **FT:** silver + reviewed labels; candidate model, **promote only** if macro-F1 gate passes  
+- **Hand sample:** 50-row review queue; 20 flagged reviewed — FinBERT **75% acc / 0.61 macro-F1** vs sample gold  
+- **8-way eval:** machine coder1 vs coder2 **35%** (headline) · Aidan vs coder1 **50%** (below 70%) — method, not category law  
+- **FT:** silver + reviewed labels; candidate model, **promote only** if macro-F1 gate passes (do not promote on current silver)  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
-**Say:** “We treat FinBERT neutrality as a **risk**, not a feature — that’s why peer gap alone cannot fire ALERT when Barclays is all-neutral.”
+**Say:** “The two keyword coders agree 35%. That is why eight-way is a filing method, not a law — and why we gate peer ALERT when Barclays is all-neutral.”
 
-#### Slide 8 — Episode proof: HSBC H1 2025 (90s)
+#### Slide 8 — Episode proof: HSBC H1 2025 (90s) · **Rafael** (briefs / quote) · **Bupathi** (A3 / M6)
 - Softest print in sample (FinBERT net ≈ **−0.13**); Topic 1 (costs / forward) drives softness  
 - Packs **agree** on direction → **WATCH (A3)**  
 - Matched peer: Barclays **0.00** (n=6, all FinBERT-neutral) → gap looks scary, **not A2-eligible**  
@@ -108,7 +111,7 @@ One left→right diagram (big boxes, few words):
 
 **Say:** “This is the pipeline output: a governed verdict with evidence, not a leaderboard score.”
 
-#### Slide 9 — Live walkthrough (2 min) ← “Notebook + solution”
+#### Slide 9 — Live walkthrough (2 min) ← “Notebook + solution” · **Susana**
 **Part A — Desk (product):** http://localhost:8501  
 Episodes (HSBC) → Evidence → Peer & protocol → PRA download  
 
@@ -120,13 +123,13 @@ Episodes (HSBC) → Evidence → Peer & protocol → PRA download
 
 ### BLOCK 3 — Conclusion (~3 min)
 
-#### Slide 10 — Findings (60s)
+#### Slide 10 — Findings (60s) · **Rafael** (PRA pack) · **Taz** (if time is tight, Taz reads this)
 1. Narrative **can** flag soft quarters metrics alone don’t prioritise  
 2. Soft + packs agree → **WATCH**; soft + packs disagree → path to **ALERT**  
 3. Naive peer gaps are dangerous when one side is model-flat  
 4. **Null is allowed** and reportable  
 
-#### Slide 11 — Integration & obstacles (60s) ← rubric
+#### Slide 11 — Integration & obstacles (60s) ← rubric · **Taz**
 **Fit:** overnight / quarterly job → versioned pack → desk or PRA one-pager  
 
 **Obstacles:**
@@ -135,7 +138,7 @@ Episodes (HSBC) → Evidence → Peer & protocol → PRA download
 - Labels are scarce — don’t automate promotion  
 - Change management: supervisors must trust **rules + evidence**, not model mystique  
 
-#### Slide 12 — Ask / close (45s)
+#### Slide 12 — Ask / close (45s) · **Taz**
 **For BoE:** Is alert / watch / null the right product shape for the desk?  
 **For markers:** Depth on two G-SIBs + a **repeatable pipeline** beats breadth.  
 **Next (A3):** more true human labels · promote FT only if gates pass · optional RAG  
@@ -144,16 +147,19 @@ Episodes (HSBC) → Evidence → Peer & protocol → PRA download
 
 ---
 
-## Role split (example)
+## Role split (who is responsible)
 
-| Person | Owns |
-|---|---|
-| A | Slides 1–3 Background |
-| B | Slides 4–7 Pipeline / methods / eval |
-| C | Slide 8 episode + desk walkthrough |
-| D | Notebook walkthrough + Slide 11–12 close |
+A1 Appendix D roles. Everyone must know the sell line.
 
-Adjust to your group size; everyone must know the sell line.
+| Person | Owns (factory) | Speaks (15-min MP4) |
+|---|---|---|
+| **Taz** | Coordinator · editor/QA · A2 deck/PDF | Slides 1–3 Background · 11–12 close |
+| **Susana** | Data pipeline · notebook · desk sqlite | Slides 4–5 pipeline/data · Slide 9 desk + notebook |
+| **Debanjan** | Topics · BERTopic · LDA · cluster names | Slide 6 topics |
+| **Alfred (Qianyi)** | FinBERT · LDSA · FT gate | Slide 6 sentiment · Slide 7 FinBERT/FT numbers |
+| **Bupathi** | M6 behavioural (directness, coverage, substitution) | Slide 6 M6 · Slide 8 protocol/A3 |
+| **Rafael** | Summarisation · extractive metric briefs · PRA one-pager | Slide 8 quote/briefs · Slide 10 findings |
+| **Aidan** | M2a eight-way · human dual-code · alert/watch/null rules | Slide 7 8-way (35% / 50%) |
 
 ---
 

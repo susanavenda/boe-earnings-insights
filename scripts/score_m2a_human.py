@@ -98,10 +98,12 @@ def main() -> None:
         "disagreement_pair_ids": disagreements["pair_id"].tolist(),
         "pitch_line": None,
     }
+    mm = summary["machine_coder1_vs_coder2"]["pct"]
     p = summary["machine_coder1_vs_aidan_pair"]["pct"]
     summary["pitch_line"] = (
-        f"Aidan vs machine coder1 on n={summary['n_sample']}: "
-        f"{p:.0%} agreement. Keyword dual-code is the method; this is the independent check."
+        f"Machine coder1 vs coder2 on n={summary['n_sample']}: {mm:.0%}. "
+        f"The 8-way does not stabilize even without a human. "
+        f"Aidan vs coder1 is {p:.0%} (below 70%)."
     )
     OUT.write_text(json.dumps(summary, indent=2))
     print(json.dumps({k: summary[k] for k in summary if k != "confusion_coder1_rows_aidan_cols"}, indent=2))
