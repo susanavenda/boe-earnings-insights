@@ -5,12 +5,12 @@ Independent of the machine dual-code. Stage 7 scores whether keyword tagging hol
 | File | Owner | What it is |
 |---|---|---|
 | [`m2a_aidan_labels.csv`](m2a_aidan_labels.csv) | Aidan | 60-pair 8-way labels from reading Q&A. `aidan_pair` is the filing. `aidan_q` / `aidan_a` are the two sides. Machine columns were **not** visible while coding. |
-| [`sample_60_for_coding.md`](sample_60_for_coding.md) | — | The pack Aidan coded (no machine categories). |
-| [`sample_60_machine_key.csv`](sample_60_machine_key.csv) | machine | Hidden key for agreement only. |
-| [`topic_interpretation.md`](topic_interpretation.md) | Debanjan, Alfred, Dan | BERTopic clusters named from real turns; two independent 8-way maps; disagreements on Topics 0 and 3 recorded. |
+| [`sample_60_for_coding.md`](sample_60_for_coding.md) | **Susana** (export) · **Aidan** (codes) | The pack Aidan coded (no machine categories). |
+| [`sample_60_machine_key.csv`](sample_60_machine_key.csv) | machine (Susana export) | Hidden key for agreement only. |
+| [`topic_interpretation.md`](topic_interpretation.md) | Debanjan, Alfred | BERTopic clusters named from real turns; two independent 8-way maps; disagreements on Topics 0 and 3 recorded. |
 | [`rafael_metric_briefs.md`](rafael_metric_briefs.md) | Rafael | Extractive four-metric briefs. Replaces DistilBART prompt-echo as the A2 quote surface. |
-| [`topic_examples.md`](topic_examples.md) | — | Four raw turns per topic. |
-| `_raw/` | export | Full sqlite dump used to build the sample. Not a deliverable. |
+| [`topic_examples.md`](topic_examples.md) | **Debanjan** | Four raw turns per topic. |
+| `_raw/` | **Susana** (export) | Full sqlite dump used to build the sample. Not a deliverable. |
 
 ## How Aidan coded (so the check stays independent)
 
@@ -26,4 +26,6 @@ Independent of the machine dual-code. Stage 7 scores whether keyword tagging hol
 python scripts/score_m2a_human.py
 ```
 
-Writes `docs/assignment2/human_labels/m2a_agreement.json` and prints machine `coder1` vs `aidan_pair`. That is the Stage 7 number. It is **not** a PRA rating of either bank.
+Writes `docs/assignment2/human_labels/m2a_agreement.json`.
+
+**Headline (say this before the 50%):** machine `coder1` vs `coder2` = **35%** on n=60. Aidan vs coder1 = 50% (below 70%). Confusion is clustered (costs↔earnings↔franchise; credit↔IRRBB), not uniform — see `topic_interpretation.md`. It is **not** a PRA rating of either bank.

@@ -84,7 +84,7 @@
 <body>
 
 <section class="slide">
-  <div class="kicker">Group 9 · Bank of England PRA · Assignment 2 · 15 minutes</div>
+  <div class="kicker">Group 9 · Bank of England PRA · Assignment 2 · 15 minutes · Speaks: Taz</div>
   <h1>Supervisory earnings pipeline</h1>
   <div class="callout">
     <div class="t">Sell line</div>
@@ -101,7 +101,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Background · 0:30–2:00</div>
+  <div class="kicker">Background · 0:30–2:00 · Speaks: Taz</div>
   <h2>PRA already sees the packs. Q&amp;A is the gap.</h2>
   <div class="cols">
     <div>
@@ -123,7 +123,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Background · 2:00–3:00</div>
+  <div class="kicker">Background · 2:00–3:00 · Speaks: Taz</div>
   <h2>Locked scope so the episode story stays tight</h2>
   <table>
     <tr><th style="width:50%">In</th><th>Out</th></tr>
@@ -138,17 +138,17 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 3:00–4:30</div>
+  <div class="kicker">Approach · 3:00–4:30 · Speaks: Susana</div>
   <h2>Repeatable chain: files in, pack out</h2>
   <table>
-    <tr><th style="width:18%">Step</th><th>What happens</th><th style="width:16%">Who</th></tr>
-    <tr><td>1 Ingest</td><td>IR PDFs + Excel under data/raw and data/structured</td><td>Auto</td></tr>
-    <tr><td>2 Prepare</td><td>pdfplumber → speaker regex → analyst Q&amp;A pairs</td><td>Auto</td></tr>
-    <tr><td>3 Model</td><td>Seeded topics then BERTopic; FinBERT Q vs A; LDSA check</td><td>Auto</td></tr>
-    <tr><td>4 Evaluate</td><td>Temporal shift · matched peer · struct ↔ Q&amp;A, all with n</td><td>Auto</td></tr>
-    <tr><td>5 Decide</td><td>Rules → alert / watch / null (not a firm rating)</td><td>Rules</td></tr>
-    <tr><td>6 Publish</td><td>PRA one-pager + desk.sqlite for the supervisor surface</td><td>Auto</td></tr>
-    <tr><td>Recalibrate</td><td>Promote a new FinBERT head only if hold-out does not regress</td><td>Gated human</td></tr>
+    <tr><th style="width:16%">Step</th><th>What happens</th><th style="width:22%">Owner</th></tr>
+    <tr><td>1 Ingest</td><td>IR PDFs + Excel under data/raw and data/structured</td><td>Susana</td></tr>
+    <tr><td>2 Prepare</td><td>pdfplumber → speaker regex → analyst Q&amp;A pairs</td><td>Susana</td></tr>
+    <tr><td>3 Model</td><td>BERTopic; FinBERT Q vs A; LDSA; M6 behaviour; eight-way</td><td>Debanjan · Alfred · Bupathi · Aidan</td></tr>
+    <tr><td>4 Evaluate</td><td>Temporal shift · matched peer · struct ↔ Q&amp;A, all with n</td><td>Susana · Aidan (human check)</td></tr>
+    <tr><td>5 Decide</td><td>Rules → alert / watch / null (not a firm rating)</td><td>Aidan · Bupathi (M6)</td></tr>
+    <tr><td>6 Publish</td><td>PRA one-pager + desk.sqlite for the supervisor surface</td><td>Rafael · Susana</td></tr>
+    <tr><td>Recalibrate</td><td>Promote a new FinBERT head only if hold-out does not regress</td><td>Alfred · Taz (QA)</td></tr>
   </table>
   <div class="callout">
     <div class="t">Next-quarter cost</div>
@@ -158,7 +158,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 4:30–5:30 · data preparation</div>
+  <div class="kicker">Approach · 4:30–5:30 · data preparation · Speaks: Susana</div>
   <h2>Messy transcript text, not Kaggle defaults</h2>
   <table>
     <tr><th style="width:14%">Stage</th><th>What we did</th><th>Why it fits this data</th></tr>
@@ -173,16 +173,17 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 5:30–6:45 · method choice</div>
+  <div class="kicker">Approach · 5:30–6:45 · method choice · Speaks: Debanjan · Alfred · Bupathi</div>
   <h2>Fit the domain, then justify</h2>
   <table>
-    <tr><th style="width:28%">Choice</th><th>Why it fits earnings Q&amp;A</th><th>Rejected alternative</th></tr>
-    <tr><td>Seeded taxonomy then BERTopic</td><td>Themes emerge from analyst language; seed keeps M7 eight categories comparable</td><td>Force a fixed taxonomy on day one</td></tr>
-    <tr><td>LDA + c_v</td><td>Independent sanity check on clusters</td><td>Trust one topic model</td></tr>
-    <tr><td>FinBERT on Q and A separately</td><td>Finance-domain prior; Q vs A is the leading-signal unit</td><td>One score on the whole turn</td></tr>
-    <tr><td>LDSA lexicon</td><td>Cross-check when transformers over-neutralise hedges</td><td>Treat FinBERT neutrality as ground truth</td></tr>
-    <tr><td>M6 behaviour scores</td><td>Directness, metric coverage, substitution — Avoidance is behaviour</td><td>A fourth FinBERT class called Avoidance</td></tr>
-    <tr><td>Rules protocol</td><td>Supervisors need a reproducible verdict with evidence IDs</td><td>Opaque score or LLM chatbot</td></tr>
+    <tr><th style="width:24%">Choice</th><th>Why it fits earnings Q&amp;A</th><th style="width:16%">Owner</th></tr>
+    <tr><td>Seeded taxonomy then BERTopic</td><td>Themes emerge from analyst language; seed keeps M7 eight categories comparable</td><td>Debanjan</td></tr>
+    <tr><td>LDA + c_v</td><td>Independent sanity check on clusters</td><td>Debanjan</td></tr>
+    <tr><td>FinBERT on Q and A separately</td><td>Finance-domain prior; Q vs A is the leading-signal unit</td><td>Alfred</td></tr>
+    <tr><td>LDSA lexicon</td><td>Cross-check when transformers over-neutralise hedges</td><td>Alfred</td></tr>
+    <tr><td>M6 behaviour scores</td><td>Directness, metric coverage, substitution — Avoidance is behaviour</td><td>Bupathi</td></tr>
+    <tr><td>Extractive briefs</td><td>Four-metric quotes a supervisor can check</td><td>Rafael</td></tr>
+    <tr><td>Rules protocol</td><td>Supervisors need a reproducible verdict with evidence IDs</td><td>Aidan</td></tr>
   </table>
   <div class="callout">
     <div class="t">Fine-tune policy</div>
@@ -192,7 +193,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 6:45–8:15 · evaluation</div>
+  <div class="kicker">Approach · 6:45–8:15 · evaluation · Speaks: Aidan · Alfred</div>
   <h2>Honest bars — do not pitch 70%</h2>
   <h3>Label agreement (accuracy, percent)</h3>
   <svg class="chart" viewBox="0 0 900 210" role="img" aria-label="Accuracy percent for four comparisons versus 70 percent target">
@@ -237,7 +238,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 8:15–9:45 · episode proof</div>
+  <div class="kicker">Approach · 8:15–9:45 · episode proof · Speaks: Rafael · Bupathi</div>
   <h2>HSBC 2025-interim is WATCH, not a rating</h2>
   <div class="stats">
     <div class="stat danger"><div class="v">−0.13</div><div class="l">FinBERT net</div></div>
@@ -284,7 +285,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Approach · 9:45–11:45 · walkthrough</div>
+  <div class="kicker">Approach · 9:45–11:45 · walkthrough · Speaks: Susana</div>
   <h2>Product first, then factory — two minutes</h2>
   <div class="cols">
     <div>
@@ -318,7 +319,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Close · 11:45–12:45</div>
+  <div class="kicker">Close · 11:45–12:45 · Speaks: Rafael · Taz</div>
   <h2>What we can stand behind</h2>
   <table>
     <tr><th>Finding</th><th>Evidence</th><th>Do not claim</th></tr>
@@ -332,7 +333,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Close · 12:45–13:45 · integration</div>
+  <div class="kicker">Close · 12:45–13:45 · integration · Speaks: Taz</div>
   <h2>Workflow fit — and what will block it</h2>
   <div class="cols">
     <div>
@@ -352,7 +353,7 @@
 </section>
 
 <section class="slide">
-  <div class="kicker">Close · 13:45–15:00</div>
+  <div class="kicker">Close · 13:45–15:00 · Speaks: Taz</div>
   <h2>Ask, then sit down</h2>
   <div class="cols">
     <div class="callout info">

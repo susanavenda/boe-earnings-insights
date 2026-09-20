@@ -9,13 +9,13 @@
 
 **WATCH — soft Q&A tone but narrative broadly agrees with pack directions**
 
-HSBC 2025-interim (H1): FinBERT net -0.13; Topic 1=0 turns; peer on 2025-H1: HSBC=-0.126 (n=8) vs Barclays=0.000 (n=6); gap=-0.126 — Matched 2025-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=-0.126, n=8, non-neut=25%; Barclays net=0.000, n=6, non-neut=0%). Gap -0.126 is not treated as an A2 alert.
+HSBC 2025-interim (H1): FinBERT net -0.13; Topic 1=3 turns; peer on 2025-H1: HSBC=-0.126 (n=8) vs Barclays=0.000 (n=6); gap=-0.126 — Matched 2025-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=-0.126, n=8, non-neut=25%; Barclays net=0.000, n=6, non-neut=0%). Gap -0.126 is not treated as an A2 alert.
 
 | KPI | Value |
 |---|---|
 | Analyst turns | 8 |
 | FinBERT net | -0.126 |
-| Topic 1 turns / neg share | 0 / 0% |
+| Topic 1 turns / neg share | 3 / 67% |
 | Peer sides (matched) | HSBC -0.126 (n=8, non-neut 25%) · Barclays 0.000 (n=6, non-neut 0%) |
 | Peer gap (HSBC − Barclays) | -0.126 · **not used for A2** |
 | Rules fired | A3 |
@@ -76,13 +76,13 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 **WATCH — soft Q&A tone but narrative broadly agrees with pack directions**
 
-Barclays 2026-q2 (H1): FinBERT net -0.11; Topic 1=0 turns; peer on 2026-H1: HSBC=-0.029 (n=19) vs Barclays=-0.107 (n=7); gap=0.079
+Barclays 2026-q2 (H1): FinBERT net -0.11; Topic 1=1 turns; peer on 2026-H1: HSBC=-0.029 (n=19) vs Barclays=-0.107 (n=7); gap=0.079
 
 | KPI | Value |
 |---|---|
 | Analyst turns | 7 |
 | FinBERT net | -0.107 |
-| Topic 1 turns / neg share | 0 / 0% |
+| Topic 1 turns / neg share | 1 / 0% |
 | Peer sides (matched) | HSBC -0.029 (n=19, non-neut 5%) · Barclays -0.107 (n=7, non-neut 14%) |
 | Peer gap (HSBC − Barclays) | 0.079 |
 | Rules fired | A3 |
