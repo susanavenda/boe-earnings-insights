@@ -1,0 +1,31 @@
+{
+  "n": 60,
+  "seed": 42,
+  "pool_size": 618,
+  "excluded": {
+    "empty_answer": 91,
+    "bleed_split": 260,
+    "short_question": 32
+  },
+  "strata_target": {
+    "negative": 20,
+    "positive": 20,
+    "neutral": 20
+  },
+  "strata_actual": {
+    "negative": 20,
+    "neutral": 20,
+    "positive": 20
+  },
+  "by_bank": {
+    "barclays": 30,
+    "hsbc": 30
+  },
+  "by_period_bucket": {
+    "2020-23": 27,
+    "2024+": 18,
+    "pre-2020": 15
+  },
+  "episode_pairs": 5,
+  "note": "Stratified on the machine answer stance (union of FinBERT turn + sentence labels) so negatives/positives are not starved; excludes empty answers, bleed_split pairs and very short turns. Coder sees Q and A only."
+}

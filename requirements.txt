@@ -27,3 +27,4 @@ tf-keras>=2.17
 datasets>=2.14
 accelerate>=0.26
 evaluate>=0.4
+pysentiment2>=0.2   # bundles the Loughran–McDonald master dictionary (scripts/sentiment.py)

@@ -99,11 +99,12 @@ One left→right diagram (big boxes, few words):
 
 #### Slide 7 — Evaluation, fine-tune, verification (90s) ← rubric · **Aidan** (8-way) · **Alfred** (FinBERT / FT)
 - **Baselines:** temporal shift · matched peer gap · structured vs unstructured direction  
-- **Hand sample:** 50-row review queue; 20 flagged reviewed — FinBERT **75% acc / 0.61 macro-F1** vs sample gold  
+- **Hand sample:** M4 sentiment gold = the 60-pair pack in `human_labels/sentiment_60_for_coding.md` (Q and A separately, machine hidden). Quote `sentiment_agreement.json` once two coders have filled it — **do not** quote the old "75% / 0.61": that figure is not reproducible from any file, and the 50-row queue's `gold_label` was copied from FinBERT. If uncoded on the day: "no human sentiment accuracy claimed yet; FinBERT stays zero-shot."  
+- **Scoring unit (Alfred):** FinBERT is sentence-trained; whole-turn scoring at 512 tokens prints ~80% Neutral. Sentence-level scoring recovers direction on the same model (turn-level columns kept for Stage 6/8). LDSA is now the Loughran–McDonald dictionary with a hedging index (uncertainty + constraining).  
 - **8-way eval:** machine coder1 vs coder2 **35%** (headline) · human dual-code vs coder1 **50%** (below 70%) — method, not category law  
-- **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day
+- **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day  
 - **Not on this slide:** Stage 10.2 Yahoo press is **filtered** to own-results headlines (bank as subject + earnings/results/profit/quarter). Live n is usually ~0 — that is the finding, not a 0.04 gap on Netflix downgrades. Do not quote an unfiltered press-vs-Q&A number.  
-- **FT:** silver + reviewed labels; candidate model, **promote only** if macro-F1 gate passes (do not promote on current silver)  
+- **FT:** silver labels train; human gold is **held out** and is the only gate (n ≥ 40 and macro-F1 ≥ zero-shot + 0.05). Silver-dev gains are circular (silver is built from FinBERT + LDSA) — `active_model_id` stays null until the human set passes  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
 **Say:** “The two keyword coders agree 35%. That is why eight-way is a filing method, not a law — and why we gate peer ALERT when Barclays is all-neutral.”
