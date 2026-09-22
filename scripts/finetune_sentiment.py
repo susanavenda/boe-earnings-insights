@@ -213,7 +213,7 @@ def main(argv=None):
     torch.manual_seed(42)
     device = torch.device(args.device or ("cuda" if torch.cuda.is_available() else "cpu"))
     use_cpu = device.type == "cpu"
-    configure(memory=False, path=ROOT / "data" / "boe.sqlite")
+    configure(memory=False)  # honours BOE_DB (default data/boe.sqlite)
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
     if not has_df("corpus_analyst"):

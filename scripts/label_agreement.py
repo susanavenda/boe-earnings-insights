@@ -169,7 +169,7 @@ def agreement_block(y_true, y_pred, name: str) -> dict:
 
 
 def main() -> None:
-    configure(memory=False, path=ROOT / "data" / "boe.sqlite", auto_flush=True)
+    configure(memory=False)  # honours BOE_DB (default data/boe.sqlite)
     if not has_df("sentiment_labels"):
         raise SystemExit("Run finetune/label build first — sentiment_labels missing")
 
