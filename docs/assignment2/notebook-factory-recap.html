@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>BoE earnings pipeline — notebook recap · Group 9</title>
+<style>
+  @page { size: A4; margin: 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 820px; padding: 24px 20px 48px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 14pt; line-height: 1.35;
+    color: #0b1f33; background: #fff;
+  }
+  .hint {
+    background: #eef4f8; border: 1px solid #d9e2ec; padding: 12px 14px; margin-bottom: 20px;
+    font-size: 12pt; color: #1a3d5c;
+  }
+  @media print { .hint { display: none; } body { max-width: none; padding: 0; } }
+  h1 { font-size: 22pt; margin: 0 0 8px; }
+  h2 { font-size: 16pt; margin: 22px 0 8px; border-bottom: 2px solid #c4a35a; padding-bottom: 4px; }
+  h3 { font-size: 14pt; margin: 14px 0 6px; color: #1a3d5c; }
+  p, li { margin: 0 0 8px; }
+  .muted { color: #486581; font-size: 12pt; }
+  .pills span {
+    display: inline-block; border: 1px solid #d9e2ec; padding: 2px 8px; margin: 0 6px 8px 0;
+    font-size: 11pt; color: #486581;
+  }
+  .stats { display: flex; gap: 10px; margin: 12px 0; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 140px; background: #f4f7fa; border: 1px solid #d9e2ec; padding: 10px; text-align: center; }
+  .stat .v { font-size: 20pt; font-weight: 700; }
+  .stat .l { font-size: 11pt; color: #486581; margin-top: 4px; }
+  .stat.warn .v { color: #6b4e12; }
+  .stat.danger .v { color: #7a1f12; }
+  .callout { border-left: 6px solid #c4a35a; background: #fff8eb; padding: 10px 12px; margin: 12px 0; }
+  .callout.info { background: #eef4f8; border-left-color: #1a3d5c; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; }
+  th, td { border: 1px solid #d9e2ec; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+  th { background: #0b1f33; color: #fff; }
+  tr:nth-child(even) td { background: #f7f9fb; }
+  svg.chart { width: 100%; max-height: 220px; }
+  details { border: 1px solid #d9e2ec; padding: 8px 10px; margin: 6px 0; }
+  details[open] { background: #f7f9fb; }
+  summary { font-weight: 700; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="hint">
+  Export of the Cursor canvas <strong>notebook-factory-recap</strong>.
+  To PDF: File → Print → Destination <strong>Save as PDF</strong> → Portrait → upload to Google Drive.
+</div>
+
+<p class="pills">
+  <span>Factory notebook</span>
+  <span>notebooks/boe_earnings_insights.ipynb</span>
+  <span>Live: extra-year IR 2006–2026</span>
+</p>
+<h1>BoE earnings pipeline — notebook recap</h1>
+<p>Group 9 factory: IR PDFs + Excel in, versioned alert / watch / null pack out. Live Stage 1.5: <strong>137 transcripts + 114 packs, 1,002 pairs</strong>. The desk at localhost:8501 is the output surface, not a second model.</p>
+
+<div class="callout">
+  <strong>Proof episode — HSBC 2025-interim (H1).</strong>
+  Verdict WATCH (rule A3). FinBERT net −0.126 on n=8. Packs agree on the four lines. Matched Barclays H1 is 100% FinBERT-neutral (n=6), so the −0.13 peer gap is not A2-eligible. Null is allowed. This is a protocol output, not a PRA rating of HSBC.
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="v">137 + 114</div><div class="l">PDFs + Excel packs (A1 plan 20)</div></div>
+  <div class="stat"><div class="v">3,218 / 1,002</div><div class="l">Speaker turns / analyst Q&amp;A pairs</div></div>
+  <div class="stat warn"><div class="v">WATCH</div><div class="l">HSBC H1 2025 · rule A3</div></div>
+  <div class="stat danger"><div class="v">35%</div><div class="l">Machine coder1 vs coder2 (n=60)</div></div>
+</div>
+<p class="muted">Source: live Stage 1.5 / 7.0 · 91 empty bleed-split answers · 71 pairs with blank inherited date · 119/137 transcripts dated · extra years are Hunter-prompted, not silent scope creep.</p>
+
+<h2>What the notebook is for</h2>
+<p>PRA question: can NLP pull topic, sentiment and summary signals from G-SIB earnings Q&amp;A that a supervisor can use as an assessment method? Group 9 question: does Q&amp;A carry a leading signal the four reported lines miss? Success is a reproducible method, including a well-supported null — never a conclusion about either firm’s prudential condition.</p>
+<table>
+  <tr><th>Locked in</th><th>Locked out</th></tr>
+  <tr><td>HSBC + Barclays, public IR + packs</td><td>Non-public returns, audio, forecasting, extra banks</td></tr>
+  <tr><td>Four lines: income, costs, ECL/impairment, CET1</td><td>RoTE, CIR, NPL, LCR in the Stage 2 seed</td></tr>
+  <tr><td>Sentiment Positive / Negative / Neutral</td><td>Avoidance as a FinBERT class (that is M6 behaviour)</td></tr>
+  <tr><td>Alert / watch / null as protocol</td><td>A PRA risk rating of either firm</td></tr>
+</table>
+
+<h2>Pipeline (Stages 0–10)</h2>
+<table>
+  <tr><th>Stage</th><th>Does</th><th>Owner</th><th>Live result</th></tr>
+  <tr><td>0 Setup</td><td>venv, sqlite store, helpers</td><td>Susana</td><td>In-memory + flush to boe.sqlite; ParametricUMAP stubbed</td></tr>
+  <tr><td>1 Evidence</td><td>PDFs → speakers → analyst corpus → Q&amp;A pairs</td><td>Susana</td><td>3,218 turns · 1,002 pairs · 137 PDFs + 114 packs</td></tr>
+  <tr><td>2 Topics</td><td>4-line seed, then BERTopic + LDA</td><td>Debanjan</td><td>6 named clusters + residual −1 (working-sample n)</td></tr>
+  <tr><td>3 Sentiment</td><td>FinBERT Q vs A · LDSA · M6 · 8-way map</td><td>Alfred · Bupathi · Aidan</td><td>Heavy Q-neutral on hedges · M6 sub ~5% · 8-way 35%</td></tr>
+  <tr><td>3.4 FT</td><td>Light FinBERT adapt, gated</td><td>Alfred</td><td>Hold-out F1 up; full silver worse — not promoted</td></tr>
+  <tr><td>4 Briefs</td><td>Four-metric summaries</td><td>Rafael</td><td>Extractive briefs are A2 evidence; DistilBART is polish</td></tr>
+  <tr><td>5 Refine</td><td>Clusters that matter for A2</td><td>Debanjan</td><td>Do not treat residual −1 as a theme</td></tr>
+  <tr><td>6 Views</td><td>Temporal · peer · struct↔Q&amp;A</td><td>Susana</td><td>calendar_period() · 2025-H1 gap −0.126 not A2-usable</td></tr>
+  <tr><td>7 Status</td><td>A1 objectives + live O1 counts</td><td>Taz · Susana</td><td>Method yes · 8-way eval open (below 70%)</td></tr>
+  <tr><td>8 Protocol</td><td>Alert / watch / null on one print</td><td>Aidan · Bupathi</td><td>HSBC H1 WATCH (A3) · Barclays 2026-H1 also WATCH</td></tr>
+  <tr><td>9 Publish</td><td>PRA note + desk.sqlite</td><td>Rafael · Susana</td><td>Demo reads desk.sqlite · re-run 45–90 min</td></tr>
+  <tr><td>10 Extra</td><td>Synthetic desk log · Yahoo press filter</td><td>Susana (Hunter extra)</td><td>Press: 0 of 20 kept</td></tr>
+</table>
+
+<h2>BERTopic clusters (human names, not top-words)</h2>
+<p class="muted">Source: docs/assignment2/human_labels/topic_interpretation.md. Names from Debanjan/Alfred dual-read on the working sample. Extra-year ingest changes cluster sizes on refit — always quote n from the live notebook, not this chart.</p>
+<svg class="chart" viewBox="0 0 640 240" role="img" aria-label="Analyst turns per cluster on the working sample">
+  <text x="8" y="16" font-size="12" fill="#486581" font-family="Arial">Turns (working sample)</text>
+  <rect x="160" y="28" width="416" height="18" fill="#1a3d5c"/><text x="154" y="42" text-anchor="end" font-size="11" font-family="Arial">−1 residual 104</text>
+  <rect x="160" y="54" width="92" height="18" fill="#1a3d5c"/><text x="154" y="68" text-anchor="end" font-size="11" font-family="Arial">0 hedge/NII 23</text>
+  <rect x="160" y="80" width="48" height="18" fill="#1a3d5c"/><text x="154" y="94" text-anchor="end" font-size="11" font-family="Arial">1 costs 12</text>
+  <rect x="160" y="106" width="44" height="18" fill="#1a3d5c"/><text x="154" y="120" text-anchor="end" font-size="11" font-family="Arial">2 lending 11</text>
+  <rect x="160" y="132" width="44" height="18" fill="#1a3d5c"/><text x="154" y="146" text-anchor="end" font-size="11" font-family="Arial">3 wealth 11</text>
+  <rect x="160" y="158" width="44" height="18" fill="#1a3d5c"/><text x="154" y="172" text-anchor="end" font-size="11" font-family="Arial">4 ECL/CRE 11</text>
+  <rect x="160" y="184" width="36" height="18" fill="#1a3d5c"/><text x="154" y="198" text-anchor="end" font-size="11" font-family="Arial">5 capital 9</text>
+</svg>
+<table>
+  <tr><th>Topic</th><th>n</th><th>Debanjan 8-way</th><th>Alfred 8-way</th><th>Resolved</th></tr>
+  <tr><td>−1 residual</td><td>104</td><td>untagged</td><td>untagged</td><td>untagged — do not force a law</td></tr>
+  <tr><td>0 hedge / NII</td><td>23</td><td>earnings</td><td>IRRBB / traded</td><td>earnings (keep IRRBB dissent)</td></tr>
+  <tr><td>1 costs</td><td>12</td><td>efficiency</td><td>efficiency</td><td>efficiency — cleanest cluster</td></tr>
+  <tr><td>2 lending / IB</td><td>11</td><td>earnings</td><td>earnings</td><td>earnings</td></tr>
+  <tr><td>3 wealth / fees</td><td>11</td><td>earnings</td><td>franchise</td><td>earnings (franchise overlay)</td></tr>
+  <tr><td>4 ECL / CRE</td><td>11</td><td>credit</td><td>credit</td><td>credit</td></tr>
+  <tr><td>5 CET1 / RWA</td><td>9</td><td>capital</td><td>capital</td><td>capital</td></tr>
+</table>
+
+<h2>Honest evaluation (say once)</h2>
+<div class="stats">
+  <div class="stat danger"><div class="v">35%</div><div class="l">Machine coder1 vs coder2 — headline</div></div>
+  <div class="stat warn"><div class="v">75%</div><div class="l">FinBERT vs hand gold n=20 (macro-F1 0.61)</div></div>
+</div>
+<p>Q-side keywords vs A-side keywords, no human. The taxonomy does not stabilize even as a machine dual-code. Keep it as a method, not a category law. 70% bar not met. Aidan vs coder1 is 50%. Confusion clusters on costs↔earnings↔franchise and credit↔IRRBB.</p>
+<p>Hedged bank Q&amp;A scores heavily Neutral — that is why peer ALERT is gated when one side is 100% FinBERT-flat (Barclays H1). Light FT: hold-out macro-F1 0.433 → 0.642 (n=30) but full silver accuracy 55% vs zero-shot 62%. Do not promote.</p>
+
+<h2>Stage-by-stage</h2>
+<details open>
+  <summary>1 Evidence — Susana · 3,218 turns · 1,002 pairs</summary>
+  <p>pdfplumber extract, bank-specific speaker regex, analyst-only modelling corpus. Manifest 251 rows (137 PDFs + 114 packs). Extra years 2006–2026 are Hunter-prompted versus the A1 plan of 20 transcripts — disclose, not unnoticed scope creep.</p>
+  <p>Disclose, not a pre-pitch fix: 91 empty answers after Barclays bleed-split; 71 pairs with blank inherited date (119/137 transcripts dated). LCR/NSFR stay out of the four-line seed.</p>
+</details>
+<details>
+  <summary>2 Topics — Debanjan (Alfred maps 8-way)</summary>
+  <p>Deterministic four-bucket seed is the M4 fallback if clusters are unstable. BERTopic names come from reading Q&amp;A, not top-words. LDA is an independent sanity check. Never treat residual −1 as a theme.</p>
+</details>
+<details>
+  <summary>3 Sentiment + behaviour + 8-way — Alfred, Bupathi, Aidan</summary>
+  <p>FinBERT scores question and answer separately. LDSA is the lexicon cross-check. M6 scores directness, metric coverage and substitution; high substitution is a WATCH input, not a FinBERT class called Avoidance. Optional Stage 3.1c Gemini vs FinBERT on 20 rows was 35% — skip without a key; do not recode gold.</p>
+</details>
+<details>
+  <summary>4–5 Briefs and refinement — Rafael, Debanjan</summary>
+  <p>DistilBART prompt-echo is not evidence. Rafael’s extractive briefs on income, costs, ECL and CET1 are the A2 quote surface.</p>
+</details>
+<details open>
+  <summary>6 Three views — Susana · calendar_period() wired</summary>
+  <p>Temporal shift, matched peer (HSBC interim ↔ Barclays q2 as H1 via scripts/periods.py), and structured vs Q&amp;A on the four lines. Missing bank → no gap (never zero). If either side is 100% FinBERT-neutral, peer ALERT cannot fire. 2025-H1 gap −0.126 is that case.</p>
+</details>
+<details>
+  <summary>7–9 Status, protocol, publish</summary>
+  <p>Stage 8 packs HSBC H1 as WATCH (A3). Stage 9 writes the PRA one-pager and the product subset the demo reads. Re-run 45–90 minutes. Stage 0 stubs unused ParametricUMAP so a protobuf mismatch cannot kill a fresh kernel.</p>
+</details>
+<details open>
+  <summary>10.2 Yahoo press — filtered, not a signal · 0 of 20 kept</summary>
+  <p>yfinance ticker news is mentions, not own-results coverage. Stage 10.2 keeps a headline only if the bank is the subject and the title has earnings / results / profit / quarter / interim. Live fetch: 20 headlines, 0 kept (Netflix downgrades, TSEM upside, M&amp;T earnings). Do not quote the unfiltered 0.04 gap. Same posture as the synthetic desk log: built, tried, honestly caveated.</p>
+</details>
+
+<h2>Who owns what</h2>
+<table>
+  <tr><th>Person</th><th>Factory</th><th>A2 speaking beat</th></tr>
+  <tr><td>Taz</td><td>Coordinator · editor/QA · A1 status</td><td>Slides 1–3, 11–12</td></tr>
+  <tr><td>Susana</td><td>Pipeline · notebook · desk sqlite</td><td>Slides 4–5, 9</td></tr>
+  <tr><td>Debanjan</td><td>BERTopic · LDA · cluster names</td><td>Slide 6 topics</td></tr>
+  <tr><td>Alfred (Qianyi)</td><td>FinBERT · LDSA · FT gate</td><td>Slide 6 sentiment, 7 FinBERT</td></tr>
+  <tr><td>Bupathi</td><td>M6 behaviour</td><td>Slide 6 M6, 8 protocol</td></tr>
+  <tr><td>Rafael</td><td>Extractive briefs · PRA note</td><td>Slides 8, 10</td></tr>
+  <tr><td>Aidan</td><td>M2a eight-way · rules · human dual-code</td><td>Slide 7 8-way</td></tr>
+</table>
+
+<div class="callout info">
+  <strong>How to use this notebook in the pitch.</strong>
+  Do not linear-read it. Point at Stage 1 (corpus), 3.1b (Q vs A), 6 (three views with n), 8 (WATCH). Then open the desk: Episodes → Evidence → Peer &amp; protocol → PRA download. Line: we do not invent a peer ALERT from a flat-neutral Barclays print.
+</div>
+<p class="muted">Recap of notebooks/boe_earnings_insights.ipynb live Stage 1.5 / 10.2, 23 Sep 2026. After BERTopic refit, topic ids can move — always quote n.</p>
+</body>
+</html>
