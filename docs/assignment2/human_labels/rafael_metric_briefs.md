@@ -66,7 +66,7 @@ $0.4bn fraud — one-off or a step-up in charges? Downside-scenario weight now 4
 US-consumer capital timing pushed out — distribute more in 2025 or run at the top of 13–14% (Pillar 2A uptick)? **Answer does not address CET1** (GM cards) — parser mismatch; do not quote the A as a capital finding.
 
 **HSBC 2025-interim — Katherine Lei (`hsbc_2025-interim_008`)**  
-If BoCom is impaired further, what threshold hits CET1, buyback and EPS? Second: $0.6bn restructuring vs DPS. Management answer on the call leads on tokenised deposits/KYC — capital quantum is **not** in the captured A; flag as unanswered in this pair.
+If BoCom is impaired further, what threshold hits CET1, buyback and EPS? Second: $0.6bn restructuring vs DPS. Management says the threshold deductions have **$14bn** of headroom against a **$13bn** market value and that impairment to market value would have **no material CET1 impact**. The answer also discusses tokenised deposits/KYC; quote only the capital portion for this metric.
 
 **HSBC 2024-annual — Andy Coombs (`hsbc_2024-annual_006`)**  
 $2bn buyback is the two-month window to April, reviewed each quarter; no pre-commitment. Not a CET1 ratio print, but it is the distribution/capital-return ask.
