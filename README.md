@@ -129,6 +129,8 @@ pip install -r requirements.txt
 
 Open `notebooks/boe_earnings_insights.ipynb` and run from Stage 0.
 
+**Config is env vars, not a `config.yaml`.** Factory root is resolved by `_locate_root()` (cwd, parent, `BOE_ROOT` / `COLAB_ROOT`, Colab clone/Drive). Override the database with `BOE_DB`. Optional: `BOE_EXPORT_CSV=1`, `BOE_GEMINI_MODEL`, `BOE_LLM_PROVIDER`. API keys stay in a gitignored `.env` or the process environment.
+
 **Data store:** notebook keeps an **in-memory SQLite** working set that auto-flushes to
 **`data/boe.sqlite`** (shared with Pipeline scripts).  
 **Inputs** are files only (`data/raw/transcripts/`, `data/structured/`, hand-label CSV).  

@@ -18,6 +18,9 @@ pypdf==6.14.2
 pdfplumber>=0.11
 openpyxl>=3.1
 pyarrow>=14
+# Torch is the scorer stack. Do not add tensorflow: umap's unused ParametricUMAP
+# imports it and can raise a protobuf VersionError on a fresh kernel.
+# Stage 0 stubs umap.parametric_umap before importing bertopic.
 tf-keras>=2.17
 datasets>=2.14
 accelerate>=0.26
