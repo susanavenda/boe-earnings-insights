@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-"""Post-earnings press coverage as a supplementary signal (Hunter's suggestion).
+"""Attempted press-coverage cross-check (Hunter's suggestion).
 
-Scope: recent episode windows only (yfinance news is not a historical archive —
-it cannot backfill coverage for 2010, 2015, etc.). Extra source, disclosed as such.
+yfinance `.news` on a bank ticker is "news mentioning this name", not coverage
+of that bank's own earnings. Recency is a second limit (no 2006–2026 archive).
 Does not touch Stage 4 or the Q&A sentiment pipeline.
 
-Yahoo's feed is the *current* headlines for HSBA.L / BARC.L. Rows are tagged to
-the Stage 8/9 worked examples (HSBC 2025-H1, Barclays 2026-H1) so press tone can
-be compared with those episodes' FinBERT net — that tag is the comparison window,
-not a claim the article ran in that H1.
+Rows are tagged to the Stage 8/9 worked examples only as a *scope* label.
+Do not treat press_vs_qa as a real signal.
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -25,6 +24,47 @@ TICKERS = {"hsbc": "HSBA.L", "barclays": "BARC.L"}
 # Stage 8/9 worked-example windows — not a historical news archive.
 EPISODE_WINDOWS = {"hsbc": "2025-H1", "barclays": "2026-H1"}
 _SIGN = {"positive": 1.0, "negative": -1.0, "neutral": 0.0}
+BANK_ALIASES = {"hsbc": ("hsbc",), "barclays": ("barclays",)}
+# Hunter: earnings / results / profit / quarter; bank as subject, not merely mentioned.
+EARNINGS_TOKENS = ("earnings", "results", "profit", "quarter", "interim")
+ANALYST_ON_OTHER = (
+    r"\b(downgrade|upgrade|upside|price target|initiates coverage)\b",
+    r"\b(on|by|from)\s+(hsbc|barclays)\b",
+)
+
+
+def _bank_as_subject(title: str, aliases: tuple[str, ...]) -> bool:
+    """Bank name opens the headline (or follows Can/Will/...), not a later mention."""
+    t = title
+    for a in aliases:
+        if re.match(rf"^(the\s+)?{re.escape(a)}('s)?\b", t):
+            return True
+        if re.match(rf"^(can|will|does|did|has|have|why|how|what)\s+{re.escape(a)}('s)?\b", t):
+            return True
+    return False
+
+
+def flag_earnings_coverage(title: str, bank: str) -> bool:
+    """Bank is the subject of an earnings/results headline, not the analyst on another name."""
+    t = " ".join(str(title).lower().split())
+    aliases = BANK_ALIASES.get(str(bank).lower(), ())
+    if not t or not aliases:
+        return False
+    if not _bank_as_subject(t, aliases):
+        return False
+    earnings = any(re.search(rf"\b{re.escape(tok)}\b", t) for tok in EARNINGS_TOKENS)
+    if not earnings:
+        return False
+    if any(re.search(p, t) for p in ANALYST_ON_OTHER):
+        return False
+    return True
+
+
+def filter_earnings_relevant(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep only own-results headlines. Empty is a valid outcome — do not invent rows."""
+    if df is None or df.empty or "earnings_relevant" not in df.columns:
+        return pd.DataFrame()
+    return df.loc[df["earnings_relevant"].eq(True)].reset_index(drop=True)
 
 
 def _item_fields(it: dict) -> dict:
@@ -42,16 +82,19 @@ def _item_fields(it: dict) -> dict:
     return {"title": title, "publisher": publisher, "link": link, "published": published}
 
 
-def fetch_press(bank: str, max_items: int = 10) -> pd.DataFrame:
+def fetch_press(bank: str, max_items: int | None = None) -> pd.DataFrame:
+    """Raw ticker feed. Caller should `filter_earnings_relevant` before scoring."""
     import yfinance as yf
 
     bank = str(bank).lower()
     if bank not in TICKERS:
         raise KeyError(f"unknown bank {bank!r}; expected {list(TICKERS)}")
     t = yf.Ticker(TICKERS[bank])
-    items = t.news or []
+    items = list(t.news or [])
+    if max_items is not None:
+        items = items[:max_items]
     rows = []
-    for it in items[:max_items]:
+    for it in items:
         fields = _item_fields(it)
         if not fields["title"]:
             continue
@@ -65,6 +108,7 @@ def fetch_press(bank: str, max_items: int = 10) -> pd.DataFrame:
                 "link": fields["link"],
                 "published": fields["published"],
                 "source": "yfinance_news",
+                "earnings_relevant": flag_earnings_coverage(fields["title"], bank),
             }
         )
     return pd.DataFrame(rows)
@@ -102,10 +146,9 @@ def _with_period(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def compare_press_vs_qa(press_df: pd.DataFrame, corpus_df: pd.DataFrame) -> pd.DataFrame:
-    """Press net vs Q&A FinBERT net for the Stage 8/9 windows.
+    """Gap on *filtered* rows only. treat_as_signal is False unless n_relevant >= 3.
 
-    Same shape as Stage 6.2: one row per bank, gap is None if either side is
-    missing — never treat a missing side as zero.
+    Missing side is never zero. Small n after the keyword filter is expected.
     """
     press = press_df.copy() if press_df is not None else pd.DataFrame()
     corpus = _with_period(corpus_df) if corpus_df is not None else pd.DataFrame()
@@ -118,9 +161,11 @@ def compare_press_vs_qa(press_df: pd.DataFrame, corpus_df: pd.DataFrame) -> pd.D
     for bank, period in EPISODE_WINDOWS.items():
         p = press[press["bank"] == bank] if not press.empty and "bank" in press.columns else pd.DataFrame()
         n_press = int(len(p))
+        rel = p[p["earnings_relevant"].eq(True)] if n_press and "earnings_relevant" in p.columns else pd.DataFrame()
+        n_relevant = int(len(rel))
         press_net = (
-            float(p["press_net"].mean())
-            if n_press and "press_net" in p.columns
+            float(rel["press_net"].mean())
+            if n_relevant and "press_net" in rel.columns
             else None
         )
 
@@ -141,10 +186,12 @@ def compare_press_vs_qa(press_df: pd.DataFrame, corpus_df: pd.DataFrame) -> pd.D
                 "bank": bank,
                 "calendar_period": period,
                 "n_press": n_press,
+                "n_earnings_relevant": n_relevant,
                 "press_net": press_net,
                 "n_qa": n_qa,
                 "qa_finbert_net": qa_net,
                 "gap": gap,
+                "treat_as_signal": bool(n_relevant >= 3 and gap is not None),
             }
         )
     return pd.DataFrame(rows)
@@ -152,9 +199,14 @@ def compare_press_vs_qa(press_df: pd.DataFrame, corpus_df: pd.DataFrame) -> pd.D
 
 def main() -> None:
     frames = [fetch_press(b) for b in TICKERS]
-    combined = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
-    save_df("press_coverage_raw", combined)
-    print(f"Fetched {len(combined)} press items across {list(TICKERS)}")
+    raw = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    kept = filter_earnings_relevant(raw)
+    save_df("press_coverage_raw", raw)
+    save_df("press_coverage", kept)
+    print(
+        f"Fetched {len(raw)} ticker mentions; kept {len(kept)} earnings-relevant "
+        f"({list(TICKERS)}). Small n is expected."
+    )
 
 
 if __name__ == "__main__":
