@@ -1,31 +1,39 @@
 {
-  "n": 60,
+  "n": 90,
   "seed": 42,
-  "pool_size": 618,
+  "mode": "reuse_m2a_plus_topup",
+  "n_reused": 60,
+  "n_topup": 30,
+  "pool_size": 561,
   "excluded": {
     "empty_answer": 91,
     "bleed_split": 260,
     "short_question": 32
   },
   "strata_target": {
-    "negative": 20,
-    "positive": 20,
-    "neutral": 20
+    "negative": 25,
+    "positive": 5
   },
   "strata_actual": {
-    "negative": 20,
-    "neutral": 20,
-    "positive": 20
+    "positive": 33,
+    "negative": 30,
+    "neutral": 27
+  },
+  "strata_actual_core": {
+    "positive": 28,
+    "neutral": 27,
+    "negative": 5
   },
   "by_bank": {
-    "barclays": 30,
-    "hsbc": 30
+    "barclays": 46,
+    "hsbc": 44
   },
   "by_period_bucket": {
-    "2020-23": 27,
-    "2024+": 18,
-    "pre-2020": 15
+    "2024+": 64,
+    "2020-23": 18,
+    "pre-2020": 8
   },
-  "episode_pairs": 5,
-  "note": "Stratified on the machine answer stance (union of FinBERT turn + sentence labels) so negatives/positives are not starved; excludes empty answers, bleed_split pairs and very short turns. Coder sees Q and A only."
+  "episode_pairs": 14,
+  "core_empty_answers": 5,
+  "note": "Core = Aidan's M2a pair_ids (same units for category and sentiment; coder-vs-coder \u03ba comparable), plus a machine-negative/positive top-up so negative recall is measurable. Coder sees Q and A only; leave a_label blank where the answer is empty."
 }

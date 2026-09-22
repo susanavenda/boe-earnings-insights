@@ -15,7 +15,8 @@ Writes (docs/assignment2/human_labels/):
   sentiment_60_sample_meta.json     strata, seed, exclusions
 
 Usage:
-  python scripts/build_sentiment_gold_pack.py [--n 60] [--seed 42]
+  python scripts/build_sentiment_gold_pack.py                       # 60 stratified
+  python scripts/build_sentiment_gold_pack.py --reuse-m2a --topup 30  # Aidan's 60 + 30 non-neutral (default for A2)
 Requires qa_pairs scored by scripts/sentiment.py --qa (turn + sentence columns).
 """
 from __future__ import annotations
@@ -24,6 +25,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Sequence
 
 import numpy as np
 import pandas as pd
@@ -110,8 +112,23 @@ def _machine_stance(row: pd.Series) -> str:
     return "neutral"
 
 
-def sample_pairs(qa: pd.DataFrame, n: int = 60, seed: int = 42) -> tuple[pd.DataFrame, dict]:
-    df = qa.copy()
+def sample_pairs(
+    qa: pd.DataFrame,
+    n: int = 60,
+    seed: int = 42,
+    *,
+    reuse_ids: Sequence[str] | None = None,
+    topup: int = 0,
+) -> tuple[pd.DataFrame, dict]:
+    """Draw the coding sample.
+
+    Default: ``n`` pairs stratified on the machine answer stance (thirds), balanced by bank.
+    With ``reuse_ids`` (e.g. Aidan's M2a 60): those pairs form the core — same units for
+    category and sentiment, so coder-vs-coder κ is comparable across both tasks — and
+    ``topup`` extra pairs are drawn from the machine-negative/positive strata only, because
+    a category-stratified sample carries almost no negatives (3 of Aidan's 60).
+    """
+    df = qa.copy().drop_duplicates("pair_id")
     df["answer_text"] = df["answer_text"].fillna("")
     df["question_text"] = df["question_text"].fillna("")
     excl = {
@@ -119,21 +136,35 @@ def sample_pairs(qa: pd.DataFrame, n: int = 60, seed: int = 42) -> tuple[pd.Data
         "bleed_split": int((df.get("pair_mode", "") == "bleed_split").sum()),
         "short_question": int((df["question_text"].str.split().str.len() < 12).sum()),
     }
+    df["stratum_label"] = df.apply(_machine_stance, axis=1)
+    df["period_bucket"] = df["quarter"].map(_period_bucket)
+    df["is_episode"] = [(b, q) in EPISODE_QUARTERS for b, q in zip(df["bank"], df["quarter"])]
+    df["sample_role"] = ""
     pool = df[
         (df["answer_text"].str.strip() != "")
         & (df.get("pair_mode", "consecutive") != "bleed_split")
         & (df["question_text"].str.split().str.len() >= 12)
         & (df["answer_text"].str.split().str.len() >= 12)
     ].copy()
-    pool["stratum_label"] = pool.apply(_machine_stance, axis=1)
-    pool["period_bucket"] = pool["quarter"].map(_period_bucket)
-    pool["is_episode"] = [(b, q) in EPISODE_QUARTERS for b, q in zip(pool["bank"], pool["quarter"])]
 
     rng = np.random.default_rng(seed)
-    # target: equal thirds by machine stance, balanced across banks; recent + episode quarters first
-    per_label = {"negative": n // 3, "positive": n // 3, "neutral": n - 2 * (n // 3)}
     picks = []
+    core = pd.DataFrame()
+    if reuse_ids:
+        core = df[df["pair_id"].isin(set(map(str, reuse_ids)))].copy()
+        core["sample_role"] = "reused_m2a"
+        pool = pool[~pool["pair_id"].isin(core["pair_id"])]
+        # top-up goes to the non-neutral class the core is short of, in proportion
+        c_neg = int((core["stratum_label"] == "negative").sum())
+        c_pos = int((core["stratum_label"] == "positive").sum())
+        k_neg = int(round(topup * (c_pos / (c_pos + c_neg)))) if (c_pos + c_neg) else topup // 2
+        per_label = {"negative": k_neg, "positive": topup - k_neg}
+    else:
+        # target: equal thirds by machine stance, balanced across banks; recent + episode quarters first
+        per_label = {"negative": n // 3, "positive": n // 3, "neutral": n - 2 * (n // 3)}
     for lab, k in per_label.items():
+        if k <= 0:
+            continue
         sub = pool[pool["stratum_label"] == lab]
         for bank, kb in (("hsbc", k // 2), ("barclays", k - k // 2)):
             s = sub[sub["bank"] == bank].copy()
@@ -143,12 +174,15 @@ def sample_pairs(qa: pd.DataFrame, n: int = 60, seed: int = 42) -> tuple[pd.Data
             w = np.where(s["is_episode"], 3.0, 1.0) * s["period_bucket"].map({"2024+": 2.0, "2020-23": 1.5, "pre-2020": 1.0}).to_numpy()
             take = min(kb, len(s))
             idx = rng.choice(s.index.to_numpy(), size=take, replace=False, p=w / w.sum())
-            picks.append(s.loc[idx])
-    out = pd.concat(picks)
-    # top up if a stratum was short
-    if len(out) < n:
+            picked = s.loc[idx].copy()
+            picked["sample_role"] = "stratified_topup" if reuse_ids else "stratified"
+            picks.append(picked)
+    out = pd.concat([core, *picks]) if len(core) else pd.concat(picks)
+    # top up if a stratum was short (default mode only)
+    if not reuse_ids and len(out) < n:
         rest = pool.drop(out.index)
         extra = rest.sample(n=min(n - len(out), len(rest)), random_state=seed)
+        extra["sample_role"] = "stratified"
         out = pd.concat([out, extra])
     out = out.sample(frac=1.0, random_state=seed)  # shuffle so coder can't infer strata
     out["_ord"] = out["quarter"].map(period_sort_key)
@@ -156,15 +190,24 @@ def sample_pairs(qa: pd.DataFrame, n: int = 60, seed: int = 42) -> tuple[pd.Data
     meta = {
         "n": int(len(out)),
         "seed": seed,
+        "mode": "reuse_m2a_plus_topup" if reuse_ids else "stratified",
+        "n_reused": int((out["sample_role"] == "reused_m2a").sum()),
+        "n_topup": int((out["sample_role"] == "stratified_topup").sum()),
         "pool_size": int(len(pool)),
         "excluded": excl,
         "strata_target": per_label,
         "strata_actual": {k: int(v) for k, v in out["stratum_label"].value_counts().items()},
+        "strata_actual_core": {k: int(v) for k, v in core["stratum_label"].value_counts().items()} if len(core) else None,
         "by_bank": {k: int(v) for k, v in out["bank"].value_counts().items()},
         "by_period_bucket": {k: int(v) for k, v in out["period_bucket"].value_counts().items()},
         "episode_pairs": int(out["is_episode"].sum()),
+        "core_empty_answers": int((core["answer_text"].str.strip() == "").sum()) if len(core) else 0,
         "note": (
-            "Stratified on the machine answer stance (union of FinBERT turn + sentence labels) so "
+            "Core = Aidan's M2a pair_ids (same units for category and sentiment; coder-vs-coder κ comparable), "
+            "plus a machine-negative/positive top-up so negative recall is measurable. Coder sees Q and A only; "
+            "leave a_label blank where the answer is empty."
+            if reuse_ids
+            else "Stratified on the machine answer stance (union of FinBERT turn + sentence labels) so "
             "negatives/positives are not starved; excludes empty answers, bleed_split pairs and "
             "very short turns. Coder sees Q and A only."
         ),
@@ -181,6 +224,7 @@ def write_pack(sample: pd.DataFrame, meta: dict) -> None:
         "",
         "Code each pair independently — question **and** answer — using `sentiment_coding_guide.md`.",
         "Do not open `sentiment_60_machine_key.csv`. Fill `sentiment_60_labels_template.csv`.",
+        "Where `A: (empty)` — the parser found no answer — leave `a_label` blank and code the question only.",
         "",
     ]
     for r in sample.to_dict("records"):
@@ -188,7 +232,7 @@ def write_pack(sample: pd.DataFrame, meta: dict) -> None:
             f"### PAIR {r['pair_id']}",
             f"bank={r['bank']} quarter={r['quarter']} analyst={r.get('analyst') or ''}",
             f"Q: {str(r['question_text']).strip()}",
-            f"A: {str(r['answer_text']).strip()}",
+            f"A: {str(r['answer_text']).strip() or '(empty)'}",
             "",
         ]
     (OUT / "sentiment_60_for_coding.md").write_text("\n".join(lines), encoding="utf-8")
@@ -198,7 +242,7 @@ def write_pack(sample: pd.DataFrame, meta: dict) -> None:
     ).to_csv(OUT / "sentiment_60_labels_template.csv", index=False)
 
     key_cols = [
-        "pair_id", "bank", "quarter", "stratum_label", "period_bucket", "is_episode",
+        "pair_id", "bank", "quarter", "sample_role", "stratum_label", "period_bucket", "is_episode",
         "question_sentiment", "question_net", "question_net_prob", "question_sent_label", "question_sent_net",
         "question_ldsa_sentiment", "question_ldsa_net", "question_lm_hedge",
         "answer_sentiment", "answer_net", "answer_net_prob", "answer_sent_label", "answer_sent_net",
@@ -213,13 +257,21 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--reuse-m2a", action="store_true", help="core = pair_ids in human_labels/m2a_aidan_labels.csv")
+    ap.add_argument("--topup", type=int, default=30, help="extra machine-negative/positive pairs when --reuse-m2a")
     args = ap.parse_args()
     configure(memory=False)
     qa = load_df("qa_pairs")
     need = {"question_sentiment", "answer_sentiment"}
     if not need.issubset(qa.columns):
         raise SystemExit("qa_pairs has no machine sentiment — run: python scripts/sentiment.py --qa")
-    sample, meta = sample_pairs(qa, n=args.n, seed=args.seed)
+    reuse = None
+    if args.reuse_m2a:
+        m2a = OUT / "m2a_aidan_labels.csv"
+        if not m2a.is_file():
+            raise SystemExit(f"{m2a} missing — cannot reuse the M2a pair_ids")
+        reuse = pd.read_csv(m2a)["pair_id"].astype(str).tolist()
+    sample, meta = sample_pairs(qa, n=args.n, seed=args.seed, reuse_ids=reuse, topup=args.topup if reuse else 0)
     write_pack(sample, meta)
     print(json.dumps(meta, indent=2))
     print(f"wrote {OUT / 'sentiment_60_for_coding.md'} and friends")

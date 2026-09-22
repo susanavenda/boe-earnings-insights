@@ -201,8 +201,18 @@ def main() -> None:
             )
         )
 
-    # M4 human gold (60-pair pack) — the number that matters
+    # M4 human gold (sentiment pack) — the number that matters. Refresh it here so
+    # this script is the single entry point: coder-vs-coder κ / Krippendorff α and
+    # machine-vs-human per unit all come from score_sentiment_human.
     m4 = None
+    try:
+        import score_sentiment_human as _ssh
+
+        _ssh.main()
+    except SystemExit as e:  # e.g. machine key missing
+        print(f"score_sentiment_human skipped: {e}")
+    except Exception as e:  # noqa: BLE001
+        print(f"score_sentiment_human failed: {type(e).__name__}: {e}")
     if M4_JSON.is_file():
         try:
             m4 = json.loads(M4_JSON.read_text())
