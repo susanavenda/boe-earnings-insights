@@ -9,6 +9,7 @@ Desk UI = output surface · Notebook/scripts = factory.
 | [`A2_checklist.md`](A2_checklist.md) | Submit + dry-run checklist |
 | [`label_agreement.json`](label_agreement.json) | FinBERT vs hand-sample gold (sentiment) |
 | [`human_labels/`](human_labels/) | **Aidan M2a dual-code** · Debanjan/Alfred topics · Rafael metric briefs. Headline: machine vs machine **35%**. |
+| [`eval_bar_literature.md`](eval_bar_literature.md) | Hunter: is 70% / n=60 defensible? Literature vs the live 35%/50% scores (no code). |
 | [`pra_notes/pra_notes.md`](pra_notes/pra_notes.md) | PRA one-pagers |
 | Notebook Stages 7–9 | Technical walkthrough + machine vs Aidan score |
 

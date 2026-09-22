@@ -91,7 +91,7 @@
     IR files in → versioned alert / watch / null pack out. A PRA desk can re-run next quarter in under two hours. Automation with brakes, not a chatbot.
   </div>
   <div class="stats">
-    <div class="stat"><div class="v">118</div><div class="l">Analyst Q&amp;A pairs</div></div>
+    <div class="stat"><div class="v">1,002</div><div class="l">Analyst Q&amp;A pairs</div></div>
     <div class="stat"><div class="v">2</div><div class="l">Banks · HSBC + Barclays</div></div>
     <div class="stat"><div class="v">3</div><div class="l">Baselines with n</div></div>
     <div class="stat warn"><div class="v">WATCH</div><div class="l">HSBC H1 2025 verdict</div></div>
@@ -133,7 +133,7 @@
     <tr><td>Sentiment: Positive / Negative / Neutral</td><td>Avoidance as a FinBERT class</td></tr>
     <tr><td>Alert / watch / null as protocol output</td><td>A PRA risk rating of either firm</td></tr>
   </table>
-  <p class="muted">Extra Stage 8 protocol and desk UI prove the method can emit a pack. They are not a licence to rate the firms.</p>
+  <p class="muted">A1 locked 20 transcripts (2 banks × 10). Hunter’s extra-year / appear–disappear test is why we ingested 2006–2026 IR: <strong>137 transcripts + 114 packs</strong>. Deliberate extension, not unnoticed scope creep. Four metrics and two banks stay locked.</p>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>3 / 12</span></div>
 </section>
 
@@ -162,13 +162,13 @@
   <h2>Messy transcript text, not Kaggle defaults</h2>
   <table>
     <tr><th style="width:14%">Stage</th><th>What we did</th><th>Why it fits this data</th></tr>
-    <tr><td>Gather</td><td>13 IR PDFs (not 20) + 12 Excel packs into SQLite</td><td>Public transcripts are the unstructured feed PRA can re-run without confidential returns</td></tr>
-    <tr><td>Clean</td><td>pdfplumber extract; bank-specific speaker regex; 325 turns 100% named</td><td>HSBC and Barclays layouts differ; unnamed turns would poison Q vs A</td></tr>
-    <tr><td>Pair</td><td>118 analyst Q&amp;A pairs; Barclays bleed-split (8 empty answers remain)</td><td>Question tone and answer tone must be scored separately</td></tr>
+    <tr><td>Gather</td><td>137 IR PDFs + 114 Excel packs, 2006–2026 (A1 plan was 20 transcripts)</td><td>Hunter asked for extra years so theme appear/disappear is testable; public IR is still the PRA-re-runnable feed</td></tr>
+    <tr><td>Clean</td><td>pdfplumber extract; bank-specific speaker regex; named analyst 100%</td><td>HSBC and Barclays layouts differ; unnamed turns would poison Q vs A</td></tr>
+    <tr><td>Pair</td><td>1,002 analyst Q&amp;A pairs; Barclays bleed-split leftovers remain</td><td>Question tone and answer tone must be scored separately</td></tr>
     <tr><td>Represent</td><td>clean_text for topics; raw text for FinBERT; four pack metrics only</td><td>Transformers need raw hedges; topics need stripped tokens</td></tr>
     <tr><td>Store</td><td>Intermediates in data/boe.sqlite; desk reads a product subset</td><td>Files stay inputs; the pack is versioned and re-runnable</td></tr>
   </table>
-  <p class="muted">A1 fallback logged: 13 transcripts, not 20. Human 60-pair / 70% sample is still the evaluation bar, not a claim we have already met.</p>
+  <p class="muted">Corpus extension is Hunter-prompted, not silent scope creep. Disclose (Stage 1.5 live): 91 empty bleed-split answers, 71 pairs with blank inherited date. A2 disclose / A3 re-parse — not a pitch blocker. Human 60-pair / 70% is still the 8-way bar, not a claim we have met.</p>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>5 / 12</span></div>
 </section>
 
@@ -202,8 +202,8 @@
     <line x1="70" y1="155" x2="880" y2="155" stroke="#9fb3c8" />
     <line x1="70" y1="48" x2="880" y2="48" stroke="#1a3d5c" stroke-dasharray="6 5" />
     <text x="886" y="52" font-size="12" fill="#1a3d5c" font-family="Arial">70% target</text>
-    <rect x="110" y="88" width="90" height="67" fill="#c4a35a" />
-    <text x="155" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">50</text>
+    <rect x="110" y="54" width="90" height="101" fill="#c4a35a" />
+    <text x="155" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">75</text>
     <text x="155" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
     <text x="155" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">hand gold</text>
     <rect x="310" y="72" width="90" height="83" fill="#c4a35a" />
@@ -219,20 +219,20 @@
     <text x="755" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FT candidate</text>
     <text x="755" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs silver</text>
   </svg>
-  <p class="src">Source: label_agreement.json · hand gold n=20 (macro-F1 0.44) · silver n=118. LDSA-vs-silver is circular and is not shown.</p>
+  <p class="src">Source: label_agreement.json · hand gold n=20 (75% acc / macro-F1 0.61) · silver n=118. 8-way: machine 35% · Aidan 50% (m2a_agreement.json). LDSA-vs-silver is circular and is not shown.</p>
   <div class="cols">
     <div>
       <h3>Three baselines (all with n)</h3>
       <p>Temporal: topic tone across quarters. Matched peer: HSBC vs Barclays on the same window. Struct ↔ Q&amp;A: pack direction vs narrative on the four metrics.</p>
     </div>
     <div>
-      <h3>Verification still open</h3>
-      <p>Manual: n=20 reviewed; 50-row claims audit queued. Dual-code with Aidan not yet in. Fine-tune: 20 / 40 human-label gate — not promoted.</p>
+      <h3>8-way dual-code (n=60)</h3>
+      <p>Machine coder1 vs coder2 <strong>35%</strong> (headline). Aidan vs coder1 <strong>50%</strong> (below 70%). Method, not a category law. Fine-tune vs silver 55% — not promoted.</p>
     </div>
   </div>
   <div class="callout bad">
     <div class="t">Brake we will say once</div>
-    FinBERT at 50% on the hand sample is why peer ALERT is quality-gated and why we treat over-neutral hedges as a risk, not a feature.
+    FinBERT 75% acc / 0.61 F1 on n=20 still over-neutralises (155/181 Q-neutral). Machine 8-way is 35%. That is why peer ALERT is gated and eight-way is a method, not a law.
   </div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>7 / 12</span></div>
 </section>
@@ -242,8 +242,8 @@
   <h2>HSBC 2025-interim is WATCH, not a rating</h2>
   <div class="stats">
     <div class="stat danger"><div class="v">−0.13</div><div class="l">FinBERT net</div></div>
-    <div class="stat"><div class="v">5 / 8</div><div class="l">Topic 1 turns</div></div>
-    <div class="stat warn"><div class="v">40%</div><div class="l">Topic 1 negative</div></div>
+    <div class="stat"><div class="v">8</div><div class="l">Analyst turns</div></div>
+    <div class="stat warn"><div class="v">4 / 4</div><div class="l">Pack vs Q&amp;A agree</div></div>
     <div class="stat warn"><div class="v">WATCH</div><div class="l">Rule A3 fired</div></div>
   </div>
   <div class="cols">
@@ -290,7 +290,7 @@
   <div class="cols">
     <div>
       <h3>Desk (general audience)</h3>
-      <p>Open http://localhost:8501 · start on HSBC H1</p>
+      <p>Open http://localhost:8501 · click <strong>WATCH · HSBC 2025-H1</strong> (not Barclays 2026)</p>
       <table>
         <tr><th>Click</th><th>Show</th></tr>
         <tr><td>Episodes</td><td>WATCH pill + headline</td></tr>
@@ -323,7 +323,7 @@
   <h2>What we can stand behind</h2>
   <table>
     <tr><th>Finding</th><th>Evidence</th><th>Do not claim</th></tr>
-    <tr><td>Narrative can flag a soft quarter packs already move with</td><td>HSBC interim FinBERT net −0.13; Topic 1 costs / forward</td><td>That HSBC is weaker prudentially</td></tr>
+    <tr><td>Narrative can flag a soft quarter packs already move with</td><td>HSBC interim FinBERT net −0.13; four-line agree; A3</td><td>That HSBC is weaker prudentially</td></tr>
     <tr><td>Soft + packs agree → WATCH (A3)</td><td>Four-metric agree column all yes</td><td>WATCH equals an alert the desk must escalate</td></tr>
     <tr><td>Naive peer gaps are dangerous when one side is model-flat</td><td>Barclays 2025-q2 n=6 all FinBERT-neutral</td><td>A peer ALERT on 2025-H1</td></tr>
     <tr><td>Null is allowed and reportable</td><td>Protocol N1: flat tone and agreement</td><td>Null means the pipeline failed</td></tr>
@@ -362,12 +362,12 @@
     </div>
     <div class="callout">
       <div class="t">For markers</div>
-      Depth on two G-SIBs, an honest 50% hand-sample, and a repeatable pipeline with an explicit null beats breadth.
+      Depth on two G-SIBs, honest 75% FinBERT / 35% 8-way, and a repeatable pipeline with an explicit null beats breadth.
     </div>
   </div>
   <div class="callout ok">
     <div class="t">Close — say the sell line again</div>
-    We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — Topic 1 soft, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.
+    We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — FinBERT −0.13, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.
   </div>
   <div class="footer"><span>Group9_CAM_EP_Assignment2_slides.pdf</span><span>12 / 12</span></div>
 </section>

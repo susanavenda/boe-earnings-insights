@@ -1,0 +1,7 @@
+log_id,supervisor_id,timestamp_utc,episode_id,bank,calendar_period,action,protocol_output,note,is_synthetic,source,disclaimer
+syn-001,desk_A,2026-07-30T08:05:00Z,hsbc_2025_h1,hsbc,2025-H1,opened_pack,watch,Opened HSBC interim 2025 pack after earnings print.,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.
+syn-002,desk_A,2026-07-30T08:12:00Z,hsbc_2025_h1,hsbc,2025-H1,requested_quote,watch,Asked for impairment / office CRE quote (pair_id on evidence tab).,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.
+syn-003,desk_A,2026-07-30T08:18:00Z,hsbc_2025_h1,hsbc,2025-H1,accepted_watch,watch,Four pack lines agree; FinBERT net soft. Accept A3 WATCH. Not a firm rating.,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.
+syn-004,desk_B,2026-07-30T09:02:00Z,barclays_2026_h1,barclays,2026-H1,opened_pack,null,Opened matched peer window.,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.
+syn-005,desk_B,2026-07-30T09:10:00Z,barclays_2026_h1,barclays,2026-H1,rejected_alert,null,Peer all FinBERT-neutral — not A2-eligible. Do not invent ALERT from a flat print.,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.
+syn-006,desk_B,2026-07-30T09:14:00Z,barclays_2026_h1,barclays,2026-H1,closed_null,null,Closed as null. Logged for audit trail only.,1,synthetic_pra_desk_log,Invented workflow. Not a Bank of England record.

@@ -19,7 +19,7 @@ from gensim.models.coherencemodel import CoherenceModel
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from periods import calendar_period  # noqa: E402
+from periods import calendar_period, period_sort_key, readable_period_axis  # noqa: E402
 from store import load_df, save_bytes, save_df  # noqa: E402
 
 
@@ -108,26 +108,29 @@ def main():
     shift = corpus_df.groupby(["bank", "quarter", "topic"], as_index=False).agg(
         finbert_net=("finbert_net", "mean"), n=("finbert_net", "size")
     )
+    shift["calendar_period"] = shift["quarter"].map(calendar_period)
     save_df("sentiment_topic_quarter", shift)
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(16, 5), sharey=True)
     for ax, bank in zip(axes, ["hsbc", "barclays"]):
         sub = shift[shift["bank"] == bank]
         pivot = sub.pivot_table(
-            index="topic", columns="quarter", values="finbert_net", aggfunc="mean"
+            index="topic", columns="calendar_period", values="finbert_net", aggfunc="mean"
         )
-        cols = sorted(
-            pivot.columns,
-            key=lambda q: (
-                q[:4],
-                0 if "q1" in q else 1 if "interim" in q or "q2" in q else 2 if "q3" in q else 3,
-                q,
-            ),
-        )
+        cols = sorted(pivot.columns, key=period_sort_key)
         pivot = pivot.reindex(columns=cols)
         sns.heatmap(
-            pivot, ax=ax, cmap="RdYlGn", center=0, annot=True, fmt=".2f", linewidths=0.3
+            pivot,
+            ax=ax,
+            cmap="RdYlGn",
+            center=0,
+            annot=pivot.shape[1] <= 10,
+            fmt=".2f",
+            linewidths=0.3,
+            xticklabels=False,
         )
+        readable_period_axis(ax, cols)
         ax.set_title(f"{bank.upper()} FinBERT net by topic×quarter")
+        ax.set_xlabel("period")
     plt.tight_layout()
     import io
 

@@ -37,7 +37,7 @@ IR PDFs + Excel
 #### Slide 1 — Title / hook (30s) · **Taz**
 **Title:** Supervisory earnings pipeline — early warning from Q&A  
 **Subtitle:** Group 9 · Bank of England employer project  
-**On slide:** sell line + KPI strip — 118 analyst turns · HSBC + Barclays · 3 baselines · dual episodes  
+**On slide:** sell line + KPI strip — **1,002** analyst Q&A pairs · HSBC + Barclays · 3 baselines · dual episodes  
 
 **Say:** “We’re not pitching another sentiment model. We’re pitching a **repeatable supervisory pipeline** that ends in alert, watch, or null.”
 
@@ -55,6 +55,8 @@ IR PDFs + Excel
 | HSBC + Barclays (UK PRA perimeter) | Video / webcast |
 | Public transcripts + Excel packs | Train from scratch |
 | Alert / watch / null + PRA pack | Extra banks before the episode story is tight |
+
+**Say (do not wait to be asked):** “A1 locked **20** transcripts (2×10). Hunter’s extra-year / appear–disappear test is why we ingested **2006–2026** IR. Live: **137** transcripts + **114** packs, **1,002** pairs. Deliberate extension, not unnoticed scope creep. Four metrics and two banks stay locked.”
 
 ---
 
@@ -75,12 +77,13 @@ One left→right diagram (big boxes, few words):
 **Say:** “Every arrow is automated enough to re-run. Recalibration is **gated** — we do **not** retrain on every PDF drop-in.”
 
 #### Slide 5 — Data preparation (60s) ← rubric · **Susana**
-- **Gather:** IR PDFs under `data/raw/transcripts/`; Excel packs under `data/structured/`  
+- **Gather:** **137** IR PDFs + **114** Excel packs under `data/raw/transcripts/` and `data/structured/` (A1 plan was 20 transcripts; extra years are Hunter-prompted, 2006–2026)  
 - **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus  
+- **Pair:** **1,002** Q&A pairs; named analyst 100%. **Disclose, A3 fix:** empty bleed-split answers and blank inherited dates (live counts in notebook 1.5 / 7.0)  
 - **Represent:** `clean_text` for topics; raw text for FinBERT; metrics table from Excel  
 - **Store:** intermediates in `data/boe.sqlite` (files = inputs only)  
 
-**Say:** “Preprocessing is justified for **messy transcript text**, not tabular Kaggle defaults.”
+**Say:** “Preprocessing is justified for **messy transcript text**, not tabular Kaggle defaults. We extended the corpus on Hunter’s advice; we did not silently abandon the A1 20-doc plan.”
 
 #### Slide 6 — Method choice & why (75s) ← rubric · **Debanjan** (topics) · **Alfred** (sentiment) · **Bupathi** (M6, 20s)
 | Choice | Why it fits this domain | Owner |
@@ -97,22 +100,23 @@ One left→right diagram (big boxes, few words):
 #### Slide 7 — Evaluation, fine-tune, verification (90s) ← rubric · **Aidan** (8-way) · **Alfred** (FinBERT / FT)
 - **Baselines:** temporal shift · matched peer gap · structured vs unstructured direction  
 - **Hand sample:** 50-row review queue; 20 flagged reviewed — FinBERT **75% acc / 0.61 macro-F1** vs sample gold  
-- **8-way eval:** machine coder1 vs coder2 **35%** (headline) · Aidan vs coder1 **50%** (below 70%) — method, not category law  
+- **8-way eval:** machine coder1 vs coder2 **35%** (headline) · human dual-code vs coder1 **50%** (below 70%) — method, not category law  
+- **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day  
 - **FT:** silver + reviewed labels; candidate model, **promote only** if macro-F1 gate passes (do not promote on current silver)  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
 **Say:** “The two keyword coders agree 35%. That is why eight-way is a filing method, not a law — and why we gate peer ALERT when Barclays is all-neutral.”
 
 #### Slide 8 — Episode proof: HSBC H1 2025 (90s) · **Rafael** (briefs / quote) · **Bupathi** (A3 / M6)
-- Softest print in sample (FinBERT net ≈ **−0.13**); Topic 1 (costs / forward) drives softness  
-- Packs **agree** on direction → **WATCH (A3)**  
+- Softest print in sample (FinBERT net ≈ **−0.13**, n=8); four pack lines **agree** → **WATCH (A3)**  
+- Do not hang the verdict on BERTopic id 1 (ids move if the model is refit) — use quotes + agree column  
 - Matched peer: Barclays **0.00** (n=6, all FinBERT-neutral) → gap looks scary, **not A2-eligible**  
 - **Quote:** one impairment / tariffs analyst turn  
 
 **Say:** “This is the pipeline output: a governed verdict with evidence, not a leaderboard score.”
 
 #### Slide 9 — Live walkthrough (2 min) ← “Notebook + solution” · **Susana**
-**Part A — Desk (product):** http://localhost:8501  
+**Part A — Desk (product):** http://localhost:8501 · click **WATCH · HSBC 2025-H1** (Barclays 2026 is also WATCH — skip it)  
 Episodes (HSBC) → Evidence → Peer & protocol → PRA download  
 
 **Part B — Notebook (technical):** Stages 1 → 2/3 → 6 → 8/9 — point at cells, don’t scroll-read.
@@ -164,7 +168,7 @@ A1 Appendix D roles. Everyone must know the sell line.
 ---
 
 ## Speaker card (if time collapses to 90s)
-“We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — Topic 1 soft, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.”
+“We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — FinBERT −0.13, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.”
 
 ---
 

@@ -19,7 +19,7 @@ Full run-of-show: [`A2_pitch_outline.md`](A2_pitch_outline.md)
 ## Desk walkthrough (inside Approach) · **Susana**
 Open http://localhost:8501
 
-1. **Episodes** — HSBC 2025-interim (H1) · WATCH  
+1. **Episodes** — click **WATCH · HSBC 2025-H1** (not Barclays 2026)  
 2. **Evidence** — packs agree · one quote  
 3. **Peer & protocol** — A2-usable no · A3 only  
 4. **PRA note** — download  

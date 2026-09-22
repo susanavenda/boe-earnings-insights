@@ -18,7 +18,7 @@ One entry point for Group 9. Pick the surface that matches the job.
 | Path | Contents |
 |---|---|
 | [`assignment1/`](assignment1/) | Scope plan, Word/PDF deliverables, report draft |
-| [`assignment2/`](assignment2/) | Pitch outline and PRA notes |
+| [`assignment2/`](assignment2/) | Pitch outline, PRA notes, [`eval_bar_literature.md`](assignment2/eval_bar_literature.md) |
 | [`project/`](project/) | Issue import list (`issues.csv`) |
 | [`assets/`](assets/) | Roadmap images |
 | `hand_validation_sample.csv` | Human review sample for FinBERT labels |
