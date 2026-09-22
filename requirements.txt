@@ -17,6 +17,8 @@ ipykernel==6.31.0
 pypdf==6.14.2
 pdfplumber>=0.11
 openpyxl>=3.1
+# Optional Stage 10.2 — unofficial Yahoo news scraper, recency-limited (not a 2006–2026 archive)
+yfinance>=0.2.40
 pyarrow>=14
 # Torch is the scorer stack. Do not add tensorflow: umap's unused ParametricUMAP
 # imports it and can raise a protobuf VersionError on a fresh kernel.

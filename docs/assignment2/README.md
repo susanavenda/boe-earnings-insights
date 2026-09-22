@@ -12,6 +12,7 @@ Desk UI = output surface · Notebook/scripts = factory.
 | [`eval_bar_literature.md`](eval_bar_literature.md) | Hunter: is 70% / n=60 defensible? Literature vs the live 35%/50% scores (no code). |
 | [`pra_notes/pra_notes.md`](pra_notes/pra_notes.md) | PRA one-pagers |
 | Notebook Stages 7–9 | Technical walkthrough + machine vs Aidan score |
+| Notebook Stage 10.2 | Optional Yahoo press vs Q&A tone — **recent headlines only**, not the 2006–2026 corpus. `yfinance` is unofficial; skip if empty. |
 
 **Canvas submit:** PDF slides + MP4 recording only.
 

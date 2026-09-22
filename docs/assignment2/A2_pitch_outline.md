@@ -101,7 +101,8 @@ One left→right diagram (big boxes, few words):
 - **Baselines:** temporal shift · matched peer gap · structured vs unstructured direction  
 - **Hand sample:** 50-row review queue; 20 flagged reviewed — FinBERT **75% acc / 0.61 macro-F1** vs sample gold  
 - **8-way eval:** machine coder1 vs coder2 **35%** (headline) · human dual-code vs coder1 **50%** (below 70%) — method, not category law  
-- **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day  
+- **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day
+- **Not on this slide:** Stage 10.2 Yahoo press covers **current headlines** for HSBA.L / BARC.L, compared with the Stage 8/9 windows (HSBC 2025-H1, Barclays 2026-H1). It is **not** a 2006–2026 archive. `yfinance` is an unofficial scraper — if it returns nothing that day, the cell skips. Do not present it as historical coverage.  
 - **FT:** silver + reviewed labels; candidate model, **promote only** if macro-F1 gate passes (do not promote on current silver)  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
