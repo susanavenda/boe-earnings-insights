@@ -3,6 +3,9 @@
 
 Does not recode human gold. Does not write Stage 4 tables. Skips if no API key.
 Set BOE_LLM_PROVIDER=openai|gemini and the matching API key, or pass --provider.
+
+Keys live in the process env or a gitignored repo-root `.env` (never commit them).
+Default Gemini model is gemini-3.6-flash; override with BOE_GEMINI_MODEL.
 """
 from __future__ import annotations
 
@@ -19,6 +22,23 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from store import load_df, save_df  # noqa: E402
 
+DEFAULT_GEMINI_MODEL = "gemini-3.6-flash"
+
+
+def load_dotenv(root: Path | None = None) -> None:
+    """Load KEY=value from repo-root `.env` without overriding a live export."""
+    path = (root or ROOT) / ".env"
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, val = line.partition("=")
+        key, val = key.strip(), val.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = val
+
 LABELS = ("positive", "negative", "neutral")
 PROMPT = (
     "You label bank earnings Q&A for supervisory screening. "
@@ -29,6 +49,7 @@ PROMPT = (
 
 
 def _provider() -> str | None:
+    load_dotenv()
     p = os.environ.get("BOE_LLM_PROVIDER", "").strip().lower()
     if p in {"openai", "gemini"}:
         return p
@@ -93,15 +114,38 @@ def _sample(pairs: pd.DataFrame, n: int, seed: int) -> pd.DataFrame:
 
 
 def compare(n: int = 20, seed: int = 42, provider: str | None = None) -> pd.DataFrame:
+    load_dotenv()
     provider = (provider or _provider() or "").lower() or None
     if provider is None:
         return pd.DataFrame()
-    pairs = load_df("qa_pairs")
+    try:
+        cached = load_df("llm_sentiment_compare")
+    except Exception:
+        cached = pd.DataFrame()
+    rerun = os.environ.get("BOE_LLM_RERUN", "").strip().lower() in {"1", "true", "yes"}
+    if (
+        not rerun
+        and cached is not None
+        and len(cached)
+        and "llm_label" in cached.columns
+        and int((cached["llm_label"].fillna("") != "").sum()) >= max(1, n // 2)
+    ):
+        return cached.head(n) if len(cached) >= n else cached
+    try:
+        pairs = load_df("qa_pairs")
+    except Exception:
+        pairs = pd.DataFrame()
+    if pairs is None or len(pairs) == 0:
+        csv = ROOT / "docs/assignment2/human_labels/_raw/qa_pairs_export.csv"
+        if csv.is_file():
+            pairs = pd.read_csv(csv)
+        else:
+            return pd.DataFrame()
     sample = _sample(pairs, n=n, seed=seed)
     model = (
         os.environ.get("BOE_OPENAI_MODEL", "gpt-4o-mini")
         if provider == "openai"
-        else os.environ.get("BOE_GEMINI_MODEL", "gemini-1.5-flash")
+        else os.environ.get("BOE_GEMINI_MODEL", DEFAULT_GEMINI_MODEL)
     )
     rows = []
     for rec in sample.to_dict("records"):
@@ -138,6 +182,7 @@ def main() -> None:
     ap.add_argument("--n", type=int, default=20)
     ap.add_argument("--provider", choices=["openai", "gemini"], default=None)
     args = ap.parse_args()
+    load_dotenv()
     if not (args.provider or _provider()):
         print("No OPENAI_API_KEY / GEMINI_API_KEY — skip LLM comparison.")
         sys.exit(0)
