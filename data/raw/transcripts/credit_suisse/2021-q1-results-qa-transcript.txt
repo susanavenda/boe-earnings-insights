@@ -1,0 +1,736 @@
+Credit Suisse Group AG
+Credit Suisse 2021-Q1 results — analyst and investor call
+
+Source note: CS IR site is gone. Speaker-labelled Q&A from public call archives (Motley Fool / Thomson convention: Name -- Role). KPIs are SEC 6-K Exhibit 99.1, 9 February 2023 — not this transcript.
+
+Operator
+
+Good morning. This is the conference operator. Welcome and thank you for joining Credit Suisse Group's First Quarter 2021 Results Conference call for Analysts and Investors. As a reminder, all participants are in a listen-only mode and the conference is recorded. You will have the opportunity to ask questions after the presentation. [Operator Instructions].
+
+I will now turn the conference over to Kinner Lakhani, Head of Investor Relations and Group Strategy and Development. Please go ahead, Kinner.
+
+Kinner Lakhani -- Head of IR and Group Strategy and Development
+
+Thank you. Good morning, everyone. Before we begin, let me remind you of the important cautionary statements on slides 2 and 3 including forward-looking statements, non-GAAP financial measures and Basel III disclosures. For a detailed discussion, we refer you to the Credit Suisse first quarter 2021 earnings release published this morning.
+
+Let me remind you that our first quarter 2021 financial report and accompanying financial statements for the period will be published on or around May 6.
+
+I'll now hand over to our Group CEO, Thomas Gottstein, and our Group CFO, David Mathers, who will run through the numbers.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Kinner. Good morning. Thank you for joining our call this morning to discuss our first quarter 2021 results. Let me begin with some comments about the recent events. The significant loss in our prime services business relating to the failure of a US-based hedge fund is unacceptable. In combination with the recent issues around the supply chain finance funds, I recognize that these cases have caused significant concern among all our stakeholders.
+
+Accountability is one of the core pillars of our corporate values. Together with the Board of Directors, we are addressing these situations through a series of decisive actions in the business and through two independent and thorough investigations, which are already under way.
+
+The investigations will not only focus on the direct issues, but also broader consequences and lessons learned across the bank. We will work to ensure Credit Suisse emerges stronger.
+
+Today, we successfully placed a mandatory convertible notes offering and I will go into greater detail shortly. This will enable us to further strengthen our balance sheet and support the momentum in our core franchises.
+
+Credit Suisse remains a formidable institution with a rich history. We have thrived for more than 160 years through external crises and our own challenges. I'm confident for the future. At the heart of this confidence is the earnings power of Credit Suisse and the resilience and dedication of our roughly 49,000 employees around the world. I would like to take this opportunity to thank all our employees globally for their unwavering commitment to Credit Suisse and to our clients, which they have been demonstrating not only over the past few years, but particularly during the last few weeks, which were very challenging. They make me proud every day.
+
+In testament to their perseverance and adaptability, our underlying first quarter financial performance across all divisions was not only resilient, but also strong. It was supported by solid results in Switzerland and very strong growth in APAC, strong growth in investment banking as well as asset management.
+
+Net new assets for the Group increased strongly in the first quarter and Group assets under management grew to CHF1.6 trillion at the end of the first quarter.
+
+With that, let me turn to the slides. Page 4 please. We reported a pre-tax loss of CHF757 million for the first quarter and a net loss attributable to shareholders of CHF252 million. This includes a pre-tax charge of CHF4.4 billion relating to the US hedge fund matter.
+
+As David will highlight in his slides, excluding that charge, adjusted pre-tax income excluding significant items was CHF3.6 billion, reflecting the underlying strength of our business.
+
+Our wealth management related businesses achieved 59% year-on-year growth in pre-tax income on an adjusted basis excluding significant items in the first quarter and a return on regulatory capital of 29%.
+
+This was led by strong growth in Asia Pacific where we achieved adjusted pre-tax income growth in US dollars excluding significant items of 164% year-on-year. This underscores the region's key role in our growth strategy. Revenues grew over 30%.
+
+On the same basis, return on regulatory capital in APAC was 52% in the first quarter. Net revenues in our Investment Bank grew 80% in US dollars year-on-year in the first quarter. It recorded a pre-tax loss of $2.6 billion, including the US hedge fund charge of $4.7 billion.
+
+Our CET1 ratio was 12.2% at the end of the first quarter. Our Tier 1 leverage ratio was 5.5% and CET1 leverage ratio was 3.8%. As I mentioned, today, we successfully placed an offering of two series of mandatory convertible bonds convertible into 203 million shares, leading to an estimated uplift of around 55 basis points to 60 basis points to the CET1 ratio. We intend to restore capital to achieve an approximately 13% CET1 ratio and a minimum of 4% CET1 leverage ratio.
+
+We reduced the proposed ordinary dividend for 2020 to CHF0.10 per registered share. Following the completion of share buybacks in the first quarter of 2021, we have suspended the share buyback program. Subject to 2021 financial performance, the Board of Directors would intend to restore the dividend in 2021 before any resumption of share buybacks.
+
+Slide 5 please. As we have previously disclosed, on March 25, a US hedge fund failed to meet its margin requirements leading us to issue a default note. In the first quarter of 2021, we recorded a charge of CHF4.4 billion in respect of this matter. We expect to take an additional charge in the second quarter of approximately $600 million or rounded also CHF600 million roughly. We have exited 97% of our position relating to the hedge fund.
+
+As you can see on the right side, we have reviewed exposures across the entire prime services business. Related risk and control governance is already being strengthened and will be further enhanced following first and second line risk management assessments.
+
+Our prime brokerage and prime financing businesses will be resized and derisked with the primary focus on our most important franchise clients. By the end of 2021, we plan to reduce the Investment Bank leverage exposure by at least $35 billion and to align the IB risk weighted assets to no more than the end of 2020 levels.
+
+Slide 6, please. Regarding the supply chain finance fund matter, Credit Suisse Asset Management's priority remains the recovery of funds for investors in the four supply chain finance funds. To date, total cash collected in the funds amounts to $5.4 billion, more than half of the total AUM at the time that the funds were suspended, of which $4.8 billion have been returned to fund investors in two cash distributions. We intend to provide progress updates over the coming months.
+
+CSAM is in active dialog with the administrators of Greensill and other parties to identify options to facilitate further recovery. We have noted that it is reasonably possible that Credit Suisse will incur a loss in respect of these matters, though it is not yet possible to estimate the size of such a reasonably possible loss.
+
+We established Asset Management as a separate division April 1, 2021, emphasizing the strategic importance of the business for the bank and its clients. I also want to be clear that there are no plans to sell the Asset Management business at this point in time.
+
+Page 7. Executive Board, together with the Board of Directors, has taken decisive actions in the wake of these events, as you can see from the next two slides. For one, we implemented management changes in response to the recent events. We welcome Uli Korner who has been CEO of Asset Management, a Member of the ExB since 1st April 2021.
+
+Christian Meissner has been appointed CEO of the Investment Bank and Member of the ExB effective 1st May. Jo Oechslin has been appointed Interim Chief Risk Officer and Member of the ExB on an interim basis effective April 6. Thomas Grotzer has been appointed Interim Global Head of Compliance effective April 6.
+
+The management team is fully focused on strengthening prime services and asset management risk controls, including forensic analysis of the two incidents and lessons learned. We are conducting an overall review of risk systems, processes and culture across the bank in close collaboration with the Board of Directors and external advisors.
+
+The Board of Directors has launched two investigations carried out by external parties. These investigations will be supervised by a special committee of the Board of Directors and will not only focus on the direct issues arising from those matters, but also reflect on the broader consequences and lessons learned. In each instance, we will work closely with the relevant regulators including FINMA, which has opened enforcement proceedings in both cases.
+
+Page 8 please. We have also strengthened our capital by issuing two series of mandatory convertible notes convertible into a total of 203 million Credit Suisse Group AG shares. These are expected to provide net proceeds to Credit Suisse Group of approximately CHF1.7 billion. You can see the details on this slide. But let me highlight, as I mentioned earlier, that this is expected to lead to an estimated uplift of around 55 basis points to 60 basis points to the CET1 ratio.
+
+Slide 9 please. Let me now turn to our underlying performance. We delivered strong revenue growth across our Wealth Management franchise and Investment Bank. Wealth Management related revenues, adjusted excluding significant items, grew 7% year-on-year in the first quarter. Growth was particularly robust in transaction and performance-based revenues, which grew 18% from one year earlier.
+
+As you see on the right side of the slide, Investment Bank revenues grew 80% year-on-year during the first quarter to $3.9 billion. The gain occurred across fixed income sales and trading -- equity sales and trading and particularly capital markets and advisory.
+
+Next slide please. Despite recent events, we still grew our assets under management and achieved a solid increase in net new assets. Our AUM at the Group level increased by 16% year-on-year to CHF1.6 trillion and grew by 6% since the beginning of the year. NNA growth for the last 12 months was 5% and we posted an annualized NNA growth rate of 7% in the quarter.
+
+Slide 11. We have generated substantial client business volume growth across our Wealth Management businesses, particularly in APAC, which achieved 41% year-on-year growth in US dollar terms during the first quarter. We have also seen strong client business volume growth in IWM Private Banking and in the Swiss Universal Bank Private Clients businesses.
+
+Likewise, we also saw very strong net new assets across these divisions. As you know, our ambition is to grow annual client business volume by mid-single digits for the SUB, mid to high-single digits for IWM and double-digit growth in APAC, all of which we have comfortably exceeded in the first quarter.
+
+Next page, please. During the first quarter, our Wealth Management related adjusted pre-tax income excluding significant items grew 59% year-on-year to CHF1.6 billion. On the same basis, ROIC in our Wealth Management related businesses grew from 18% in the first quarter of 2020 to 29% in the first quarter of 2021. We grew total client business volume across all three divisions by 22% year-on-year. We drove client activation resulting in mandate penetration of 29%. We also experienced continued strong performance in our ultra-high net worth business across all three division, with NNA of CHF8.3 billion.
+
+Page 13. Let me cover in more detail our Asset Management business, which is a strategic part of our overall value proposition. Asset Management revenues excluding significant items increased 60% year-on-year against what was a difficult first quarter 2020, with notable improvement in both adjusted pre-tax income excluding significant items and NNA. The rebound in quarterly performance stretched across the businesses despite the supply chain finance fund situation. Our strong NNA of CHF10.3 billion during the first quarter was driven by inflows in traditional investments, investment in partnership and alternatives at above average gross margins.
+
+Next page, please. Let me turn to our capital markets and advisory franchise, which outperformed most of our peers. Based on Dealogic data, our capital markets and advisory fees growth was 118% year-on-year during the first quarter and it grew to $1.7 billion. Our share of wallet on the same basis increased across M&A, ECM and DCM.
+
+Next page, please. We recognize that the strong focus of sustainability is not only the right thing to do, it is good business and an important part of our growth strategy. With this in mind, last summer, we created SRI, Sustainability Research and Investment Solutions, to infuse environmental, social and governance standards at the heart of Research, Advisory, Investment Banking and Wealth Management.
+
+Almost nine months after its launch, SRI has made excellent progress executing its strategy and delivering value to clients and stakeholders. We are doing this by enabling client transitions, driving our own transition and taking a leadership role in standard setting, among other things.
+
+On the right side of this slide, you see just a few highlights. These include CHF118 billion in assets managed according to sustainability criteria at the end of the first quarter and repriced 25 deals including sustainable bonds globally, totaling $17.3 billion.
+
+Before I hand things over to David, let me briefly touch on the outlook. Overall, we would expect market volumes to return to lower and more normal levels in the coming quarters. We expect a residual impact of approximately CHF600 million from the US-based hedge fund matter in the second quarter as we have now exited over 97% of the related positions.
+
+In Wealth Management, we anticipate broadly stable net interest and improving recurring commissions and fees, benefiting from higher levels of AUM.
+
+For the Investment Bank, we would expect the second quarter to reflect the slowdown in market activity as well as an impact from the resizing of our prime services business. Signs of recovery in the global economy could allow us to progressively release part of our allowance for credit losses under the CECL accounting methodology that was built in the early months of the COVID-19 crisis last year.
+
+Additionally, we expect the effective tax rate to remain significantly elevated for the remainder of the year. We intend to achieve a CET1 ratio of approximately 13% and the minimum 4% CET1 leverage ratio.
+
+With this, I would like to hand over to David.
+
+David Mathers -- Chief Financial Officer
+
+Thank you very much, Thomas, and I'd like to wish everybody good morning. What I'd now like to do is to just go through the financial results in more detail. As we announced in our trading updates that we published in March and in April, the bank's underlying performance was strong in the first quarter. We've increased contributions from each of our business divisions. However, this performance was more than negated, though, by the pre-tax charge of CHF4.43 billion, resulting from the US-based hedge fund matter.
+
+First, I'd just like to reiterate the points that Thomas made earlier about our capital position. Notwithstanding the reported loss, our capital position was resilient, with a CET1 ratio for the quarter of 12.2%, a Tier 1 leverage ratio of 5.5% and a CET1 leverage ratio of 3.8%. And I'd just note that those are all above the guidance that we gave on April 6.
+
+Now, in terms of our financial priorities at the bank, as I'll discuss in more detail shortly, with the completed placement of our CHF1.7 billion mandatory convertible notes, we are at an implied CET1 ratio of approximately 13% and a CET1 leverage ratio of approximately 4%. These are the ratios at which we intend to operate for the balance of 2021.
+
+Just in terms of the dividend, while the Board will look to restore the 2020 reduction in the current year, this will clearly depend on our financial performance in the balance of 2021.
+
+With regard to share buyback, we would expect this to remain suspended for the balance of 2021. And I'd say that recommencing the program should take second priority to the restoration of the dividend.
+
+Let's turn to the next slide, please. So, reported net revenues for the quarter were 31% higher than in 2020 at CHF7.57 billion. On an adjusted basis, excluding significant items, net revenues were 35% higher and the driver of the strong performance was the Investment Bank whose net revenues increased by 80% year-on-year to $3.89 billion. But I would note that we've also seen a continuation of the sequential improvements in Wealth Management related revenues that I've discussed back in February.
+
+On an adjusted basis, excluding significant items, Wealth Management related net revenues increased by 7% year-on-year. I think you will note that we also saw strong net new asset inflows across all of our Wealth Management businesses.
+
+Now in terms of expenses, our total operating expenses were 2% lower for the quarter at CHF3.94 billion, and that was mainly due to lower compensation accruals. We have seen modest gains from reduction in our CECL provisions, reflecting the improved economic environment with a net release of CHF59 million in the quarter. However, despite these positive trends, the pre-tax charge of CHF4.43 billion relating to the US matter means that we reported a pre-tax loss of CHF757 million for the first quarter.
+
+Now, on an adjusted basis, if you'd exclude significant items and the US-based hedge fund charge, pre-tax income was CHF3.6 billion in the quarter compared to CHF946 million in the first quarter of last year.
+
+You'll note that we see an elevated effective tax rate of 69% in the first quarter. That is primarily driven by the US-based hedge fund charge, for which I've only accrued a partial tax recovery in the current year.
+
+I would also note that the partial recovery will result in the effective tax rate remaining significantly elevated for the rest of 2021, potentially as high as the level in the first quarter, although this will depend on our tax calculations around future recoverability and the level of underlying profitability in the balance of the year. Just to be clear, I would anticipate a return to a more normal tax rate in 2022.
+
+Now the reported net loss attributable to shareholders for the quarter stood at CHF252 million, and that compares to a net income of positive CHF1.31 billion for the same period last year, which meant we had a negative return on tangible equity in the first quarter of 2.6%.
+
+Next slide please. I just wanted to give a bit more detail on the underlying performance of the bank in the first quarter and just put out some of the significant items. You can see here, it was a gain in the first quarter of CHF144 million related to our investment in Allfunds. But you'll note this was actually less than the corresponding figure of CHF268 million in the first quarter of 2020.
+
+We also took restructuring charges of CHF633 million in the first quarter of this year and that compared to a net credit of CHF5 million in the same period last year.
+
+As I've touched on already, our CECL provisions swung from a charge at the start of the COVID crisis of CHF305 million a year ago to a credit of CHF59 million this quarter. But I'd also note here, you can see that our compensation benefits line was lower year-on-year at CHF2.207 billion compared to CHF2.316 billion, a reduction of CHF109 million, and that was primarily driven by reduced variable compensation accruals.
+
+But net-net, I think it should be clear that regardless of how you wish to view it, our underlying pre-tax income comfortably exceeded CHF3 billion for the quarter.
+
+Next slide please. Now, this should be familiar from the last four quarters. What we show here is the evolution of our provisions for credit losses, both specific and CECL related, over the course of 2020 and into the current year.
+
+You may recall that we ended last year with just under CHF2 billion of specific and non-specific allowances for credit losses. Since then, we've taken CHF4.45 billion in non-CECL specific provisions, of which clearly CHF4.43 billion relates to the US hedge fund.
+
+Now we mentioned that we reduced our CECL provisions by CHF59 million in the first quarter. With write-offs of CHF36 million and a move of CHF79 million primarily due to FX, our total allowance for credit losses stood at CHF6.34 billion at the end of the first quarter.
+
+Just one point I would like to note please. With respect to the $140 million collateralized bridge loan that was made to Greensill Capital in the fourth quarter of last year, as you may be aware, some CHF50 million of that has already been repaid by Greensill Capital's administrators, which reduced the notional value loan to $90 million. Now, at the end of the first quarter, we have reduced the fair value of this loan to $60 million, having taken a charge of $30 million in the first quarter.
+
+Next slide please. So, we continued to take a disciplined approach to expenses. I've mentioned before the 2% decline in our reported operating expenses for the quarter, and what I show here, the adjusted numbers, which was CHF3.99 billion at the end of the first quarter of 2020 and that falls to CHF3.87 billion at the end of the first quarter of '21, and this is primarily due to a CHF109 million reduction in the comps and benefit line primarily, as I've said already, driven by a reduction in variable compensation accruals.
+
+Now, just in terms of transparency, I would note the currency moves had a positive impact, i.e., they reduced our expenses by CHF113 million, without which, on a constant currency basis, our adjusted operating expenses would have been about flat year-on-year.
+
+Next slide please. Now what we show here are the increases in both risk-weighted assets and leverage since the end of the fourth quarter of last year. RWAs have increased from CHF275 billion to CHF303 billion and leverage now stands at CHF968 billion compared to CHF911 billion at the end of the previous quarter.
+
+And I think what we show here should be clear. The growth has been primarily driven by foreign exchange moves, and that's predominantly, since the end of last year, the strengthening of the US dollar compared to the Swiss franc and, to a lesser extent, by higher net business usage, both in the Investment Bank and across the Wealth Management businesses.
+
+You should note there is a further CHF6 billion of RWA in respect of a temporary FINMA add-on for the US-based hedge fund positions at the end of March. This add-on is directly linked to the size of the residual positions. It will fall proportionally in respect to the disposals that we've now completed and therefore we would expect this add-on to shrink to zero during the course of the second quarter.
+
+Let's look into capital ratios, please, on the next slide in some more detail. So, as we've said, we ended the first quarter with a CET1 ratio of 12.2%, a CET1 leverage ratio of 3.8% and a Tier 1 leverage ratio of 5.5%.
+
+Let's just move from left to right. First, as we've said already, we expect to suffer additional losses of approximately e 0.6 billion in respect of the US-based hedge fund in the second quarter. We've now eliminated just over 97% of the related positions. So, this should represent the bulk of the loss that we've suffered in this matter and that's equivalent in capital terms to approximate another 20 basis point reduction in the ratio from the level at the end of the first quarter.
+
+But in capital terms, this loss should be more than offset by the proportionate reduction in the FINMA add-on, which as we eliminate positions boosts our capital ratio by about 25 basis points. Furthermore, I think everyone should be aware that the Allfunds IPO is actually due to price today and the reduction of our holding in this business will boost our CET1 by about 25 basis points.
+
+Now, as Thomas has said already, we have successfully placed an offering of two series of mandatory convertible notes convertible into 203 million new shares, which should lead to an estimated uplift of approximately 55 to 60 basis points to the implied CET1 ratio, subject to the FINMA improving this as common equity prior to conversion or following conversion in six months' time. It's a six-month mandatory convertible. And the exact value of the capital benefit from the MCNs will depend on the VWAP today and tomorrow. It's priced on today's price and tomorrow's price.
+
+But if you just include the second quarter loss on the US-based hedge fund, the offsetting buffer reduction, the Allfunds credit and the placement of the MCNs, that implies a CET1 ratio of approximately 12%, which, as I said already, is our target for the rest of this year.
+
+Just in terms of actions over the coming months, as we said already, we intend to reduce investment bank leverage by at least $35 billion, primarily from a resizing of the prime brokerage and private financing businesses and realign RWA in the Investment Bank to no more than the levels that prevailed at the end of 2020. Combined with the impact of other asset sales, these should provide a further 40 to 50 basis points of uplift to the CET1 ratio during the course of the year.
+
+But as we noted before, in the second quarter, I would expect an increase in operational risk RWA due to the RMBS provisions that we took in the fourth quarter of last year, as well as other methodology changes with a likely negative impact of 30 to 35 basis points.
+
+You should also note that capital generation in the balance of this year will be constrained by the high level of the effective tax rate and we should expect to see some capital consumption from the planned growth in our Wealth Management businesses.
+
+Now, in terms of dividend, let me be clear. We have made first quarter dividend accrual in line with the level of the reduced 2020 dividend. As we said already, subject to the financial performance of the bank in the balance of this year, we would hope to restore the 2020 reduction in the dividend this year, but that will clearly be a matter for the Board to review in due course.
+
+As I've said already, this should take priority over the share buyback, which I would expect to remain suspended for the balance of 2021. But just to reiterate, we're looking to maintain a capital ratio of about 13% for the balance of 2021.
+
+Now, just turning to the CET1 leverage ratio, and I show the same walk below, I won't go through all the same points on the slide. But given, again, Allfunds, the capital raise and the reduction in Investment Bank leverage exposure relating to the resizing of the prime business, our leverage ratio should exceed 4% for the balance of the year.
+
+Next slide please. Let me just turn to tangible book value per share. That's increased from CHF15.8 to CHF16.8 since the end of last year.
+
+Net income attributable to shareholders excluding the charge from the US hedge fund contributed CHF1.50 per share with the effects of our capital distribution program and share-based comparables adding a further CHF0.14 per share.
+
+We saw a widening of credit spreads, which actually results in a positive impact to tangible book value per share, as did the move in FX, particularly the US dollar strengthening against the Swiss franc since the end of 2020. And these contributed CHF0.23 and CHF0.84 per share respectively.
+
+Now, prior to the charge relating to the US-based hedge fund, tangible book value per share would have been CHF18.4 zero per share. However, this charge then had a negative impact of CHF1.6, taking the net figure to CHF16.8 per share.
+
+Let me turn then to the next slide. You'll recognize a previous version of this slide from our fourth quarter results, during which I explained that we were seeing sequential quarter-on-quarter improvements in our Wealth Management revenues in Swiss franc terms and that the adverse trends affecting our net interest income following on from the cut interest rates a year ago and the consequent move in the US dollar were bottoming out on a sequential basis.
+
+So, I'm very pleased that the evidence in the first quarter continues to support this view. Moving from left to right, while net interest income remained stable compared to the previous two quarters at CHF949 million, recurring commissions and fees have shown their third successive quarterly improvement, 3% higher than the fourth quarter of last year CHF594 million.
+
+I think as you know, we've seen a significant increase in transaction-based revenues, led by APAC. An overall total of CHF1.15 billion represents a quarter-on-quarter increase of 48% and a year-on-year increase of 22%.
+
+So, let me just turn to the divisional overviews where, unless I state otherwise, I will be talking about adjusted numbers excluding significant items, particularly given the credit from Allfunds both last year and this year.
+
+And I'll start as usual with the Swiss Universal Bank. So, net revenues were CHF1.41 billion. That's 2% lower year-on-year due to lower deposit income, but this was partly offset by improved recurring revenues, which increased by 8%.
+
+The improving macroeconomic environment means that we've continued to see a reduction in provisions for credit losses. For the first quarter, the Swiss Universal Bank took a further CHF26 million in provisions, of which CHF6 million were CECL related. For comparisons, provisions were CHF124 million in the first quarter of last year and CHF66 million in the fourth quarter.
+
+Our ongoing cost discipline meant that our operating expense has actually totaled CHF749 million, 6% lower year-on-year, resulting in a cost-income ratio for the quarter of 53%. I think we're very pleased by the positive net new asset inflows we saw both in private clients and in corporate institutional clients, which totaled CHF6.1 billion in the quarter, an annualized net new asset growth rate of 4%.
+
+I'd also mention that one of the restructuring projects that we initiated last summer, that is the integration of Neue Aargauer Bank into Credit Suisse Schweiz AG and therefore into private clients and corporate institutional clients has now been completed successfully. We're also seeing strong take-up of CSX, the digital banking offering that we had launched last September.
+
+Let's move to the next slide, please. You know that on March 18, we announced that we will be separating Asset Management from International Wealth Management and operating this as a separate division under the leadership of Uli Korner. I've therefore separated the two here for reference purposes ahead of their foremost move into separate reporting, which will start with our second quarter results.
+
+Just let's look at Private Banking first, please. Net revenues were 9% lower year-on-year at CHF929 million. We've reduced year-on-year net interest income due to the US rates environment and the depreciation connected to that of the US dollar, and that offset positive impacts from deposit and loan growth.
+
+We have, though, continued to see quarter-on-quarter stability in recurring commissions and fees and transaction-based revenues were 34% higher quarter-on-quarter, albeit 8% lower year-on-year.
+
+Net new assets were strong at CHF7.2 billion in the quarter, with strong contributions both in Western Europe and in our emerging market businesses and equivalent to a growth rate on an annualized basis of 8%. I'd note that we have reclassified CHF2.4 billion of supply chain finance funds as assets under custody and this is treated as a structural effect in our reporting. We also saw growth in outstanding loan balances of 10% to CHF56 billion.
+
+We had no material provisions for credit losses and we reduced our CECL provisions by CHF5 million in the IWM PB business. And together with the improvement in operating expenses, which were 10% lower year-on-year at CHF585 million, driven by lower variable compensation, our adjusted pre-tax income excluding significant items was 5% higher year-on-year at CHF344 million.
+
+Let me turn now to Asset Management, please. Just saying a few words really just with regard to the supply chain finance funds. It remains Credit Suisse Asset Management, and for that matter, Credit Suisse's priority to maximize the recovery of cash for investors in these funds. Just to date, total cash collected in these funds has increased to CHF5.4 billion -- sorry $5.4 billion. My fault. Of which, $4.8 billion has been returned to fund investors in the two cash distributions that we've made so far. And we'll provide further progress updates in the coming months.
+
+In terms of the overall division, we saw strong net new assets in the quarter of CHF10.3 billion, taking AUM to CHF458 billion. That's 4% higher quarter-on-quarter. AUM growth underpinned net year-on-year net revenue growth of 60%, with higher management and higher performance fees contributing to a total for the quarter of CHF386 million.
+
+Operating expenses, again, driven by lower variable compensation, as well as reduced professional fees, were down by 4% at CHF269 million. On an adjusted basis excluding significant items, the division delivered a pre-tax income of CHF117 million compared to the loss of CHF39 million in the same period last year.
+
+Let's turn to APAC please. So, as we've already announced, our Asia-Pacific businesses had a strong start to 2021, with net revenues 33% higher year-on-year at $1.12 billion. Transaction-based revenues were particularly strong, 74% higher year-on-year at $725 million. But you should note there was no repeat in this number of the $181 million net mark-to-market losses that we took in this business last year.
+
+We saw higher fees from M&A and ECM activity, strong private client transactional activity and increased revenues from GTS, as well as an 11% increase in recurring commissions and fees, which offset a 12% year-on-year decline in net interest income due to lower deposit and lower margins.
+
+Even with a 4% increase in operating expenses, which totaled $558 million, the cost-income ratio for the division improved from 64% to 50% due to the higher net revenues. And overall, the adjusted pre-tax income, again excluding items, was $531 million.
+
+Let me just conclude then please with a few words on the Investment Bank. Let's just start with the adjusted financials excluding the US hedge fund charge. On this basis, pre-tax income was $2.2 billion, reflecting strong revenue contributions from all of our business lines and operating expenses of $1.78 billion.
+
+Net revenues increased by 80% to $3.89 billion. And I would note that we saw market share gains in ECM, a strong performance in leveraged finance and higher M&A deal completions. Within the credit franchise, we saw particularly strong performance in securitized products and further strength in asset finance. I think GTS performance was also good against what were very strong comparisons last year and that reflects the continued collaboration across the bank.
+
+Now, in terms of credit provisions, now just excluding again the charge relating to the US-based hedge fund matter, we wrote back $89 million provisions, of which $73 million was related to the CECL release.
+
+However, clearly, the strong performance by our Investment Bank was more than negated by the loss in respect of the US hedge fund and that resulted in the division overall reporting a pre-tax loss of $2.56 billion. As already said, we're going to be focused on reducing and shrinking the size of our prime servicing and our prime financing businesses. We intend to reduce leverage in the Investment Bank by at least 35 billion in the coming months.
+
+And with that, I'd like to conclude my part of the presentation. And I believe we're now going to pass back to Kinner to open for questions please. But thank you for your time this morning.
+
+Kinner Lakhani -- Head of IR and Group Strategy and Development
+
+Thank you, David. So, we will now begin the question-and-answer part of the conference. Operator, can we open the line, please.
+
+## Questions and Answers:
+
+Operator
+
+Thank you. [Operator Instructions]. Your first question comes from the line of Amit Goel from Barclays. Please go ahead. Your line is open.
+
+Amit Goel -- Barclays Capital -- Analyst
+
+Hi, thank you. And thank you for taking my questions. So, I guess my first question a bit more broad. I guess, Thomas and David, both of you have been at the Group for over 20 years now. And I'm just trying to understand essentially how -- in your view, how the Group has got to a position where, in 2021, we're having a debate where the Group is looking to cut back on risk within the prime business and there are questions about the future of the Asset Management business. So, just trying to understand, from your perspective, how we've arrived at this point.
+
+And then secondly, on a go-forward basis, how do you think about the roadmap in terms of rebuilding investor and other stakeholder confidence and trust in the group. So, just to get your sense on how you see that path in the coming periods. Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Amit. Look, generally, the prime services business in the past didn't have any losses. Clearly, this loss came as a big surprise to us and we are taking measures that this will not reoccur. We are reducing our exposure in that business and we are doing the investigation how it exactly happened and make sure it will not happen again. Asset Management, we had, again, the situation around Greensill, but the overall Asset Management business, as we saw also today, is actually doing very well from an operational perspective. The same is true for the Investment Bank. So, clearly, the two incidents are unacceptable, but at the same time, we have to move forward. We have to look forward. And the fact is that we can build on the very strong operational performance in Q1. We have taken the measure with the mandatory convertible to strengthen our balance sheet. We want to take any discussion on capital off the table. On a pro forma basis, we are back at 13%, higher than we were at the end of the year last year. And this was really the basis now for us to look forward and to move forward and to be back in business. So, that was really the key.
+
+And in terms of overall roadmap, as I just said, we have to look forward now. Clearly, we have an incoming chairman who will come in on May 1, together with the Board of Directors and the entire ExB management team, we will sit down, we will review everything. We have to do that after what happened in the first quarter. But at the same time, I'm a fundamental believer that the overall strategy of Credit Suisse is sound. And again, as we could prove in the first quarter with outperformance in almost every business.
+
+So, this is the moment now to look forward.
+
+Amit Goel -- Barclays Capital -- Analyst
+
+Okay, thank you. And just if I can have just one follow-up. And just also, it would be good to get an understanding in terms of the FINMA enforcement proceedings and just basically wondering what the potential consequences are from that and also what other kind of regulatory and legal risks that could be related to the recent issues.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Well, clearly, after the two incidents were reported by us, already before that, but from that moment, in very close contract with the regulators generally and with FINMA. And it was very clear from the outset that there will be two enforcement necessary with external auditors involved on behalf of FINMA and we're looking forward now to working through them through both situations and take the right conclusions. So, this is going to be a collaborative work with FINMA together also with the internal investigation, which has been put in place by our Board of Directors.
+
+Amit Goel -- Barclays Capital -- Analyst
+
+Okay, thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Benjamin Goy from Deutsche Bank. Please go ahead. Your line is open.
+
+Benjamin Goy -- Deutsche Bank -- Analyst
+
+Yes. Hi, good morning. One question on the Investment Bank. Should we think of the capital commitment has a hard cap now. So, effectively, a passive shrinking in group context until further the review under the new chairman, as you suggested potentially?
+
+And then secondly, on Asset Management, you say it's strategic. I think in December, you mentioned the cross-selling in particular works with traditional products, but not so far with alternatives. Maybe you can give an update on the opportunities you see or potential reluctance by relationship managers given reputational issues here. Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah. On the IB side, as David mentioned, we are planning to reduce our leverage exposure by CHF35 billion. Most, if not all of that, will come from the prime services side. And we will also reduce our RWAs to the level we were at at the end of last year. We will further calibrate and refine these over the next few weeks and months, together with Christian Meissner and the management team. There are certainly areas where we continue to want to be very proactive and have strong market positions such as leverage finance where we've had a very strong first quarter, but at the same time we want to be very disciplined and want to really now manage that business accordingly.
+
+On the Asset Management, together with Uli Korner, we are also reviewing the areas where we want to have the emphasize going forward. Clearly, we are now still very much focused on maximizing the cash returns on the supply chain finance fund situation, but at the same time, we have some very strong businesses in Asset Management, as you could also see with the net new asset inflows we had in the first quarter. And together with Uli and the rest of the team, we are reviewing all of those opportunities.
+
+Benjamin Goy -- Deutsche Bank -- Analyst
+
+Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Andrew Coombs from Citigroup. Please go ahead. Your line is open.
+
+Andrew Coombs -- Citigroup -- Analyst
+
+Good morning. Three questions from me please. Firstly, just to clarify on capital and FINMA enforcement actions. They talk about capital surcharges in their press release today. Can you confirm? Is that just the 25 basis points that you referred to on slide 22 or do you expect further capital surcharges to come? And attached to that, I see that you mentioned 30 basis points to 35 basis points on operational risk models, but the footnotes suggests that's just for mortgage-related matters in the fourth quarter. So, any thoughts on operational risk inflation going forward? That's the first question.
+
+Second question on the prime services review and the CHF35 billion leverage exposure reduction. Could you provide us an idea of both the direct revenue attrition attached to that, but also the indirect revenue attrition as one would assume that shrinking in prime will also weigh in directly on cash and derivatives as well in your equities franchise.
+
+And then thirdly, on a more positive note, you've obviously had a very strong quarter on SPAC issuance. I'm conscious that a lot of the fees there are only recognized on the de-SPAC event. So, could you provide us an idea that if, for example, a 100% of those SPACs were to de-SPAC successfully over the remainder of the year, what would the pipeline of fees look like? Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Okay. Before I hand over to David who should take lead of most of this question, I just want to make clear on the capital that the decision to issue the mandatory convertible notes was purely taken by ourselves. There was no kind of request by FINMA. It was really David and I who came to a view, we want to do this, we want to take this whole discussion off the table. We made the recommendation to the Board, the Board supported us and then we went ahead with that placement. So, there was no request by FINMA in any shape or form. But with this, I would like to hand over to David to go through your three questions.
+
+David Mathers -- Chief Financial Officer
+
+No, I'd just second what Thomas said. I think we previously guided to a minimum of 12.5%. I think we really wanted to take the capital question off the table. So, I think getting to an applied number of 13% including the Allfunds credit, I think, was a very important thing. It also boost our leverage ratio to 4% too. And as Thomas said, that was very much our decision. We discussed it with the Board and we executed against that. And we were obviously very grateful for the support of both our existing and new shareholders in this.
+
+Just in terms of your detailed questions then. So, there were two FINMA related capital add-ons, one which is actually mentioned in our annual report, which is a Pillar II add-on of CHF2 billion. And that basically increases the minimum requirement from 10% to, I guess, 10.6%. That is in respect of the Greensill supply chains funds matter.
+
+The second is the one we actually show on the capital walk slide, which is the add-on which is proportionate to the size of the residual positions that we hold in respect of -- on behalf of the US hedge fund. And as those now decline toward zero, we've shifted obviously just over 97% of them. That buffer actually reduces proportionate to that.
+
+I think in terms of operational risk, you're correct, the op risk charge that I'm alluding to in the capital walk is in respect primarily RMBS matters when we took the charge we took in the fourth quarter of last year. That's going through the process. At this point, the number is not yet final. But I wanted to just to remind you that we will have the impact in the second quarter.
+
+I clearly can't preclude any other add-ons. I think it would be wrong for me to do so. This is, though, a credit risk event regarding the US hedge fund, not an unauthorized trading issue. So, it's not strictly speaking an op risk point. But at this point, that's all I would want to say at this time.
+
+So, I think those were your two questions in terms of capital. By the way, just should know and you may have seen it in the press release that we have announced the settlement of the single largest RMBS case today. That's the so-called [Indecipherable] case for $500 million. That's exactly in line with the provision that we took in the fourth quarter. So, there is no incremental charge in respect of either the first quarter or the second quarter in that. I think we're pleased to resolve the matter which, I guess, must be now about 15 years old.
+
+Now moving on to your second question, which was around prime. I think helpful and unhelpful, I think, if I'm being honest. Just to give you some idea, that CHF35 billion leverage reduction is about a third of the total leverage we have deployed in prime. And I would expect clearly our prime revenues to fall as a consequence of that. But I think in terms of the actual revenue impact, quite clearly, we will be focusing our prime business around clients that have multiple connectivity to Credit Suisse, i.e., are important across our businesses. And obviously, de-focusing on clients that have much less connection across the bank. So, one would clearly expect we'll be, at that point, reducing the lowest ROA businesses, but it does move prime to being more of a utility to actually support the overall bank as opposed to a stand-alone business model, which I think is the right way to go.
+
+But yes, we will see some revenue reduction. It's going to be difficult to estimate it, given those two constraining factors, and that will obviously come through as a reduction in our equity sales and trading revenues going forward.
+
+And in terms of the SPAC number, I might have to ask Kinner to help me in terms of outstanding balance. But I think just to put the numbers in context, there was about CHF280 million of SPAC revenues after the CHF1.4 billion of Investment Banking, capital markets and advisory numbers. Actually, I don't think we've given the de-SPAC before. So, I'm not going to give it now basically. But as you rightly say, Andrew, we recognized just under half of SPAC revenues on issuance. And the other half is dependent on the successful conversion or de-SPACing of the entity normally within the two years following issuance. But I'm not going to give the actual pipeline now. But what is clear is that more than half of the issuance revenues are still waiting there, subject to the appropriate due diligence and completion of the de-SPACing, which may not always occur in the case of all of the SPACs just to be clear.
+
+Andrew Coombs -- Citigroup -- Analyst
+
+Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thank you, Andrew.
+
+Operator
+
+Thank you. Your next question comes from the line of Jeremy Sigee from Exane. Please go ahead. Your line is open.
+
+Jeremy Sigee -- Exane BNP Paribas -- Analyst
+
+Morning. Thank you very much. Apologies for taking on the painful bits, but I still think there's more clarification that we need. I wanted to just ask two things. One is on Greensill. You've got about CHF5 billion cash, but also about CHF5 billion remaining exposure in those funds. And I just wondered if you could put a number on how much of that CHF5 billion remaining exposure is to doubtful borrowers, including, obviously, Gupta, but also some of the other doubtful borrowers who seem reluctant to pay. So, that's my first question.
+
+And my second question is on the other painful, like I said, I'm afraid, on the Archegos situation. Could you walk us through the mechanics of how that loss came about in terms of what the outstanding gross exposure was at the moment of problem? How much margin you had and the sequence of events in terms of, were you slow to sell down or how do you assess what happened? Those are my two questions please.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Okay. So, I'll take the lead on Greensill. So, the CHF5.4 billion you mentioned, and we have very good visibility, I would say, on up to CHF7.5 billion. And then the rest, as we announced a couple of days ago, roughly CHF2.3 billion relates to three distinct situations where we have very strong legal positions. We also have discussions with insurance coverage around these situations, and this will take several weeks, if not months and quarters, to resolve. But this is something that we are working through. This is our asset management team that is working with advisors, with the advisors also to Greensill and to the underlying companies. We have constructive discussions there. And it's simply premature now to make any estimates what the ultimate outcome will be, but we have very constructive discussions. And this is under the lead of Credit Suisse Asset Management.
+
+On Archegos, look, as you know that this was a very special situation around the family office that was covered not only by us, but also five, six other brokers out of prime services with a lack of disclosure, which I think also regulators now are looking into that had explosive growth over the last 12 months. And we are not commenting on detailed exposures, but we clearly had issues there that we are now looking into as part of our investigation around the absolute limits, around the margining, around Delta One and the situation around the underlying concentration risks. So, this is something we are all looking into and ensure that this cannot and must not ever be repeated.
+
+But it's too premature now to go into more details. I'm very satisfied that we have essentially gone out of the exposures now. We have, as we said, reduced the exposures by over 97% to a very moderate number now, which we are managing through to the coming weeks with the clear intention that we will get as quickly as possible to a zero level.
+
+Anything you wanted to add, David?
+
+David Mathers -- Chief Financial Officer
+
+No, I think -- just make a couple of points really. Firstly, I think I would just refute the suggestion that we were slow to sell down. We reduced our position in a lawful and an orderly manner, I think, with respect to the challenge we actually faced. And I think as far as I can tell, in terms of looking at the prices we achieved compared to the other prime brokers, the exit prices were broadly similar over the period of time. That's the point I'd make first.
+
+I think the second point I'd make is, it is an exceptional event. I think the last time the industry has seen anything like this was LTCM in terms of its size and consequence. It is an industrywide issue. But that said, I think as Thomas has summarized, we've obviously conducted an immediate read-across to anything similar, any other immediate lessons learned to ensure that that is not the case within the rest of our prime portfolio. And we're obviously very focused on the investigation review that the Board of Directors is leading in terms of the longer-term lessons to be learned around this particular position. But as Thomas said, clearly, this is likely to be a broader industry issue as well, given the number of other prime brokers involved and some of the disclosure requirements relating to these types of funds.
+
+Jeremy Sigee -- Exane BNP Paribas -- Analyst
+
+Thank you. It's very helpful.
+
+Operator
+
+Thank you. Your next question comes from the line of Magdalena Stoklosa from Morgan Stanley. Please go ahead. Your line is open.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+Thank you very much. I've got two questions. I'm going to have to return to the Archegos kind of issue as well, but more around -- more top-down. Because, of course, you have described what you've done so far. You've described today the Board investigation. But kind of when you look back, and that's particularly at the risk framework, the decision-making, the communications between the executives, are there any kind of early learnings or any kind of additional color that you can share with us kind of to make the understanding of the situation kind of more helpful not only for yourself, but of course, as you said, on an industry level as well.
+
+And my second question within that is that, how do you see this particular credit event? Is it isolated? We've talked about kind of your review of prime brokerage. But within the broader risk management at the IB level, are there any other businesses that you would be reviewing as well as a part of the kind of broader potential rethink of the business? So that's question number one.
+
+And question number two really is about IWM and the revenue trajectory there. Because, of course, we have seen very, very strong kind of net new money numbers. But, of course, when we look at the kind of underlying revenues, we're of course seeing the kind of weakness in NII, but also on the kinds of transactional and recurring fees are kind of broadly flat. And I know that there is a question about [Indecipherable], there's a question about FX [Phonetic] within the numbers too. But going forward, how should we kind of think about that revenue trajectory within that part of your wealth business? Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Okay. I will take the first one and then maybe, David, you can take the second one. So, on Archegos early learnings, clearly, one of the early learnings is that the disclosure has to be improved around especially family offices in that business. Secondly, I think we have to look at absolute limits much more carefully, about margin limits, about how we look at Delta One and correlation between short and long positions and we have to look at concentration risk management. So, these are all elements that we are extremely focused and on which basis we have done the first analysis of the entire book. But there will certainly be more learnings to come through as we go through the next few weeks in terms of the review that we're doing internally, but also that will be done as part of our external review with our regulators.
+
+This is an isolated case. Look, I definitely hope it is, and I think it is. But we are obviously reviewing the entire bank now, just to make sure that our risk processes and systems are where they should be. Clearly, historically, the prime business has not been subject to major losses and that is now our prime focus. But we are, together with Christian Meissner, the first line of defense, but also the second line of defense, our new chief risk officer and the head of risk for the Investment Bank, are doing a special effort now to review the entire division.
+
+David, would you like to cover the IWM revenues?
+
+David Mathers -- Chief Financial Officer
+
+Sure, of course. Hi, Magdalena. I think a few points to make, really. Firstly, as you know, the primary currency in terms of which IWM operates, the largest single one is actually -- in revenue terms is actually the US dollar. And if you look back to the first quarter of last year, beginning of the COVID crisis, you saw the dollar trading substantially stronger against the Swiss franc, which we report in, compared to where it actually is now basically.
+
+So, what you're seeing is twofold. Firstly, the adverse impact on translation of those dollar revenues into Swiss francs. And then secondly, and because of the importance of the dollar to IWM, you've obviously seen a very sharp reduction in US dollar interest rates, which were at a peak a year ago. So, that translates through into lower net interest income.
+
+Now, the point we made before, though, is sequentially that is stabilizing even before the slight appreciation we see in the US dollar against the Swiss franc in the last four months and some pickup, but limited in terms of longer-term US dollar interest rates. So, that's a point I'd make to start off with. And clearly, in terms of recurring revenue, see the same trends.
+
+Now, generally speaking, transaction revenues across the whole Wealth Management business were substantially up compared to last year. They're down in IWM partly for the currency effect, but also because the first quarter of last year was extremely strong for IWM. And I think I'd just refer you, Magdalena, to pages 38 and 39 within the presentation. What you see there basically is the gross margin trends within IWM PB. You can see, it was a high of 114 basis points in the first quarter of last year, a low of 95, 96 and 97 in the second half of last year, and now ticking up to 99. And in net terms, with some of the cost measures, obviously, it was 37, down to 23, back up to 37 in terms of that.
+
+I think the second point I'd actually make is actually on the following slide, slide 39. And you can see there the growth in client business volume, which I think shows the expansion both in terms of assets under management, but also in terms of net lending activity in IWM, which I think does support what we're seeing in terms of the sequential improvements in terms of that business. But transactions in IWM were particularly high in the first quarter a year ago, Magdalena.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Daniele Brupbacher from UBS. Please go ahead. Your line is open.
+
+Daniele Brupbacher -- UBS -- Analyst
+
+Yeah. Good morning. And thank you. I have a follow-on question on slide 22 and then one on the FINMA press release from this morning. In that press release, they talk about a reduction or suspension of variable remuneration. Now, how should we think about this? Is this a temporary thing, probably just for a few quarters? And is there a potential for catch up later in the year? How do you look at this statement and what's your optionality there?
+
+And then, just on slide 22, again, sorry, it's probably in connection with page 11 of the earnings release. In the earnings release, you talk about potential additional capital and related actions, including an add-on to RWA and op risk Pillar II add-on, etc. So, would that be potentially on top of the CHF6 billion and CHF1.9 billion you mentioned and would that be included in the waterfall chart on slide 22. Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Daniele. So, I'll take the first one and then David can take the second one. So, on variable compensation, yeah, we have been in constant dialog with FINMA. We, that is obviously the Board, but also myself on this topic. And we have taken some of these decisions both on the Executive Board level, but also on the overall comp pool as we have done for the first quarter and that dialog will continue over the next few weeks. So, this has been a very constructive discussion with FINMA and there is not really more I can say at this stage. Clearly, they have taken a positive note, not only from the mandatory convertible, but also the operating performance and we will, even in the absence of FINMA, obviously, take all compensation related decisions in relation to the future performance of the various businesses.
+
+On RWA, I hand over to you, David.
+
+Daniele Brupbacher -- UBS -- Analyst
+
+Sure. Yeah, I think just to summarize, basically, if you look at page -- as you say, page 11 of the earnings release and then the capital walk on slide 22. So, in essence, as I said already, there is a $2 billion Pillar II add-on in respect of Greensill operational risk basically which was imposed by FINMA in March. And I think as I said, we disclosed in our annual report. This add on in respect of the US hedge fund positions which is proportionate to that which I've actually included on slide 22. And then as you say, basically, I've made it clear that the operational risk number, which I've included toward the right hand side, that is primarily in respect of the RMBS matter. It's not in respect of anything else at this point. There are also other methodology changes that I put in there as a sort of precautionary matter in terms of that, but I've not included an operational risk charge in respect of either.
+
+But I think in terms of -- I think it's difficult to truly speculate on this because this is clearly still a developing matter and we'll see how this changes over time, but quite clearly, Credit Suisse itself has not suffered a loss, operational or otherwise, in respect of Greensill, apart from the CHF30 million impairment of the fair value loan. So, there is no basis for an operational risk charge to Pillar 1 pending such a loss.
+
+I think in terms of the US based matter, as said, this is a credit charge. It's not an operational risk failure. But I think quite rightly, in page 11, it's a risk factor. I can't preclude that as the -- both the Board investigation and as the FINMA investigation predictions that we don't have some kind of add-on in future. But I'm not aware of such an add-on at this point and it's impossible to estimate what that would be basically. But I think it is appropriate we disclose it, Daniele, in the risk factors. That's super helpful. Thank you. Is it fair to conclude that this is probably why you want to have a 13% CET1 ratio target which should capture some of these uncertainties as well.
+
+David Mathers -- Chief Financial Officer
+
+Actually not really, actually. I think there were three reasons why we wanted to have a 13% ratio and to actually reach it quickly with the issuance of the mandatory. I think, first, I think there has been obviously an extensive amount of media coverage about Credit Suisse, people have raised questions around the capital ratio particularly before we put out the release at the beginning of April. And I think that's unhelpful. I have been here before. And I think particularly unhelpful to our Wealth Management business and I think taking off the table is exactly the right thing to do in terms of the sort of capital security of the bank. And I think that's true both for the CET1 ratio, but also the CET1 leverage ratio because, as you know, Switzerland has a relatively high floor in terms of the leverage ratio requirements.
+
+I think the second point, basically, is I think that while we are reducing capital in the Investment Bank, I think given the momentum we've seen in the Wealth Management businesses, I think allowing that growth to continue in a prudent and disciplined fashion, I think, is the right thing to do. And I think if we hadn't raised a mandatory and had a 13% goal, then I think that could have imposed undue restraints in terms of that.
+
+And thirdly, and I just would caution, this is more of a sort of personal view. I think there's a lot of volatility in these markets and I'd rather basically operate with the bank at a 13% ratio. And that was a discussion we had at the ExB and recommended to the Board and the Board supported that. And I think that's the prudent thing to do in respect of 2021.
+
+Clearly, to your point, yes, I guess it does provide a buffer against that type of circumstance too, but that wasn't our primary reason. Thank you. Very clear. Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Kian Abouhossein from J.P. Morgan. Please go ahead. Your line is open.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Yes. First of all, thanks for taking my questions. And Thomas, thank you very much for your openness and humility in this respect to the matters that clearly are of concern to shareholders. I have three questions. The first one is strategy. You say the strategy is sound. And if I look at your investment bank, over 5, 10, 20 years, 30 years, you do not make cost of equity returns even taking out what we could call specific issues such as we see now with Archegos. So, really, shouldn't there be a discussion around, do we really need an investment bank of the size rather than cutting at the edges of the PB business, which makes it even more sub-scale than you are already against the top three competitors in PB.
+
+The second question is related to, if I can come back to risk, where are you on reviewing the total risk book of the firm, of the Group? And in that context, when are we going to expect a new head of compliance and risk officer. I assume they will be two separate positions, if you can confirm that, and will they be coming from the outside.
+
+And the last question is on net new money flows in the second quarter. Can you give us some subjective impressions, how that is going both on Wealth Management, IWM clearly as well and Asset Management. Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Okay, Kian. Well, you said yourself that if you exclude Archegos, then we are not earning our cost of capital in the IB. If I look, since we have put the IB together in the second half last year and in the first quarter, I would disagree. But clearly, we cannot...
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Thomas, sorry. Apologies to interrupt. But I said over 5, 10, 20 years. Clearly, everybody is making a killing in credit, so are you. But if I just look longer term, just to clarify my question, longer term, you don't make cost of equity. You had a good few quarters, I admit.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Well, we did a comprehensive risk reduction in the years '15, '16, '17 where we reduced significantly our leverage and RWA exposures, exited a large part of macro and really reduced our footprint in the Investment Bank to make it more profitable, which is what we did, and that clearly addressed some of the issues, the structural issues we had.
+
+Now, look, the IB overall size as well as look is now clearly addressed in a second step now, primarily now with a focus on prime services. And it's something that after an event like it's understandable that you ask that question, but we have some tremendous franchises in capital markets, in M&A, in SP, just to name a few. And as you can see also in some of the charts that I showed, we've had significant market share gains in various areas.
+
+But this is clearly also something we are now going to discuss with Christian, with Antonio when he is on board, and we will have a further review. So, this is certainly something that will continue to be discussed also internally, but we have definitely made a lot of progress in the business. And as the first quarter numbers have shown, we were really on the right track. With 80% revenue growth, I think we have pretty much outperformed everybody else in the first quarter. So, to say that everything is broken on the IB, which I kind of implied from your question, is a bit unfair, I think, against this background.
+
+With respect to risk and compliance search, we have started that search. We have obviously very strong hands on the table now, with Jo Oechslin and with Thomas Grotzer. Jo Oechslin very clearly said, this is something he is prepared to do, but only on an interim basis. And he's very experienced, and he has already had very positive impact on the business. But we will now move forward with that search. We have not decided yet whether risk and compliance should be one or two functions. This will be also part of the outcome of the search. If you look at the largest 10 banks, maybe the largest 6 banks in the US and the largest 4 banks in Europe away from us, you can see that about 50% have risk and compliance together and the other 50% have it separate. We discussed it at the time with the regulator, with the Board. We have clearly some very good reasons to keep it together, including technology and other areas. I think it has to do with non-financial risk. But they're also clearly now -- there was a need, given the short-term nature of the needs to have a comprehensive review across our Group on all the risk positions that we wanted to keep it separate for the time being as far the leadership is concerned, with Jo and Thomas, but we kept certain areas together like technology for the two functions, that continues to be one team and they're supporting both sides. And we will take a decision on that together with the Board of Directors over the coming weeks and months as we go through the search.
+
+In terms of M&A, look, it's early days in the first quarter, but there have not been major flows in either direction. So it's too early to comment on M&A at this stage.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+And may I just ask -- sorry, just on the risk, are you doing a review of all divisions, all exposures or is it specific to the areas where we have had issues? Or is it also other areas like Lombard lending, etc.?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah, we are doing comprehensive review. Obviously, that's something that we owe to ourselves and to our stakeholders that we -- after such a shock loss that we had, we have to review that in detail.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Thank you, Thomas, for your openness.
+
+Operator
+
+Thank you. Your next question comes from the line of Alastair Ryan, Bank of America. Please go ahead. Your line is open.
+
+Alastair Ryan -- Bank of America Merrill Lynch -- Analyst
+
+Thank you. Good morning. Just cost in, please. So, you had about CHF2.5 billion year-over-year revenue improvement in Q1. Historically, you've had a marginal cost-income ratio in good times of 50-ish. So, there's probably CHF1.2 billion of costs that didn't get accrued for the reasons we discussed. Could you just discuss whether there is any potential overhang in the rest of the year, i.e. if the IB does perform well, there needs to be a catch-up in costs because presumably there is quite a relevant differential between what you've accrued in some your high performers and what competitors maybe doing sort of [Indecipherable] later in the year as a result of the discipline you've shown in Q1, I guess, is your question, please.
+
+David Mathers -- Chief Financial Officer
+
+Alastair, I'll take the question. So, firstly, I think as I said in my presentation, you can see in the compensation and benefits line that it was about CHF109 million lower this year than it was actually last year. And that was primarily almost entirely due to reductions in variable compensation. So, that gives you one measure. Now, if we're stepping back and saying, given the improvement in revenues that we actually saw in the first quarter ex the US hedge fund issue, would comp and benefits have been higher than last year? And the answer was yes, they would. But they wouldn't be higher anything like the amount you actually said.
+
+I think I step back and we have obviously CHF3.6 billion of 1Q PTI excluding the US hedge fund loss. I think you could basically say there was CHF109 million contribution of variable compensation there. You might want to add a bit more in terms of how much I might have accrued. But I have to say, every which way I actually looked at the first quarter number, it comfortably exceeded CHF3 billion, excluding that. And I think the number that was reported in one newspaper, I think, around a much bigger comp reduction was erroneous in terms of that.
+
+The brutal truth -- you know better than I do -- is that banking is a fixed cost business. And when you have a very strong level of revenue growth like that, you do not see that degree of marginal cost increase coming through. It's really just the variable cost line plus and BCE type costs basically, Alastair. So, that's, I guess, point one in terms of the point there. But I would certainly strongly dissuade you from thinking about there was some number like CHF1.5 billion or whichever in terms of marginal cost that didn't flow through. That's not the case.
+
+I think in terms of the balance of this year, I think we obviously would be conscious of the need to retain and motivate staff, I think conscious of the need to continue to execute well in the balance of this year and to sustain this momentum. But I think it is also appropriate that if you have an issue like this, then there needs to be a prudent approach in terms of variable compensation. And that's a line that we're trying to walk between those two things. And I think that's all I can really say at this point, Alastair.
+
+Alastair Ryan -- Bank of America Merrill Lynch -- Analyst
+
+Thank you.
+
+Operator
+
+Thank you. And your next question comes from the line of Piers Brown, HSBC. Please go ahead. Your line is open.
+
+Piers Brown -- HSBC -- Analyst
+
+Yeah, good morning. I've got two follow-up questions please. First of all, on the IB deleveraging number, the CHF35 billion of LRD deleveraging. I wonder if you could just give us a little bit more color on what the thought process was around that number, how you arrived at CHF35 billion and which particular aspects of the prime business was it that you felt needed to be addressed in terms of derisking?
+
+And the second question was just on the loan growth you've reported in the wealth business, which has obviously been extremely strong and whether that may be impacted by the risk review that you're currently undergoing. Thanks.
+
+David Mathers -- Chief Financial Officer
+
+I think if I were to take the first one, I think I don't want to prejudge the work that Christian needs to be looking at prime nor the work that we'll be doing together with our new chairman in the second quarter. But I think we did want to set an initial target based on the overall book in terms of the leverage reduction and that's what we're giving now basically. I think you should see that as a minimum, and not a maximum basically. I think it does, as I've indicated, indicate a significant refocusing of prime away from being more of a stand-alone P&L center, be it with a lot of connectivity elsewhere to being seen instead as a utility to actually support the rest of the businesses, which I think does mean we'll focus on clients that have the maximum connectivity to the rest of the bank as opposed to any sort of stand-alone type customers. And I think that's the right thing to do. So, I can certainly commit to at least that CHF35 billion reduction, but it may end up being more than that, Piers, as we actually look forward.
+
+I would just remind everybody that prime is a relatively low ROA business, and I think that we can actually deploy that leverage at higher returns elsewhere in the bank. And I think that's what we're going to do as well as boosting our ratio to above 4%.
+
+I think in terms of sort of immediate actions of the candidates, it's what Thomas has said already. The immediate action is to look at any type of immediate lessons learned from the US hedge fund matter and make sure that those are addressed as a priority. That may include the Delta One business, which does not come through in terms of leverage as opposed to this being primarily a leverage goal. It's a risk reduction exercise as well as being leverage goal. So, just to be clear on that particular point.
+
+I think the second point in terms of wealth management loan growth, I think we've been clear that we did see some reduction in our lending growth last year, which I think hitherto had been, I think, a steady and accretive growth for the bank over a period of about 5 or 6 years. Thomas was heavily involved in looking at that exercise with the Wealth Management business. We do have a very broad range of collateral across the Wealth Management businesses, some of which has absolutely no lending against whatsoever basically. There is client demand for that. And I think therefore in a disciplined and risk controlled fashion, I think it's important to continue that lending expansion. And obviously, I think we've been generally pleased with the risk return reward from that.
+
+I think, yes, there'll be some pause in the growth of that or some slowdown in the growth of that because we are, obviously, looking very carefully. Obviously, primarily, these are at the US hedge fund and the Greensill matter, but obviously the investigation, we will look quite a bit on that.
+
+But I think one reason which we wanted to raise the mandatory I think was to ensure that we had sufficient capital to actually facilitate that in a steady, orderly and progressive fashion.
+
+Piers Brown -- HSBC -- Analyst
+
+That's great. Thank you very much.
+
+David Mathers -- Chief Financial Officer
+
+Thank you, Piers.
+
+Operator
+
+Thank you. Your next question comes from the line of Stefan Stalmann from Autonomous Research. Please go ahead. Your line is open.
+
+Stefan Stalmann -- Autonomous Research -- Analyst
+
+Yes. Good morning, gentlemen. I have some questions, please. The first one, going back to Archegos, do you think it's possible, and maybe this is a bit too early to ask, but do you think it's possible that this could produce a very fundamental reset in how your IRB credit risk models work? You have only CHF20 billion to CHF25 billion of counterparty credit risk weighted assets on literally hundreds of billions of equity swaps and repos, etc. That's question number one.
+
+Question number 2 goes back to the tax treatment of the Archegos related loss. I'm not quite sure I understand what's happening here. It looks to me as if you have taken a tax credit of at least 30% against the loss in the first quarter. But there has been no increase in your deferred tax assets. So, it seems that you're really assuming that you can fully offset this against taxable income during the rest of the year. Do you expect there to be an uptick or an increase in deferred tax assets later during the year? And is that what is reflected in your capital waterfall on slide 22? Or is there no such issue?
+
+And I was also wondering as an add-on, in which legal entity did you actually incur this loss, please? Thank you very much.
+
+David Mathers -- Chief Financial Officer
+
+Stefan. Well, look, I think in terms of the US hedge fund and counterparty credit risk exposure, I'm sure that we'll obviously be looking carefully at the capital model in respect of how we look at these types of hedge funds. But quite clearly, I think you're going to see a very substantial reduction in such Delta One type positions. And so, it may become a slightly moot point, I think, Stefan, in terms of that. I'm not sure I'd expect to see a broader read across in terms of this, but I'll defer that to the work that we'll do in the balance of this particular year.
+
+I think in terms of tax treatment, it is complex. In essence, just to be clear, to answer your third point, Credit Suisse International, which is the UK entity, faced off to the US hedge fund and, therefore, had the credit exposure, but the risk was actually booked in a US entity called BD Lite in terms of the actual position. But the client relationship was actually owned by CSI because the US hedge fund dealt in both US and non-US based derivatives.
+
+Now that's relevant then to the second question really, which is in terms of the entities you can actually offset the tax against. It clearly cannot be offset against CS AG or against Credit Suisse Schweiz or some of the other legal entities, the bank or the Hong Kong branch or anything like that.
+
+And therefore, it has to be offset against the entities that this actually relates to. And that obviously limits the tax asset that I can actually include in my balance sheet to the level I can expect to recover that over the foreseeable future, not just this year, but over the longer term future. And I don't have an expectation at this point that I've had sufficient profitability to fully offset the tax loss that actually results from the US hedge fund matter basically.
+
+So, what we actually reflecting is the component which I actually expect to recover, not the amount. To be helpful -- well, sort of helpful basically, we're basically reflecting about CHF650 million of a tax credit against that sort of CHF4.4 billion. So, essentially, in practical terms, it relates to just over half is something we're actually reflecting in terms of a deferred tax asset and half we're not recognizing.
+
+So, in the context of the total loss, you've got just under CHF2.5 billion of a pre-tax loss, which there is no tax credit and, therefore, that pushes up the effective tax rate for the year and for the first quarter.
+
+Is that helpful, Stefan? Sorry, it's not a trivial matter.
+
+Stefan Stalmann -- Autonomous Research -- Analyst
+
+Yes, I think it does help. Just for clarification, so there has been no increase in deferred tax assets related to this during the first quarter, right?
+
+David Mathers -- Chief Financial Officer
+
+I think that's a tricky question because there is also FX moves in this. I'd have to come back to in terms of that one, Stefan.
+
+Stefan Stalmann -- Autonomous Research -- Analyst
+
+Okay. Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Anke Reingen from Royal Bank of Canada. Please go ahead. Your line is open.
+
+Anke Reingen -- RBC Capital Markets -- Analyst
+
+Yeah. Thank you very much for taking my two more like follow-up questions. Firstly is just on the strategy again. Obviously, you had a very detailed presentation in December last year and probably we were talking about the 10% to 12% and the investing for growth. Should we assume by this fact the strategy stands at 10% to 12% RoTE or should we expect, as you indicated, post the Investment Banking review and the new chairman arriving that we will get a new strategic update?
+
+And then, secondly, just a follow-up question to Kian's point. I didn't quite hear your answer on the net new money. Were you saying it's too early to comment? I just thought it was quite interesting, given that you said raising the convertible was also related to avoiding a negative impact on your Wealth Management business. Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Look, the mid-term 10% to 12% target has to be and continues to be our goal to achieve return on equity above our cost of equity, and that has to be our goal. So, we will obviously calibrate this in more detail over the coming weeks and months and also will have strategic discussions with no, as we see in German, sacred cows. But this has to be our goal to maximize return on equity and continue to achieve a double-digit return on capital in the mid-term.
+
+On NNA, so, first of all, too early to say, but there have not been major flows in either direction in the first few weeks in the second quarter. And your question relating to capital, again, as I think David said, there were really three reasons why we wanted to do this. First of all, we really wanted to take the whole capital debate off the table and really ensure that this is not a topic anymore either internally or externally with clients or with clients -- regulators. Secondly, we want to make sure that if there is a market downturn that we have enough capital from a more defensive perspective. And the third is also to have enough capital to grow, especially in Switzerland in IWM and in Asia. And those are the reasons why we did this.
+
+Anke Reingen -- RBC Capital Markets -- Analyst
+
+Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Anke.
+
+Operator
+
+Thank you. Your next question comes from the line of Andrew Lim Societe Generale. Please go ahead. Your line is open.
+
+Andrew Lim -- Societe Generale -- Analyst
+
+Hi. Morning. Thanks for taking my questions. And well done on being proactive on the capital front. I guess one element that arguably is missing from the capital waterfall you've outlined is potential losses from Greensill. I know, ultimately, we don't know what these could be. But at the same time, there's rumors doing the rounds about whether you will or will not compensate investors for losses. So, I just wanted to see if you could set the record straight as to your strategy here and whether you will compensate investors or whether, as institutional investors, they should wear all of these losses?
+
+And then, the other question I had was regarding your statement on Credit Suisse Asset Management. I guess maybe it's a bit surprising you're saying perhaps quite early that you don't consider a sale of the business here despite segregating it out. I was wondering why you're so keen to say such a statement there and whether you would in any case consider a merger of any sort or consider a reduction in your controlling stake there? Thanks.
+
+Thomas Gottstein -- Chief Executive Officer
+
+So, again on Greensill, we are focused on getting the cash back to our investors. That's our only focus right now and we know this will take months and several quarters to go through, especially with respect to the three distinct situations. We've had a very good progress so far in terms of getting the cash back for all the others and have good visibility for a meaningful part, but the three distinct situations that we have mentioned before are clearly going to take several months and quarters before we have clarity there. And therefore, there is absolutely no possibility at this stage to make any more comments on that.
+
+Secondly, on CSAM, as I also said before, I always felt this should be its own division and the issue around Greensill has accelerated that move and we created its own division under leadership now of Uli Korner. As you could see from the first quarter, this business is actually doing very well with high returns. This is an important business for us. I believe very strongly that Global Wealth Management needs to have strong asset management capabilities. So, this is strategically important. Having said that, we also had a very convoluted -- or still have legal entity structure around this, which is why we started a project already last fall to have a more streamlined legal entity structure around asset management. But structure follows strategy. And therefore, this is something that will take also a couple of quarters until we have that legal entity structure properly lined up.
+
+As with other topics, be it IB, be it other areas of the bank, we will always have annual reviews and this will -- strategic reviews, I mean, on the Group level. And as soon as Antonio is onboard and we have the full Board of Directors and management team coming together, we will also look at the Asset Management business like we look at all the other businesses.
+
+Andrew Lim -- Societe Generale -- Analyst
+
+And just on that point, do you have dates in mind of Antonio joins when you come back to the market with the strategic review?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Not giving any -- I'm not giving any dates on this. No.
+
+Andrew Lim -- Societe Generale -- Analyst
+
+Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Adam Terelak from Mediobanca. Please go ahead. Your line is open.
+
+Adam Terelak -- Mediobanca -- Analyst
+
+Good morning and thank you. I have two, please. First is on the strategic review. Obviously, you haven't got into that yet, but will that be in discussion with the regulator and will they have any input into the future state of business and whether they might be able to regulate you out of certain areas that you clearly have difficulties in the past?
+
+And the second is a technical one on the cap of RWA for the Investment Bank. Clearly, that's a step down from where you finished the quarter. I presume the CHF6 billion of RWA on Archegos is sat in there. So, we need to strip that out. But will the RMBS op risk inflation be in the IB? And is there any risk that you see further regulatory pressure there that actually means that cap means quite a bit of deleveraging on an RWA basis going forward? Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+The strategy is the responsibility of the Board under Swiss law and the management and not of the regulator. So, that's the answer to the first question. Maybe, David, do you want to take the second question?
+
+David Mathers -- Chief Financial Officer
+
+Sure. Just in terms of the RWA targets, so to be clear, when I talk about reducing RWA of the Investment Bank, that is an addition to the run-off of the US hedge fund buffer of CHF6.25 billion basically. Because the FINMA Pillar I buffer in respect to positions obviously naturally expires as the size of positions reduce. So, I'm referring about a number in addition to that.
+
+I think in terms of the op risk add-on, we normally split it between the IB and the Corporate Center. I've not basically really considered yet how that will be finalized. Basically, something in the second quarter. So, I'm really thinking underlying in terms of that. So, net back to where it was at the end of last year, plus the run-off of the US hedge fund position basically, if that's helpful, Andrew -- Adam.
+
+Adam Terelak -- Mediobanca -- Analyst
+
+So, if there are any op risk charges even if it's for IB specific, will be shared across the bank?
+
+David Mathers -- Chief Financial Officer
+
+No, no, no. We normally split them between the division, the corporate center, but we've not yet finalized the op risk add-on in terms of RMBS. So, it's difficult to be precise at this point. But I'm really talking about an underlying business reduction in the IB in addition to the op risk issue and separate to the run-off of the US hedge fund number. So, a sort of like for like reduction back to the level at the end of last year.
+
+Adam Terelak -- Mediobanca -- Analyst
+
+Okay. So, a moving point on anything that we don't know yet?
+
+David Mathers -- Chief Financial Officer
+
+Correct. I'm not planning -- I'm not intending -- you shouldn't assume that the run-off of the Pillar 1 add-on in respect to the US hedge meets that demand. No, it's addition to that.
+
+Adam Terelak -- Mediobanca -- Analyst
+
+Okay, great. Thank you.
+
+Operator
+
+Thank you. And your next question comes from Jernej Omahen, Goldman Sachs. Please go ahead. Your line is open.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Good morning from my side as well. Can you hear me well?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Just about, yeah.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Yeah, you can?
+
+Thomas Gottstein -- Chief Executive Officer
+
+That's much better, Jernej, actually, when you're close to the mic.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Let's say make sure. Thanks for this comprehensive call. I have a couple of questions left, but they're all reasonably brief. On Archegos, I don't think I was surprised by anything that you've said so far apart from one thing. And I just want to make sure I got that right. David, you received a question before about the pace of the liquidation of collateral or positions. And I wrote down the response here saying that Credit Suisse achieved broadly the same prices as other prime brokers. And I wanted to make sure that, A, I got that right and, B, that the underlying implication of that is that the entirety of the CHF5 billion loss is due to poor collateral or poor margin management, basically. So, A, is that accurate? B, is it true to say that the loss is entirely down to having held less margin than your peers?
+
+And then, the second question I want to ask you here, on the pace of the exit, on the one hand, you say that the pace of the exit isn't that different from everybody else. On the other hand, you say we still have 3% of our notional exposure that's outstanding. And I was wondering what is that 3%. It's a month after the event. I guess the reasonable expectation would be that, at this point, you've exited everything.
+
+And the second question I have is on Greensill. And I'm just trying to understand this from the perspective not of Credit Suisse, but of a client who invested in this product. So, if I get this correctly, so if I'm a client and I bought 100 of Greensill, at this point, I've got $0.48 on the dollar back in cash and I've got $0.52 on the dollar left in the residual exposure. Thomas, if I understood you correctly, Credit Suisse does not plan to step in and compensate clients at this point. I was just wondering, is there any other outcome here than to say, well, there is going to be extensive litigation and we're going to be analyzing these for the next two, three years as it runs through the court process?
+
+And then, two very brief numbers questions. Number one, David, on RWAs for the IB, if there is incremental RWA inflation from here due to regulatory intervention, does the point of RWAs will not exceed 4Q '20 levels still stand or could adjust it upwards? And the second question, again, just a numbers question, on the capital issuance, what determined the size of the issue? Is it fair to say that you've maxed out on what was pre-approved at the AGM and that any incremental issue from here would require AGM approval? Thank you very much.
+
+David Mathers -- Chief Financial Officer
+
+Thomas, perhaps I start basically on the first point around the US hedge fund loss. Let me just sort of summarize what I said before, which is, in the analysis of the position sales that Credit Suisse has completed on behalf of this US hedge fund, if we look at the prices that we've achieved over the course of the last month as we exited them, if we had executed those trades as certain prime brokers did in the first couple of days of this transaction, then I think the loss would have only been marginally higher than what we're incurring here basically. And that assumes basically that if Credit Suisse had acted to the volume we had in those first few days that any of the prime brokers would have been able to get out of those prices basically. So, that's what I'm saying.
+
+But you can't go from that, Jernej, to your point you're making around margining because, although it's clear -- it would seem to be clear that this US hedge fund had a number of concentrated similar positions across, it would seem to be maybe as many as eight prime brokers, it doesn't necessarily mean that they have the same proportions of that. So, our loss could also reflect a different weighting a number in terms of the position sizes to that owned by other houses. So, there's more than one factor to actually complete that mathematics. So, you can't make that direct link. Although, clearly, the level of margining and collateral will be very much in scope for the review that the Board is conducting into the US hedge fund matter and it's clearly a risk factor in terms of this. But it's not a direct deduction from what you said. So, that would be my first point in terms of the US hedge fund point. Shall I keep going on the other RWA points basically?
+
+Thomas Gottstein -- Chief Executive Officer
+
+And then I'll take Greensill, yeah?
+
+David Mathers -- Chief Financial Officer
+
+Yeah, sounds fine. I think question four was really around RWA for the Investment Bank. Look, I think we are announcing today both a constraint in terms of the IB RWA back to the end of last year as a minimum and an absolute $35 billion reduction in the amount of leveraging. I think that's appropriate. It fits into our plans to downsize the prime and prime financing businesses. And I think that's the right thing to do and something that I'm very supportive of.
+
+I think in terms of any longer term caps for the Investment Bank, I think that prejudges the review that the management will be doing -- so Christian, Thomas, I -- and also the work that we will be doing with our new chairman of the Board over the coming months and we'll get back to you at that point. But I don't think it's really appropriate that I should bind or prejudge the board in that decision until we've actually completed that work basically. So, we'll get back to you in due course, Jernej, I think is the best way.
+
+Your first question I think was around the capital increase. I think to be clear, I think getting to 13%, including the mandatory on a converted basis and including the capital gain that we will realize from the IPO today of Allfunds I think is the right level of capital for the bank to the operate at. And I think to have a leverage ratio at least 4% I think is also a good thing, given the calibration in Switzerland of the regime here.
+
+I don't think necessarily that we like issuing capital at this price. And I think it needs to be done in a prudent and conservative manner. And that was something we did discuss with our major shareholders going into this particular exercise. I would say there was excess demand for this, but I'm not sure, personally, I actually would want to have issued more. But in any event, as you know, Jernej, that also matched where we were in terms of our authorized capital and in terms of our mandatory. But there was another motion to the AGM, which we've now withdrawn which would have allowed for more basically. So, there was always options there.
+
+I think bottom line, I think it was the right thing to do in roughly the right size, and I think it was important it was executed quickly to take this question off the table, as we've said already.
+
+Thomas Gottstein -- Chief Executive Officer
+
+And on Greensill, as I said, we are now at 54% cash. We are working through the remainder of the book and we have very good visibility to about three quarters of the book. And then the other 23% is related to the three distinct cases where we have very strong legal positions and there is substance behind it. There is discussions through our Credit Suisse Asset Management management with the various parties. And that is just going to be a long process. But we are moving in the right direction there. So we are talking to our clients. If they have any liquidity issues, we will help them, but they understand that this is a long process. And at the end of the day, I'm actually convinced that we will get back much more than many people think. But it will take a long time, and that's something we are discussing with our clients and they are very constructive in that sense.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Thank you very much.
+
+Kinner Lakhani -- Head of IR and Group Strategy and Development
+
+We are out of time actually. So, if I may, thank you all for all your questions. And of course, if you do have any follow-up questions, please don't hesitate to call the IR team. Thank you.
+
+Operator
+
+That concludes today's conference call for analysts and investors. A recording of the presentation will be available about 2 hours after the event. The telephone replay function will be available for 10 days. Thank you for joining today's call. You may all disconnect.

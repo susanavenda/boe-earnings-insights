@@ -22,11 +22,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_supervisory_episode import main as build_episodes  # noqa: E402
-from segment_transcripts import infer_bank, infer_quarter, segment_transcript  # noqa: E402
+from periods import calendar_period  # noqa: E402
+from segment_transcripts import infer_quarter, segment_transcript  # noqa: E402
 from store import configure, load_df, save_df  # noqa: E402
 
-PDF = ROOT / "data" / "raw" / "transcripts" / "credit_suisse" / "2022-q4-results-qa-transcript.pdf"
-XLSX = ROOT / "data" / "structured" / "credit_suisse" / "2022-q4-financial-tables.xlsx"
+CS_T = ROOT / "data" / "raw" / "transcripts" / "credit_suisse"
+CS_S = ROOT / "data" / "structured" / "credit_suisse"
 BANK = "credit_suisse"
 
 
@@ -86,7 +87,6 @@ def _direction(curr, prev, flat_tol=0.01) -> str:
 
 
 def reported_rows() -> pd.DataFrame:
-    df = pd.read_excel(XLSX, sheet_name="Group key metrics")
     alias = {
         "net revenues": "total_income",
         "provision for credit losses": "credit_impairment",
@@ -94,23 +94,26 @@ def reported_rows() -> pd.DataFrame:
         "cet1 ratio": "cet1_ratio",
     }
     rows = []
-    for _, row in df.iterrows():
-        key = alias.get(str(row["metric"]).strip().lower())
-        if not key:
-            continue
-        curr, prev = float(row["current"]), float(row["prior"])
-        rows.append(
-            {
-                "bank": BANK,
-                "quarter": "2022-q4",
-                "metric": key,
-                "value": curr,
-                "prior": prev,
-                "direction": _direction(curr, prev),
-                "source": XLSX.name,
-                "calendar_period": "2022-FY",
-            }
-        )
+    for xlsx in sorted(CS_S.glob("*.xlsx")):
+        df = pd.read_excel(xlsx, sheet_name="Group key metrics")
+        q = infer_quarter(xlsx)
+        for _, row in df.iterrows():
+            key = alias.get(str(row["metric"]).strip().lower())
+            if not key:
+                continue
+            curr, prev = float(row["current"]), float(row["prior"])
+            rows.append(
+                {
+                    "bank": BANK,
+                    "quarter": q,
+                    "metric": key,
+                    "value": curr,
+                    "prior": prev,
+                    "direction": _direction(curr, prev),
+                    "source": xlsx.name,
+                    "calendar_period": calendar_period(q),
+                }
+            )
     return pd.DataFrame(rows)
 
 
@@ -123,13 +126,22 @@ def drop_bank(df: pd.DataFrame) -> pd.DataFrame:
 def main() -> None:
     db = Path(os.environ.get("BOE_DB", ROOT / "data" / "boe.sqlite"))
     configure(memory=False, path=db, auto_flush=False)
-    raw = extract_transcript_text(PDF)
-    turns = segment_transcript(raw, BANK)
-    if turns.empty:
+    pdfs = sorted(CS_T.glob("*.pdf"))
+    frames = []
+    for pdf in pdfs:
+        raw = extract_transcript_text(pdf)
+        turns = segment_transcript(raw, BANK)
+        if turns.empty:
+            print(f"WARN: 0 turns {pdf.name}")
+            continue
+        turns["bank"] = BANK
+        turns["quarter"] = infer_quarter(pdf)
+        turns["source"] = pdf.name
+        frames.append(turns)
+        print(f"parsed {pdf.name}: {len(turns)} turns analyst={(turns.role=='analyst').sum()}")
+    if not frames:
         raise SystemExit("CS parse produced 0 turns — stop.")
-    turns["bank"] = BANK
-    turns["quarter"] = infer_quarter(PDF)
-    turns["source"] = PDF.name
+    turns = pd.concat(frames, ignore_index=True)
 
     all_turns = drop_bank(load_df("all_turns"))
     all_turns = pd.concat([all_turns, turns], ignore_index=True)
@@ -138,6 +150,8 @@ def main() -> None:
     qa = turns[turns["role"] == "analyst"].copy()
     qa["clean_text"] = qa["text"].apply(clean_text)
     qa = qa[qa["clean_text"].str.split().str.len() > 3].reset_index(drop=True)
+    if qa.empty:
+        raise SystemExit("No CS analyst turns after clean filter.")
     labels, scores = score_finbert(qa["text"].tolist())
     qa["seed_topic"] = None
     qa["topic"] = -1

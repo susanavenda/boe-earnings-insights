@@ -1,0 +1,1042 @@
+Credit Suisse Group AG
+Credit Suisse 2020-Q3 results — analyst and investor call
+
+Source note: CS IR site is gone. Speaker-labelled Q&A from public call archives (Motley Fool / Thomson convention: Name -- Role). KPIs are SEC 6-K Exhibit 99.1, 9 February 2023 — not this transcript.
+
+Operator
+
+Good morning. This is the conference operator.
+
+Welcome and thank you for joining the Credit Suisse Third Quarter 2020 Results Conference Call for Analyst and Investors. [Operator Instructions].
+
+I will now turn the conference over Kinner Lakhani, Head of Investor Relations and Group Strategy and Development, please go ahead Kinner.
+
+Kinner Lakhani -- Head of Investor Relations
+
+Thank you, operator. Good morning, everyone.
+
+Before we begin, let me remind you of the important cautionary statements on Slides 2 and 3, including in relation to forward-looking statements, non-GAAP financial measures and Basel III disclosures. For a detailed discussion, we refer you to the Credit Suisse third quarter 2020 financial report, published this morning.
+
+I will now hand over to our Group CEO, Thomas Gottstein; and our Group CFO, David Mathers, who will run you through the numbers.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Kinner, and good morning, everyone. Thank you for joining our call this morning to discuss our third quarter 2020 results.
+
+Before I start with the slide presentation, allow me to make a few remarks about the current environment. We are carefully monitoring with heightened vigilance, the recent rise in COVID-19 cases.
+
+Since the crisis began, our first priority has been the safety and well-being of our employees, clients and stakeholders. We stand ready to work with public authorities as we did earlier this year with Switzerland's successful bridge loan program to small and medium sized businesses.
+
+I particularly want to thank all of our employees for what they have achieved over the last months in very difficult circumstances, as evidenced by our nearly 10% return on tangible equity over the first nine months of the year, and our successful implementation to-date of the strategic initiatives we announced a couple of months ago, including the creation of a single global investment bank, the integration of our risk and compliance functions, the establishment of SRI, our sustainability research and investment solutions unit and the plant integration of Neue Aargauer Bank or NAB. These initiatives should allow us to invest in our Wealth Management-related businesses in order to build on the considerable progress we have already achieved, and to position ourselves even more strongly in 2021 and beyond as a leading wealth manager with strong global investment banking capabilities.
+
+With that, let's turn to the slides. Slide 4, please.
+
+As you see on the left side, we reported pre-tax income in the third quarter of CHF 803 million, and net income attributable to shareholders of CHF 546 million. Our Return on Tangible Equity in the third quarter was 5.4%.
+
+Let me now go into detail because there were a number of significant items that impacted third quarter figures. In the third quarter, we generated CHF 1.1 billion in adjusted pre-tax income excluding significant items, up 29% year-on-year and at constant FX rates, this growth would have been 41%.
+
+We delivered a strong RoTE of 9.8% in the first nine months of the year in a difficult environment and including the seasonally weaker third quarter. Our balance sheet strengthened further last quarter, putting us in an even better position to expand our lending volume and other businesses.
+
+Our CET 1 ratio increased from 12.5% in the second quarter to 13% in the third quarter, supporting the ongoing strong capital generation as well as measures we took to mitigate the impact of COVID-19 on risk-weighted assets. We delivered net new assets of CHF 11.1 billion in the third quarter, a 6% annualized growth rate with a record NNA from IWA and Private Banking, highlighting solid momentum across our Wealth Management businesses.
+
+Our APAC regional revenues grew 29% year-on-year when you exclude the gain from InvestLab in third quarter 2019. The Asia-Pacific region contributes now roughly 20% of total group revenues, which is higher than most of our peers, thereby confirming our strategy to increase investments in Greater China and the broader APAC region.
+
+Our global Investment Bank saw an adjusted 14% return on regulatory capital in the first nine months of 2020 with strong revenue growth across all products. The initiatives we announced a couple of months ago, are expected to deliver approximately CHF 400 million to CHF 450 million in gross cost savings from 2022 onwards.
+
+We are allowing for reinvestment in full subject to market and economic conditions. We intend to continue to allocate the vast majority of our capital to Wealth Management.
+
+Our Board of Directors recommends that shareholders approve the second half of 2019 dividends at an Extraordinary General Meeting on November 27th 2020. We continue to accrue the 2020 dividend in line with guidance of at least 5% growth per annum.
+
+We intend to restart share buybacks in January 2021 with a share buyback program of up to CHF 1.5 billion for next year, and an expected repurchase of at least CHF 1 billion subject to market and economic conditions. Next slide, please.
+
+Slide 5. As I mentioned, the health of our employees and the well-being of our clients is our top priority.
+
+We have taken strong measures, some of which are depicted on this slide to ensure the safety of our colleagues. We continue to deliver solutions for our private, corporate and institutional clients in a challenging environment, including the deployment of best-in-class technology and market making capabilities.
+
+We are also seeing increased financing needs, driving loan growth and capital markets, as well as increased demand for private markets and sustainable solutions. Let me say a few words about the macroenvironment.
+
+We are a global Swiss based bank, and thus feel that it's important to report in our domestic currency, the Swiss franc. In recent quarters, this also meant dealing with some of the headwinds arising from the strong Swiss franc.
+
+This effect was very pronounced in the third quarter compared to one year earlier, due in particular, to the Swiss franc's strength versus the U.S. dollar.
+
+In fact, in the third quarter, we suffered from the strongest FX headwinds in nine years. On the other side of the coin, we are also benefiting from the stability of the Swiss economy.
+
+Slide 6, please. We were excited to announce the launch of SRI to position Credit Suisse as a sustainability leader.
+
+We have made progress on implementing this strategy by providing our clients thought leadership to help them find opportunities in volatile markets. We launched more than 30 global sector teams to focus on thematic reports.
+
+We have executed 27 Green, Social and Sustainability Bonds transactions, totaling $15 billion through the first three quarters of 2020, a year-on-year increase of 176%. We also launched key sustainable products for our Wealth Management clients.
+
+Page 7, please. As you see on this slide, a number of significant items resulted in the divergence between our reported and underlying revenues in the third quarter.
+
+On an adjusted basis, excluding the CHF 327 million InvestLab gain in the third quarter 2019 and at constant FX rates, we grew our pre-tax income by 41% year-on-year during the third quarter. Slide 8, please.
+
+Our third quarter 2020 Wealth Management revenues were down 10% on a reported basis. However, if you exclude the impact on the InvestLab gain last year, our revenues were up 5% year-on-year on an adjusted basis at constant FX, led by a 27% rise in transaction revenues.
+
+Our APAC business saw a 15% year-on-year rise in underlying constant FX revenues during the third quarter. APAC was the first region to confront the effects of the COVOD-19 pandemic on their economies, and has also been the first to begin emerging from the ensuing downturn.
+
+At constant FX rates, underlying IWM PB and SUB PC private client's revenues were broadly flat. Slide 9, please.
+
+We have strong contributions across Wealth Management businesses and regions in our CHF 11.1 billion NNA during the third quarter. Although assets under management fell slightly year-on-year in Swiss franc terms, they grew 5% year-on-year in U.S.
+
+dollar terms, again reflecting some of the headwinds from the strong Swiss currency. Slide 10, please.
+
+As you know, we created Global Trading Solutions by combining our successful International Trading Solutions and APAC Solutions businesses. GTS gives us close regional connectivity to Wealth Management, and brings institutional style solutions to Wealth Management clients across multiple time zones.
+
+On this slide, you see the success of this initiative with net revenues in GTS up 49% in the third quarter 2020 compared to those former businesses in the third quarter, two years ago in 2018. This slide, sorry, I'm now on Page 11.
+
+This slide shows our global investment banking revenues across the group. Revenues for our global investment banking activities increased 12% year-on-year during the third quarter 2022, sorry, 2020, I apologize.
+
+This increase was fairly broad based across equity sales and trading, fixed income sales and trading and advisory, with particular strengths in capital markets. Slide 12, please.
+
+Here you see the financial highlights over the first nine months of 2020. In a challenging macro environment, we had had strong growth in net revenues and pre-tax income on an adjusted basis and excluding significant items.
+
+We also had a strong 18% growth in net income attributable to shareholders. On the right-hand side, you see that on an adjusted basis and excluding significant items, we achieved an average of 18% return on regulatory capital for our three Wealth Management related divisions, and 14% in the Investment Bank, despite taking nearly CHF 1 billion in provision for credit losses across all four divisions.
+
+Slide 13, please. Over the last four years, we have steadily grown RoTE, delivering almost 10% in the first nine months of the year, amid a challenging market environment and again, despite taking almost CHF 1 billion of provision for credit losses.
+
+This means that we are on the right path towards our medium-term ambition of delivering an RoTE of 10% to 12% in a normalized environment, subject to market and economic conditions, which we reaffirm. For the first nine months of the year, we achieved CHF 3 billion in net income attributable to shareholders.
+
+Slide 14, please. This slide goes into greater detail for our credit loan provisions.
+
+Our strong nine months results in 2020 came despite adding CHF 958 million in provision for credit losses. It is worth noting that the Swiss Universal Bank accounts for 60% of our loans, and 85% of our loan book held at amortized cost is collateralized.
+
+Page 15, please. We are a global bank, but we benefit enormously from our home market of Switzerland, with the SUB historically being an anchor of revenue and profit for us.
+
+We continue to build on our high touch strategy for ultra high net worth, corporate and institutional clients by leveraging digital solutions for our high-tech retail and smaller corporate clients, including the launch of our new digital client offering CSX on Monday this week. We achieved 16% return on regulatory capital in the first nine months of 2020.
+
+Based on adjusted results, and excluding significant items and our approximately CHF 100 million cost savings program is on track and is expected to be completed by mid-2021. We are successfully progressing our planned integration of NAB.
+
+We had a low ratio of credit loss expenses reflecting the quality of our Swiss loan book that I referenced earlier. We have strong growth momentum, including in private clients, where we reported CHF 2 billion of NNA.
+
+As they say in sports, you need to be able to win at home. And this is evidenced by our awards, which include Switzerland's Best Bank as well as Switzerland's Best Investment Bank from Euromoney, each for a third consecutive year.
+
+We are also retaining the year-to-date #1 ranking in Investment Banking in Switzerland from Dealogic. Page 16, please.
+
+We continue to transform our IWM business to meet our client's needs, building strong momentum in asset gathering in both Private Banking and Asset Management by scaling up sustainable investment and financing solutions. We have made strategic hires to drive our mid-market M&A advisory and investment banking origination capabilities, especially in the EMEA region.
+
+As you know, we felt that there are ample opportunities within IWM to build on the successful bank for entrepreneur model in APAC and SUB and further strengthened the collaboration between IWM and the IB division beyond GTS, namely, in M&A, capital markets and mid-market lending. We achieved a record NNA of CHF 6.9 billion last quarter in Private Banking, and had CHF 1.9 billion in new loan growth in Private Banking, reversing the deleveraging trend from previous quarters.
+
+Finally, we won several regional Wealth Management awards, as depicted at the bottom of this page. Page 17, please.
+
+In Asset Management, we are navigating the challenges through the COVID-19 crisis, which has driven underperformance in certain selected alternative strategies. We are restructuring some of these underperforming strategies, driving one-time costs and losses on investment capital.
+
+We are targeting gross savings of CHF 50 million in 2021. At the same time, we are seeing continued growth in equity thematics, fixed income and passive businesses.
+
+We also continue to see opportunities including significant growth, potential of alternatives and private markets by growing connectivity with our Private Banking businesses. As an example, in Q3 2020, we launched a strategic partnership with the Qatar Investment Authority to form a multi-billion dollar direct private credit platform.
+
+Page 18, please. Our APAC franchise continues to execute its wealth centric strategy by deepening our ultra high net worth and entrepreneur client relationship.
+
+We have accelerated our China onshore build out. These efforts have allowed us to achieve a divisional return on regulatory capital of 20% in the first nine months of 2020, based on adjusted results and excluding significant items.
+
+Looking at retail revenues from Asia Pacific, we have seen 29% year-on-year revenue growth in the third quarter excluding the InvestLab gain. In Swiss franc terms, this is closer to 40%.
+
+We also won Asia's Best Bank for Wealth Management for the third time in five years from Euromoney and Equity Derivatives House of the Year from Asia Risk Awards. Page 19.
+
+Please. As part of our initiatives announced on July 30, we created a global integrated client centric Investment Bank division built on sales and trading, underwriting and advisory, in order to maximize global connectivity.
+
+We have leading positions in our core franchises with more than 80% of the revenues from products, the top five or top six market positions. We have already implemented enhanced capital discipline in our corporate bank, and greater capital flexibility across our businesses.
+
+Net revenues for the Investment Bank increased 18% year-on-year during the first nine months of 2020 and our adjusted return on equity capital improved to 14%. With this, I would like to hand over to David for the detailed financials.
+
+David Mathers -- Chief Financial Officer
+
+Thank you very much, Thomas. Good morning, everybody.
+
+And I'm now going to take you through the financial results in some more detail. I'd like to make two points before we start.
+
+First, as you know, we've now moved to four divisions rather than five with a single Investment Bank. And together with the other changes that I summarized in the Restatement Call that we had early this month, we're now presenting those results to you under this new structure.
+
+And I've included in the Appendix a slide from our Restatement Presentation that gives you a reminder of these changes. Second, whilst our primary performance remains our reported pre-tax income, I will need to give more emphasis to the adjusted numbers for the next few quarters, particularly for the divisional slides, given the structural changes that I've just outlined.
+
+It means that we are incurring the planned restructuring charges we announced last July. You may recall that these amounted to a total of CHF 300 million to CHF 400 million, and we will take them to the end of June 2021.
+
+And as a consequence of these restructuring measures, we intend to deliver gross savings of approximately CHF 400 million to CHF 450 million from 2022 onwards. Now, this is a reminder, the primary adjustments that we're making in connection with statutory update are for restructuring and for major litigation expenses.
+
+But I'll also continue to make the relevant adjustments for real estate items and business sales. So the definition is consistent with that which we used between 2015 and 2018.
+
+And as finally, given the effect of the strengthening of the Swiss franc against many of the currencies in which we conduct business, particularly the U.S. dollar, I will, where it's appropriate highlight and explain that impact throughout the presentation.
+
+I'm also going to call out three significant items, the InvestLab transfer, the SIX revaluation and the Pfandbriefbank revaluation, which happened early this year. In the divisional slides, the results presented will also exclude these certain items, and I will show the reconciliations for the divisional performance in the appendix.
+
+Let's turn to Slide 21, then. So as Thomas has already summarized, Credit Suisse's businesses were resilient in the third quarter despite the considerable challenges and the uncertainties faced in the world's economies.
+
+Our year-to-date performance has been strong with return on tangible equity of just under 10%. And that's not withstanding a cumulative charge from the provision for credit losses totaling CHF 958 million since the beginning of the year.
+
+Our CET 1 ratio has also improved by approximately 50 basis points since the end of June. Let me turn now to the financials.
+
+And as I said, I want to give you a clear picture both on reported and adjusted excluding certain items, terms. In reported terms, net revenues in the third quarter of 2020, was CHF 5.2 billion, and that's 2% lower year-on-year.
+
+This decline though, was driven by currency moves. And on FX constant basis, our revenues increased by 4%.
+
+Now if we adjust for InvestLab, the first phase of the InvestLab transfer which was taken in the third quarter of last year, our revenues actually improved by 7%. So therefore, if we put the two together, underlying FX constant revenues increased by 11% in 3Q20 compared to 3Q19.
+
+Just to give you a further illustration, in the Investment Bank, our revenues rose by 2% in Swiss franc terms, but that converts into an 11% increase in U.S. dollar terms.
+
+In the Wealth Management-related businesses, whilst the adjusted revenue figure excluding certain items fell by 3% on a constant currency basis, would have shown a 2% increase. Now if we look at our allowance for credit losses, as I indicated earlier in the year, the economic stresses have stabilized after sharp deterioration that started back in March.
+
+Additional provisions for credit losses for the third quarter totaled CHF 94 million that included CHF 149 million of specific provisions, offset by a CHF 55 million CECL related release. This release in CECL was mainly driven by exposure reductions in the Investment Bank, and in the Swiss Universal Bank, as well as by some improvements in the macroeconomic picture since the second quarter.
+
+This is clearly sharply down on the total revision of CHF 296 million that we took in the second quarter of the year. Now, I'd point out that operating expenses in the third quarter have clearly benefited from this FX moves.
+
+But they were adversely affected by restructuring costs, and by CHF 124 million year-on-year increase in major litigation provisions, most of which are taken in the corporate center. So our pre-tax income stood at CHF 803 million in the quarter, that's a decrease of 30% year-on-year, will be on an adjusted basis excluding the certain items I've listed before, we would have seen a pre-tax income of CHF 1.87 billion, that's a 29% increase.
+
+Now, just to complete the picture in terms of currency impact, on a constant currency basis, our adjusted pre-tax income would have been a further CHF 103 million if currency rates, particularly the U.S. dollar were at the same level in 3Q20 as they were in 3Q19.
+
+Just turning to tax, our effective tax rate for the quarter was 32%. That means that including the benefit of the tax reversals that I discussed back in April, our tax rate for the first nine months of the year was 15%.
+
+My guidance for the full year is that I expect our tax rate to be close to 20%. And it should then stabilize around the mid-20s in 2021.
+
+And of course, I'd repeat my caveat that this depends on any taxation changes in the countries in which we operate not least in the United States, over the next couple of years. Overall net income attributable to shareholders stood at CHF 546 million, a decline of 38% year-on-year.
+
+We saw a return on tangible equity of 5% for the third quarter, taking the total for the nine months to just short of 10%. Now let me turn now to the CET 1 ratio on Slide 22.
+
+Our CET 1 ratio for the quarter was 13.0% and that compares to 12.5% at the end of the second quarter. That resulted from strong capital generation with pre-tax income, contributing around 30 basis points of the growth.
+
+I'd also note this was out at the level of the temporary IWA forbearances that have been granted by other regulators to some of our peers. As was the case in the second quarter, we saw reduction in risk weighted assets, partly due to a roll off in COVID related increase since March, but also due to our ongoing active optimization of corporate bank lending by the Investment Bank.
+
+Please note that we have absorbed just under CHF 3 billion of RWA inflation resulting from the SA-CCR phase-in during the quarter. Then in terms of capital distribution, as Thomas has already stated, we intend to recommend to shareholders that they approve the payment of the second half of the 2019 dividend.
+
+And that's equivalent to CHF 0.1388 per share at an Extraordinary General Meeting, which will be held on the 27th of November. Further, we've continued to accrue for 2020 dividend in line of our policy that is an increase of at least 5% per annum.
+
+And I can confirm that we have accrued and has already deducted from our capital CHF 574 million for the first nine months of this year. As Thomas has already mentioned, we intend to resume a share buyback program at the beginning of 2021.
+
+The Board has approved a program of up to CHF 1.5 billion for next year, with at least CHF 1 billion expected to be purchased in the year subject to market and economic conditions. Let me turn to leverage.
+
+During the third quarter, our CET 1 leverage ratio remained stable at 4.5% and our Tier 1 leverage ratio improved by approximately 10 basis points to 6.3%. Any improvement in our Tier 1 leverage ratio primarily resulted from an AT 1 issuance of $1.5 billion U.S.
+
+dollars in August. And just a brief note on net interest income.
+
+On a constant currency basis, I would expect the total net interest income for the year to be approximately flat for 2020, compared to 2019, with the lowest U.S. dollar interest rates eliminating the gains that we've made elsewhere.
+
+Now, if we look forward to 2021, I would expect loan growth to mitigate the adverse effects of low rates in our businesses. But you will recall that just under a year ago, we redenominated our operational risk RWA into U.S.
+
+dollars and as a consequence of which we've put on a substantial forward swap portfolio. I'd expect that the roll off of this portfolio could cost us up to about CHF 100 million of net interest income next year.
+
+And we may not be able to mitigate all of this through loan growth and other measures. Now, I've spoken previously about our conservative approach liquidity management, especially during the COVID-19 pandemic.
+
+And I continue to believe that our liquidity coverage ratio of 190% is both appropriate and amongst the highest of the major banks. Let's turn to tangible book value per share, please.
+
+This slide illustrates the progression of our tangible book value per share for the first nine months of the year. This has grown from CHF 15.86 to CHF 16.89 during the year, and is broadly unchanged quarter-on-quarter compared to CHF 17.03 at the end of June.
+
+Now I think the picture is similar to that which I described three months ago, with net income equivalent to CHF 1.24 per share for the nine-month period. A further reversal in the third quarter of the widening in credit spreads that we saw earlier in 2020 resulted a net increase so far this year from own credit moves of CHF 0.48 per share.
+
+And finally, there is going to be an adverse FX impact of CHF 0.78 per share due to the strengthening the Swiss franc against the U.S. dollar.
+
+Let me turn now to the restructuring program. What I show here is the expected trajectory of expenses relating to the restructuring measures that we announced in July.
+
+In the third quarter, we spent CHF 107 million, primarily across SUB, the Investment Bank and IWM and primarily driven by redundancy expenses relating to the measures we've taken. And I've included the exact amounts in the divisional slides and in the financial report.
+
+I'd expect that we will spend a similar amount in the fourth quarter of this year, with a total spend for the year still anticipated to be around CHF 300 million to CHF 400 million by the end of June. We intend to achieve, as we said before, gross savings of approximately CHF 250 million to CHF 300 million in 2021, and approximately CHF 400 million to CHF 450 million annually from 2022.
+
+In terms of our overall cost guidance the full year, our adjusted operating expenses in the first nine months totaled CHF 12.3 billion. But I would though expect that the figure will be towards the upper end of the range of CHF 16.0 billion to CHF 16.5 billion for the full year, depending on the final variable compensation awards.
+
+Let's look at our allowance for credit losses, please. I think everyone knows that Credit Suisse is unusual and that we are a Swiss-based bank, and that we report under the U.S.
+
+GAAP rather than IFRS. And that means we're subject to the more conservative CECL rules.
+
+And as you know, CECL requires and estimate the loss over the lifetime of the loans, and therefore generally up fronts more of the impact of credit risk than IFRS 9 does. Now I think in broad terms, the CECL provisioning depends both on the absolute level of credit exposure we have and the economic outlook for that credit exposure.
+
+What you see in the third quarter, that we've taken CHF 149 million in additional specific provisions. But the CECL balance has been reduced by CHF 55 million, predominantly reflecting both the marginal improvements in macroeconomic factors that Thomas has already summarized, and a reduction in Investment Bank and Swiss Universal Bank exposures.
+
+Now if we take into account CHF 135 million of net write offs, and other factors including FX translation, our overall allowance for credit losses, stands at CHF 1.96 billion. Now as we've done before, I want to just give the comparison with those of our peers who've reported for the third quarter so far and given sufficient information to make this comparison.
+
+What we show here is the level of credit reserves that we have against loans within the Investment Bank, which should be comparable to the wholesale loan exposures of these peers. At the end of the third quarter, the figure stood at 2.0%, that's down slightly compared to three months ago.
+
+But it still exceeds that of all of those peers who have reported so far and have published the data to make this comparison. Now, let me turn now to the divisional performances and start with the Swiss Universal Bank on Slide 28.
+
+I'd remind you, we'll be showing adjusted numbers, excluding significant items throughout. Adjusted net revenues in the Swiss Universal Bank increased by 1% year-on-year to CHF 1.3 billion, driven by strong transaction-based activity but partly offset by low recurring revenues.
+
+Our adjusted operating expenses fell by 2% as we remain disciplined on cost, whilst we continue to invest in our digital offering, notably with the launch of CFX, our low-cost digital banking platform, early this week. The Swiss Universal Bank generated and adjusted pre-tax income, excluding significant items of CHF 471 million, flat compared to the same period last year.
+
+You'll see that this is after an additional provision for credit losses of CHF 52 million compared to CHF 28 million in the second quarter of this year. And the majority of this increase was driven by a single specific case in the corporate and institutional client's portfolio.
+
+As we said already, you'll note we've released CHF 36 million of CECR related provisions as our assessment of the Swiss macroeconomic outlook has improved since the second quarter. Turning to Private Clients, our adjusted net revenues excluding certain items increased by 1%, year-on-year, with heightened client activity for the quarter, partly offset by lower revenues from Swisscard.
+
+In terms of net new assets, we saw strong net inflows of CHF 2.0 billion during the quarter, reversing the outflows we've seen in prior quarters with contributions across the franchise. Adjusted net revenues for the C&IC were also 1% higher, driven by a strong performance in Investment Banking with this within this division, and by GTS, although this was in part offset by lower net interest income.
+
+And again, we saw our improve net new assets compared to the second quarter with CHF 3.5 of net inflows, and have primarily been driven by a stable performance from our pension fund business. Let's turn to Slide 30 for IWM.
+
+We saw a stable performance in our Private Banking business, albeit, this was adversely impacted by the translation effect of the weakness in the U.S. dollar against the Swiss franc.
+
+Asset Management had a tougher quarter, with economic conditions adversely affecting our alternatives business, offsetting a strong performance from traditional fronts, which are much more closely integrated with our Private Banking business. The quarter saw a strong increase in net new assets totaling CHF 11.9 billion.
+
+Our adjusted pre-tax profit excluding certain items was CHF 268 million, a decline of 30% year-on-year with corresponding net revenues 12% lower. In terms of the FX impact, I spoke about before, on a constant currency basis, our adjusted net revenues excluding significant items would have been 6% lower with the corresponding pre-tax income, 23% lower primarily in Asset Management.
+
+If we turn to the subdivisions, Private Banking saw strong growth in net new assets totaling CHF 6.9 billion, with a good performance in brokerage and other transaction-based revenues including higher GTS revenues. That was offset by reduction in net interest income, predominantly due to lower U.S.
+
+dollar rates, and low recurring commissions and fees. Overall adjusted net revenues excluding significant items were 8% lower with pre-tax income on the same basis, 13% lower.
+
+On a constant currency basis, our revenues were flat, with the corresponding pre-tax income 2% lower. Now if I turn to Asset Management, we've continued to grow our traditional asset management business, helped by strong performances in our fixed income, thematic equities and index funds with net new assets of CHF 5 billion.
+
+However, the primary U.S. based alternatives business has had a much more difficult experience.
+
+It's continued to suffer from several factors. First, adverse performance in certain of the businesses and the strategies we're invested in.
+
+Second, from a delay in placement revenues and finally, I'd remind you that the third quarter of last year, including a significant realization in our transit business that benefited the third quarter results has not been repeated this quarter. We've continued to recover the unrealized credit investment related losses incurred in the first quarter.
+
+But this has been offset by a further deterioration in our investments in real estate funds of CHF 21 million, again in the U.S. alternatives business.
+
+We continue to review our alternative investment portfolio, and we'd expect to see further restructuring costs, as well as potential markdowns in our investments depending on performance. Across IWM, we intend to take full year restructuring costs of around CHF 75 million, creating gross savings around CHF 80 million by 2021, of which we'd expect more than half to be in Asset Management.
+
+Let me turn now to Slide 32, and Asia Pacific. Our Asia-Pacific division again reported a resilient performance with adjusted pre-tax income, excluding certain items improving by 4% to CHF 179 million, and net revenues on the same basis by 7% to CHF 728 million.
+
+This was in spite of the weakness in the U.S. dollar and dollar linked currencies.
+
+On a constant currency basis, adjusted pre-tax income would have been about CHF 21 million higher. But I'd also note, that our total Asian franchise revenues, that is the revenues we book in the APAC division to get those revenues booked elsewhere in the bank increased by 29% in the third quarter of 2020 compared to third quarter of 2019 and in constant currency terms increase by almost 40% year-on-year.
+
+Our net new assets totaled CHF 2.2 billion in the quarter, continuing the positive trend year-to-date. And we saw a 32% increase in transaction-based revenues with heightened client activity, a strong contribution from GTS, and increased ECM activity, partly offset by lower financing revenues.
+
+Our net interest income was about 12% lower with compressed margins on deposits and low lending volumes following the deleveraging that we saw in the first half of this year. Our operating expenses rose by 3%, notwithstanding the benefit from FX moves.
+
+This was primarily driven by higher accruals for variable compensation compared to a year ago. However, additional provisions for credit losses were slightly down compared to the second quarter of the year at CHF 45 million.
+
+Now let me conclude then with slide 34 and the Investment Bank. As I mentioned earlier, at the start of my presentation, the Investment Bank delivered a strong set of results with net revenues 11% higher at CHF 2.2 billion sorry, at $2.2 billion.
+
+And I would note that this is against a strong comparable in the third quarter of last year, when we had a particularly good performance in our securitized products business. Please recall as well, APAC business does not have the scale of exposure to rates that our peers do.
+
+Our business is more credit driven, as you know, and has been driven more by, I think a sustainable quest for yield than by the volatility we've seen in the interest rate market so far this year. We've seen high levels of activity, both in capital markets with share gains in ECM in particular, and in trading with higher cash and prime, a particular feature in the Asia part of the Investment Bank.
+
+We've also made good progress building out our capital markets pipeline, particularly in leveraged finance. As I said already regard to SUB, IWM and APAC, our GTS revenues contributed strongly, in this case across macro emerging products, in particular, providing further evidence of the collaboration we're increasingly seeing between the Investment Bank and our Wealth Management related businesses.
+
+The release of $37 million of CCL provisions due to the exposure reductions of the corporate bank contributed to a net release of provisions for credit losses of $16 million, compared to the overall provision of $148 million that we took in the second quarter of the year. Our adjusted operating expenses were about 6% higher than the third quarter of 2019, and again that was primarily due to higher variable compensation across this quarter compared to the third quarter of 2019, a net result is an adjusted pre-tax income of CHF $464 million, an increase of 49% year-on-year.
+
+Finally, well as leverage has increased compared to the end of the second quarter due to some increase in our COVID-related liquidity buffers, as well as higher period and cash inflows which we should reverse, I would point out that the Investment Bank's capital utilization remains at a third of the group's total, in line with the targets that Thomas announced in July. With that, I'd like to conclude and hand back to Thomas.
+
+Thomas?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, David. Let's move to page 37, please.
+
+Allow me to summarize, our return on tangible equity over the last 12 months through September was 9.5% in a difficult environment, and close to our pre-COVID ambition of delivering approximately 10% for 2020. Furthermore, we have been able to grow our tangible book value per share, which was nearly CHF 17 at the end of the third quarter.
+
+Page 38, please. Here you see our clear path to achieving a 10% to 12% RoTE over the medium term.
+
+This is based on an ambition of 20% to 25% return on regulatory capital for our Wealth Management-related businesses and a 10% to 50% RoRC in the Investment Bank. As our nine-month 2020 figures show, on an adjusted basis excluding significant items, we were at 14% RoRC in the Investment Bank, and 18% in our Wealth Management-related businesses, despite nearly CHF 1 billion in provision for credit losses across all four businesses.
+
+Slide 39. Let me summarize our financial ambitions.
+
+As just reconfirmed, we aim to achieve a 10% to 12% RoTE over the medium term in a normalized environment, maintain a CET 1 ratio of greater than 12% before the final impact of Basel III reforms and achieve a CET 1 leverage ratio of around 4% by the end of 2020 and beyond, all subject to market and economic conditions. In terms of our capital distribution, we expect approval of our second half 2019 dividend of CHF 0.2776 per share at an AGM on November 27.
+
+Looking forward into 2021, we expect to distribute at least 50% of net income attributable to shareholders through dividends and share buybacks in a normalized environment, subject to market and economic conditions. We are currently accruing for a 2020 dividend consistent with our policy to increase our dividend by at least 5% per annum.
+
+We intend to launch a share buyback program in early Q1 2021 of up to CHF 1.5 billion for the calendar year 2021 with at least CHF 1 billion, subject to market conditions. Slide 40.
+
+We expect a total capital distribution in 2020 of around CHF 1 billion, paid and payable to shareholders. For 2021, we expect a total of around CHF 1.8 billion to CHF 2.3 billion payable to shareholders through a dividend of at least CHF 765 million, and the share buyback of between CHF I billion and CHF 1.5 billion.
+
+Finally, before we take questions, Kinner has asked me to make one more announcement. Please mark Tuesday the 15th of December in your diaries for the 2020 Credit Suisse Investor Update, which will be held virtually.
+
+Our IR team will follow up shortly with more details. I will now hand back to Kinner for Q&A.
+
+Kinner Lakhani -- Head of Investor Relations
+
+Thank you, Thomas and David. We will now begin the question-and-answer part of the conference.
+
+Operator, let's open the line.
+
+Question-and -- Management
+
+Operator
+
+Thank you. [Operator Instructions] We'll now take our first question from Magdalena Stoklosa from Morgan Stanley.
+
+Please go ahead, your line is open.
+
+Magdalena Stoklosa -- Management
+
+Thank you, very much and good morning. My questions are around capital and of course, the announced share buybacks as well.
+
+So I'm going to refer to Page 22 of the presentation. So my first question is really about kind of risk weighted asset's trajectory going forward.
+
+You have kind of shown us the regulatory inflation from CA-CCR. You have also kind of shown us how the respective assets kind of grow from the perspective of underlying business.
+
+But of course, also, we have seen the reduction for the optimization of some of your Investment Banking balance sheet. So my question is kind of going forward, are we likely to see more of those?
+
+Are we likely to see kind of more efforts from a perspective of the actual optimization of the balance sheet? And if you could also kind of remind us if remainder of the regulatory impact, you're going to see that would be very useful too.
+
+And my last thing is, could you - could you summarize for us, kind of once again, and I know you've done it numerous times before, but why do you think 12% from now on, as the business spend is the right targets for you, particularly with those kind of very high kind of share buybacks announced today and I assume, being rolled forward, as well? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Magdalena, good morning. Nice to speak to you.
+
+Magdalena Stoklosa -- Management
+
+Good morning.
+
+David Mathers -- Chief Financial Officer
+
+Thank you very much and just a few points, then really. So I think in terms of capital going forward, we - I think just in terms of the [reg], we actually took about CHF 2.8 billion of SA-CCR increases in the third quarter, I think, you know?
+
+And I would expect something of the same order in the fourth quarter, which completes the phase-in of the SA-CCR process. And that will be the bulk of the regulatory impact in the fourth quarter.
+
+And to give you some guidance, we do not expect to see particularly much in 2021, which may be helpful. And I think in terms of capital utilization for the fourth quarter, I think there's two trends.
+
+I think one, I think, yes, we will continue to optimize some of our COVID exposure, we will continue to optimize the corporate bank. But against that, I think, we have seen a pickup in loan demand, obviously notably in IWN this quarter, we've seen continued growth in SUB.
+
+And if you look at APAC after deleveraging that we suffered for several quarters that essentially came to an end in the third quarter. So I would expect us to see some increase in the amount of capital we have invested in our loan portfolio across the Wealth Management divisions over both the fourth quarter and into 2021.
+
+And what does that mean, in terms of the CET 1 ratio? I mean, I would be very surprised to see our CET 1 ratio to drop close to the 12% in the next quarter.
+
+I think it more likely will be somewhere in the sort of 12.5% to 13%. I think that gives us a very comfortable position, both to finance the loan growth in our Wealth Management businesses, and to basically finance both the dividend plans and the share buyback plans.
+
+Now, clearly, you know the dividends for second half of 2019 has already been deducted from our capitalization has been for this year. And obviously, we've also deducted three quarters of the dividend for 2020 at plus 5% from what we've accrued already.
+
+So you can see where we sit from a sort of capital point of view. And is 12% the right number?
+
+I think it feels right, to me at this point, given the macroeconomic uncertainties in which we actually operate in. I think, there clearly is obviously negative news around COVID-19 infections as we can all see.
+
+And it clearly does create further economic uncertainties, which may well mean that our clients have more demand for our services than perhaps we expected, or we may see more volatility elsewhere. But I think therefore, I think guarding to a 12% floor, pre-FRTB etc., etc., I think seems to be a prudent thing for our policy at this point.
+
+And when we look at what that means, in terms of our share buyback, we think that's very much financeable in the context of our existing guidance and clearly starting at 13% is a good place to start with. And does that answer your question, Magdalena?
+
+Magdalena Stoklosa -- Management
+
+Yes, yes, it does. I kind of - it's I think that you know, there's a little bit of a discussion in the market from the perspective of what are the - what are the right kind of levels for the restructure of the business kind of now on, let's just say, three to five-year view before, of course, the last the last waves of Basel.
+
+But I have to say I was kind of very pleased to kind of seeing those and the commitment to share buyback. So and thank you for that.
+
+David Mathers -- Chief Financial Officer
+
+So Magdalena, as I said, I think, - I think we said the 12% as being a floor. I wouldn't expect us to be close to it in the fourth quarter.
+
+So please don't assume that. But what we have therefore, I think is the potential to fund the Wealth Management business growth, to fund the GTS business growth and to fund the share buyback as well as our dividend commitments.
+
+Magdalena Stoklosa -- Management
+
+Perfect, thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Jeremy Sigee, Exane.
+
+Please go ahead, your line is open.
+
+Jeremy Sigee -- Analyst
+
+Good morning, thank you. And firstly could I just follow up on that previous discussion.
+
+So you talked about expectations for 4Q. And as you look into next year, and assuming you get permission to the buybacks, I just wondered at what level you would calibrate buybacks to?
+
+Again, it's the same debate about, would you calibrate it to 12% or 12.5 or do you feel comfortable closer to 13? So, it's the same question in a different way.
+
+Well would you that the comfortable capital ratio, particularly in relation to, calibrating buybacks as you go into next year? And then my second question is on Slide 38, your return on tangible equity targets, and getting up into the 10% to 12% range that you're very close to.
+
+And the slide indicates that this needs to come from the Wealth Management side. And I just wondered how confident you feel about that, at this point in time looking into next year, in terms of moving parts?
+
+I mean, I guess you've got some of the cost savings coming through but I just wondered if there any other obvious elements that you can see on a 12-month view that would get you into that RoTE range on the Wealth Management side?
+
+David Mathers -- Chief Financial Officer
+
+Thank you very much, Jeremy, thank you very much. Perhaps if I take the first and then I'll hand over to Thomas in terms of our Wealth Management and business plans for next year.
+
+And I think, firstly, in terms of the share buyback, I already do have the approval from the Board of directors for the share buyback to resume in January 2021, at the target level of up to CHF 1.5 billion and a targeted minimum of CHF 1 billion. Both Thomas and I have clearly discussed that formerly with FINRA and we have received a statement of no objection from FINRA to this.
+
+So therefore, we are where we are in terms of the process. But and just to be clear on that particular point.
+
+And I think prudently, because I think we do have to recognize that we remain in an uncertain economic environment, that I think that's why I've said 12%. And as I said, to Magdalena, probably somewhere in the 12.5% to 13%.
+
+And I think from a Tier 1 capital point of view, I would attempt to run the bank something in the range of 17.5% to 18.5% compared to the current 18.3% Tier 1 ratio. Now, we can review that in the course of 2021.
+
+But I think there has to be a prudent balance between, I think first of all, paying our dividend commitments to shareholders, which is the most important thing. Secondly, providing the capital for the loan growth in the Wealth Management business and thirdly, finding a reasonable level of share buyback, which I do think the commitment of CHF 1.5 billion, minimum CHF 1 billion is about the right order of magnitude, as we said.
+
+And but that's what I'd say in terms of the share capital. I guess, Jeremy, we could run the CET 1 ratio lower.
+
+But I don't think that really seems prudent at this point, in terms of where we are in the cycle and with the uncertainties we actually have. And that's not implied, or required as part of our share buyback plan.
+
+On the second point, Thomas?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah, so if you look at Page 38, you see the RoRC for the three Private Banking led divisions, IWM, APAC, and SUB with 21%, 20% and 16%. And remember that this is with elevated PCLs, provision for credit losses, which are over CHF 500 million for these three divisions.
+
+We see substantial growth in Asia, we see a very strong momentum in IWM in terms of NNA and in terms of hiring. And traditionally, both of these divisions have been operating more in the mid-20s in terms of especially IWM the mid to high-20s, in terms of RoRC.
+
+And I think that the SUB has the ability to be in the high-teens in terms of RoRCs or between 16% and 19%. And therefore, I think on a normalized basis, this is an absolutely realistic target.
+
+And in fact, if you look at the absolute targets, as we are finalizing our budget for next year, the 20% to 25% range is a very solid ambition that I feel comfortable with. And from that perspective, if you look at IB, we are 14%, clearly benefited from elevated levels in terms of trading in capital markets, but also in certain areas where we are traditionally on a relative basis at least stronger, namely credit [lessen] we've had relatively seen less activity.
+
+So from that perspective, we feel are well positioned there. And we have been hiring also in M&A and are seeing positive momentum there as well.
+
+So from that perspective, we have a clear path towards the 10% plus, in '21 and beyond.
+
+Jeremy Sigee -- Analyst
+
+Thank you, that's wonderful answer. Can I just come back to David's comments on the capital, so I agree with you about being more comfortable in the sort of 12.5% to 13% range?
+
+I wasn't trying to encourage you to get it right down to 12%. So I agree very much with what you're saying there.
+
+And then secondly, just to clarify, so you're saying that you're fully approved by the regulator to start share buybacks in January? Or is there a further step of approval that needs to be done?
+
+David Mathers -- Chief Financial Officer
+
+No, and as I said, it's not that regulator approves or disapproves. We have submitted our proposal to FINRA.
+
+And they've formally said no objection to those proposals. The decision then is the subject for the Board, which as I said already has recommended the restart of the share buyback program, and obviously for management in terms of the execution of that.
+
+Jeremy Sigee -- Analyst
+
+Okay and that's good to know. Thank you very much.
+
+Thank you. Your next question comes from the line of Andrew Coombs from Citi.
+
+Please go ahead, your line is open.
+
+Andrew Coombs -- Analyst
+
+Yeah, I have just follow-up on the capital standpoint and then discussing some of the gross margins in Private Banking divisions. Previously, you always suggested a 50% payout, 20% of growth and then 30% of regulatory inflation.
+
+It now sounds like the buyback and dividend is being more pinned to a capital level. So, is that correct to you?
+
+Are you moving away from that 50% payout guidance and instead it's a function of excess capital? And the second question is on the gross margins, if I look at Slide 45, there has been a step down in IWM and APAC gross margins.
+
+Obviously, by looking at gross margin, that should ease out some of the FX adjustments. And within that your transaction, transaction remain fairly resilient.
+
+So perhaps you could just comment on the recurring side of the revenue stream. And you've already talked about NII that through the currency side both in IWM and APAC?
+
+Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thanks very much. I mean, I think just to be clear, on Slide 39, we said that we expect to distribute at least 50% of our net income in 2021.
+
+So our policy does remain unchanged in terms of that. But I think we felt it would be most important for our shareholders to (a) I think have clear disclosure on our dividend policy, both for the 2H19 dividend and for the '20 dividend and (b) an indicated indicative amount of how much we'd actually spend in terms of the share buyback program for next year.
+
+So I - we thought that would be most helpful. And I think there's more clarity to our investors, basically.
+
+I think on the second point, in terms of the gross margin, I mean, I think that the key points, so that was a balance sheet question really around preparing this transactional, this NII. I mean, I think clearly, I think you - I think you're more focused SUB, on IWM and APAC.
+
+Clearly, just on SUB, the weakness in the recurring margin is due to the drag from Swisscard, which unsurprisingly, given the obviously limited amount of travel people are doing at this point, we're obviously seeing a lot lower spending on Swisscard than we normally expect to see at this point. And that comes through in terms of the recurring line as it's a 50% joint venture with American Express.
+
+I think if we look at the other numbers then in terms of IWM and APAC, and I would suggest we go to the more detailed slides at the back. So if we could actually turn to slide 43, if could have that one, basically, then you can see recurring was down about 9% in the Private Banking business, that's almost exactly the currency fall.
+
+I mean, there's other factors going on but it's basically that is driven primarily by the currency fall. And if we then go to Asia Pacific, in terms of their numbers, which I think that is also primarily currency driven as well, please.
+
+Which was down in that point, but so I'm sorry, let me just get to the right slide. Yeah, I mean, the recurring was down 11%, so 9% of that would be currency and 2%, we did see some fall in banking services.
+
+So that's what I'd raise around recurring, I think. I think clearly the growth in net new assets we've seen, obviously most notably in IWM but I would point out that we saw positive net new assets in all three divisions.
+
+We'll be hopeful for future business flows including recurring income. But I think it's been a bit swamped by currency this quarter.
+
+Andrew Coombs -- Analyst
+
+Okay, I think in Slide 32, you are probably looking for on APAC, and it was I believe 50% payout and given the wording of at least and the 20% median mark for growth and 30% that you previously had marked the reg-inflation, is it fair to assume the 20% growth is still valid but the 30% reg-inflation could be a lot lower?
+
+David Mathers -- Chief Financial Officer
+
+I think we'll see how it pans out, basically. I mean, that was always a long term, multi-year projection, and at this point, FRTB is still scheduled to be implemented in Switzerland in 2023.
+
+I think you know that there are some discussions in the EU around the postponement of FRTB, I think until 2025 and potentially no implementation at all of FRTB if the U.S. authorities do not implement FRTB of U.S.
+
+banks. I believe that is the proposal either rumored or leaked or announced from the European authorities.
+
+But I think we know, I think we'll have to see how the EU proposal develops. And then what the Swiss response to that actually is at that point, but there has generally been a policy of alignment to EU in terms of these things.
+
+But at the moment, we kind of have to assume FRTB in '23 but reg inflation, otherwise will be relatively limited in '21, as I said, already.
+
+Andrew Coombs -- Analyst
+
+Thank you very much.
+
+Operator
+
+Thank you. Your next question comes from line of Benjamin Goy from Deutsche Bank.
+
+Please go ahead, your line is open.
+
+Benjamin Goy -- Analyst
+
+Hi, good morning, and two questions for my side, please. First on Asset Management, you mentioned you're repositioning some of your alternative strategy.
+
+I'm just wondering so do you feel there's actually less autonomy needed or given the performance recently? Or is there also a potential to give to the segment or to actually create a segment and to give the business more autonomy and going forward, also, potentially, maybe think about M&A?
+
+And then secondly, with respect to wealth management, and I hear comments on loan demand. I was wondering whether you're also getting a bit more active in kind of pursuing loan growth going forward as a way to mitigate market pressure?
+
+Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah. Hi, Benjamin.
+
+So if we start with the Asset Management question, well we have a very strong performance 2016-2019. PGIs grew by 18%, assets under management in Swiss franc terms grew by 11% per annum, so these are compound annual growth rates per year, we have now two thirds in alternative for alternative [light and one third in more traditional and index products.
+
+I think we're well positioned. 2020 is a little bit of a transition year.
+
+We are now restructuring some of the operations and also restructuring some of the strategies. But overall, I think we are very well positioned.
+
+We have no intention to do any M&A at this stage in Asset Management, but we are - we have been addressing selected underperformance of certain alternative strategies, which in the short term has a little bit of a drag on our P&L. But overall, we feel we have the right strategy with being more alternative and alternative light focused.
+
+And that's how I would answer the Asset Management question. On Wealth Management, it is true that we had, if you take the first nine months, and especially the first half negative loan growth, actually it was a result of deleveraging, especially in IWM and in APAC, but this has started to reverse.
+
+And we are very much focused on loan growth. We see a lot of opportunities, a lot of demand by clients.
+
+And it's one of our main targets to grow our longer loan book in all three private banking led divisions in particular, IWM and APAC.
+
+Benjamin Goy -- Analyst
+
+Understood. Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Anke Reingen of Royal Bank of Canada.
+
+Please go ahead, your line is open.
+
+Anke Reingen -- Analyst
+
+Yeah, thank you very much. Just a follow up question on the Asset Management operation, please.
+
+I mean, it's on every slide, there us some so-called accolades about the achievements, number one, number two in certain products, and the Asset Management division doesn't just show that performance. I was wondering, what what's the long term?
+
+Is there like a name to get to the #1 and in certain products #2 and if not, you might revisit it within your business mix? And then secondly, just the strong net new money across the different regions.
+
+Could you point to certain drivers of that strong momentum and do you think it's going to continue or is it just naturally generally just very volatile and hard to say? Thanks a lot.
+
+Thomas Gottstein -- Chief Executive Officer
+
+The question on asset management was about the performance of, sorry, could you clarify exactly what the question was on asset management?
+
+Anke Reingen -- Analyst
+
+Yeah, so I saw like going through your slides, every slide shows some so-called accolades.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Anke Reingen -- Analyst
+
+Number one and then like at a division, you basically have #1 Private Bank in Asia or so. And the Asset Management seems to be a bit light on the points.
+
+So is there - is there a point where you say, or this Asset Management division has, what's the long-term strategy? I mean, I guess you said that it's strategic important.
+
+But do you have a - do you want that at certain point when it needs to improve on and performance needs to move up in ranking or you would visit it within your group mix? Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Well, actually, if you look at the margins, we are making in our Asset Management business, and as I mentioned, also, the growth momentum we had between 2016 and 2019, I think they are very strong, also in comparison to our peers, especially because two thirds of our portfolio is in alternatives or alternative flight. So from that perspective, we feel we have a highly attractive and profitable business.
+
+But there are some areas where we need to do some restructuring. And from that perspective, we are also satisfied with the performance in some of the funds.
+
+The two we're mentioning here are more in fixed income, and in some of the equity strategies, but also some of the alternatives like in CIT, where we are doing extremely well. So and we have now, for example, launched the partnership with the Qatar Investment Authority.
+
+This will be a private credit platform, direct private credit platform, and there are further projects we have in high yield and other areas where we're trying to ramp up our fund business. So that's on the Asset Management side.
+
+In Wealth Management, in M&A terms, I think in emerging markets, or let's call it more in the APAC and IWM side, we want to grow on an annualized basis between 3% and 5% per year. And in Switzerland, it's more between 2% and 4%.
+
+And that's really our goal. But the way I look at it is more on a client business volume.
+
+So it's not only NNA, which only relates to AuM but it's about credit volume, it's about AuM volume and it's about custody assets. And if you add them up, we've been growing steadily over the last few years.
+
+But I would like to see an increase in there, as we have some very clear strategies for each of the SUB businesses be it in Asia, for example, in China, in Korea, in Vietnam in other areas, as well as in the IWM area. Whether it's the Middle East, Latin America, Western Europe, and we had some very positive hiring momentum in some of these SUB regions.
+
+And in Switzerland, we have now launched CSX to also have more growth on the retail and affluent side, in addition to a continued positive momentum on the premium clients and upper high net worth side where we are working very closely also with the Corporate and Investment Banking colleagues, as part of our bank for entrepreneur strategy. So I think generally we are actually very well positioned to continue on this growth pattern.
+
+Anke Reingen -- Analyst
+
+Okay, thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you.
+
+Operator
+
+Thank you. Your next question comes from the line of Adam Terelak, Mediobanca.
+
+Please go ahead, your line is open.
+
+Adam Terelak -- Analyst
+
+Yes, good morning. Thanks for the questions.
+
+I had one on NII and another one on expenses. You talked about the swap portfolio on the operational risk RWA.
+
+You've given on 2021, I was wondering kind of what duration that swap is and whether that should be a long term NII pressure to model through your numbers? And then also kind of, you're talking about loan growth to offset, whether there is enough loan growth to offset that on it on a multi-year basis, rather than just for next year?
+
+And then on expenses, clearly, FX translation is a topic for the quarter. You've given guidance for 2020 on expenses, the CHF 16 billion to CHF 16.5 billion.
+
+I know it's a long way out and there's a lot of moving parts, but would that range potentially come down into next year because of the translation effect on the weaker dollar? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thanks very much. Good questions.
+
+Thanks, Adam. I think it says the net interest income.
+
+I mean, I don't think I think I've generally given guidance before but often in Q&A, but I thought, just in case, nobody asked that and actually included in the script this morning. I think as I said, if we look at our net interest income for 2020, we clearly are seeing significant pressure from the falling U.S.
+
+dollar rates. And you see that across the businesses.
+
+And that's why basically I'm saying I'd expect our '20 net interest income to be roughly the same as it was in 2019. Because the measures that we took in 2019 including the dollar-ization of op risk, but also the other measures we took here in Switzerland, are being offset by that margin pressures.
+
+So there's clearly quite a bit going on in '20 as you'd expect, in terms of absorbing that. If I look at '21 and as I said, I think in terms of the residual margin pressure across that businesses, I would expect that to be offset by loan growth.
+
+That's - I think that's straightforward and what I can't commit to at this point, and we'll do our best to give more guidance as we continue, is well that loan growth will be sufficient to fully offset that CHF 100 million as that swap portfolio runs off. Remember, I think we announced this project back in the fourth quarter of last year.
+
+I think I said at that point, we termed out two years. So clearly, the bulk of this effect will be in 21 but it's not a cliff type thing, they're actually spread out.
+
+We actually see some in the short term, and then it phases through. I would have thought basically though but by '22, that essentially loan growth will be more than sufficient to offset the residual effects.
+
+But I think I just wanted to be clear, around '21 compared to '20 in terms of this. And I think on expenses, I think, the - as I said the - I guess the annualized run rate at this point is somewhere around CHF 16.4 billion of adjusted operating expenses if you take the first three quarters and multiply it up.
+
+So that would appear to be the top end of our range of CHF 16 billion to CHF 16.5 billion. You know, I think clear caveat on that in that, we have continued to accrue relatively conservatively for compensation.
+
+As I said, the 3Q20 comp across were up meaningfully compared to 3Q19. I feel the actual outturn will depend on just where compensation actually lands this year, which will depend pretty on performance and it will also depend on what we see across the peers.
+
+And I think also, the approach that we, as a bank, choose to take around the payment of variable compensation during the middle of a COVID crisis, which is an important factor for us. And I think looking towards 2021, I think we've been clear.
+
+There was a slide in terms of how much restructuring, which should yield benefits for next year. Although I would point out the bulk the benefits, the CHF 400 million to CHF 450 million only comes through in 2022.
+
+I think we'll have to make decisions as we go in through '21, which is how much of that we choose to reinvest and how much we release in terms of the expense number. And I'm not going to add more to that now.
+
+We are - we've announced obviously a Capital Markets Day on the 15th of December. And we'd obviously look to give more guidance at that point.
+
+Adam Terelak -- Analyst
+
+Okay. Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thanks Adam. -- Analyst
+
+Operator
+
+Thank you. Your next question comes from the line of Andrew Lim, Societe Generale.
+
+Please go ahead, your line is open.
+
+Andrew Lim -- Analyst
+
+Hi, good morning. Thanks for taking my questions.
+
+So I was wondering if we could revisit the liquidity coverage ratio in debate again. We've obviously had a very volatile period these past few months, but your LCR stayed quite steady actually at around 109%.
+
+So, is there an opportunity to reduce this more towards peer group levels or is it the case that subsidiary liquidity requirements necessitate that the LCR has to be this high? And then the second question is revisiting the CET 1 ratio debate.
+
+So you said you're comfortable with 12.5% to 13%. If we take your capital return policy, consuming about 50% of net income, and then also organic growth, you know that organic growth, if it was management lending that tends to obviously be very light on the risk rate density.
+
+So it does seem to me that going forward, even with organic RWA growth, that you should be growing that 13%, rather than seen that fall into the 12.5% to 13% range. I just wanted to see how you think about that?
+
+David Mathers -- Chief Financial Officer
+
+Thanks Andrew, thank you very much. I mean, I think on the LCR and I would merely say that, it's obviously been an uncertain year.
+
+We've had an unprecedented COVID-19 pandemic. We've seen a lot of, shall we say, central bank type responses to that.
+
+And I just personally think and I think it's a view shared by Thomas and by the Board, that maintaining a reasonable liquidity buffer at the parent and I think just seems that the prudent thing to do. And that's actually why I'm holding surplus equity at this point.
+
+I think as we get through '21 and we see how this situation actually develops, then we'll obviously review the size of liquidity buffer, I want to hold at the parent compared to that in the subsidiaries. But I think we have done some optimization, but definitely, at this point, I think having a central liquidity buffer, just seems the right place to be basically.
+
+I mean, I think and it's an uncertain world and I think it's a good - good thing to have at this point. It does clearly inflate our leverage.
+
+That's clearly the case. And it's noteworthy, you've not seen the improvement in the leverage ratio that you've seen in the CET 1 ratio and that's because we have elected to hold that liquidity buffer in the center.
+
+But I think - I think certainly for the next few months, maybe the next quarter or two, I think it seems the right place to be and I don't intend to revise it in the short term. As we go through '21, we can think about it.
+
+I think in terms of the CET 1 ratio, I don't disagree with your mathematics. I think it's all, I would say, I think we've given a pretty clear guidance about what we think the reg drain is going to be next year.
+
+But we also have to think around the FRTB impact in '23 and is it delayed at that point. But I think, - I think at this point, I think it's about the right balance for shareholders, you know, to sustain, to pay the second half of the '19 dividend to sustain our policy of increasing dividend by 5% per annum and then to relaunch the share buyback in January of 2021, I think it seems the right balance.
+
+We can review that as we actually go through the year but I think where we stand today, given the uncertainties, I think it's about right. But yes, I don't disagree with your conclusions.
+
+And obviously, it would depend on the level of Wealth Management growth we have. I mean, you know, quite clearly, if we do see opportunities to grow our Wealth Management business higher than targeted rates, then I think that's something we would definitely want to execute on.
+
+It's an extremely good business, we have an extremely high return on tangible equity, it would clearly drive RoTE more, the greater proportion we have, the faster growth we have. So if we can find opportunities to invest in that business, then I think that's something we should do.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah, I think the -
+
+Andrew Lim -- Analyst
+
+Great, thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+I think the potential to grow our loan book has never been great in the last few years, it is now, so we have really ample ammunition to do so.
+
+Andrew Lim -- Analyst
+
+Thank you very much.
+
+Operator
+
+Thank you. Your next question comes from the line of Stefan Stalmann, Autonomous.
+
+Please go ahead, your line is open.
+
+Stefan Stalmann -- Analyst
+
+Yes, good morning gentlemen, thanks for taking my questions. The first question goes back to the cost guidance, CHF 16 billion to $16.5 billion on the upper end.
+
+I think that was not the case before, despite the fact that we have seen actually FX benefits to the cost base during the quarter. Could you maybe give us a hint about what may have changed to now put this towards the upper end?
+
+And in particular, are you from today's perspective, seeing anything that you may have to do on the Investment Bank's comp accrual in the fourth quarter? Also considering that your peer next door has actually relaxed its vesting criteria for deferred compensation?
+
+And the second question, and I guess it's also related to the real cost from your largest peer. UBS came up with the idea to accrue for share buybacks, which you didn't do.
+
+But you probably thought about it. Could you maybe talk about why you ended up not booking [indiscernible] accrual for buybacks, please?
+
+Thank you very much,
+
+David Mathers -- Chief Financial Officer
+
+Stefan, good morning. And thank you for your questions.
+
+Look, I think in terms of the cost cutting numbers in terms of our cost guidance and I mean, I think we've been up front. There's obviously been a net FX cost in excess of CHF 100 million for PTI for the third quarter.
+
+But that comes through as an impact on revenues and a benefit to the OpEx number. And you're correct, essentially, and that's in there.
+
+And we've clearly seen more of that FX effect in the third quarter than we've seen in the first half of this year, when we gave the CHF 16 billion to CHF 16.5 billion guidance. That said, I think and clearly what we are seeing is a stronger performance in the Investment Banking part of our bank, which has a higher payout ratio than in the Wealth Management.
+
+That's just the facts of the matter. And I think we do need to be competitive in our compensation to reflect that, basically.
+
+And as we noted, we have therefore accrued more in the third quarter of '20 than we did in the third quarter of '19. So, I think that's just is where it is.
+
+I mean, clearly, we will need to see how the fourth quarter shapes up. First, in terms of performance when I - and I think as I said, I think we do expect to see levels of trading and transaction activity remaining elevated in this environment because there is strong client demand for hedging transactions in this and we - I think, as we've said, already, we have significantly rebuilt, leveraged finance pipeline.
+
+So these are all positives. But I think we obviously also have to be cognizant that there's a compensation cost for that as well.
+
+And that reflects both our own performance and that of our peers. And we don't have any particular views at this point, around changing deferral rules or voluntary comp or all the measures that that UBS took.
+
+So I can't really comment on what they chose to do. But we certainly don't have any plans at this point to make any changes.
+
+I think your second question then was actually, Stefan, was actually on the share buyback. And I mean, I can't really comment on UBS's decision to deduct $1.5 billion, I think it was dollars from their capitalization.
+
+I've not seen that done before, it seems to be unusual, at least. But I mean, I would point out that for UBS, they're actually going through a significant change in their distribution policy.
+
+So to my recollection, but you would know the numbers better than me, I think the dividend was something north of $0.7, $0.73, something like that per share, and they've actually reduced that dividend and replaced it with a share buyback. Now, dividends, as you know are deducted from capital as they actually occur.
+
+So we've already deducted the capital cost of our '19 dividend and nine - three quarters of our 2020 where the share buybacks are normally charged as they're actually incurred. So I can't - you know, I can't really and I think you should ask UBS why they chose to what they choose to do.
+
+But they're obviously in a different situation, having gone through a dividend cut, replaced them with share buyback, as opposed to Credit Suisse. I mean, our dividend policy and share buyback policy now dates back several years, we kept the dividend low, we started CHF 0.25, we said we'd increase it by at least 5% per annum.
+
+And it is super important to us that you know our shareholders approved the second half of the '19 dividend and they receive that dividend and that we accrue the '20. And we've always said share buyback then provides, shall we say, a more volatile component above and beyond that in which basically we can manage our capital.
+
+And I think that's the good, that's a good basis in which to actually manage our capital position. But our position is different from UBS's and that's all I can really say.
+
+Thomas Gottstein -- Chief Executive Officer
+
+And also, we want to set the precedent for the future where you have to accrue in advance of the actual share buyback.
+
+Stefan Stalmann -- Analyst
+
+Great, thank you very much.
+
+David Mathers -- Chief Financial Officer
+
+Thank you, Stefan.
+
+Stefan Stalmann -- Analyst
+
+Thank you.
+
+Thank you. Your next question comes from a line of Jernej Omahen, Goldman Sachs.
+
+Please go ahead, your line is open.
+
+Jernej Omahen -- Analyst
+
+Yeah, good - good morning from my side as well. I just have two questions left.
+
+The first one is on the litigation charge, CHF 152 million of significant litigation, as you put it. It says that it relates to a legacy issue and I was just wondering if you could tell us what that is?
+
+And the second question I have is on - just on the outlook for credit costs. So I think that pretty much everybody including ourselves is forecasting that credit losses fall sharply in 2021.
+
+But I think as you rightly pointed out at the beginning, the situation is fluid, we seem to be going into another phase of a lockdown. And I was just thinking like, in your mind, can you even construct a scenario whereby the credit loss is next year, pretty much on par with the credit losses this year?
+
+What would need to happen in your mind for that to be the case? Thank you very much.
+
+David Mathers -- Chief Financial Officer
+
+Two questions and thank you very much, Jernej. And first, in terms of the litigation charge and we know - we, as a matter of policy, we would not comment on specifically on any matter that's involved in litigation.
+
+I would say that the bulk of the charges in respect of one our cases, and those cases are all disclosed in our full year accounts and in the quarterly. But it's not just one.
+
+I mean, I think as you know, we look at all of the progression of our litigation book, and we make an appropriate provision at the end of each group, depending on where we are in terms of that process. And I think, my view, Thomas' view, remain as we - our general counsel was that it seemed prudent to increase that litigation reserve against those cases, basically, this quarter.
+
+So but I'm not going to comment on exactly which case it was, I'm afraid. And I think in terms of credit costs and I mean, I think clearly, central case is that CECL is a conservative accounting standard, more conservative than IFRS 9 because it does require lifetime loss accruals.
+
+And therefore, the standard has the impact of front-loading credit provisions to a greater impact than IFRS 9 does. And clearly, to a greater impact to, shall we say, traditional pre-CECL, PFS line in which you would see a pickup in specific provisions later in the cycle.
+
+And so I think our central case would be that and you see, at least the stabilization, potentially an improvement in the economic environment in 2021. And at that point, you would expect to see some of these CECL charges actually continue to reverse.
+
+But equally, you would expect to see some increase in specific provisions, as you see positions moving into RMI at that point. And I think that's the case, Jernej, you described.
+
+Now, clearly, if we were to see a reversal of the improvement in forecasts, it doesn't mean any reversal improvement in economies, because clearly, it's a forecast basis. I mean, clearly, we are still expecting for 2020 certain factors in terms of MS and if we see a reversal of that, then you could see that CECL charges actually increased again.
+
+And but I would point out that the increase that you saw in March was due to - the cut was due to a - really a radical change in the economic environment. If you go back to January and February, the end of last year, clearly people were not expecting a recession of this scale, they were expecting a relatively steady year with some concerns around, U.S.
+
+election, I think would be a consensus view. And we went from that to a significant reversal in the space of three months.
+
+So it was a huge shift in terms of the economic factors. And that was compounded by the fact you saw significant drawdown of facilities across, for us and for most of our peers, which increased the exposure.
+
+So you'd have to see a fairly radical change in the economic environment for 2021, to see a repetition of what you saw in the first half of this year. But you know Jernej, clearly at this point, it would not - it would not necessarily be prudent to assume that you're definitely going to get a CECR reduction in the fourth quarter or the first quarter of next year.
+
+I think there is clearly risk around that. But to achieve your scenario, or your question to me, you'd have to see something pretty radical, given the pace of change we saw in the first half of 2020.
+
+Jernej Omahen -- Analyst
+
+Yeah, it makes sense. Thank you very much.
+
+Operator
+
+Thank you. Your next question comes from the line of Piers Brown, HSBC.
+
+Please go ahead, your line is open.
+
+Piers Brown -- Analyst
+
+Hi, good morning. I just got a couple of couple of remaining questions.
+
+And first of all, just on the IB, which we haven't really discussed at all on the call so far. I mean, your revenue comps, clearly a bit weaker than the peer group, this quarter also on a constant currency basis.
+
+I guess that's mostly mixed strictly in terms of the lessened bias within fixed income, but I wonder whether you could just talk to how you see your market share in fixed income and equity has developed through the course of the third quarter? And the second question was just actually on, on your foreign currency.
+
+So, I mean, we've got a lot of adjusted figures in the presentation now, giving the numbers in a constant currency dollar basis. I'm just wondering given that dollar is, is by far the biggest revenue pop for you.
+
+Why do you not use to dollar reporting, using that as your functional currency? What's the thinking behind remaining with Swiss franc when it's obviously such a distortive effect in quarters like this?
+
+Thanks very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+I can kick it off and actually start with the second question on the reporting currency. Look, I think this quarter was really exceptional.
+
+We had a swing that we haven't seen in, I think, several years, I think nine years. So it has been an exceptional year and that's why we have also provided the FX adjusted numbers.
+
+Switzerland is our home market and Switzerland; the Swiss currency is also strong because we benefit from the home market. It's something that we have looked at in the past, I think about three, four years ago, we decided to stick - to stick to the Swiss franc reporting currency.
+
+But from that perspective, it's not something we are now doing because just we had one very strong FX headwind quarter but it's certainly something that we remain open in the mid to long term. But there are no intentions to change reporting currency at this stage before I go to the IB question, anything you wanted to add, David?
+
+David Mathers -- Chief Financial Officer
+
+No, I mean, I think as Thomas said, we did look at this very carefully. And I mean, in essence, it will be a - this volatility is a structural issue.
+
+If you look at Page 52 of the presentation, then you can see that whilst the U.S. dollar is our largest revenue base, it's also our largest expense base as well.
+
+And the Swiss franc basically is our second largest. So if you're - if you switch into U.S.
+
+dollars, you're then going to have volatility around your Swiss franc base at that point. Now, you might argue, as you said, well, the dollar is bigger, so let's do it.
+
+But I think it is important to remember, we are a Swiss bank. And I think there are many advantages to the Swiss franc.
+
+And it's certainly something that customers appreciate. Clearly, it does make for a more complex experience.
+
+I mean, ultimately, our shares are actually listed on the SIX and we trade in Swiss francs. And we have to earn Swiss franc earnings, and they buy back Swiss franc shares.
+
+And that's going to be the case, basically, regardless of whether we report in U.S. dollars or in Swiss francs, is all I'd add to that one.
+
+Thomas Gottstein -- Chief Executive Officer
+
+So on the Investment Banking revenues, if you if you look at Page 11, you can see that we also show 2018, third quarter, and you can see that we had, for example, fixed income, very strong quarter, we were up 55% from 2018 to 2019. So 2019 was actually a pretty strong quarter and the plus 10% is in comparison to a strong quarter there.
+
+And in equity, sales and trading, we also had a strong improvement last year, 13% from the level of 2018. And capital markets, I think we did plus 33%, we are - we're doing very well.
+
+And this includes the advisory part. So it's true that we are traditionally more a search for yield, credit heavy, fixed income organization, which, is at the moment not benefiting as much as others from the volatility we see in rates and FX.
+
+But as hopefully, we will move towards a more normalized world, this volatility could die down at some point and we could benefit from that. And on the capital market side, whilst we do have very strong positions in equity capital markets in IPOs, especially, but also in the more investment grade DCM business, our [international] sponsor business has not benefited as much as the other two capital markets, businesses from the market development in the last two, three quarters.
+
+So from that perspective, I think we are extremely well positioned and with the new setup of the - both from a product perspective, but also geographic perspective, including Asia. You know, we think we have very, very good momentum.
+
+Piers Brown -- Analyst
+
+Thanks very much.
+
+David Mathers -- Chief Financial Officer
+
+Thank you, Piers.
+
+Operator
+
+Thank you. Your next question comes from the line of Nicolas Payen from Kepler.
+
+Please go ahead, your line is open.
+
+Nicolas Payen -- Analyst
+
+Yes, good morning. Just one last question on my side on leverage finance.
+
+We have seen quite a pickup in your leverage finance exposure in multichannel? Why is that either pickup in appetite or client demand on that front?
+
+Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+So there have been a couple of transactions coming to the market in the latter half of the third quarter. And from that perspective, we are starting to benefit from an uptick in market activity.
+
+David Mathers -- Chief Financial Officer
+
+I think it's worth remembering, you did have a period of about four or five months, in which there was very little new origination. And the book was basically run down to a very low level.
+
+It's not actually fully back to where it was basically, the end of last year for that matter. But it's definitely returned to more normal levels as we see increasing levels of banking activity.
+
+Thank you. Your next question comes from the line of Patrick Lee from Santander.
+
+Please go ahead, your line is open.
+
+Patrick Lee -- Analyst
+
+Hi, good morning. And thanks for taking my questions.
+
+I just have a couple of follow up questions on the rate environment and the net interest income guidance. So on the point you made on offsetting margin of loan growth, if I look at your loan portfolio in the first quarter, the loan balance actually fell by around 2% or 3%.
+
+And on the group basis, and it's falling in most divisions. I guess part of this is driven by currency and would I be right to say that underlying loan process may be positive 2% or 3% because of that?
+
+And looking into 2021, when we talk about loan growth, do you think - where do you think this growth would come from? Would it just be a continuation of the loan growth in Private Banking?
+
+Or maybe the last question suggesting, would it be quite Investment Banking biased? I mean like just in terms of how the mix of dividend growth would look like?
+
+The second one is just a clarification regarding the structural swap positions of CHF 100 million negative for 2021? And is there any sensitivity to this with respect to the rate environment or and also whether there's a specific timing in terms of maturity of the swap position, in terms of whether it is a 2021 situation or 2022?
+
+If you can give us some color on that that will be helpful. Thanks.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Maybe I start with the first one and then I hand over to David for the second one. So look, you're right, the loan growth was rather modest, even in the third quarter, but it had stabilized.
+
+We had our regular kind of 1%, 2% growth in SUB, but IWM, and APAC saw a reduction, due to deleveraging in the first half, which has been somewhat reversed in the third quarter. But we were probably slightly more cautious in the first nine months than some of our competitors, which puts us in a strong position now to really accelerate the loan growth from that perspective and we are in a good position to do so.
+
+And, David?
+
+David Mathers -- Chief Financial Officer
+
+I think on the right environment, I mean the maths, so we clearly put the swap position on about a year ago as we actually did this change. And but it's not a cliff.
+
+It's not a book which essentially starts and then goes to zero, basically, after two years. What you see instead is a portfolio of some shorter swaps and some longer swaps.
+
+But the biggest rate of change will be in 2021 because we see some this year, the majority next year, and then a minority in 2022. So I mean, I think it's certainly possible that loan growth will be sufficient to offset that.
+
+But I think it's worth highlighting that that is definitely a risk for 2021. Given the lower rate of change in '22, I'd be much less worried about it in the following year.
+
+Patrick Lee -- Analyst
+
+Okay, thanks.
+
+Thank you. I will now hand back for closing remarks.
+
+Kinner Lakhani -- Head of Investor Relations
+
+Great, I think we'll leave it here. Thanks, everybody for your time this morning.
+
+If you have any further questions, feel free to reach out to the IR team in the usual way. Have a good day.
+
+David Mathers -- Chief Financial Officer
+
+Thank you.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you very much.
+
+Operator
+
+That concludes today's conference call for analysts and investors. A recording of the presentation will be available about two hours after the event.
+
+The telephone replay function will be available for 10 days. Thank you for joining today's call.
+
+You may all disconnect.

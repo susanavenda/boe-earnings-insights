@@ -2,3 +2,8 @@ Credit Suisse Group AG — 4Q22 / FY22 analyst and investor call, 9 February 202
 CS IR site is gone. UBS archive and SEC 6-K file the earnings release and slides, not a Q&A PDF.
 This file is a speaker-labelled reconstruction from public call archives (Name -- Role / Name -- Firm -- Analyst).
 Structured KPIs: SEC Form 6-K, 9 February 2023, Exhibit 99.1.
+
+Extra years 2020–2022: public call archives (Motley Fool / Roic) converted to Name -- Role PDFs. Four locked KPIs from SEC 6-K Exhibit 99.1 where the table parsed.
+Transcripts parsed: 2020-q2, 2020-q3, 2020-q4, 2021-q1–q4, 2022-q2, 2022-q3, 2022-q4 (2022-q1 Roic dump did not split Q/A).
+Packs: 2020-q3, 2021-q1, 2021-q3, 2021-q4, 2022-q1–q4, 2023-q1.
+ 
