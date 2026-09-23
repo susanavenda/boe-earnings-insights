@@ -263,6 +263,27 @@ def main() -> None:
                 "scripts/score_sentiment_human.py."
             )
 
+    # Export the fine-tune run + promotion decision to a tracked file (sqlite is gitignored)
+    from store import has_json, load_json
+
+    ft_export = {}
+    for key in ("finetune_metrics", "model_registry"):
+        if has_json(key):
+            ft_export[key] = load_json(key)
+    if ft_export:
+        ft_path = DOCS / "assignment2" / "finetune_metrics.json"
+        ft_path.write_text(json.dumps(ft_export, indent=2))
+        summary["finetune_export"] = str(ft_path.relative_to(ROOT))
+        fm = ft_export.get("finetune_metrics", {})
+        summary["finetune_headline"] = {
+            "silver_dev_n": fm.get("n_test"),
+            "zero_shot_macro_f1": (fm.get("zero_shot") or {}).get("macro_f1"),
+            "finetuned_macro_f1": (fm.get("finetuned") or {}).get("macro_f1"),
+            "human_heldout_n": fm.get("n_human_heldout"),
+            "active_model_id": fm.get("active_model_id"),
+            "promotion": (fm.get("promotion") or {}).get("reason"),
+        }
+
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(summary, indent=2))
     save_json("label_agreement", summary)
