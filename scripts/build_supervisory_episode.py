@@ -35,6 +35,14 @@ EPISODES = [
         "calendar_period": "2026-H1",
         "label": "Barclays 2026-q2 (H1)",
     },
+    {
+        "id": "cs_2022_q4",
+        "bank": "credit_suisse",
+        "quarter": "2022-q4",
+        "struct_quarter": "2022-q4",
+        "calendar_period": "2022-FY",
+        "label": "Credit Suisse 2022-q4 (FY)",
+    },
 ]
 
 METRIC_KW = {
@@ -141,6 +149,12 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
             )
     elif hsbc_row is None or bar_row is None:
         peer_caveat = f"No matched peer for {period}: missing {'HSBC' if hsbc_row is None else 'Barclays'} turns."
+
+    # A2 is HSBC−Barclays only. Out-of-sample banks (CS) must not inherit that gap.
+    if bank not in {"hsbc", "barclays"}:
+        peer_gap = None
+        peer_usable_for_a2 = False
+        peer_caveat = "Peer gap is HSBC−Barclays only; n/a for out-of-sample banks."
 
     briefs = []
     for metric, kws in METRIC_KW.items():
@@ -259,7 +273,10 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
             f"Barclays={peer_barclays_net:.3f} (n={peer_barclays_n}); gap={peer_gap:.3f}"
             + (f" — {peer_caveat}" if peer_caveat else "")
             if peer_gap is not None
-            else f"{spec['label']}: FinBERT net {ep_net:.2f}." + (f" {peer_caveat}" if peer_caveat else "")
+            else (
+                f"{spec['label']}: FinBERT net {ep_net:.2f}."
+                + (f" {peer_caveat}" if peer_caveat else "")
+            )
         ),
         "pitch_angle": verdict,
     }
