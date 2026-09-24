@@ -2,6 +2,8 @@
 
 **Owner:** Alfred (Qianyi) · sentiment lane · branch `alfred/sentiment-pipeline`
 **For:** whichever agent/LLM implements this next. Read this whole file, then `scripts/sentiment.py` and `scripts/finetune_sentiment.py`, before writing code.
+**Status (23 Sep):** a first pass of Pipeline B exists — Claude labelled all 1,826 texts in-session (batches of 40, guide verbatim, K=0, blind) → `docs/assignment2/llm_sentiment_labels.csv`, and `score_sentiment_human.py` already reports it as the `llm` unit. The script in §2 should reproduce that via an API so it is re-runnable next quarter; Pipeline C can train on the existing CSV now.
+
 **Deadline context:** A2 pitch due Mon 28 Sep 17:00 UK. Both pipelines are **optional extras** — they must skip cleanly without an API key and must not change any number the deck already quotes.
 
 ---

@@ -295,6 +295,98 @@
         ],
         "meets_m4_bar": false
       }
+    },
+    "llm": {
+      "question": {
+        "name": "llm_question",
+        "n": 85,
+        "raw_agreement": 0.6470588235294118,
+        "cohen_kappa": 0.3912628312246359,
+        "macro_f1": 0.5752517110696306,
+        "recall_by_class": {
+          "negative": 0.6857142857142857,
+          "neutral": 0.6363636363636364,
+          "positive": 0.5
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            24,
+            10,
+            1
+          ],
+          [
+            10,
+            28,
+            6
+          ],
+          [
+            2,
+            1,
+            3
+          ]
+        ],
+        "meets_m4_bar": false
+      },
+      "answer": {
+        "name": "llm_answer",
+        "n": 82,
+        "raw_agreement": 0.45121951219512196,
+        "cohen_kappa": 0.14996544574982718,
+        "macro_f1": 0.3896103896103896,
+        "recall_by_class": {
+          "negative": 0.125,
+          "neutral": 0.40425531914893614,
+          "positive": 0.8421052631578947
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            2,
+            10,
+            4
+          ],
+          [
+            1,
+            19,
+            27
+          ],
+          [
+            2,
+            1,
+            16
+          ]
+        ],
+        "meets_m4_bar": false
+      },
+      "pooled": {
+        "name": "llm_pooled",
+        "n": 167,
+        "raw_agreement": 0.5508982035928144,
+        "cohen_kappa": 0.30778158505581965,
+        "macro_f1": 0.5387106751502297,
+        "recall_by_class": {
+          "negative": 0.5098039215686274,
+          "neutral": 0.5164835164835165,
+          "positive": 0.76
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            26,
+            20,
+            5
+          ],
+          [
+            11,
+            47,
+            33
+          ],
+          [
+            4,
+            2,
+            19
+          ]
+        ],
+        "meets_m4_bar": false
+      }
     }
   },
   "coder_vs_coder": {},
@@ -303,19 +395,26 @@
     "humans+finbert_turn_question": 0.21653495440729476,
     "humans+finbert_sentence_question": 0.14918958742632615,
     "humans+lm_lexicon_question": -0.01400171013253515,
+    "humans+llm_question": 0.39332296278568857,
     "humans_answer": null,
     "humans+finbert_turn_answer": 0.3340993233754628,
     "humans+finbert_sentence_answer": 0.03898447840211772,
-    "humans+lm_lexicon_answer": 0.03784119106699757
+    "humans+lm_lexicon_answer": 0.03784119106699757,
+    "humans+llm_answer": 0.09276437847866426
   },
   "headline": {
     "finbert_turn_raw": 0.6046511627906976,
+    "finbert_turn_kappa": 0.2821016449791309,
     "finbert_turn_macro_f1": 0.5168701668701668,
     "finbert_sentence_raw": 0.46107784431137727,
     "finbert_sentence_macro_f1": 0.4129042551335073,
-    "best_unit_by_macro_f1": "finbert_turn",
+    "llm_raw": 0.5508982035928144,
+    "llm_kappa": 0.30778158505581965,
+    "llm_macro_f1": 0.5387106751502297,
+    "llm_meets_m4_bar": false,
+    "best_unit_by_macro_f1": "llm",
     "m4_met_by_turn": false,
     "m4_met_by_sentence": false
   },
-  "pitch_line": "Human gold n=172 labels (1 coder): FinBERT turn-level 60% raw / macro-F1 0.52; sentence-level 46% / 0.41. M4 bar 70% not met."
+  "pitch_line": "Human gold n=172 labels (1 coder): FinBERT turn-level 60% raw / macro-F1 0.52; sentence-level 46% / 0.41; LLM annotator 55% / 0.54. M4 bar 70% not met."
 }
