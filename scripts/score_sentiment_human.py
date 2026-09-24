@@ -43,7 +43,11 @@ MACHINE_UNITS = {
     "finbert_turn": ("question_sentiment", "answer_sentiment"),
     "finbert_sentence": ("question_sent_label", "answer_sent_label"),
     "lm_lexicon": ("question_ldsa_sentiment", "answer_ldsa_sentiment"),
+    "llm": ("question_llm_label", "answer_llm_label"),            # Stage 3.8 LLM annotator (docs/assignment2/llm_sentiment_labels.csv)
+    "distilled": ("question_distill_label", "answer_distill_label"),  # Stage 3.9 student, when present
 }
+LLM_CSV = ROOT / "docs" / "assignment2" / "llm_sentiment_labels.csv"
+EXEMPLAR_JSON = HL / "llm_exemplar_ids.json"
 
 
 def _norm(s: pd.Series) -> pd.Series:
@@ -128,6 +132,18 @@ def main() -> None:
     if not KEY.is_file():
         raise SystemExit("machine key missing — run scripts/build_sentiment_gold_pack.py first")
     key = pd.read_csv(KEY, dtype={"pair_id": str}).set_index("pair_id")
+    # LLM annotator labels live in a tracked CSV (the key predates them); merge if present
+    if LLM_CSV.is_file() and "question_llm_label" not in key.columns:
+        llm = pd.read_csv(LLM_CSV, dtype=str).fillna("")
+        for side in ("question", "answer"):
+            m = llm[llm["side"] == side].drop_duplicates("pair_id").set_index("pair_id")["label"]
+            key[f"{side}_llm_label"] = key.index.map(m).fillna("")
+        if EXEMPLAR_JSON.is_file():  # never evaluate the LLM on pairs it saw as exemplars
+            try:
+                ex = set(map(str, json.loads(EXEMPLAR_JSON.read_text())))
+                key.loc[key.index.isin(ex), ["question_llm_label", "answer_llm_label"]] = ""
+            except Exception:
+                pass
     for c in key.columns:
         if c.endswith(("_sentiment", "_label")):
             key[c] = _norm(key[c])
@@ -204,11 +220,17 @@ def main() -> None:
             best_unit, best = unit, f
     ft = results["machine_vs_human"].get("finbert_turn", {}).get("pooled", {})
     fs = results["machine_vs_human"].get("finbert_sentence", {}).get("pooled", {})
+    lm_ = results["machine_vs_human"].get("llm", {}).get("pooled", {})
     results["headline"] = {
         "finbert_turn_raw": ft.get("raw_agreement"),
+        "finbert_turn_kappa": ft.get("cohen_kappa"),
         "finbert_turn_macro_f1": ft.get("macro_f1"),
         "finbert_sentence_raw": fs.get("raw_agreement"),
         "finbert_sentence_macro_f1": fs.get("macro_f1"),
+        "llm_raw": lm_.get("raw_agreement"),
+        "llm_kappa": lm_.get("cohen_kappa"),
+        "llm_macro_f1": lm_.get("macro_f1"),
+        "llm_meets_m4_bar": lm_.get("meets_m4_bar"),
         "best_unit_by_macro_f1": best_unit,
         "m4_met_by_turn": ft.get("meets_m4_bar"),
         "m4_met_by_sentence": fs.get("meets_m4_bar"),
@@ -217,8 +239,9 @@ def main() -> None:
     results["pitch_line"] = (
         f"Human gold n={n_h} labels ({len(names)} coder{'s' if len(names) > 1 else ''}): FinBERT turn-level "
         f"{(ft.get('raw_agreement') or 0):.0%} raw / macro-F1 {(ft.get('macro_f1') or 0):.2f}; "
-        f"sentence-level {(fs.get('raw_agreement') or 0):.0%} / {(fs.get('macro_f1') or 0):.2f}. "
-        f"M4 bar 70% {'met' if (ft.get('meets_m4_bar') or fs.get('meets_m4_bar')) else 'not met'}."
+        f"sentence-level {(fs.get('raw_agreement') or 0):.0%} / {(fs.get('macro_f1') or 0):.2f}"
+        + (f"; LLM annotator {(lm_.get('raw_agreement') or 0):.0%} / {(lm_.get('macro_f1') or 0):.2f}" if lm_.get("n") else "")
+        + f". M4 bar 70% {'met' if (ft.get('meets_m4_bar') or fs.get('meets_m4_bar') or lm_.get('meets_m4_bar')) else 'not met'}."
     )
 
     OUT_JSON.write_text(json.dumps(results, indent=2))
