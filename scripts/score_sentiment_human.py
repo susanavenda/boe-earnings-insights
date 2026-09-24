@@ -47,7 +47,7 @@ MACHINE_UNITS = {
 
 
 def _norm(s: pd.Series) -> pd.Series:
-    return s.astype(str).str.strip().str.lower().replace({"nan": "", "none": ""})
+    return s.fillna("").astype(str).str.strip().str.lower().replace({"nan": "", "none": ""})
 
 
 def krippendorff_alpha_nominal(rows: list[list[str | None]]) -> float | None:
@@ -55,7 +55,7 @@ def krippendorff_alpha_nominal(rows: list[list[str | None]]) -> float | None:
     coincidence: Counter = Counter()
     n_total = 0.0
     for unit in rows:
-        vals = [v for v in unit if v]
+        vals = [v for v in unit if isinstance(v, str) and v]
         m = len(vals)
         if m < 2:
             continue
@@ -82,7 +82,7 @@ def load_coders() -> dict[str, pd.DataFrame]:
         name = Path(f).stem.replace("sentiment_60_labels_", "")
         if name == "template":
             continue
-        df = pd.read_csv(f)
+        df = pd.read_csv(f, dtype=str).fillna("")
         if not {"pair_id", "q_label", "a_label"}.issubset(df.columns):
             print(f"skip {f}: needs pair_id, q_label, a_label")
             continue
@@ -127,7 +127,7 @@ def main() -> None:
     configure(memory=False)
     if not KEY.is_file():
         raise SystemExit("machine key missing — run scripts/build_sentiment_gold_pack.py first")
-    key = pd.read_csv(KEY).set_index("pair_id")
+    key = pd.read_csv(KEY, dtype={"pair_id": str}).set_index("pair_id")
     for c in key.columns:
         if c.endswith(("_sentiment", "_label")):
             key[c] = _norm(key[c])
