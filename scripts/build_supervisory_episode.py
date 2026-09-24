@@ -12,12 +12,14 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from periods import calendar_period  # noqa: E402
+from periods import calendar_period, period_sort_key  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
 
-# Default case studies for A2/A3
+# Protocol cases only. Extra CS 2020–2022 calls stay in the corpus for a FinBERT
+# trend (build_cs_quarter_trend) and must not inherit A1–A3 as extra "failed-bank"
+# proofs. A2 is HSBC−Barclays; out-of-sample banks force peer_gap n/a.
 EPISODES = [
     {
         "id": "hsbc_2025_h1",
@@ -51,6 +53,45 @@ METRIC_KW = {
     "cet1_ratio": ["cet1", "capital"],
     "total_income": ["nii", "income", "revenue", "hibor", "fee"],
 }
+
+
+def build_cs_quarter_trend(corp: pd.DataFrame) -> pd.DataFrame:
+    """Extra 2020–2022 CS scan. Not protocol — EPISODES stays at cs_2022_q4 only."""
+    cs = corp[corp["bank"].astype(str).str.lower() == "credit_suisse"].copy()
+    empty_cols = [
+        "quarter",
+        "n",
+        "finbert_net",
+        "n_pos",
+        "n_neg",
+        "n_neu",
+        "neg_share",
+        "n_topics",
+        "n_topic_unassigned",
+        "calendar_period",
+    ]
+    if cs.empty or "finbert_net" not in cs.columns:
+        return pd.DataFrame(columns=empty_cols)
+    rows = []
+    for q, g in cs.groupby("quarter", sort=False):
+        sent = g["finbert_sentiment"].astype(str).str.lower()
+        topic = g["topic"] if "topic" in g.columns else pd.Series([-1] * len(g), index=g.index)
+        rows.append(
+            {
+                "quarter": q,
+                "n": int(len(g)),
+                "finbert_net": float(g["finbert_net"].mean()),
+                "n_pos": int((sent == "positive").sum()),
+                "n_neg": int((sent == "negative").sum()),
+                "n_neu": int((sent == "neutral").sum()),
+                "neg_share": float((sent == "negative").mean()),
+                "n_topics": int(topic.nunique()),
+                "n_topic_unassigned": int((topic == -1).sum()),
+                "calendar_period": calendar_period(q),
+            }
+        )
+    out = pd.DataFrame(rows)
+    return out.sort_values("calendar_period", key=lambda s: s.map(period_sort_key)).reset_index(drop=True)
 
 
 def clip(text: str, n: int = 280) -> str:
@@ -348,6 +389,9 @@ def main(only_id: str | None = None):
     save_json("supervisory_episode", primary)
     save_json("supervisory_episodes", all_eps)
 
+    cs_trend = build_cs_quarter_trend(corp)
+    save_df("cs_quarter_trend", cs_trend)
+
     if {"calendar_period", "bank", "sentiment_net"}.issubset(peer.columns):
         pivot = peer.pivot_table(
             index="calendar_period", columns="bank", values="sentiment_net", aggfunc="mean"
@@ -359,6 +403,9 @@ def main(only_id: str | None = None):
 
     print(json.dumps(all_eps, indent=2))
     print(f"wrote {len(all_eps)} episodes → data/boe.sqlite")
+    if not cs_trend.empty:
+        print("CS extra-year FinBERT trend (not protocol):")
+        print(cs_trend.to_string(index=False))
 
 
 if __name__ == "__main__":

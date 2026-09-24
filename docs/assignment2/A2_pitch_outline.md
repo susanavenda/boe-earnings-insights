@@ -113,7 +113,8 @@ One left→right diagram (big boxes, few words):
 - Do not hang the verdict on BERTopic id 1 (ids move if the model is refit) — use quotes + agree column  
 - Matched peer: Barclays **0.00** (n=6, all FinBERT-neutral) → gap looks scary, **not A2-eligible**  
 - **Quote:** one impairment / tariffs analyst turn  
-- **Credit Suisse Q4 2022 (known-failed, out-of-sample):** protocol came out **NULL** (FinBERT net **+0.08**, n=20 analyst turns; peer gap n/a). That is a miss we disclose, not a validation — FinBERT stayed Neutral on a call six weeks before collapse, the same over-neutrality already in the pipeline.
+- **Credit Suisse Q4 2022 (known-failed, out-of-sample):** protocol came out **NULL** (FinBERT net **+0.08**, n=20 analyst turns; peer gap n/a — A2 is HSBC−Barclays only). Sources: Motley Fool / Roic reconstructions (`Name -- Role`); four KPIs from SEC 6-K Exhibit 99.1 (9 Feb 2023). CS IR is gone. That is a miss we disclose, not a validation — FinBERT stayed Neutral on a call six weeks before collapse, the same over-neutrality already in the pipeline.
+- **2020–2022 extra calls (corpus, not extra protocol cases):** FinBERT net does **not** worsen into the collapse. Softest is 2021-q2 (**−0.08**); Q4 2022 is the **most positive** print (+0.08, 18/20 Neutral). No quarter-over-quarter march toward failure in Q&A tone.
 
 **Say:** “This is the pipeline output: a governed verdict with evidence, not a leaderboard score.”
 
