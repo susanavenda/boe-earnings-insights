@@ -1,0 +1,26 @@
+name: tests
+
+on:
+  push:
+    branches: [main, susana/a2-share]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lightweight test deps
+        run: pip install pytest pandas
+      - name: Run tests
+        run: pytest tests/ -q -m "not slow"
+        env:
+          OPENAI_API_KEY: ""
+          GEMINI_API_KEY: ""
+          GOOGLE_API_KEY: ""
+          BOE_LLM_PROVIDER: ""
+          BOE_USE_LLM_PREPROCESSING: ""
