@@ -1,0 +1,102 @@
+{
+  "finetune_metrics": {
+    "n_labeled": 992,
+    "n_train": 744,
+    "n_test": 248,
+    "n_human_heldout": 0,
+    "label_dist": {
+      "neutral": 590,
+      "negative": 268,
+      "positive": 134
+    },
+    "label_method_dist": {
+      "finbert_ldsa_agree": 503,
+      "ldsa_signal": 157,
+      "finbert_confident": 154,
+      "default_neutral": 100,
+      "keyword_override": 78
+    },
+    "label_protocol": "silver: FinBERT confident non-neutral \u2192 FinBERT\u2229LDSA agree \u2192 keyword override \u2192 LDSA signal \u2192 neutral; human: M4 60-pair pack (question side) + hand_validation_sample.human_label, held out of training",
+    "training": "ProsusAI/finbert; stage1 classifier-head-only 8 epochs lr=5e-4; stage2 unfreeze encoder layers 10-11 + head 4 epochs lr=2e-5; class-weighted CE; silver stratified 75/25; text normalised via sentiment.py; cpu",
+    "zero_shot": {
+      "n": 248,
+      "accuracy": 0.7379032258064516,
+      "macro_f1": 0.6674391972294981,
+      "weighted_f1": 0.7198186911888153
+    },
+    "finetuned": {
+      "n": 248,
+      "accuracy": 0.6370967741935484,
+      "macro_f1": 0.6154428775429596,
+      "weighted_f1": 0.6518856058305369
+    },
+    "confusion_zero_shot": [
+      [
+        30,
+        36,
+        1
+      ],
+      [
+        9,
+        136,
+        3
+      ],
+      [
+        1,
+        15,
+        17
+      ]
+    ],
+    "confusion_finetuned": [
+      [
+        47,
+        14,
+        6
+      ],
+      [
+        22,
+        85,
+        41
+      ],
+      [
+        2,
+        5,
+        26
+      ]
+    ],
+    "human_zero_shot": {
+      "n": 0
+    },
+    "human_finetuned": {
+      "n": 0
+    },
+    "promotion": {
+      "min_human": 40,
+      "margin": 0.05,
+      "passed": false,
+      "reason": "blocked \u2014 human gold n=0 < 40; silver-only results are not a promotion basis"
+    },
+    "active_model_id": null,
+    "model_path": "models/finbert-domain-ft"
+  },
+  "model_registry": {
+    "active_model_id": null,
+    "candidate_model_id": "finbert-domain-ft",
+    "base_model": "ProsusAI/finbert",
+    "gate": {
+      "min_human": 40,
+      "margin": 0.05,
+      "passed": false,
+      "reason": "blocked \u2014 human gold n=0 < 40; silver-only results are not a promotion basis"
+    },
+    "human_gold": {
+      "n": 0,
+      "zero_shot": {
+        "n": 0
+      },
+      "finetuned": {
+        "n": 0
+      }
+    }
+  }
+}

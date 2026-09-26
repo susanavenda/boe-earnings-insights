@@ -32,5 +32,5 @@ Open http://localhost:8501
 - [ ] Backup slide: quote + agree-row  
 
 ## Honest metrics (say once)
-Hand sample n=20: FinBERT **75% accuracy / 0.61 macro-F1** vs sample gold — reason we gate peer ALERT and promotion.  
+Sentiment (Alfred): quote `docs/assignment2/human_labels/sentiment_agreement.json` **only if** two coders have filled the 60-pair pack. Otherwise say "no human sentiment accuracy claimed yet; FinBERT stays zero-shot" — the old "75% / 0.61" is not reproducible and the hand queue's gold was FinBERT's own label. Whole-turn FinBERT ≈ 80% Neutral is a scoring-unit artefact (sentence-trained model); sentence-level recovers direction.  
 **Headline:** machine coder1 vs coder2 n=60 = **35%**. Aidan vs coder1 = **50%** (below 70%). Eight-way is a method, not a category law. Disagreement clusters on costs↔earnings↔franchise and credit↔IRRBB, not uniform noise. Topics 0 and 3 still dual-code-disagree.

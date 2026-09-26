@@ -1,9 +1,18 @@
-"""Compute FinBERT / FT agreement vs hand + silver labels; expand review sample.
+"""Compute FinBERT / FT agreement vs silver labels; maintain the review queue.
+
+Honesty notes (Alfred, Stage 3):
+  * ``gold_label`` in the hand CSV is **silver** (FinBERT∩LDSA∩keyword protocol) unless the
+    ``human_label`` column is filled. Earlier versions seeded ``gold_label`` from
+    ``finbert_sentiment`` and then reported FinBERT at 100% against it — that is gone.
+  * ``human_reviewed`` is 1 only when ``human_label`` is non-empty.
+  * The M4 human number comes from ``scripts/score_sentiment_human.py``
+    (docs/assignment2/human_labels/sentiment_agreement.json). If that file has no
+    coders yet, the pitch line says so instead of quoting a silver figure as human.
 
 Writes:
-  - docs/hand_validation_sample.csv  (expanded review queue)
+  - docs/hand_validation_sample.csv  (review queue, 50 rows)
   - docs/assignment2/label_agreement.json
-  - store table ``label_agreement`` (one-row summary + optional detail)
+  - store table ``label_agreement``
 """
 from __future__ import annotations
 
@@ -21,7 +30,9 @@ from store import configure, has_df, load_df, save_df, save_json  # noqa: E402
 DOCS = ROOT / "docs"
 HAND = DOCS / "hand_validation_sample.csv"
 OUT_JSON = DOCS / "assignment2" / "label_agreement.json"
+M4_JSON = DOCS / "assignment2" / "human_labels" / "sentiment_agreement.json"
 TARGET_N = 50
+LABELS = {"negative", "neutral", "positive"}
 
 
 def _norm(s: pd.Series) -> pd.Series:
@@ -50,14 +61,17 @@ def expand_hand_sample(labels: pd.DataFrame) -> pd.DataFrame:
         "ldsa_sentiment",
         "text",
         "gold_label",
+        "human_label",
         "human_reviewed",
         "label_note",
     ]
 
-    # Seed from existing hand rows
+    # Seed from existing hand rows. gold_label = silver unless a human_label is filled.
     rows = []
     hand_keys = set()
     if len(hand):
+        if "human_label" not in hand.columns:
+            hand["human_label"] = ""
         lab_by_key = {
             k: r
             for k, r in zip(_key(labels["text"]), labels.to_dict("records"))
@@ -66,7 +80,9 @@ def expand_hand_sample(labels: pd.DataFrame) -> pd.DataFrame:
             k = str(r["text"])[:120]
             hand_keys.add(k)
             silver = lab_by_key.get(k, {})
-            gold = silver.get("gold_label") or r.get("gold_label") or r.get("finbert_sentiment")
+            human = str(r.get("human_label") or "").strip().lower()
+            human = human if human in LABELS else ""
+            silver_gold = silver.get("gold_label") or ""
             rows.append(
                 {
                     "bank": r.get("bank"),
@@ -74,13 +90,14 @@ def expand_hand_sample(labels: pd.DataFrame) -> pd.DataFrame:
                     "speaker": r.get("speaker"),
                     "firm": r.get("firm"),
                     "topic": r.get("topic"),
-                    "finbert_sentiment": r.get("finbert_sentiment"),
-                    "finbert_score": r.get("finbert_score"),
-                    "ldsa_sentiment": r.get("ldsa_sentiment"),
+                    "finbert_sentiment": silver.get("finbert_sentiment", r.get("finbert_sentiment")),
+                    "finbert_score": silver.get("finbert_score", r.get("finbert_score")),
+                    "ldsa_sentiment": silver.get("ldsa_sentiment", r.get("ldsa_sentiment")),
                     "text": r.get("text"),
-                    "gold_label": gold,
-                    "human_reviewed": 1,
-                    "label_note": "in_hand_sample",
+                    "gold_label": human or silver_gold,
+                    "human_label": human,
+                    "human_reviewed": 1 if human else 0,
+                    "label_note": "human_label" if human else "provisional_silver_priority_queue",
                 }
             )
 
@@ -124,8 +141,9 @@ def expand_hand_sample(labels: pd.DataFrame) -> pd.DataFrame:
                 "finbert_score": r.get("finbert_score"),
                 "ldsa_sentiment": r["ldsa_sentiment"],
                 "text": r["text"],
-                # Provisional: silver gold for queue continuity — team should override
+                # Provisional: silver gold for queue continuity — a coder fills human_label
                 "gold_label": r["gold_label"],
+                "human_label": "",
                 "human_reviewed": 0,
                 "label_note": "provisional_silver_priority_queue",
             }
@@ -151,33 +169,55 @@ def agreement_block(y_true, y_pred, name: str) -> dict:
 
 
 def main() -> None:
-    configure(memory=False, path=ROOT / "data" / "boe.sqlite", auto_flush=True)
+    configure(memory=False)  # honours BOE_DB (default data/boe.sqlite)
     if not has_df("sentiment_labels"):
         raise SystemExit("Run finetune/label build first — sentiment_labels missing")
 
     labels = load_df("sentiment_labels")
     hand = expand_hand_sample(labels)
 
-    # Metrics on full silver gold
+    # Metrics on full silver gold. These are NOT evaluations — silver is built from
+    # FinBERT and LDSA, so agreement with either is partly circular. Kept for the
+    # label-protocol audit only.
     fb = _norm(labels["finbert_sentiment"])
     gold = _norm(labels["gold_label"])
     ld = _norm(labels["ldsa_sentiment"])
     blocks = [
-        agreement_block(gold, fb, "finbert_vs_silver_gold"),
-        agreement_block(gold, ld, "ldsa_vs_silver_gold"),
+        agreement_block(gold, fb, "finbert_vs_silver_gold (circular — audit only)"),
+        agreement_block(gold, ld, "ldsa_vs_silver_gold (circular — audit only)"),
         agreement_block(fb, ld, "finbert_vs_ldsa"),
     ]
+    if "finbert_sent_label" in labels.columns:
+        blocks.append(agreement_block(fb, _norm(labels["finbert_sent_label"]), "finbert_turn_vs_sentence"))
 
-    # Hand-reviewed subset (original sample)
+    # Human-labelled rows in the queue (human_label filled by a coder)
     reviewed = hand[hand["human_reviewed"].astype(int) == 1]
     if len(reviewed):
         blocks.append(
             agreement_block(
-                _norm(reviewed["gold_label"]),
+                _norm(reviewed["human_label"]),
                 _norm(reviewed["finbert_sentiment"]),
-                "finbert_vs_hand_sample_gold",
+                "finbert_vs_hand_sample_human",
             )
         )
+
+    # M4 human gold (sentiment pack) — the number that matters. Refresh it here so
+    # this script is the single entry point: coder-vs-coder κ / Krippendorff α and
+    # machine-vs-human per unit all come from score_sentiment_human.
+    m4 = None
+    try:
+        import score_sentiment_human as _ssh
+
+        _ssh.main()
+    except SystemExit as e:  # e.g. machine key missing
+        print(f"score_sentiment_human skipped: {e}")
+    except Exception as e:  # noqa: BLE001
+        print(f"score_sentiment_human failed: {type(e).__name__}: {e}")
+    if M4_JSON.is_file():
+        try:
+            m4 = json.loads(M4_JSON.read_text())
+        except Exception:
+            m4 = None
 
     # Fine-tuned head if present
     if has_df("sentiment_finetuned"):
@@ -200,22 +240,49 @@ def main() -> None:
         "n_human_reviewed_flag": int((hand["human_reviewed"].astype(int) == 1).sum()),
         "n_provisional_queue": int((hand["human_reviewed"].astype(int) == 0).sum()),
         "n_corpus_labels": int(len(labels)),
+        "silver_is_circular": True,
         "metrics": blocks,
+        "m4_human_gold": (m4 or {}).get("headline"),
+        "m4_status": (m4 or {}).get("status") or ("scored" if m4 and m4.get("n_coders") else "awaiting human labels"),
         "pitch_line": None,
     }
-    fb_hand = next((b for b in blocks if b["name"] == "finbert_vs_hand_sample_gold"), None)
-    fb_sil = next((b for b in blocks if b["name"] == "finbert_vs_silver_gold"), None)
-    if fb_hand and fb_hand.get("n"):
-        summary["pitch_line"] = (
-            f"Hand sample n={fb_hand['n']}: FinBERT accuracy "
-            f"{fb_hand['accuracy']:.0%} vs sample gold "
-            f"(macro-F1 {fb_hand['macro_f1']:.2f})."
-        )
-    elif fb_sil:
-        summary["pitch_line"] = (
-            f"Silver labels n={fb_sil['n']}: FinBERT accuracy "
-            f"{fb_sil['accuracy']:.0%} (macro-F1 {fb_sil['macro_f1']:.2f})."
-        )
+    if m4 and m4.get("n_coders"):
+        summary["pitch_line"] = m4.get("pitch_line")
+    else:
+        fb_hand = next((b for b in blocks if b["name"] == "finbert_vs_hand_sample_human"), None)
+        if fb_hand and fb_hand.get("n"):
+            summary["pitch_line"] = (
+                f"Hand queue n={fb_hand['n']} human-labelled rows: FinBERT accuracy "
+                f"{fb_hand['accuracy']:.0%} (macro-F1 {fb_hand['macro_f1']:.2f}). "
+                "M4 60-pair gold not yet coded."
+            )
+        else:
+            summary["pitch_line"] = (
+                "No human sentiment gold yet — silver agreement is circular and is not an accuracy claim. "
+                "Code docs/assignment2/human_labels/sentiment_60_for_coding.md, then run "
+                "scripts/score_sentiment_human.py."
+            )
+
+    # Export the fine-tune run + promotion decision to a tracked file (sqlite is gitignored)
+    from store import has_json, load_json
+
+    ft_export = {}
+    for key in ("finetune_metrics", "model_registry"):
+        if has_json(key):
+            ft_export[key] = load_json(key)
+    if ft_export:
+        ft_path = DOCS / "assignment2" / "finetune_metrics.json"
+        ft_path.write_text(json.dumps(ft_export, indent=2))
+        summary["finetune_export"] = str(ft_path.relative_to(ROOT))
+        fm = ft_export.get("finetune_metrics", {})
+        summary["finetune_headline"] = {
+            "silver_dev_n": fm.get("n_test"),
+            "zero_shot_macro_f1": (fm.get("zero_shot") or {}).get("macro_f1"),
+            "finetuned_macro_f1": (fm.get("finetuned") or {}).get("macro_f1"),
+            "human_heldout_n": fm.get("n_human_heldout"),
+            "active_model_id": fm.get("active_model_id"),
+            "promotion": (fm.get("promotion") or {}).get("reason"),
+        }
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(summary, indent=2))

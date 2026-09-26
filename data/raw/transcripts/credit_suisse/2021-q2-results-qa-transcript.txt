@@ -1,0 +1,362 @@
+Credit Suisse Group AG
+Credit Suisse 2021-Q2 results — analyst and investor call
+
+Source note: CS IR site is gone. Speaker-labelled Q&A from public call archives (Motley Fool / Thomson convention: Name -- Role). KPIs are SEC 6-K Exhibit 99.1, 9 February 2023 — not this transcript.
+
+Operator
+
+[Operator Instructions] Your first question today comes from the line of Magdalena Stoklosa from Morgan Stanley.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+I've got two questions, and they're both on the deleveraging particularly, kind of quarter-on-quarter. So really, my first question is about the Investment Bank because, of course, you have kind of shown higher, I suppose, deleveraging numbers than we expected. And of course, part of it or a large part of it was Prime Services. But is there any other kind of some business line or any other, yes, business that you would like to highlight from the perspective of the residual of that deleveraging to be coming from?
+
+And my second question is really around the risk-weighted assets fall quarter-on-quarter also within wealth. We have seen your risk-weighted assets coming down. We have seen your loans coming down quarter-on-quarter, particularly in APAC as well. Could you give us a sense what was happening kind of there apart from your kind of derisking that you have mentioned?
+
+And then so could you give us a sense, when you talk about this reduction in risk appetite currently, what does it actually mean? What sort of constraints are you operating on from a risk perspective?
+
+David Mathers -- Group Chief Financial Officer
+
+Thank you very much, Magdalena, and thank you very much for the question. I think in terms of deleveraging, the primary focus was the resizing of the prime business within the Investment Bank. And as you know, it was partly offset by an increase in HQLA, but there's nothing else particularly to highlight, Magdalena.
+
+I think in terms of risk-weighted assets, within -- across the bank overall, I'd just refer you back to the table which we showed on Page 27 of the deck basically. So what you see here is, obviously, is -- and this is in Swiss franc terms, is a CHF19 billion reduction in the Investment Banking RWA and a CHF3 billion increase in SUB, IWM, APAC, Asset Management and CC. But you are correct because the CC number includes, as we've noted, opposite, a CHF6 billion increase in operational risk RWA, which we've warned about before and flowed through. So net-net, the Wealth Management division was slightly down year-on-year.
+
+I mean, I don't think there's anything specific I'd like to highlight. I mean, I think one point I did bring out was the fact that we did review very carefully the businesses across the entire bank. There's been a very thorough risk review, which is being conducted by the tactical crisis committee of the Board of Directors. And that has included the Wealth Management operations as well as the Investment Bank. And we did basically result -- that did result in $4.2 billion of net new asset outflows within APAC, relating to certain clients where we did decide to significantly restrict our activities.
+
+But there was nothing broad in terms of that. I think it was fair and appropriate that I think following both the Greensill episodes and the Archegos issues, that we did do a thorough review of our risk appetite, which was led by our interim Chief Risk Officer, Jo Oechslin, and in conjunction with the tactical crisis committee of the Board, and we then continued a thorough risk review across the bank. And I think that taking that more conservative approaches has been the right thing to do in the second quarter. But clearly, the bulk of the reductions have clearly been borne by prime and by the Investment Bank.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+And David, are we likely to see more of those kind of reviews of clients into the third and fourth quarter, similar thing that you've described happened in APAC in the second quarter? Or would you think that, that process is largely complete?
+
+David Mathers -- Group Chief Financial Officer
+
+That process is largely complete. I think you can understand that given the events of February and March, and this was done on an accelerated basis immediately after that. And as I said, the tactical crisis committee has been going through our business portfolio one by one, and obviously, Zeth [Phonetic] is an executive member of that committee, and I think it has been a good and thorough process, but the bulk of that has now been completed.
+
+I mean, I think just generally speaking, in terms of groupwide RWA and leverage, I think you should probably assume that the levels pertaining at the end of the second quarter where I roughly expect to operate for the third quarter, if that's of some help, Magdalena.
+
+Your next question comes from the line of Benjamin Goy from Deutsche Bank.
+
+Benjamin Goy -- Deutsche Bank -- Analyst
+
+Two questions, please, also one on Wealth Management and one on the Investment Bank. In Wealth Management, transaction-based revenues were down and also underperforming peers. So just wondering on some thoughts. How much is lower risk appetite? How much was client derisk taking? And how this fits into your strategic review? Should we assume once that is done for a division, so to say they can be more capital allocated even before it's formally announced in end of the year?
+
+And then secondly, in the Investment Bank, you mentioned the $100 million impact from the prime reduction. So is Q2 the new run rate, of course, with all the moving parts in the market? Or do you think there could be a knock-on effect into the second half further impacting revenues here?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. It's Thomas here. I will take the first question, and then David will take the second question. So as you can see on Page 13, we did have weaker transactional revenues in the second quarter, which was primarily driven by the reduction in RWAs and risk and has been obviously driven by also lower client activity. But at the same time, as you can see, for the first full half, we are actually up in terms of transactional revenues, and we expect this to normalize again as we go into the second half of the year. Recurring has been on a positive trend given our increase in assets under management, and we continue to expect that. And we expect net interest income to stabilize where we are. Also, net interest income has been obviously impacted short term to some extent from our more conservative risk approach.
+
+David Mathers -- Group Chief Financial Officer
+
+Yes. I think on the second point, I mean, I don't particularly want to add to the outlook statement that we've actually made already. And as I said though, I think, to an answer to the previous question, I would expect the bank to offer at roughly constant levels of RWA and leverage through the third quarter.
+
+I think a few points really. As I've indicated, the drop in transaction activity in the Wealth Management business was primarily driven by GTS-related revenues, where we saw us much lower levels of client activity, but also given the importance of derivative products within GTS, a substantial fall in volatility in markets in which we actually operate in the second quarter of this year compared to the second quarter a year ago, which has a significant impact on GTS revenues. And I think I did note earlier that within the Wealth Management-related revenues in APAC, the IBCM component of that was actually down as well.
+
+So I think just looking forward, I said I'm not going to add to the outlook statement. I would point out that the third quarter is normally seasonally lower than what you'd normally see, and we'll see how that seasonal pattern actually develops, but it's always just worth remembering that. And I would also point out that while we do expect to see a more normalization in that, our transaction revenues per unit in Asset Management do remain comparatively high as a consequence of our business model. So I think that's just worth keeping in mind.
+
+Operator
+
+Your next question comes from the line of Amit Goel from Barclays.
+
+Amit Goel -- Barclays -- Analyst
+
+So yes, I'll ask two questions as well. The first one, just trying to get a sense, I appreciate you don't prejudge the outcome, but -- so the strategic review, just if we can get a bit more color in terms how the process works, how that's being conducted, how decisions will be made and the kind of trade-offs and the processes involved in that, that would be helpful.
+
+And secondly, just coming back to the Slide 10 in terms of the, I guess, employee hiring and attrition. I'm just curious, if you were to cut back instead of total employees but rather just looking at, for example, MDs or material risk takers, does it give the same picture? Or is it then slightly different?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Okay. Thank you, Amit. So with the strategic review, as we disclosed a couple of weeks ago, we did-we kicked off the process with a strategic offsite where the full Board of Directors and the full Executive Board participated, and this is now ongoing. We are looking at, obviously, our businesses, the strength and weaknesses, our portfolios. And this is a process that we will do very carefully and we'll-we have a new Chairman on board who has been not even three months with this bank, which is 165 years old. So we are determined to come out with a clear long-term vision for this bank and a concrete 3-year plan. And this is something that we are doing together with the Board of Directors and Executive Board. We are having detailed sessions among the ExB as well on these different divisions and business areas. And the clear goal is to come out with an articulated and clear plan at the latest by the end of the year. So that is about the process.
+
+In terms of the employees, to your question, yes, absolutely, this is the full picture of all employees. If you look MDs, we do have a slight negative net movement in terms of MDs joiners versus leavers. But again, we are very much focused on investing in the business. We are replacing people through internal candidates and talents and, where needed, through external talents.
+
+Operator
+
+Your next question comes from the line of Daniele Brupbacher from UBS.
+
+Daniele Brupbacher -- UBS -- Analyst
+
+Yes. Just briefly again on the $4.2 billion derisking in APAC. Can you describe to us a little bit what the tactical crisis committee and generally, you, as a management team, didn't like about these positions? Was it LTVs, the liquidity of collateral counterparty, concentration, size of these positions? Just be interested to hear what you didn't like about these positions.
+
+And then secondly, on the supply chain finance situation, is there -- and you mentioned the 66%. Is there a, call it, a critical threshold you have in mind, above which you feel comfortable having limited side effects, even like litigation issues and stuff? Like is this -- I mean, we are at 66% now. Is it 70%, 80%, 90%? Or how should -- do you have a view on that one? That would be helpful.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. On the $4.2 billion NNA outflows in APAC, these were linked to situations where we wanted to exit clients either for risk or for other reasons. And this is a small number of clients, but we feel very good about that, having exited those positions. But there are various considerations where I would not like to go into the details. But this was a one-off move that we had to do and wanted to do, and I do not really want to comment more on individual clients.
+
+And on supply chain front, we really want to work through the pipeline of both the focus as well as the non-focus areas. As we say on our page that we have more than 60 internal and external experts working through this pipeline. We are in discussions with the obligors. We are in discussions with insurance. And this is quite a lot of work, but we are making steady process, and we will update you as we make progress. And there's not really one particular number we have in mind. We just want to go through the entire book and make sure that we maximize the cash proceeds for the investors and really pursue all avenues to maximize recovery.
+
+Your next question comes from the line of Andrew Coombs from Citi.
+
+Andrew Coombs -- Citi -- Analyst
+
+Perhaps, a follow-up on the net new money. You've obviously flagged the $4.2 billion derisking in Asia. But perhaps outside of that, you could talk a bit more about the customer flows that you're seeing in the three different segments. And in particular, I'm interested in what the month-to-month progression was. So was it a case that you saw this improve as you move through the quarter? Did it deteriorate as you go through the quarter? What does the momentum look like on the underlying customer flows across the three segments? That would be my first question.
+
+Second question is more broadly on your outlook statement. You talk about a more conservative approach to risk in the near term, while you're finalizing your long-term vision and your midterm plan. In terms of the next couple of quarters, you've alluded that the prime balance reduction is done, but should we expect ongoing revenue attrition given some of the steps you're taking with your approach to risk?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Okay. Thank you, Andrew. I will take the first one, and then maybe David can take the second one. So we did see positive inflows in the third month of the quarter, so in June. So April, May was really -- were two months where we had outflows and where we also proactively addressed some of the client situations that I was alluding to also in APAC. But actually, June was positive inflows in all three divisions. And so the momentum into the end of the quarter was very positive.
+
+So look, this is something we had to do. We wanted to work through. We clearly also had some side effects from our more cautious approach to lending volumes. We had clear targets for each of the divisions, including Asia, including SUB and including IWM in terms of RWA and leverage for the end of the second quarter because we were determined to achieve our targets that we have set ourselves. And that is obviously one of the side effects that some of the NNA or AUMs that were linked to lending volumes also came down.
+
+But as I said, the momentum into the end of the quarter was positive. And if you look at the first half as a whole, we are at around CHF7 billion now for Wealth Management and CHF24 billion if you include the institutional Asset Management business. So absolutely decent NNA flow for year-to-date.
+
+David Mathers -- Group Chief Financial Officer
+
+Yes. I think, obviously, a lot of curiosity around the outlook statement. I don't think there's much I can really add. I mean, I think, first, I'd just reiterate usual seasonality to just-let's not overlook at that point.
+
+Secondly, although in terms of the Prime Service impact, the $100 million that Thomas mentioned-alluded to in terms of the second quarter impact, I mean, let's just be clear. After the Archegos incident, Credit Suisse, we moved, we focused extremely hard on, a, the resizing of the prime portfolio; and b, shifting any clients who are on static margining to dynamic margining. And those two things were the priority for the business during the quarter, and we moved as fast as possible in terms of that. So I think you've seen the revenue impact in the second quarter.
+
+We're obviously not going to be resizing the prime business upwards going forward. So I think we've moved it to a new lower steady state basically. But I mean, this wasn't a steady process during the quarter. We executed on this. It was fairly obvious what needed to be done, and we executed on that resizing as fast and as quickly as possible in terms of that.
+
+I think beyond that, as I said, I think in terms of the capital reduction reallocation process, we did complete that during the quarter. And as I said, I would expect to operate a broadly unchanged levels during the third quarter. And I think you'll see more normal levels of activity beyond that. But I think certainly, second quarter, the priority was dealing with Archegos. It was dealing with the Greensill-related supply chain funds. That's unfortunate, but I think it was the right thing to do on behalf of the shareholders, on behalf of the bank overall.
+
+Your next question comes from the line of Jeremy Sigee from Exane.
+
+Jeremy Sigee -- Exane -- Analyst
+
+Just a couple of follow-ups on that last point, actually, the restructuring, et cetera. So two questions really on it. The first is that the RWA reduction being bigger than expected, it's also actually bigger than what I thought the whole of the prime brokerage was in terms of RWAs. So I just wondered what sort of decisions that involved in terms of going further than targeted? And particularly, what decisions it involved in other areas outside prime, if it did?
+
+And then the second question relating to IB. Just sort of on the people side, we've seen a lot of reports about departures and also you'd announced retention packages. So I just wondered, are people leaving despite retention returns? Or is it that the retention effort is more focused on critical areas or something like that?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Maybe, David, do you want to take the first question? I'll take the second.
+
+David Mathers -- Group Chief Financial Officer
+
+Yes. So I think you're right. I mean, look, just to be clear, Jeremy, in terms of the deleveraging impact, as I said to Magdalena, that was driven by prime. And I think that was appropriate. It was the resizing in the prime business. In terms of the RWA impact. As you know, prime is a relatively risk -- low-risk density business, notwithstanding experience of Archegos. But we obviously did take a conservative approach to risk across the bank and particularly within the Investment Bank in the second quarter. And that did lead to some RWA reductions elsewhere, which clearly contributed to the RWA decline that we achieved in the second quarter.
+
+As I said, look, I think the Greensill matter closely followed by the Archegos matter, I think, necessitated a conservative approach to risk, necessitated a resizing of the risk appetite by our interim Chief Risk Officer and by the tactical crisis committee at the beginning of the second quarter. And I think that clearly has resulted in reductions in RWA beyond the prime financing business. But that said though, I just would say it before I said really now, that in terms of the third quarter level, I think I don't expect to see radical increases or decreases in terms of overall RWA and leverage for either the Investment Bank or for the group as a whole in the third quarter.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+And on your second question, as I mentioned before, we are fully focused on investing in the Investment Bank and within that in capital markets and advisory, where we have seen indeed a higher attrition level, especially on a senior level. If you look at Page 18, you see that year-to-date, we are up 82%, but it's also a fact that we lost CHF5 billion to one client in the Investment Bank. And this is not the year where Credit Suisse will be paying as high as you would maybe see in other firms at the moment. So we are clearly not the high payer of the street, if we want. But at the same time, we are fully focused. We have retention. And at the end of the day, we are investing in people internally, in young people. We have good talents internally to take these positions. And if needed, we will go externally and replace these people.
+
+Your next question comes from the line of Anke Reingen from Royal Bank of Canada.
+
+Anke Reingen -- Royal Bank of Canada -- Analyst
+
+The first is with respect to capital and just trying to reconcile to the capital path you helpfully given us with the first quarter. So are we basically through the operational risk model updates, which you previously indicated 30 to 35 basis points, which I think you had 25 in Q2, but is that part basically done? And on the asset sales, you indicated in combination with the IB risk-weighted asset reduction of 40 to 50 basis points. Are there more benefits from asset sales to come?
+
+And then secondly, on costs, you're running underlying at around CHF15.9 billion in the first half. And I mean, I understand things have changed, but you've previously given us the CHF16.2 billion to CHF16.5 billion for '21. So I was just thinking about what should we expect for the second half in terms of cost step-up for investment, cost savings, or also the operational costs related to the investigations.
+
+David Mathers -- Group Chief Financial Officer
+
+Anke, let me take both of those questions. Firstly, with regard to the operational risk update, that -- those process in that calculation was completed in the second quarter, and that added CHF6 billion of RWA in the second quarter, and that is certainly complete. There is potentially another CHF2 billion of methodology changes and updates, which might, but not certainly, might materialize later this year, and that would account for the reconciliation to the number you gave before the 35 basis points, I believe. But I wouldn't regard that as certain at this point. It's more of a prudence buffer I think about in terms of my capital planning. But clearly, either which way, I think the bulk has been done in the second quarter.
+
+In terms of asset sales, quite clearly, the largest asset sale was the reduction in the Allfunds position where we dropped below the 10% threshold. So what you see in Allfunds really is a number of factors. Firstly, we had a further gain on Allfunds post the IPO of CHF298 million recorded across our Wealth Management businesses. Second, we've actually -- we sold down to below 10% in the IPO process itself. And thirdly, you're obviously fully aware that once you drop below 10% under the Basel III rules, the capital treatment changes from being deduction process to being an RWA weighted process basically. So that contributes or that -- those three factors resulted in the 28 basis point improvement in the CET1 ratio as a consequence of Allfunds, and that's clearly a very large single disposal-related type event. We do expect to realize further asset sale gains, particularly real estate-related later in the year, and that is still to come, I think, in terms of your planning and thinking.
+
+I think the second point then, just in terms of cost guidance, I think it's just fair to say that while we will continue to invest across the bank, and obviously, we were pleased to see a 50 net additions in terms of RMs in APAC, which I think is the largest single increase in RMs we've ever achieved and I think demonstrates the investments in the franchise. And we're obviously continuing to invest in our onshore China platform.
+
+Nonetheless, I think given that we will be taking a prudent approach to variable compensation awards in light of the loss that our shareholders suffered in respect to Archegos, I think it's fair to say that we will be at the bottom end of the range of the CHF16.2 billion to CHF16.5 billion cost guidance that we gave at the Investor Day last year. So I hope that answers those questions, but please, is that helpful, Anke?
+
+Anke Reingen -- Royal Bank of Canada -- Analyst
+
+Yes, yes. No, that was very clear.
+
+Your next question comes from Jernej Omahen from Goldman Sachs.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+I have so many questions. I don't know how to limit it down to 2. But let's kick it off here. Thomas, I listened to your opening statement very carefully. And I managed to find one of the passages that you quoted in this report that you published today. And it says here and you quoted is that this is not a situation where the business and risk personnel engaged in fraudulent or illegal conduct, nor is one where the architecture of risk controls and processes was lacking, or the existing risk systems failed to operate sufficiently to identify critical risks.
+
+And I just wonder how that tallies with the bulk of what you have been communicating today. Because one of the key communications that I understood is that Credit Suisse immediately changed, for example, the way you margin in your prime brokerage, went from static to dynamic, and yet the report seems to suggest that systems are fine. Is that correct?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Is it your first question? And what's your second?
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Yes, that's the only question.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Okay. Well, as we have tried to summarize also on our slide, so just to give you the example on dynamic and static margining. This was already discussed by the teams in September, October. They had agreed that they would move some of the clients, including Archegos, from static to dynamic. It was rediscussed in early March. And if you read the report, they were in the process of actually doing that and reaching out to the client. But it was just not prioritized the way it should have been.
+
+So this is, to a large extent, really a series of human errors and failures by the teams. They didn't effectively manage this situation, and whether it was lack of escalation or also limit -- control of limits, which had numerous occasions being breached, but they did not act on it even though they discussed it and were supposed to do it.
+
+So this was clearly a series of failures, which is regrettable and which we have now addressed with a new team both on the first line of defense in Prime Services, Prime Services risk and on the risk management side. So that's really how I would answer this question.
+
+David Mathers -- Group Chief Financial Officer
+
+And one addendum and just to second what Thomas -- yes, just to second what Thomas is -- Jernej, sorry, just to second what Thomas is saying. It is clear and the report makes clear that the appropriate escalation protocols were in place in both the business and in the second line and in the CPOC committee, which you'll see described there, but they were not operated by the individuals. So the protocols were there, but they were not followed.
+
+It's clear that while we obviously can improve in our data systems, we can prove in the timeliness of those data systems. Nonetheless, the first and second line data systems did demonstrate the risks to Credit Suisse of Archegos. And again, those were not basically followed up as part of it. So I think that is the basis -- or part of the basis for the distinction that the independent counsel to the Board has made in their report.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+But can I just go back to -- Thomas, just to get your assessment of this, do you agree with this conclusion here, that the architecture of risk controls and processes is fine?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. Well, this is the independent investigators' view, and it was discussed also within Credit Suisse, within also the Executive Board and the Board of Directors, and we collectively absolutely agree with that, yes.
+
+David Mathers -- Group Chief Financial Officer
+
+Clearly, this report was not written by Credit Suisse. This was written by an external council, Paul, Weiss. It's an extremely thorough process they actually prepared. They prepared it under the aegis of the Board and specifically the Chair of the Audit and Risk Committee. And it was written by them. It's independent -- so the firm is independent of the Board. And I think they've conducted a thorough view. And I think we do agree with their conclusions, but it is their report.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+Right. And then maybe just to -- just in the scheme of things of the various investigations that are being conducted into this, where does this report fit in? Because I'm assuming that there's various streams of investigation by various regulators in the regions of your operations that are going through this. So what -- when we look at this, it's a really chunky report, 140-plus pages, I think. But where does it fit in?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Well, this is the independent investigation report which was mandated by our Board of Directors, and that was now concluded. In parallel, you're absolutely right. There are regulatory investigations, by the way, not only into Credit Suisse, but pretty much every other prime service -- prime broker to Archegos that was involved. There are at least six or seven of them. They are all being investigated, and there is various regulatory activity in the U.S., in Switzerland and in the U.K., and we are fully cooperating and collaborating with them. And that's really all I can say to that.
+
+Jernej Omahen -- Goldman Sachs -- Analyst
+
+And realistically, when should we expect those processes to conclude?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Well, it's always difficult to predict how fast regulators are operating. But...
+
+David Mathers -- Group Chief Financial Officer
+
+Look, I think-I don't think we can really comment. And I think the Board decided to commission this independent review. They obviously brought in Paul, Weiss to do a fully independent review. I think that is the appropriate governance. I think the Board decided and I think rightly that in-given the magnitude of the Archegos loss for Credit Suisse, it was fully appropriate to publish the entire review, which, by the way, I think, is 163 pages. And I think that was the right thing to do. I think it's important to be transparent to our investors, to our stakeholders basically about these events. And I would imagine this report will be read closely by all the regulators as part of their work.
+
+Your next question comes from the line of Daniel Regli from Octavian.
+
+Daniel Regli -- Octavian -- Analyst
+
+My question go a bit in the direction of -- I mean, your results in Q2 have clearly been impacted still by Archegos and all the second and first order impact. But what is your mood when you talk to your clients? Or what is the mood of your clients when you talk to them going forward, particularly with regards to how shall we think about net new money generation and new wealth management? Do you expect these instances or these issues you had to continue to impact your ability to generate positive net new money going forward? Or have you may be seen now everything of it?
+
+And then maybe the second question is on Greensill. Can you give us kind of a time line until when you expect the Greensill issue to be completed?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Okay. So on the mood of clients, we are fully engaged with our clients. One thing that I wanted to also add to the one of the previous questions on NNA momentum within the quarter and toward the end of the quarter is that the gross NNA flows are actually very similar to previous years. So clients are fully involved and active in the rare situations or in some of the situations of ultra-high-net worth clients who have asked for, for example, incremental lending, where we have been maybe more cautious. They fully understand that. They don't see that as an issue. You would also see that our assets under custody have increased. So in certain situations where we had a reduction of lending, the underlying collateral, it stayed with us.
+
+So we have very positive feedback about the way we have addressed some of these issues with respect to the risk-weighted asset reductions, the fact that we raised the capital immediately at the end of April and the read across from the lessons learned. So investors take a lot of -- sorry, clients take a lot of comfort from the fact also that we are increasing our capital ratio. So the client reaction is very constructive.
+
+Clearly, there are some clients, for example, those who were invested in supply chain funds that are having active dialogue with us, and we are keeping them updated on the cash redemptions, and we will continue to improve that situation. But they also understand that this is a process that will take some time.
+
+And that really brings me to your second question on the timetable of Greensill. We are paying out now another tranche, as we said, and we will continue to work through the book of work, both for the focus and the non-focus areas. The focus areas involves much more negotiations and also a number of people involved in these discussions, and this will also take a longer time.
+
+In parallel, we are engaging with insurers, and that's a process that will certainly continue over the next few months and quarters. We are keeping our clients fully informed about this, and they basically understand the process. And whenever they need any other support, we are there to do that.
+
+Daniel Regli -- Octavian -- Analyst
+
+Very helpful, particularly the comment about gross flows in Wealth Management.
+
+Your next question comes from the line of Kian Abouhossein from JPMorgan.
+
+Kian Abouhossein -- JPMorgan -- Analyst
+
+Yes. The first question is about capital. I mean, you're clearly running well above your target level that you gave at the first quarter stage. And just wondering, should we assume that the bank will increase capital ratios further, considering there could be some hits coming your way, regulatory write-downs, litigation, et cetera? Should we think about 14%, even 14-plus? Or should we think that this kind of level is the level you want to run rate until you have potential impacts coming against your capital?
+
+And the second question is just taking a top-down view. Listening what we're hearing today and having a strategic update in December potentially, I'm not exactly clear what the update is about because on the one hand, it sounds like you have derisked, you're happy with the derisking, and now it's more seasonal adjustment to revenues and business. And please correct me if that's wrong, but that's kind of the impression I get from the call, the majority is done.
+
+And then secondly, in respect to the IB, where clearly there are a lot of questions. Clearly, you are investing as you have said, and you say that, I think, in an article, Thomas, at Bloomberg interview, it's absolutely core part of the business. So just wondering, why a strategic update considering you have mitigated the issue from your perspective and it's business as usual?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Why don't you start -- David, why don't you start with the capital question? And I'll...
+
+David Mathers -- Group Chief Financial Officer
+
+I will start, yes. Look, I think, firstly, I think I did guide at the end of the first quarter that I wanted to increase the CET1 ratio to at least 13% and ideally in excess of 13%. I think we have taken a very thorough approach to capital utilization, as I've outlined already, both in terms of the reset, the risk appetite and the bankwide risk review, and I think that's been right and appropriate. And that has led to the CET1 ratio increasing to 13.7%. And that does, by the way, include the accrual for a dividend in respect to 2021, although the level of that will only be set by the Board of Directors as a recommendation to shareholders at the beginning of next year.
+
+And I just think that operating the bank above 13%, I think, is the prudent and the correct thing to do. I have to say I think the scale of the Archegos loss was shocking, a disappointment and clearly a cost to our shareholders. And I think it's an appropriate response. And I would certainly expect to operate in excess of 13% for at least the balance of this particular year basically.
+
+I think beyond that, I mean -- and by the way, the leverage ratio is always as important as the CET1 ratio. So the fact we're operating at 4.2% and 6% against the Swiss minimum requirements is as important as the RWA ratio. And I would just reiterate, I would expect to operate north of 4% for the leverage ratio for at least the balance of 2021.
+
+I think in terms of our longer-term capital guidance, I think we will provide a proper update to that as part of the conclusion of the strategic review once it's completed by the end of this year. But I don't think it's appropriate for me to actually add further at this moment.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. And on the group strategy review, as part of the discussions, it's always a question of what do we learn from these two events. Is it just the how, how we are doing things that we need to change? Or is it the what -- what we are going to change? And these are the discussions that have been going on and are going on. And it's also very clear that you should never waste a crisis, and that's why we also want to take the right decisions on the basis of what we have seen now in the first two quarters on the back of both Archegos and supply chain fund.
+
+And that's why I'm not going to start to give piecemeal strategic insights on our thinking. We will go through the process, as I said. Together with the Board of Directors and the Executive Board, we are focused on clearly designing and articulating a long-term vision for the bank and a concrete midterm plan, and we will present those when we are ready to do so. And as I said, this will be at the latest by the end of the year.
+
+David Mathers -- Group Chief Financial Officer
+
+And I'll just reiterate what Thomas is saying. This is -- the bank is 160 years old. I think it's only appropriate that we think about what we want to achieve, where we want to be over the long term and how we want to prioritize investments over that period of time. And I think this is a good moment to do that.
+
+Kian Abouhossein -- JPMorgan -- Analyst
+
+If I may just ask, but do you feel that -- I mean, listening to you again, and maybe I'm interpreting it wrongly, and that's why I'm asking the question. It sounds like you're on the right path strategically, i.e., top-down, you feel that you're on the right path based on the statement that you make so far. So this sounds to me like the strategic review is more an execution rather than a material top-down change in the way the business looks like, and it comes back to the how and the what. But that's kind of my interpretation from the call today.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+It's a good try. You're trying to get more out of it, but I have to ask for your patience. We will present our long-term vision and our strategic plan when we are ready to do so. And until then, I have to ask you to show some patience. I'm sorry.
+
+Your next question comes from the line of Eoin Mullany from Berenberg.
+
+Eoin Mullany -- Berenberg -- Analyst
+
+Apologies if I missed it, but I heard you say you saw inflows in April and May and inflows in June across your Wealth Management business. Can I just confirm that you're continuing to see inflows in July? Apologies if I missed it.
+
+And then just secondly, on the dividend. Previously, you said you want to pay the canceled portion of the FY '20 dividend and restore your dividend to previous levels. And does that still stand? And should we think about that as more likely now given where your capital ratio is after this quarter?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+I'll take the first one, and maybe, David, you take the second one. Look, we are not starting to give intra-months NNA numbers. As a matter of fact, many of our competitors are not showing NNA numbers anymore. And as you know from previous calls, I'm much more focused on mid- to long-term flows in terms of client business volumes. We did, in this specific situation, provide some color because the question was asked how in the second quarter the monthly NNA development was, but we are not going now to answer questions on intra-months or weekly NNA developments. By the way, for me, it's absolutely irrelevant now how the last two or three weeks were in terms of NNA. It's for me much more the longer-term trends, and the longer-term trend is very positive.
+
+David Mathers -- Group Chief Financial Officer
+
+And I think on dividend, there's nothing I'd really want to add to what I've said already, which is we've continued to accrue pro rata for a dividend in respect to 2021. But the absolute level will depend upon the review by the Board of Directors and their decision as a recommendation to shareholders, of course, who actually approved the dividend, and that decision will only be taken very early next year.
+
+Your next question comes from the line of Piers Brown from HSBC.
+
+Piers Brown -- HSBC -- Analyst
+
+Yes. First is on the credit rating. I'm just conscious that in the risk section of the quarterly report, you referred to, I think, the wording is there can be no assurance that a further downgrade of the credit rating will not be material to us. Could you just give a little bit of an idea as to what sort of conversations are going on with the rating agencies and how real you view that risk?
+
+And the second question is on Greensill and insurance claims, which I think you mentioned you're pursuing. And alongside that, I think, in the July update on Greensill, you talked about having about $2.3 billion of late payments. So far on the underlying note, I presume those are the notes on which insurance is being pursued. Can you just give us a little bit of an idea how realistic it is you may get some insurance cover on those late payments and what practical difficulties you're actually encountering in terms of pursuing insurance?
+
+David Mathers -- Group Chief Financial Officer
+
+Perhaps if I take the first question, and Thomas, you take the second. I mean, I think, look, I think quite clearly, the Archegos loss and the Greensill supply chain funds have caused reviews of our credit ratings by all the major agencies. And I think at least one of them actually has us on negative watch. And I think Moody's, as you know, did downgrade certain of our instruments early this month, although that was partly in the connection with a technical change relating to their treatment of certain AT1 instruments in terms of the subordination and treatment as equity or debt between the different layers of the bank.
+
+Now that's going to be, obviously, an ongoing process. And I imagine they'll be reviewing these results and also the Archegos report just as you are basically. And I think it's only appropriate, we do list that as a risk factor. I mean, as a matter of practicality, I would say, basically, if you look at the moves in certain management such as CDSs, they're really basically priced in such a downgrade some months ago basically. And the rating agencies now have to make their own decisions about this whole thing.
+
+But I think it's appropriate we list it as a risk factor just because it clearly is a risk factor. But I think it's probably priced in already. And I guess, we shall see and depend on -- and see how they choose to react to this report. Clearly, the capital ratios, in particular, are substantially higher than I think anybody was actually expecting, and that's obviously a key factor in terms of this. And I think it is worth bottom line in terms of pre-tax income on an underlying basis, it's about 11% lower than what was a very strong period a year ago. So I think there are some reassurance factors there, but that's a decision ultimately that the rating agencies will need to make on their own.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+And on the insurance, on Greensill, as you probably know, the insured party was not-were not the funds, but was the Greensill entity, Greensill Bank, principally. And we are, together with Greensill Capital, and there is a clear process where-because the funds are only payees, loss payees. And this is a process that has to go through a certain protocol, which means that there is a certain delay until when we can even post the claims. And this is now starting to happen for some of the outstanding payments, and it's really now starting, and we will update our investors as we go on over the next few months in terms of the insurance claims reactions by the insurers.
+
+Your next question comes from the line of Patrick Lee from Santander.
+
+Patrick Lee -- Santander -- Analyst
+
+I just have a couple related to Archegos again, but more specifically, what were the remedy means in the longer term. I guess, if I look at the independent review on individual accountability, I think, in there, you mentioned that you actioned on 23 individuals, 9 got fired, but the clawback of CHF70 million. If I do the arithmetic, these people on attrition, around CHF3 million of bonus to be clawed back. So is it fair to say that these are relatively senior, well-paid or overpaid individuals? And what did you do to the 14 people that you did not remove from the position? And I guess, is there a risk that you are now rapidly losing the good people to competitors, and somehow, the bad actors are still around? And related to that, is this a 2Q-only event? Or would that be a longer-term tail impact as well on that?
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. Actually, what we have disclosed ourselves and what was disclosed in the report is really as far as we would like to go in terms of disclosure, and we will not go into individuals. All I can say is that -- and confirm is that out of the 23 individuals, 9 were terminated, and the CHF70 million relates to all 23 and included, to a large extent [indecipherable] deferred compensation and, in some instances, clawback on -- already paid out. And it includes various seniorities, members of Prime Services, first line of defense, members of second line of defense, certain members of committees. And this is really all we can say to this, and we do not want to go into more details.
+
+David Mathers -- Group Chief Financial Officer
+
+I may make one point, Patrick. I think you referred to this a 2Q event. Strictly speaking, the report was finalized actually in July, and the decisions were actually made by the respective compensation remuneration committees in July, which is in the third quarter. So it's announced today, but strictly speaking, it's actually a 3Q event.
+
+Operator
+
+I will now hand the call back over to Kinner.
+
+Kinner Lakhani -- Investor Relations
+
+Thank you, Sharon. I will hand over to Thomas for some concluding remarks.
+
+Thomas Gottstein -- Group Chief Executive Officer
+
+Yes. Thank you, Kinner. And I'd like to maybe draw your attention to Slide 37 of the pack.
+
+Since the occurrence of the Archegos and supply chain finance fund matters, which we are taking very seriously, as I said, we have taken decisive actions around capital and risk management. We have learned and will continue to learn the lessons from these events, and we will ensure that we emerge stronger by improving our capital ratios and strengthening risk, compliance and control foundations.
+
+We have market-leading positions and strong capabilities across our client franchises in Wealth Management, Asset Management and in the Investment Bank as evidenced by the solid underlying results in the first half of the year. Our Swiss-anchored bank enjoys leading positions in our home market as well as in fast-growing economies around the world, and our integrated model should position us well to capture growth opportunities going forward.
+
+Finally, and most importantly, we value our deep pool of talented and dedicated employees, who are fully committed to serving our clients, whether corporate, institutional or wealth. They fill me and my colleagues on the ExB with confidence for our future, and I thank them immensely for the dedication and hard work.
+
+And with this, I would like to thank you again for your participation and would like to conclude this session. Thank you very much.
+
+Kinner Lakhani -- Investor Relations
+
+Operator
+
+That concludes today's conference call for analysts and investors. A recording of the presentation will be available about two hours after the event on the Credit Suisse website. Thank you for joining today's call. You may all disconnect.

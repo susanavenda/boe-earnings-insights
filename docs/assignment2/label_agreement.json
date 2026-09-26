@@ -1,39 +1,45 @@
 {
   "n_hand_sample": 50,
-  "n_human_reviewed_flag": 20,
-  "n_provisional_queue": 30,
-  "n_corpus_labels": 118,
+  "n_human_reviewed_flag": 0,
+  "n_provisional_queue": 50,
+  "n_corpus_labels": 992,
+  "silver_is_circular": true,
   "metrics": [
     {
-      "name": "finbert_vs_silver_gold",
-      "n": 118,
-      "accuracy": 0.6186440677966102,
-      "macro_f1": 0.45634920634920634
+      "name": "finbert_vs_silver_gold (circular \u2014 audit only)",
+      "n": 992,
+      "accuracy": 0.7409274193548387,
+      "macro_f1": 0.654916371884492
     },
     {
-      "name": "ldsa_vs_silver_gold",
-      "n": 118,
-      "accuracy": 0.9576271186440678,
-      "macro_f1": 0.949707314893427
+      "name": "ldsa_vs_silver_gold (circular \u2014 audit only)",
+      "n": 992,
+      "accuracy": 0.8276209677419355,
+      "macro_f1": 0.794066067190376
     },
     {
       "name": "finbert_vs_ldsa",
-      "n": 118,
-      "accuracy": 0.576271186440678,
-      "macro_f1": 0.3827145077145077
-    },
-    {
-      "name": "finbert_vs_hand_sample_gold",
-      "n": 20,
-      "accuracy": 1.0,
-      "macro_f1": 1.0
+      "n": 992,
+      "accuracy": 0.5816532258064516,
+      "macro_f1": 0.4319491778022166
     },
     {
       "name": "finetuned_vs_silver_gold",
-      "n": 118,
-      "accuracy": 0.5508474576271186,
-      "macro_f1": 0.5084624040011322
+      "n": 992,
+      "accuracy": 0.6481854838709677,
+      "macro_f1": 0.6317785516920305
     }
   ],
-  "pitch_line": "Hand sample n=20: FinBERT accuracy 100% vs sample gold (macro-F1 1.00)."
+  "m4_human_gold": null,
+  "m4_status": "awaiting human labels",
+  "pitch_line": "No human sentiment gold yet \u2014 silver agreement is circular and is not an accuracy claim. Code docs/assignment2/human_labels/sentiment_60_for_coding.md, then run scripts/score_sentiment_human.py.",
+  "finetune_export": "docs/assignment2/finetune_metrics.json",
+  "finetune_headline": {
+    "silver_dev_n": 248,
+    "zero_shot_macro_f1": 0.6674391972294981,
+    "finetuned_macro_f1": 0.6154428775429596,
+    "human_heldout_n": 0,
+    "active_model_id": null,
+    "promotion": "blocked \u2014 human gold n=0 < 40; silver-only results are not a promotion basis"
+  }
 }
