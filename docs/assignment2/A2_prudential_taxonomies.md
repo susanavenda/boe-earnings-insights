@@ -1,4 +1,4 @@
-    # Prudential Risk Taxonomy from PRA Sources
+# Prudential Risk Taxonomy from PRA Sources
 
 **Owner:** Aidan Cameron. **Built independently of the transcript corpus** — these
 categories come from the PRA's own published supervisory framework, defined before
@@ -6,6 +6,12 @@ any transcript was read. This independence is the evidence that the M7 mapping
 (bottom-up analyst topics → top-down prudential categories) is a genuine test, not a
 fit constructed to succeed. See `docs/assignment2/A2_pitch_outline.md`, Slide 9,
 "Why the Taxonomy Comes First."
+
+**Source tables (ACdot89):**
+[`human_labels/pra_mappings.csv`](human_labels/pra_mappings.csv)
+(P01–P18) and
+[`human_labels/seed_to_pra_mappings.csv`](human_labels/seed_to_pra_mappings.csv)
+(four-line seed → PRA code). Merge these before treating Stage 3.6 / M7 as mapped.
 
 ## Prudential supervisor approach
 
