@@ -43,3 +43,9 @@ def test_prudential8_is_separate_from_four_line_seed():
 def test_llm_vs_finbert_is_optional(nb_code):
     assert "3.1c" in nb_code
     assert "compare_llm_sentiment" in nb_code or "LLM vs FinBERT" in nb_code
+
+
+def test_stage37_human_gold_pack_is_present(nb_code, nb_markdown):
+    assert "Stage 3.7" in nb_markdown
+    assert "score_sentiment_human.py" in nb_code
+    assert "sentiment_60_labels_" in nb_code

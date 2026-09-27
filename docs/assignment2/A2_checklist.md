@@ -32,5 +32,5 @@ Open http://localhost:8501
 - [ ] Backup slide: quote + agree-row  
 
 ## Honest metrics (say once)
-Sentiment (Alfred): quote `docs/assignment2/human_labels/sentiment_agreement.json` **only if** two coders have filled the 60-pair pack. Otherwise say "no human sentiment accuracy claimed yet; FinBERT stays zero-shot" — the old "75% / 0.61" is not reproducible and the hand queue's gold was FinBERT's own label. Whole-turn FinBERT ≈ 80% Neutral is a scoring-unit artefact (sentence-trained model); sentence-level recovers direction.  
+Sentiment (Alfred): coder 1 on 90 pairs → whole-turn FinBERT **60% raw / κ 0.28 / macro-F1 0.52**, negative recall 43%; sentence-level and lexicon worse; **M4 70% not met**. Say it plainly and say why it matters (under-called negatives are the alert-relevant class). Quote `human_labels/sentiment_agreement.json`; update when Aidan's file lands. Never the old "75% / 0.61".  
 **Headline:** machine coder1 vs coder2 n=60 = **35%**. Aidan vs coder1 = **50%** (below 70%). Eight-way is a method, not a category law. Disagreement clusters on costs↔earnings↔franchise and credit↔IRRBB, not uniform noise. Topics 0 and 3 still dual-code-disagree.
