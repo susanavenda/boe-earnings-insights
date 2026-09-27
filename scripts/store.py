@@ -67,7 +67,9 @@ _TABLE_ALIASES = {
     "supervisory_episode": "episode_json",
     "finetune_metrics": "finetune_metrics",
     "corpus_manifest": "corpus_manifest",
+    "corpus_coverage": "corpus_coverage",
     "qa_pairs": "qa_pairs",
+    "qa_pairs_full": "qa_pairs_full",
     "numeric_claims": "numeric_claims",
     "behavioural_signals": "behavioural_signals",
     "prudential_map": "prudential_map",
@@ -248,10 +250,18 @@ def _cell_to_sql(val: Any) -> Any:
     return val
 
 
+def _is_textlike_col(series: pd.Series) -> bool:
+    dt = series.dtype
+    if dt == object or getattr(dt, "kind", None) == "O":
+        return True
+    name = str(dt)
+    return name.startswith("string") or name in {"str", "StringDtype"}
+
+
 def _sqlize_df(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for col in out.columns:
-        if out[col].dtype != object:
+        if not _is_textlike_col(out[col]):
             continue
         sample = out[col].dropna().head(8)
         if sample.empty:
@@ -262,30 +272,34 @@ def _sqlize_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _cell_from_sql(val: Any) -> Any:
-    if not isinstance(val, str):
+    if val is None or (isinstance(val, float) and pd.isna(val)):
         return val
+    if isinstance(val, (list, dict)):
+        return val
+    if not isinstance(val, str):
+        if isinstance(val, (bytes, bytearray)):
+            val = val.decode("utf-8", errors="replace")
+        else:
+            return val
     s = val.strip()
     if not s or s[0] not in "[{":
         return val
     try:
-        return json.loads(s)
+        parsed = json.loads(s)
     except (json.JSONDecodeError, TypeError):
         return val
+    if isinstance(parsed, (list, dict)):
+        return parsed
+    return val
 
 
 def _unsqlize_df(df: pd.DataFrame) -> pd.DataFrame:
     """Restore JSON-encoded list/dict columns written by ``_sqlize_df``."""
     out = df.copy()
     for col in out.columns:
-        if out[col].dtype != object:
+        if not _is_textlike_col(out[col]):
             continue
-        sample = out[col].dropna().head(12)
-        if sample.empty:
-            continue
-        if any(
-            isinstance(v, str) and v.strip()[:1] in "[{" for v in sample
-        ):
-            out[col] = out[col].map(_cell_from_sql)
+        out[col] = out[col].map(_cell_from_sql)
     return out
 
 
@@ -352,7 +366,7 @@ def save_json(name: str, obj: Any) -> None:
         )
         conn.commit()
     if EXPORT_CSV:
-        (PROC / f"{key}.json").write_text(body)
+        (PROC / f"{key}.json").write_text(body, encoding="utf-8")
     _maybe_flush()
 
 
@@ -367,7 +381,7 @@ def load_json(name: str) -> Any:
         return json.loads(row["body"])
     path = PROC / f"{key}.json"
     if path.exists():
-        return json.loads(path.read_text())
+        return json.loads(path.read_text(encoding="utf-8"))
     raise FileNotFoundError(f"JSON '{key}' not in DB or {path}")
 
 
@@ -456,7 +470,7 @@ def migrate_processed(src: Path | None = None) -> dict[str, Any]:
 
     for js in sorted(src.glob("*.json")):
         try:
-            save_json(js.stem, json.loads(js.read_text()))
+            save_json(js.stem, json.loads(js.read_text(encoding="utf-8")))
             loaded.append(js.name)
         except Exception as e:
             skipped.append(f"{js.name}: {e}")
@@ -470,24 +484,17 @@ def migrate_processed(src: Path | None = None) -> dict[str, Any]:
 
     # Derive peer_gap table if we have peer_matched
     if has_df("peer_matched_quarters"):
+        from periods import matched_peer_gap
+
         peer = load_df("peer_matched_quarters")
-        if {"calendar_period", "bank", "sentiment_net"}.issubset(peer.columns):
-            pivot = peer.pivot_table(
-                index="calendar_period",
-                columns="bank",
-                values="sentiment_net",
-                aggfunc="mean",
-            )
-            if "hsbc" in pivot.columns and "barclays" in pivot.columns:
-                gap = (pivot["hsbc"] - pivot["barclays"]).rename("gap").reset_index()
-                gap["hsbc"] = pivot["hsbc"].values
-                gap["barclays"] = pivot["barclays"].values
-                save_df("peer_gap_matched", gap)
-                loaded.append("peer_gap_matched (derived)")
+        gap = matched_peer_gap(peer)
+        if not gap.empty:
+            save_df("peer_gap_matched", gap)
+            loaded.append("peer_gap_matched (derived)")
 
     pra = ROOT / "docs" / "assignment2" / "pra_notes" / "pra_notes.md"
     if pra.exists():
-        save_text("pra_notes.md", pra.read_text(), mime="text/markdown")
+        save_text("pra_notes.md", pra.read_text(encoding="utf-8"), mime="text/markdown")
         loaded.append("pra_notes.md")
 
     with connect() as conn:

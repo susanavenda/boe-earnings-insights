@@ -13,6 +13,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from store import load_df, load_json, save_text  # noqa: E402
+from build_supervisory_episode import is_reviewed_episode  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
 OUT = ROOT / "docs" / "assignment2" / "pra_notes"
@@ -129,6 +130,10 @@ def main(episode_id: str | None = None):
         episodes = [e for e in episodes if e.get("id") == episode_id]
         if not episodes:
             raise SystemExit(f"episode id not found: {episode_id}")
+    else:
+        episodes = [e for e in episodes if is_reviewed_episode(e)]
+        if not episodes:
+            raise SystemExit("no reviewed episodes to write PRA notes for")
 
     briefs = load_df("episode_metric_briefs")
     protocol = load_df("alert_null_protocol")
@@ -136,7 +141,7 @@ def main(episode_id: str | None = None):
     notes = [render_note(ep, briefs, protocol) for ep in episodes]
     pack = "\n\n---\n\n".join(notes)
     pack_path = OUT / "pra_notes.md"
-    pack_path.write_text(pack)
+    pack_path.write_text(pack, encoding="utf-8")
     save_text("pra_notes.md", pack, mime="text/markdown")
     print("wrote", pack_path)
     print("wrote pra_notes.md → data/boe.sqlite")

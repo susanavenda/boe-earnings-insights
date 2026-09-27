@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """M4 — score human sentiment labels against FinBERT (turn + sentence) and LM.
 
-Reads docs/assignment2/human_labels/sentiment_60_labels_*.csv (one file per coder,
+Reads docs/assignment2/human_labels/sentiment_90_labels_*.csv (and the sentiment_60_*
+alias, so a coder still filling the old filename is scored). One file per coder,
 columns pair_id, q_label, a_label, confidence, note) and the hidden machine key.
 
 Reports, per side (question / answer) and pooled:
@@ -18,7 +19,6 @@ number the promotion gate reads.
 """
 from __future__ import annotations
 
-import glob
 import json
 import sys
 from collections import Counter
@@ -34,8 +34,29 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from store import configure, save_df, save_json  # noqa: E402
 
 HL = ROOT / "docs" / "assignment2" / "human_labels"
-KEY = HL / "sentiment_60_machine_key.csv"
 OUT_JSON = HL / "sentiment_agreement.json"
+
+
+def pack_key_path(hl: Path | None = None) -> Path:
+    hl = hl or HL
+    p90 = hl / "sentiment_90_machine_key.csv"
+    return p90 if p90.is_file() else hl / "sentiment_60_machine_key.csv"
+
+
+def iter_coder_label_files(hl: Path | None = None) -> list[tuple[str, Path]]:
+    """Canonical 90 names win; 60-named files still count for a mid-pass coder."""
+    hl = hl or HL
+    found: dict[str, Path] = {}
+    for prefix in ("sentiment_90_labels_", "sentiment_60_labels_"):
+        for f in sorted(hl.glob(f"{prefix}*.csv")):
+            name = f.stem.replace(prefix, "")
+            if name == "template" or name in found:
+                continue
+            found[name] = f
+    return sorted(found.items())
+
+
+KEY = pack_key_path()
 LABELS = ["negative", "neutral", "positive"]
 M4_BAR = 0.70
 
@@ -43,11 +64,15 @@ MACHINE_UNITS = {
     "finbert_turn": ("question_sentiment", "answer_sentiment"),
     "finbert_sentence": ("question_sent_label", "answer_sent_label"),
     "lm_lexicon": ("question_ldsa_sentiment", "answer_ldsa_sentiment"),
+    "llm": ("question_llm_label", "answer_llm_label"),            # Stage 3.8 LLM annotator (docs/assignment2/llm_sentiment_labels.csv)
+    "distilled": ("question_distill_label", "answer_distill_label"),  # Stage 3.9 student, when present
 }
+LLM_CSV = ROOT / "docs" / "assignment2" / "llm_sentiment_labels.csv"
+EXEMPLAR_JSON = HL / "llm_exemplar_ids.json"
 
 
 def _norm(s: pd.Series) -> pd.Series:
-    return s.astype(str).str.strip().str.lower().replace({"nan": "", "none": ""})
+    return s.fillna("").astype(str).str.strip().str.lower().replace({"nan": "", "none": ""})
 
 
 def krippendorff_alpha_nominal(rows: list[list[str | None]]) -> float | None:
@@ -55,7 +80,7 @@ def krippendorff_alpha_nominal(rows: list[list[str | None]]) -> float | None:
     coincidence: Counter = Counter()
     n_total = 0.0
     for unit in rows:
-        vals = [v for v in unit if v]
+        vals = [v for v in unit if isinstance(v, str) and v]
         m = len(vals)
         if m < 2:
             continue
@@ -78,11 +103,8 @@ def krippendorff_alpha_nominal(rows: list[list[str | None]]) -> float | None:
 
 def load_coders() -> dict[str, pd.DataFrame]:
     coders = {}
-    for f in sorted(glob.glob(str(HL / "sentiment_60_labels_*.csv"))):
-        name = Path(f).stem.replace("sentiment_60_labels_", "")
-        if name == "template":
-            continue
-        df = pd.read_csv(f)
+    for name, f in iter_coder_label_files():
+        df = pd.read_csv(f, dtype=str).fillna("")
         if not {"pair_id", "q_label", "a_label"}.issubset(df.columns):
             print(f"skip {f}: needs pair_id, q_label, a_label")
             continue
@@ -127,18 +149,30 @@ def main() -> None:
     configure(memory=False)
     if not KEY.is_file():
         raise SystemExit("machine key missing — run scripts/build_sentiment_gold_pack.py first")
-    key = pd.read_csv(KEY).set_index("pair_id")
+    key = pd.read_csv(KEY, dtype={"pair_id": str}).set_index("pair_id")
+    # LLM annotator labels live in a tracked CSV (the key predates them); merge if present
+    if LLM_CSV.is_file() and "question_llm_label" not in key.columns:
+        llm = pd.read_csv(LLM_CSV, dtype=str).fillna("")
+        for side in ("question", "answer"):
+            m = llm[llm["side"] == side].drop_duplicates("pair_id").set_index("pair_id")["label"]
+            key[f"{side}_llm_label"] = key.index.map(m).fillna("")
+        if EXEMPLAR_JSON.is_file():  # never evaluate the LLM on pairs it saw as exemplars
+            try:
+                ex = set(map(str, json.loads(EXEMPLAR_JSON.read_text(encoding="utf-8"))))
+                key.loc[key.index.isin(ex), ["question_llm_label", "answer_llm_label"]] = ""
+            except Exception:
+                pass
     for c in key.columns:
         if c.endswith(("_sentiment", "_label")):
             key[c] = _norm(key[c])
     coders = load_coders()
     if not coders:
         print(
-            "No filled coder files yet (docs/assignment2/human_labels/sentiment_60_labels_<name>.csv). "
+            "No filled coder files yet (sentiment_90_labels_<name>.csv; sentiment_60_labels_<name>.csv still accepted). "
             "Machine key is ready; nothing scored."
         )
         summary = {"n_coders": 0, "status": "awaiting human labels", "m4_bar": M4_BAR, "n_pairs": int(len(key))}
-        OUT_JSON.write_text(json.dumps(summary, indent=2))
+        OUT_JSON.write_text(json.dumps(summary, indent=2), encoding="utf-8")
         save_json("sentiment_agreement", summary)
         return
 
@@ -204,11 +238,17 @@ def main() -> None:
             best_unit, best = unit, f
     ft = results["machine_vs_human"].get("finbert_turn", {}).get("pooled", {})
     fs = results["machine_vs_human"].get("finbert_sentence", {}).get("pooled", {})
+    lm_ = results["machine_vs_human"].get("llm", {}).get("pooled", {})
     results["headline"] = {
         "finbert_turn_raw": ft.get("raw_agreement"),
+        "finbert_turn_kappa": ft.get("cohen_kappa"),
         "finbert_turn_macro_f1": ft.get("macro_f1"),
         "finbert_sentence_raw": fs.get("raw_agreement"),
         "finbert_sentence_macro_f1": fs.get("macro_f1"),
+        "llm_raw": lm_.get("raw_agreement"),
+        "llm_kappa": lm_.get("cohen_kappa"),
+        "llm_macro_f1": lm_.get("macro_f1"),
+        "llm_meets_m4_bar": lm_.get("meets_m4_bar"),
         "best_unit_by_macro_f1": best_unit,
         "m4_met_by_turn": ft.get("meets_m4_bar"),
         "m4_met_by_sentence": fs.get("meets_m4_bar"),
@@ -217,11 +257,12 @@ def main() -> None:
     results["pitch_line"] = (
         f"Human gold n={n_h} labels ({len(names)} coder{'s' if len(names) > 1 else ''}): FinBERT turn-level "
         f"{(ft.get('raw_agreement') or 0):.0%} raw / macro-F1 {(ft.get('macro_f1') or 0):.2f}; "
-        f"sentence-level {(fs.get('raw_agreement') or 0):.0%} / {(fs.get('macro_f1') or 0):.2f}. "
-        f"M4 bar 70% {'met' if (ft.get('meets_m4_bar') or fs.get('meets_m4_bar')) else 'not met'}."
+        f"sentence-level {(fs.get('raw_agreement') or 0):.0%} / {(fs.get('macro_f1') or 0):.2f}"
+        + (f"; LLM annotator {(lm_.get('raw_agreement') or 0):.0%} / {(lm_.get('macro_f1') or 0):.2f}" if lm_.get("n") else "")
+        + f". M4 bar 70% {'met' if (ft.get('meets_m4_bar') or fs.get('meets_m4_bar') or lm_.get('meets_m4_bar')) else 'not met'}."
     )
 
-    OUT_JSON.write_text(json.dumps(results, indent=2))
+    OUT_JSON.write_text(json.dumps(results, indent=2), encoding="utf-8")
     save_json("sentiment_agreement", results)
     rows = []
     for unit, r in results["machine_vs_human"].items():

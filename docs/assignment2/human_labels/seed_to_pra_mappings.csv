@@ -1,0 +1,7 @@
+seed_topic,pra_primary_code,mapping_status,requires_decomposition
+capital,P01,default_mapping,false
+profitability,P03,default_mapping,false
+efficiency,P03,derived_or_partial,false
+asset_quality,P04,default_mapping,false
+mixed,,mixed_split_required,true
+untagged,,manual_review_required,true

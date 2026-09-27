@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.streamlit/secrets.toml
+*.log
+data/desk.sqlite
+data/desk.sqlite-*
+data/snapshots/
+data/last_run.json
+data/registry/

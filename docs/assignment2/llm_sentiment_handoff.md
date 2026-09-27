@@ -2,6 +2,8 @@
 
 **Owner:** Alfred (Qianyi) · sentiment lane · branch `alfred/sentiment-pipeline`
 **For:** whichever agent/LLM implements this next. Read this whole file, then `scripts/sentiment.py` and `scripts/finetune_sentiment.py`, before writing code.
+**Status (23 Sep):** a first pass of Pipeline B exists — Claude labelled all 1,826 texts in-session (batches of 40, guide verbatim, K=0, blind) → `docs/assignment2/llm_sentiment_labels.csv`, and `score_sentiment_human.py` already reports it as the `llm` unit. The script in §2 should reproduce that via an API so it is re-runnable next quarter; Pipeline C can train on the existing CSV now.
+
 **Deadline context:** A2 pitch due Mon 28 Sep 17:00 UK. Both pipelines are **optional extras** — they must skip cleanly without an API key and must not change any number the deck already quotes.
 
 ---
@@ -23,7 +25,7 @@ Both are **candidates**. Nothing is promoted unless it beats zero-shot FinBERT o
 | State lives in SQLite, files are inputs | `scripts/store.py` | `from store import configure, load_df, save_df, save_json, has_df`. Call `configure(memory=False)` — **never** pass a hard-coded path; `BOE_DB` env var selects the DB. |
 | One text normaliser | `scripts/sentiment.py` → `normalise_for_sentiment`, `build_vocab`, `management_names_from_turns` | Score the *normalised* text, never rewrite the stored `text` / `question_text` / `answer_text`. |
 | Column contract | `sentiment.py` docstring | Turn-level FinBERT columns (`finbert_sentiment / _score / _net`, `question_sentiment`, `answer_sentiment` …) are read by Stage 6/8 and the demo desk. **Do not rename, reorder or overwrite them.** Add new columns only. |
-| Human gold is sacred | `docs/assignment2/human_labels/sentiment_60_labels_*.csv` | Read-only. Never write, regenerate or "correct" them. Never feed the LLM the machine key. |
+| Human gold is sacred | `docs/assignment2/human_labels/sentiment_90_labels_*.csv` (`sentiment_60_labels_*.csv` still accepted) | Read-only. Never write, regenerate or "correct" them. Never feed the LLM the machine key. |
 | Keys | `scripts/compare_llm_sentiment.py` → `load_dotenv`, `_provider` | Reuse these. Keys come from process env or gitignored repo-root `.env`. `GEMINI_API_KEY` / `OPENAI_API_KEY` / `ANTHROPIC_API_KEY`; `BOE_LLM_PROVIDER` overrides. Never print a key, never commit `.env`. |
 | Scripts are the factory, notebook calls them | `scripts/score_qa_sentiment.py` is the pattern | Script with `main()` + argparse; notebook cell imports and calls it, or `subprocess.run([sys.executable, script])` then `_hydrate()`. |
 | Notebook helpers | Stage 0 cell of `notebooks/boe_earnings_insights.ipynb` | `section_header`, `kpi_row`, `insight(kind='key'|'info'|'warn')`, `display_table`, `_df`, `_save`, `_load`, `_has`, `_has_json`, `_load_json`, `_flush`, `_hydrate`, `ROOT`, `DOCS_ROOT`. Edit the notebook at JSON level (see `nbformat`), clear outputs only on cells you touch, run `nbformat.validate`. |

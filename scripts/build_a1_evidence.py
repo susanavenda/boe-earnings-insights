@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from periods import calendar_period  # noqa: E402
+from periods import calendar_period, coverage_window, year_from_period  # noqa: E402
 from store import configure, has_df, load_df, save_df  # noqa: E402
 
 MONTHS = (
@@ -115,6 +115,41 @@ def infer_quarter(name: str) -> str:
     return f"{y}-{mapping.get(p, p)}"
 
 
+_OTHER_EVENT = (
+    "equity-analysts",
+    "equity_analysts",
+    "analysts-meeting",
+    "analysts_meeting",
+)
+
+
+def event_type_from_source(source: str) -> str:
+    """results_call vs other. Keep the file; default analyses to results_call."""
+    name = Path(str(source)).name.lower()
+    if any(tok in name for tok in _OTHER_EVENT):
+        return "other"
+    return "results_call"
+
+
+def coverage_by_bank_year(manifest: pd.DataFrame) -> pd.DataFrame:
+    """Results-call counts per bank × year (HSBC / Barclays). Zero means absent, not a score."""
+    t = manifest[manifest["kind"] == "transcript"].copy()
+    t = t[t["bank"].isin(["hsbc", "barclays"])]
+    if "event_type" not in t.columns:
+        t["event_type"] = t["source"].map(event_type_from_source)
+    t = t[t["event_type"] == "results_call"]
+    t["year"] = t["quarter"].map(year_from_period)
+    t = t.dropna(subset=["year"])
+    t["year"] = t["year"].astype(int)
+    counts = t.groupby(["year", "bank"]).size().unstack(fill_value=0)
+    for col in ("hsbc", "barclays"):
+        if col not in counts.columns:
+            counts[col] = 0
+    out = counts.reset_index()
+    out["coverage_window"] = out["year"].map(lambda y: coverage_window(str(int(y))))
+    return out[["year", "hsbc", "barclays", "coverage_window"]]
+
+
 def _pdf_date(path: Path) -> str:
     try:
         import pdfplumber
@@ -135,6 +170,8 @@ def build_manifest(raw_root: Path, structured_root: Path) -> pd.DataFrame:
             if "hsbc" in str(path).lower()
             else "barclays"
             if "barclays" in str(path).lower()
+            else "credit_suisse"
+            if "credit_suisse" in str(path).lower()
             else "unknown"
         )
         kind = "transcript" if path.suffix.lower() == ".pdf" else "results_pack"
@@ -147,6 +184,7 @@ def build_manifest(raw_root: Path, structured_root: Path) -> pd.DataFrame:
                 "path": str(path.relative_to(ROOT)),
                 "publication_date": pub,
                 "quarter": infer_quarter(path.name),
+                "event_type": event_type_from_source(path.name),
             }
         )
     df = pd.DataFrame(rows)
@@ -372,13 +410,20 @@ def main(*, configure_store: bool = True) -> None:
         "/",
         int((manifest.kind == "transcript").sum()),
     )
+    n_other = int((manifest["event_type"] == "other").sum()) if "event_type" in manifest.columns else 0
+    print("event_type=other (kept, excluded from default analyses)", n_other)
+    cov = coverage_by_bank_year(manifest)
+    save_df("corpus_coverage", cov)
+    print("coverage by bank × year (results_call only)\n", cov.to_string(index=False))
 
     turns = load_df("all_turns")
     if turns is None or turns.empty:
         raise SystemExit("all_turns missing — run notebook Stage 1 first")
     qa = pair_qa(turns)
     dates = manifest.set_index("source")["publication_date"].to_dict()
+    types = manifest.set_index("source")["event_type"].to_dict()
     qa["date"] = qa["source"].map(lambda s: dates.get(s, "") or "")
+    qa["event_type"] = qa["source"].map(lambda s: types.get(s, event_type_from_source(s)))
     named = (qa["analyst"].fillna("").str.len() > 1).mean()
     n_empty = int((qa["answer_text"].fillna("") == "").sum())
     print(

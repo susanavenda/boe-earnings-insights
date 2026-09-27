@@ -7,4 +7,4 @@
 | `boe.sqlite` | **System of record** — notebook + scripts (gitignored) |
 | `processed/` | Unused placeholder (do not rely on CSVs here) |
 
-Rebuild the DB by running the notebook (Stage 0+) or product scripts under `scripts/`.
+Rebuild the DB by running the notebook (Stage 0+) or product scripts under `scripts/`. See [`../docs/code.md`](../docs/code.md).

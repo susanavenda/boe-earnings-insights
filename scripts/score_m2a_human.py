@@ -105,7 +105,7 @@ def main() -> None:
         f"The 8-way does not stabilize even without a human. "
         f"Aidan vs coder1 is {p:.0%} (below 70%)."
     )
-    OUT.write_text(json.dumps(summary, indent=2))
+    OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps({k: summary[k] for k in summary if k != "confusion_coder1_rows_aidan_cols"}, indent=2))
     print(f"wrote {OUT}")
     print("disagreements:")

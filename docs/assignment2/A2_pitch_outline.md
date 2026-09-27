@@ -78,10 +78,11 @@ One left→right diagram (big boxes, few words):
 
 #### Slide 5 — Data preparation (60s) ← rubric · **Susana**
 - **Gather:** **137** IR PDFs + **114** Excel packs under `data/raw/transcripts/` and `data/structured/` (A1 plan was 20 transcripts; extra years are Hunter-prompted, 2006–2026)  
-- **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus  
+- **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus; `event_type` tags the 2026 HSBC equity-analysts meeting as `other` (kept on disk, dropped from default analyses)  
 - **Pair:** **1,002** Q&A pairs; named analyst 100%. **Disclose, A3 fix:** empty bleed-split answers and blank inherited dates (live counts in notebook 1.5 / 7.0)  
 - **Represent:** `clean_text` for topics; raw text for FinBERT; metrics table from Excel  
 - **Store:** intermediates in `data/boe.sqlite` (files = inputs only)  
+- **Peer window:** HSBC vs Barclays charts default to **2012–2025**; pre-2012 is HSBC-only / incomplete; 2026 is a partial year. Do not use 2008 as a test case.  
 
 **Say:** “Preprocessing is justified for **messy transcript text**, not tabular Kaggle defaults. We extended the corpus on Hunter’s advice; we did not silently abandon the A1 20-doc plan.”
 
@@ -99,12 +100,12 @@ One left→right diagram (big boxes, few words):
 
 #### Slide 7 — Evaluation, fine-tune, verification (90s) ← rubric · **Aidan** (8-way) · **Alfred** (FinBERT / FT)
 - **Baselines:** temporal shift · matched peer gap · structured vs unstructured direction  
-- **Hand sample:** M4 sentiment gold = the 60-pair pack in `human_labels/sentiment_60_for_coding.md` (Q and A separately, machine hidden). Quote `sentiment_agreement.json` once two coders have filled it — **do not** quote the old "75% / 0.61": that figure is not reproducible from any file, and the 50-row queue's `gold_label` was copied from FinBERT. If uncoded on the day: "no human sentiment accuracy claimed yet; FinBERT stays zero-shot."  
-- **Scoring unit (Alfred):** FinBERT is sentence-trained; whole-turn scoring at 512 tokens prints ~80% Neutral. Sentence-level scoring recovers direction on the same model (turn-level columns kept for Stage 6/8). LDSA is now the Loughran–McDonald dictionary with a hedging index (uncertainty + constraining).  
+- **Hand sample (coder 1 = Alfred, 90 pairs · 172 labels, `human_labels/sentiment_agreement.json`):** whole-turn FinBERT **60% raw / κ 0.28 / macro-F1 0.52**; finds only **43%** of human-negatives (24 of 51 called Neutral — the hedged-language gap, measured). Sentence-level FinBERT 46% / κ 0.13; Loughran–McDonald 42% / κ 0.02 (chance). **LLM annotator** (Claude, same coding guide verbatim, blind, all 1,826 texts — `docs/assignment2/llm_sentiment_labels.csv`): questions **65% / κ 0.39**, finds 69% of coder-1 negatives (FinBERT 31%); answers 45% / κ 0.15 — it over-calls management *positive* where coder 1 reads *neutral*; pooled 55% / κ 0.31. Best unit per side: LLM on questions, whole-turn FinBERT on answers. **M4 70% not met by any unit.** Second coder (Aidan) pending → coder-vs-coder κ/α is the human ceiling. Do **not** quote the old "75% / 0.61" — not reproducible, and that queue's gold was FinBERT's own label.  
+- **Scoring unit (Alfred):** FinBERT is sentence-trained, so we tested sentence-by-sentence scoring; on human gold it did **not** beat whole-turn (κ 0.13–0.18 vs 0.28 under every threshold tried) — whole-turn stays the scorer, sentence columns kept as a documented negative result. LDSA = Loughran–McDonald dictionary with a hedging index; as a 3-way label it is at chance, so it is a hedging measure, not a classifier.  
 - **8-way eval:** machine coder1 vs coder2 **35%** (headline) · human dual-code vs coder1 **50%** (below 70%) — method, not category law  
 - **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day  
 - **Not on this slide:** Stage 10.2 Yahoo press is **filtered** to own-results headlines (bank as subject + earnings/results/profit/quarter). Live n is usually ~0 — that is the finding, not a 0.04 gap on Netflix downgrades. Do not quote an unfiltered press-vs-Q&A number.  
-- **FT:** silver labels train; human gold is **held out** and is the only gate (n ≥ 40 and macro-F1 ≥ zero-shot + 0.05). Silver-dev gains are circular (silver is built from FinBERT + LDSA) — `active_model_id` stays null until the human set passes  
+- **FT:** silver labels train; human gold is **held out** and is the only gate (n ≥ 40 and macro-F1 ≥ zero-shot + 0.05). Silver-dev gains are circular (silver is built from FinBERT + LDSA) — `active_model_id` stays null until the human set passes. **Say once:** “On silver labels alone, fine-tuning looked like it helped — that’s exactly the circular trap our gate exists to catch. Against real human gold, it did worse, so it stays unpromoted.”  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
 **Say:** “The two keyword coders agree 35%. That is why eight-way is a filing method, not a law — and why we gate peer ALERT when Barclays is all-neutral.”

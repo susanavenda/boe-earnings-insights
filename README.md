@@ -18,12 +18,12 @@ a firm's prudential condition that reported financial metrics alone don't captur
 | Piece | Role |
 |---|---|
 | **Pipeline** (this repo) | Factory — notebook + `scripts/` → `data/boe.sqlite` |
-| **Demo** (`../boe-earnings-demo`) | PRA Earnings Desk — presents the frozen pack |
+| **Desk** (`demo/`) | Stretch — PRA Earnings Desk. `streamlit run demo/app.py` |
 | **A2 pitch** | [`docs/assignment2/A2_pitch_outline.md`](docs/assignment2/A2_pitch_outline.md) — 15‑min Background → Approach → Conclusion |
 | **Technical report** | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
 | **A1 scope** | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
 
-Open both folders via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspace).
+Open this repo via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspace) (macOS/Linux). On Windows, open the repository folder directly so VS Code can pick `.venv\\Scripts\\python.exe`.
 
 **Proof episode:** HSBC 2025-interim (H1) → **WATCH (A3)** — soft Q&A, packs agree; peer gap not ALERT (Barclays matched print all-neutral).
 
@@ -35,7 +35,7 @@ Open both folders via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspac
 | Excluded | US banks, Santander — different regulatory regimes, less comparable data |
 | Open question | A third US-based bank for geopolitical comparison — undecided, live in group chat |
 | In scope | BERTopic topic clustering, FinBERT + LDSA sentiment, summarisation by metric, refined topic modelling on key clusters |
-| Out of scope | Video/webcast processing, fine-tuning from scratch, peer benchmarking beyond HSBC/Barclays (stretch goal only) |
+| Out of scope | Video/webcast processing, fine-tuning from scratch, peer benchmarking beyond HSBC/Barclays, Streamlit desk as a deliverable (stretch only) |
 
 ## Team
 
@@ -56,10 +56,11 @@ A1 Appendix D. Use these names on the pitch, not the old placeholders.
 | Job | Place |
 |---|---|
 | Analysis (factory) | [`notebooks/boe_earnings_insights.ipynb`](notebooks/boe_earnings_insights.ipynb) |
-| Product desk (Demo) | Sibling [`boe-earnings-demo`](../boe-earnings-demo) → `streamlit run app.py` |
+| Product desk | Stretch — [`demo/`](demo/) → `streamlit run demo/app.py` |
 | A1 submission | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
 | Technical findings | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
 | A2 pitch + checklist | [`docs/assignment2/`](docs/assignment2/) |
+| Factory code map | [`docs/code.md`](docs/code.md) · [`scripts/README.md`](scripts/README.md) · [`tests/README.md`](tests/README.md) |
 | Tasks / roadmap | [GitHub Project](https://github.com/users/susanavenda/projects/3/views/2) |
 | Shared write-up | [Assignment 1 Google Doc](https://docs.google.com/document/d/10211H1XyqjrHAKa_ikN5uuYuyTPrDPteUXeQl-QJJlY/edit?usp=sharing) |
 
@@ -77,12 +78,15 @@ A1 Appendix D. Use these names on the pitch, not the old placeholders.
 │   ├── boe.sqlite             # system of record (gitignored; rebuild via notebook/scripts)
 │   └── processed/             # empty placeholder (legacy CSVs removed)
 ├── docs/
+│   ├── code.md                # factory code map (stages, sqlite, invariants)
 │   ├── assignment1/           # A1 PDF/DOCX + technical report
 │   ├── assignment2/           # pitch, PRA notes, re-run guide
 │   ├── project/issues.csv
 │   ├── assets/
 │   └── hand_validation_sample.csv  # INPUT — human labels
-└── scripts/                   # store + episode / PRA / FT helpers
+├── scripts/                   # factory + CLI extras — see scripts/README.md
+├── demo/                      # PRA Earnings Desk — streamlit run demo/app.py
+└── tests/                     # lightweight pytest; 80% factory coverage gate
 ```
 
 ## Milestones
@@ -108,7 +112,7 @@ this roadmap.
 No baseline was defined by the Bank, so the team is resolving it directly, three ways:
 
 - **Temporal** — the same firm across successive quarters
-- **Peer** — HSBC vs. Barclays, same quarters
+- **Peer** — HSBC vs. Barclays, same calendar periods, **2012–2025** by default (pre-2012 is single-bank; 2026 is a partial year). Missing stays missing — never `fillna(0)` on a gap.
 - **Structured vs. unstructured** — reported financial metrics against the tone
   and topic mix of the narrative discussing them
 
@@ -137,4 +141,8 @@ Open `notebooks/boe_earnings_insights.ipynb` and run from Stage 0.
 Optional CSV/PNG mirrors: `BOE_EXPORT_CSV=1`.  
 One-shot import of legacy files: `.venv/bin/python scripts/migrate_to_db.py`.
 
-Next-quarter ops / Demo desk: sibling `boe-earnings-demo` → [`docs/assignment2/README.md`](docs/assignment2/README.md).
+Next-quarter ops: [`docs/assignment2/README.md`](docs/assignment2/README.md).  
+Code map (stages, sqlite, invariants): [`docs/code.md`](docs/code.md).  
+Tests: `pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
+
+Desk: `streamlit run demo/app.py` (copies `data/boe.sqlite` into `demo/data/desk.sqlite`).

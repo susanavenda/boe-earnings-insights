@@ -12,9 +12,9 @@ Independent of the machine dual-code. Stage 7 scores whether keyword tagging hol
 | [`topic_examples.md`](topic_examples.md) | **Debanjan** | Four raw turns per topic. |
 | `_raw/` | **Susana** (export) | Full sqlite dump used to build the sample. Not a deliverable. |
 | [`sentiment_coding_guide.md`](sentiment_coding_guide.md) | **Alfred** | How to code **sentiment** (3 labels, question and answer separately; hedging rules). |
-| [`sentiment_60_for_coding.md`](sentiment_60_for_coding.md) | **Alfred** (export) · **two coders** | The M4 sentiment pack: 60 consecutive pairs, stratified so negatives/positives are not starved. No machine columns. |
-| `sentiment_60_labels_template.csv` → `sentiment_60_labels_<name>.csv` | each coder | One row per pair: `q_label`, `a_label`, `confidence`, `note`. |
-| `sentiment_60_machine_key.csv` | machine (Alfred export) | Hidden key: FinBERT turn + sentence labels, LM. Agreement only — do not open while coding. |
+| [`sentiment_90_for_coding.md`](sentiment_90_for_coding.md) | **Alfred** (export) · **two coders** | The M4 sentiment pack: **90** pairs. `sentiment_60_*` copies are kept so a coder still filling the old filename is not broken. |
+| `sentiment_90_labels_template.csv` → `sentiment_90_labels_<name>.csv` | each coder | One row per pair. **`sentiment_60_labels_<name>.csv` is still scored.** |
+| `sentiment_90_machine_key.csv` | machine (Alfred export) | Hidden key. Do not open while coding. |
 | `sentiment_agreement.json` | `scripts/score_sentiment_human.py` | Raw %, Cohen κ, Krippendorff α, macro-F1 per unit and side. This is the M4 sentiment number; the Stage 3.4 promotion gate reads it. |
 
 ## Sentiment (M4) — separate from the 8-way
@@ -24,7 +24,7 @@ Aidan's 60-pair pack tests the **category** taxonomy. The A1 sentiment gate (M4:
 ```bash
 python scripts/sentiment.py --qa                      # machine columns on qa_pairs
 python scripts/build_sentiment_gold_pack.py           # pack + hidden key
-# two coders fill sentiment_60_labels_<name>.csv
+# two coders fill sentiment_90_labels_<name>.csv (sentiment_60_labels_<name>.csv still accepted)
 python scripts/score_sentiment_human.py               # → sentiment_agreement.json
 ```
 

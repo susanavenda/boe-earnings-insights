@@ -9,10 +9,11 @@ pack has both, and the coder never sees the machine columns.
 
 Writes (docs/assignment2/human_labels/):
   sentiment_coding_guide.md         how to code (3 labels; hedging rules)
-  sentiment_60_for_coding.md        Q + A per pair, no machine labels
-  sentiment_60_labels_template.csv  one row per pair for a coder to fill
-  sentiment_60_machine_key.csv      hidden key (FinBERT turn + sentence, LM)
-  sentiment_60_sample_meta.json     strata, seed, exclusions
+  sentiment_90_for_coding.md        Q + A per pair, no machine labels (n=90)
+  sentiment_90_labels_template.csv  one row per pair for a coder to fill
+  sentiment_90_machine_key.csv      hidden key (FinBERT turn + sentence, LM)
+  sentiment_90_sample_meta.json     strata, seed, exclusions
+  sentiment_60_*                    kept as copies so a mid-pass coder is not broken
 
 Usage:
   python scripts/build_sentiment_gold_pack.py                       # 60 stratified
@@ -23,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import sys
 from pathlib import Path
 from typing import Sequence
@@ -235,11 +237,11 @@ def write_pack(sample: pd.DataFrame, meta: dict) -> None:
             f"A: {str(r['answer_text']).strip() or '(empty)'}",
             "",
         ]
-    (OUT / "sentiment_60_for_coding.md").write_text("\n".join(lines), encoding="utf-8")
+    (OUT / "sentiment_90_for_coding.md").write_text("\n".join(lines), encoding="utf-8")
 
     pd.DataFrame(
         {"pair_id": sample["pair_id"], "q_label": "", "a_label": "", "confidence": "", "note": ""}
-    ).to_csv(OUT / "sentiment_60_labels_template.csv", index=False)
+    ).to_csv(OUT / "sentiment_90_labels_template.csv", index=False)
 
     key_cols = [
         "pair_id", "bank", "quarter", "sample_role", "stratum_label", "period_bucket", "is_episode",
@@ -249,8 +251,16 @@ def write_pack(sample: pd.DataFrame, meta: dict) -> None:
         "answer_ldsa_sentiment", "answer_ldsa_net", "answer_lm_hedge",
     ]
     key_cols = [c for c in key_cols if c in sample.columns]
-    sample[key_cols].to_csv(OUT / "sentiment_60_machine_key.csv", index=False)
-    (OUT / "sentiment_60_sample_meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    sample[key_cols].to_csv(OUT / "sentiment_90_machine_key.csv", index=False)
+    (OUT / "sentiment_90_sample_meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    # Keep 60-named copies so a coder mid-pass is not broken on pull.
+    for src, dst in (
+        ("sentiment_90_for_coding.md", "sentiment_60_for_coding.md"),
+        ("sentiment_90_labels_template.csv", "sentiment_60_labels_template.csv"),
+        ("sentiment_90_machine_key.csv", "sentiment_60_machine_key.csv"),
+        ("sentiment_90_sample_meta.json", "sentiment_60_sample_meta.json"),
+    ):
+        shutil.copy2(OUT / src, OUT / dst)
 
 
 def main() -> None:
@@ -274,7 +284,7 @@ def main() -> None:
     sample, meta = sample_pairs(qa, n=args.n, seed=args.seed, reuse_ids=reuse, topup=args.topup if reuse else 0)
     write_pack(sample, meta)
     print(json.dumps(meta, indent=2))
-    print(f"wrote {OUT / 'sentiment_60_for_coding.md'} and friends")
+    print(f"wrote {OUT / 'sentiment_90_for_coding.md'} (60-named copies kept)")
 
 
 if __name__ == "__main__":

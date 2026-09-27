@@ -2,7 +2,7 @@
 
 **NLP topic modelling, financial sentiment analysis, and LLM-assisted summarisation across HSBC and Barclays earnings-call transcripts**
 
-> **Not Assignment 1.** A1 (scope & plan) is `Group9_CAM_EP_Assignment1.pdf`. This document is the **findings / methods write-up** for A2–A3, aligned to that scope. A2 **pitch** sells the same automation pipeline: `docs/assignment2/A2_pitch_outline.md`. Demo desk: sibling `boe-earnings-demo`.
+> **Not Assignment 1.** A1 (scope & plan) is `Group9_CAM_EP_Assignment1.pdf`. This document is the **findings / methods write-up** for A2–A3, aligned to that scope. A2 **pitch** sells the same automation pipeline: `docs/assignment2/A2_pitch_outline.md`. Demo desk: `demo/` in this repo (`streamlit run demo/app.py`).
 
 Cambridge Data Science Career Accelerator · Group 9 · 2026
 

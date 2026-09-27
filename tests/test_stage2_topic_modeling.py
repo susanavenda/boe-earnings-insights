@@ -311,3 +311,16 @@ class TestFiguresAreSavedNotJustShown:
                 if var not in saved_vars:
                     unsaved.append(f"cell {i}: '{var}.show()' bypasses _show_plt()")
         assert not unsaved, "\n".join(unsaved)
+
+
+class TestStage22UmapImport:
+    def test_cell_stubs_parametric_umap_before_importing_umap(self):
+        nb = json.loads(NOTEBOOK_PATH.read_text(encoding="utf-8"))
+        src = "\n".join(
+            "".join(c.get("source") or [])
+            for c in nb["cells"]
+            if c["cell_type"] == "code" and "@title 2.2" in "".join(c.get("source") or [])
+        )
+        assert "umap.parametric_umap" in src
+        assert src.find("umap.parametric_umap") < src.find("from umap import UMAP")
+        assert "hsbc" in src and "barclays" in src and "transform" in src

@@ -1,67 +1,67 @@
 {
   "finetune_metrics": {
-    "n_labeled": 992,
-    "n_train": 744,
-    "n_test": 248,
+    "n_labeled": 1166,
+    "n_train": 874,
+    "n_test": 292,
     "n_human_heldout": 0,
     "label_dist": {
-      "neutral": 590,
-      "negative": 268,
-      "positive": 134
+      "neutral": 685,
+      "negative": 329,
+      "positive": 152
     },
     "label_method_dist": {
-      "finbert_ldsa_agree": 503,
-      "ldsa_signal": 157,
-      "finbert_confident": 154,
-      "default_neutral": 100,
-      "keyword_override": 78
+      "finbert_ldsa_agree": 584,
+      "ldsa_signal": 221,
+      "finbert_confident": 152,
+      "default_neutral": 113,
+      "keyword_override": 96
     },
     "label_protocol": "silver: FinBERT confident non-neutral \u2192 FinBERT\u2229LDSA agree \u2192 keyword override \u2192 LDSA signal \u2192 neutral; human: M4 60-pair pack (question side) + hand_validation_sample.human_label, held out of training",
     "training": "ProsusAI/finbert; stage1 classifier-head-only 8 epochs lr=5e-4; stage2 unfreeze encoder layers 10-11 + head 4 epochs lr=2e-5; class-weighted CE; silver stratified 75/25; text normalised via sentiment.py; cpu",
     "zero_shot": {
-      "n": 248,
-      "accuracy": 0.7379032258064516,
-      "macro_f1": 0.6674391972294981,
-      "weighted_f1": 0.7198186911888153
+      "n": 292,
+      "accuracy": 0.684931506849315,
+      "macro_f1": 0.6060300586510264,
+      "weighted_f1": 0.6592597567589282
     },
     "finetuned": {
-      "n": 248,
-      "accuracy": 0.6370967741935484,
-      "macro_f1": 0.6154428775429596,
-      "weighted_f1": 0.6518856058305369
+      "n": 292,
+      "accuracy": 0.6335616438356164,
+      "macro_f1": 0.6207710419686029,
+      "weighted_f1": 0.6375714116820309
     },
     "confusion_zero_shot": [
       [
-        30,
-        36,
-        1
+        28,
+        54,
+        0
       ],
       [
-        9,
-        136,
-        3
+        12,
+        153,
+        7
       ],
       [
-        1,
-        15,
-        17
+        2,
+        17,
+        19
       ]
     ],
     "confusion_finetuned": [
       [
-        47,
-        14,
-        6
+        66,
+        13,
+        3
       ],
       [
-        22,
-        85,
-        41
+        40,
+        88,
+        44
       ],
       [
         2,
         5,
-        26
+        31
       ]
     ],
     "human_zero_shot": {
