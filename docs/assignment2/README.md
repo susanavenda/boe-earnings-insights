@@ -14,6 +14,7 @@ Desk: `streamlit run demo/app.py` from factory root (stretch, not A2 committed s
 | [`pra_notes/pra_notes.md`](pra_notes/pra_notes.md) | PRA one-pagers |
 | Notebook Stages 7–9 | Technical walkthrough + machine vs Aidan score |
 | Notebook Stage 10.2 | Yahoo press, **filtered** to own-results headlines (bank as subject + earnings/results/profit/quarter). Small n / zero kept is expected. |
+| [`archive/`](archive/) | Old HTML slide exports (kept as working material; not the LMS submit) |
 
 **Canvas submit:** PDF slides + MP4 recording only.
 
