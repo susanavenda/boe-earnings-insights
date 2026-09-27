@@ -19,3 +19,16 @@ def test_h1_sorts_before_fy():
 def test_compact_label_is_short():
     assert compact_period_label("2014-interim") == "14H1"
     assert compact_period_label("2026-q1") == "26Q1"
+
+
+def test_peer_window_excludes_pre_2012_and_2026():
+    from periods import coverage_window, in_peer_window
+
+    assert coverage_window("2008-interim") == "single_bank"
+    assert coverage_window("2011-q3") == "single_bank"
+    assert coverage_window("2012-interim") == "both_complete"
+    assert coverage_window("2025-fy") == "both_complete"
+    assert coverage_window("2026-q2") == "partial"
+    assert in_peer_window("2011-q3") is False
+    assert in_peer_window("2012-H1") is True
+    assert in_peer_window("2026-H1") is False

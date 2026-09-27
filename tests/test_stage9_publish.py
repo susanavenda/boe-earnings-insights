@@ -18,3 +18,12 @@ def test_utf8_cell_is_before_91(nb):
 
 def test_stage9_header(nb_markdown):
     assert "## Stage 9" in nb_markdown
+
+
+def test_pra_note_write_is_utf8():
+    from pathlib import Path
+
+    src = (Path(__file__).resolve().parents[1] / "scripts" / "generate_pra_note.py").read_text(
+        encoding="utf-8"
+    )
+    assert 'write_text(pack, encoding="utf-8")' in src or "encoding='utf-8'" in src

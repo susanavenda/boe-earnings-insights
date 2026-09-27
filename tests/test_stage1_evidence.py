@@ -162,3 +162,48 @@ def test_topic_substitution_is_behaviour_not_a_sentiment_label():
     )
     out = behavioural_signals(qa)
     assert float(out["topic_substitution"].iloc[0]) == 1.0
+
+
+def test_equity_analysts_meeting_is_other_not_results_call():
+    from build_a1_evidence import coverage_by_bank_year, event_type_from_source
+
+    assert (
+        event_type_from_source("2026-interim-equity-analysts-meeting-transcript.pdf")
+        == "other"
+    )
+    assert event_type_from_source("2025-interim-transcript.pdf") == "results_call"
+    man = pd.DataFrame(
+        [
+            {
+                "bank": "hsbc",
+                "kind": "transcript",
+                "source": "2026-interim-equity-analysts-meeting-transcript.pdf",
+                "quarter": "2026-interim",
+                "event_type": "other",
+            },
+            {
+                "bank": "hsbc",
+                "kind": "transcript",
+                "source": "2025-interim-transcript.pdf",
+                "quarter": "2025-interim",
+                "event_type": "results_call",
+            },
+            {
+                "bank": "barclays",
+                "kind": "transcript",
+                "source": "2025-q2-transcript.pdf",
+                "quarter": "2025-q2",
+                "event_type": "results_call",
+            },
+        ]
+    )
+    cov = coverage_by_bank_year(man)
+    row = cov[cov["year"] == 2025].iloc[0]
+    assert int(row["hsbc"]) == 1
+    assert int(row["barclays"]) == 1
+    assert 2026 not in set(cov["year"].astype(int))
+
+
+def test_notebook_tags_event_type_and_filters_results_call(nb_code):
+    assert "event_type_from_source" in nb_code
+    assert "results_call" in nb_code

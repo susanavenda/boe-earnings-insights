@@ -187,7 +187,7 @@
   </table>
   <div class="callout">
     <div class="t">Fine-tune policy</div>
-    Light domain FT is optional and gated. Silver labels amplify FinBERT’s own biases. We score with the frozen (or zero-shot) head until human labels and hold-out macro-F1 both pass.
+    On silver labels alone, fine-tuning looked like it helped — that is the circular trap our gate exists to catch. Against real human gold it did worse, so it stays unpromoted.
   </div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>6 / 12</span></div>
 </section>
@@ -195,31 +195,31 @@
 <section class="slide">
   <div class="kicker">Approach · 6:45–8:15 · evaluation · Speaks: Aidan · Alfred</div>
   <h2>Honest bars — do not pitch 70%</h2>
-  <h3>Label agreement (accuracy, percent)</h3>
-  <svg class="chart" viewBox="0 0 900 210" role="img" aria-label="Accuracy percent for four comparisons versus 70 percent target">
-    <text x="8" y="18" font-size="13" fill="#486581" font-family="Arial">Accuracy (%)</text>
+  <h3>Agreement with coder 1 (percent)</h3>
+  <svg class="chart" viewBox="0 0 900 210" role="img" aria-label="Raw agreement percent versus 70 percent M4 bar">
+    <text x="8" y="18" font-size="13" fill="#486581" font-family="Arial">Agreement (%)</text>
     <line x1="70" y1="20" x2="70" y2="155" stroke="#d9e2ec" />
     <line x1="70" y1="155" x2="880" y2="155" stroke="#9fb3c8" />
     <line x1="70" y1="48" x2="880" y2="48" stroke="#1a3d5c" stroke-dasharray="6 5" />
     <text x="886" y="52" font-size="12" fill="#1a3d5c" font-family="Arial">70% target</text>
-    <rect x="110" y="54" width="90" height="101" fill="#c4a35a" />
-    <text x="155" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">75</text>
-    <text x="155" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
-    <text x="155" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">hand gold</text>
-    <rect x="310" y="72" width="90" height="83" fill="#c4a35a" />
-    <text x="355" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">62</text>
-    <text x="355" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
-    <text x="355" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">silver</text>
-    <rect x="510" y="77" width="90" height="78" fill="#c4a35a" />
-    <text x="555" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">58</text>
-    <text x="555" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT vs</text>
-    <text x="555" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">LDSA</text>
-    <rect x="710" y="81" width="90" height="74" fill="#c4a35a" />
-    <text x="755" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">55</text>
-    <text x="755" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FT candidate</text>
-    <text x="755" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs silver</text>
+    <rect x="110" y="63" width="90" height="92" fill="#c4a35a" />
+    <text x="155" y="57" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">60</text>
+    <text x="155" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT</text>
+    <text x="155" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">whole-turn</text>
+    <rect x="310" y="71" width="90" height="84" fill="#c4a35a" />
+    <text x="355" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">55</text>
+    <text x="355" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">LLM</text>
+    <text x="355" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">annotator</text>
+    <rect x="510" y="85" width="90" height="70" fill="#c4a35a" />
+    <text x="555" y="79" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">46</text>
+    <text x="555" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT</text>
+    <text x="555" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">sentence</text>
+    <rect x="710" y="91" width="90" height="64" fill="#c4a35a" />
+    <text x="755" y="85" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">42</text>
+    <text x="755" y="176" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">Loughran–</text>
+    <text x="755" y="192" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">McDonald</text>
   </svg>
-  <p class="src">Source: label_agreement.json · hand gold n=20 (75% acc / macro-F1 0.61) · silver n=118. 8-way: machine 35% · Aidan 50% (m2a_agreement.json). LDSA-vs-silver is circular and is not shown.</p>
+  <p class="src">Source: human_labels/sentiment_agreement.json · n=90 pairs, 1 coder. FinBERT κ 0.28 · LM κ 0.02. M4 70% not met. Do not quote 75% / 0.61.</p>
   <div class="cols">
     <div>
       <h3>Three baselines (all with n)</h3>
@@ -227,12 +227,12 @@
     </div>
     <div>
       <h3>8-way dual-code (n=60)</h3>
-      <p>Machine coder1 vs coder2 <strong>35%</strong> (headline). Aidan vs coder1 <strong>50%</strong> (below 70%). Method, not a category law. Fine-tune vs silver 55% — not promoted.</p>
+      <p>Machine coder1 vs coder2 <strong>35%</strong> (headline). Aidan vs coder1 <strong>50%</strong> (below 70%). Method, not a category law.</p>
     </div>
   </div>
   <div class="callout bad">
-    <div class="t">Brake we will say once</div>
-    FinBERT 75% acc / 0.61 F1 on n=20 still over-neutralises (155/181 Q-neutral). Machine 8-way is 35%. That is why peer ALERT is gated and eight-way is a method, not a law.
+    <div class="t">Fine-tune not promoted</div>
+    On silver labels alone, FT looked like it helped (0.433 → 0.642) — that is the circular trap. Against human gold it scored below zero-shot, so it stays unpromoted.
   </div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>7 / 12</span></div>
 </section>
@@ -328,7 +328,7 @@
     <tr><td>Naive peer gaps are dangerous when one side is model-flat</td><td>Barclays 2025-q2 n=6 all FinBERT-neutral</td><td>A peer ALERT on 2025-H1</td></tr>
     <tr><td>Null is allowed and reportable</td><td>Protocol N1: flat tone and agreement</td><td>Null means the pipeline failed</td></tr>
   </table>
-  <p class="muted">Extra technique that helped: quality gate on peer ALERT (both sides informative). Extra still open: grow gold from n=20 toward 60 pairs / 70%.</p>
+  <p class="muted">Extra technique that helped: quality gate on peer ALERT (both sides informative). Extra still open: second coder on the 90-pair gold; M4 70% is not met.</p>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>10 / 12</span></div>
 </section>
 
@@ -362,7 +362,7 @@
     </div>
     <div class="callout">
       <div class="t">For markers</div>
-      Depth on two G-SIBs, honest 75% FinBERT / 35% 8-way, and a repeatable pipeline with an explicit null beats breadth.
+      Depth on two G-SIBs, honest FinBERT 60% / κ 0.28 on n=90, and a repeatable pipeline with an explicit null beats breadth.
     </div>
   </div>
   <div class="callout ok">

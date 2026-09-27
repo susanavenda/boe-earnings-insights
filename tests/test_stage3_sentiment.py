@@ -48,4 +48,17 @@ def test_llm_vs_finbert_is_optional(nb_code):
 def test_stage37_human_gold_pack_is_present(nb_code, nb_markdown):
     assert "Stage 3.7" in nb_markdown
     assert "score_sentiment_human.py" in nb_code
-    assert "sentiment_60_labels_" in nb_code
+    assert "sentiment_90_labels_" in nb_code or "sentiment_60_labels_" in nb_code
+
+
+def test_sentiment_scorer_still_reads_60_named_coder_files(tmp_path):
+    from score_sentiment_human import iter_coder_label_files
+
+    (tmp_path / "sentiment_90_labels_alfred.csv").write_text(
+        "pair_id,q_label,a_label\nx,positive,neutral\n", encoding="utf-8"
+    )
+    (tmp_path / "sentiment_60_labels_taz.csv").write_text(
+        "pair_id,q_label,a_label\ny,negative,neutral\n", encoding="utf-8"
+    )
+    names = [n for n, _ in iter_coder_label_files(tmp_path)]
+    assert names == ["alfred", "taz"]

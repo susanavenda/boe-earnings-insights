@@ -2,42 +2,55 @@
   "n_hand_sample": 50,
   "n_human_reviewed_flag": 0,
   "n_provisional_queue": 50,
-  "n_corpus_labels": 992,
+  "n_corpus_labels": 1166,
   "silver_is_circular": true,
   "metrics": [
     {
       "name": "finbert_vs_silver_gold (circular \u2014 audit only)",
-      "n": 992,
-      "accuracy": 0.7409274193548387,
-      "macro_f1": 0.654916371884492
+      "n": 1166,
+      "accuracy": 0.7084048027444254,
+      "macro_f1": 0.6110730640310167
     },
     {
       "name": "ldsa_vs_silver_gold (circular \u2014 audit only)",
-      "n": 992,
-      "accuracy": 0.8276209677419355,
-      "macro_f1": 0.794066067190376
+      "n": 1166,
+      "accuracy": 0.8421955403087479,
+      "macro_f1": 0.8055775960644377
     },
     {
       "name": "finbert_vs_ldsa",
-      "n": 992,
-      "accuracy": 0.5816532258064516,
-      "macro_f1": 0.4319491778022166
+      "n": 1166,
+      "accuracy": 0.5634648370497427,
+      "macro_f1": 0.4046638409024712
     },
     {
       "name": "finetuned_vs_silver_gold",
-      "n": 992,
-      "accuracy": 0.6481854838709677,
-      "macro_f1": 0.6317785516920305
+      "n": 1166,
+      "accuracy": 0.6560891938250428,
+      "macro_f1": 0.6386485632641402
     }
   ],
-  "m4_human_gold": null,
-  "m4_status": "awaiting human labels",
-  "pitch_line": "No human sentiment gold yet \u2014 silver agreement is circular and is not an accuracy claim. Code docs/assignment2/human_labels/sentiment_60_for_coding.md, then run scripts/score_sentiment_human.py.",
+  "m4_human_gold": {
+    "finbert_turn_raw": 0.6046511627906976,
+    "finbert_turn_kappa": 0.2821016449791309,
+    "finbert_turn_macro_f1": 0.5168701668701668,
+    "finbert_sentence_raw": 0.46107784431137727,
+    "finbert_sentence_macro_f1": 0.4129042551335073,
+    "llm_raw": 0.5508982035928144,
+    "llm_kappa": 0.30778158505581965,
+    "llm_macro_f1": 0.5387106751502297,
+    "llm_meets_m4_bar": false,
+    "best_unit_by_macro_f1": "llm",
+    "m4_met_by_turn": false,
+    "m4_met_by_sentence": false
+  },
+  "m4_status": "scored",
+  "pitch_line": "Human gold n=172 labels (1 coder): FinBERT turn-level 60% raw / macro-F1 0.52; sentence-level 46% / 0.41; LLM annotator 55% / 0.54. M4 bar 70% not met.",
   "finetune_export": "docs/assignment2/finetune_metrics.json",
   "finetune_headline": {
-    "silver_dev_n": 248,
-    "zero_shot_macro_f1": 0.6674391972294981,
-    "finetuned_macro_f1": 0.6154428775429596,
+    "silver_dev_n": 292,
+    "zero_shot_macro_f1": 0.6060300586510264,
+    "finetuned_macro_f1": 0.6207710419686029,
     "human_heldout_n": 0,
     "active_model_id": null,
     "promotion": "blocked \u2014 human gold n=0 < 40; silver-only results are not a promotion basis"

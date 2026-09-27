@@ -215,7 +215,7 @@ def main() -> None:
         print(f"score_sentiment_human failed: {type(e).__name__}: {e}")
     if M4_JSON.is_file():
         try:
-            m4 = json.loads(M4_JSON.read_text())
+            m4 = json.loads(M4_JSON.read_text(encoding="utf-8"))
         except Exception:
             m4 = None
 
@@ -259,7 +259,7 @@ def main() -> None:
         else:
             summary["pitch_line"] = (
                 "No human sentiment gold yet — silver agreement is circular and is not an accuracy claim. "
-                "Code docs/assignment2/human_labels/sentiment_60_for_coding.md, then run "
+                "Code docs/assignment2/human_labels/sentiment_90_for_coding.md, then run "
                 "scripts/score_sentiment_human.py."
             )
 
@@ -272,7 +272,7 @@ def main() -> None:
             ft_export[key] = load_json(key)
     if ft_export:
         ft_path = DOCS / "assignment2" / "finetune_metrics.json"
-        ft_path.write_text(json.dumps(ft_export, indent=2))
+        ft_path.write_text(json.dumps(ft_export, indent=2), encoding="utf-8")
         summary["finetune_export"] = str(ft_path.relative_to(ROOT))
         fm = ft_export.get("finetune_metrics", {})
         summary["finetune_headline"] = {
@@ -285,7 +285,7 @@ def main() -> None:
         }
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(summary, indent=2))
+    OUT_JSON.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     save_json("label_agreement", summary)
     save_df(
         "label_agreement",

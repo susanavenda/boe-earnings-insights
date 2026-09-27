@@ -78,10 +78,11 @@ One left→right diagram (big boxes, few words):
 
 #### Slide 5 — Data preparation (60s) ← rubric · **Susana**
 - **Gather:** **137** IR PDFs + **114** Excel packs under `data/raw/transcripts/` and `data/structured/` (A1 plan was 20 transcripts; extra years are Hunter-prompted, 2006–2026)  
-- **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus  
+- **Clean / format:** pdfplumber extract → speaker regex (HSBC / Barclays patterns) → analyst-only corpus; `event_type` tags the 2026 HSBC equity-analysts meeting as `other` (kept on disk, dropped from default analyses)  
 - **Pair:** **1,002** Q&A pairs; named analyst 100%. **Disclose, A3 fix:** empty bleed-split answers and blank inherited dates (live counts in notebook 1.5 / 7.0)  
 - **Represent:** `clean_text` for topics; raw text for FinBERT; metrics table from Excel  
 - **Store:** intermediates in `data/boe.sqlite` (files = inputs only)  
+- **Peer window:** HSBC vs Barclays charts default to **2012–2025**; pre-2012 is HSBC-only / incomplete; 2026 is a partial year. Do not use 2008 as a test case.  
 
 **Say:** “Preprocessing is justified for **messy transcript text**, not tabular Kaggle defaults. We extended the corpus on Hunter’s advice; we did not silently abandon the A1 20-doc plan.”
 
@@ -104,7 +105,7 @@ One left→right diagram (big boxes, few words):
 - **8-way eval:** machine coder1 vs coder2 **35%** (headline) · human dual-code vs coder1 **50%** (below 70%) — method, not category law  
 - **Not on this slide:** Stage 3.1c LLM vs FinBERT is optional extra and **skips without an API key** — do not demo it live unless a key is in the environment that day  
 - **Not on this slide:** Stage 10.2 Yahoo press is **filtered** to own-results headlines (bank as subject + earnings/results/profit/quarter). Live n is usually ~0 — that is the finding, not a 0.04 gap on Netflix downgrades. Do not quote an unfiltered press-vs-Q&A number.  
-- **FT:** silver labels train; human gold is **held out** and is the only gate (n ≥ 40 and macro-F1 ≥ zero-shot + 0.05). Silver-dev gains are circular (silver is built from FinBERT + LDSA) — `active_model_id` stays null until the human set passes  
+- **FT:** silver labels train; human gold is **held out** and is the only gate (n ≥ 40 and macro-F1 ≥ zero-shot + 0.05). Silver-dev gains are circular (silver is built from FinBERT + LDSA) — `active_model_id` stays null until the human set passes. **Say once:** “On silver labels alone, fine-tuning looked like it helped — that’s exactly the circular trap our gate exists to catch. Against real human gold, it did worse, so it stays unpromoted.”  
 - **Manual verify:** quote cards + struct↔Q&A agree column on the episode  
 
 **Say:** “The two keyword coders agree 35%. That is why eight-way is a filing method, not a law — and why we gate peer ALERT when Barclays is all-neutral.”

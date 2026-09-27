@@ -158,31 +158,31 @@
     <tr><td>Extractive briefs</td><td>Four-metric quotes a supervisor can check</td><td>Rafael</td></tr>
     <tr><td>Rules protocol</td><td>Reproducible verdict with evidence IDs</td><td>Aidan</td></tr>
   </table>
-  <div class="callout"><div class="t">Fine-tune policy</div>Silver labels amplify FinBERT’s own biases. Score with the frozen head until human labels and hold-out macro-F1 both pass.</div>
+  <div class="callout"><div class="t">Fine-tune policy</div>On silver labels alone, fine-tuning looked like it helped — that is the circular trap our gate exists to catch. Against real human gold it did worse, so it stays unpromoted.</div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>6 / 13</span></div>
 </section>
 
 <section class="slide">
   <div class="kicker">Approach · 6:45–8:15 · Speaks: Aidan · Alfred</div>
-  <p class="say">Say: FinBERT 75% acc / 0.61 F1 on n=20. Machine eight-way is 35%. Do not quote Yahoo press versus Q&amp;A — the ticker filter kept 0 of 20 headlines.</p>
+  <p class="say">Say: Coder 1, 90 pairs: whole-turn FinBERT 60 percent, kappa 0.28. Loughran–McDonald 42 percent. On silver, fine-tune looked better — that is the trap. Against human gold it did worse, so it stays unpromoted. Do not quote 75 percent.</p>
   <h2>Evaluation — honest bars</h2>
-  <svg class="chart" viewBox="0 0 900 170" role="img" aria-label="Accuracy percent versus 70 percent target">
-    <text x="8" y="16" font-size="13" fill="#486581" font-family="Arial">Accuracy (%)</text>
+  <svg class="chart" viewBox="0 0 900 170" role="img" aria-label="Raw agreement percent versus 70 percent M4 bar">
+    <text x="8" y="16" font-size="13" fill="#486581" font-family="Arial">Agreement (%)</text>
     <line x1="70" y1="24" x2="70" y2="130" stroke="#d9e2ec" />
     <line x1="70" y1="130" x2="880" y2="130" stroke="#9fb3c8" />
     <line x1="70" y1="40" x2="880" y2="40" stroke="#1a3d5c" stroke-dasharray="6 5" />
     <text x="886" y="44" font-size="12" fill="#1a3d5c" font-family="Arial">70%</text>
-    <rect x="110" y="46" width="90" height="84" fill="#c4a35a" /><text x="155" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">75</text>
-    <text x="155" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs hand gold</text>
-    <rect x="310" y="62" width="90" height="68" fill="#c4a35a" /><text x="355" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">62</text>
-    <text x="355" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs silver</text>
-    <rect x="510" y="67" width="90" height="63" fill="#c4a35a" /><text x="555" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">58</text>
-    <text x="555" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">vs LDSA</text>
-    <rect x="710" y="71" width="90" height="59" fill="#c4a35a" /><text x="755" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">55</text>
-    <text x="755" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FT vs silver</text>
+    <rect x="110" y="53" width="90" height="77" fill="#c4a35a" /><text x="155" y="47" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">60</text>
+    <text x="155" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT turn</text>
+    <rect x="310" y="59" width="90" height="71" fill="#c4a35a" /><text x="355" y="53" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">55</text>
+    <text x="355" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">LLM annotator</text>
+    <rect x="510" y="71" width="90" height="59" fill="#c4a35a" /><text x="555" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">46</text>
+    <text x="555" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">FinBERT sent.</text>
+    <rect x="710" y="76" width="90" height="54" fill="#c4a35a" /><text x="755" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f33" font-family="Arial">42</text>
+    <text x="755" y="150" text-anchor="middle" font-size="12" fill="#0b1f33" font-family="Arial">Loughran–McD</text>
   </svg>
-  <p class="src">Source: label_agreement.json · hand gold n=20 · 8-way machine 35% · Aidan 50%. Do not pitch eight-way as a law.</p>
-  <div class="callout bad"><div class="t">Brake we will say once</div>FinBERT still over-neutralises hedged Q&amp;A. That is why peer ALERT is gated.</div>
+  <p class="src">Source: human_labels/sentiment_agreement.json · n=90 pairs, 1 coder. FinBERT κ 0.28 · LM κ 0.02. M4 70% not met. Do not quote 75% / 0.61.</p>
+  <div class="callout bad"><div class="t">Fine-tune not promoted</div>On silver labels alone, FT looked like it helped (0.433 → 0.642) — that is the circular trap. Against human gold it scored below zero-shot (0.62 vs 0.67), so it stays unpromoted.</div>
   <div class="callout info"><div class="t">Not on this slide</div>Stage 10.2 Yahoo press filter kept <strong>0 of 20</strong>. Do not quote an unfiltered press-versus-Q&amp;A gap. Stage 3.1c LLM skips without a key.</div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>7 / 13</span></div>
 </section>
@@ -280,7 +280,7 @@
   <h2>Ask, then sit down</h2>
   <div class="cols">
     <div class="callout info"><div class="t">For the Bank of England</div>Is alert / watch / null the right product shape for a supervisor desk — and is a 45–90 minute re-run acceptable each quarter?</div>
-    <div class="callout"><div class="t">For markers</div>Depth on two G-SIBs, honest 75% FinBERT / 35% 8-way, and a repeatable pipeline with an explicit null beats breadth.</div>
+    <div class="callout"><div class="t">For markers</div>Depth on two G-SIBs, honest FinBERT 60% / κ 0.28 on n=90, and a repeatable pipeline with an explicit null beats breadth.</div>
   </div>
   <div class="callout ok"><div class="t">Close — say the sell line again</div>We sell an automation pipeline: IR files in, supervisory pack out. Softest quarter is HSBC interim 2025 — FinBERT −0.13, packs agree → WATCH. We do not fire a peer ALERT off an all-neutral Barclays print. Null is allowed. Recalibration is gated. Re-run under two hours when next PDFs land.</div>
   <div class="footer"><span>Group 9 · BoE employer project</span><span>12 / 13</span></div>
@@ -297,7 +297,7 @@
     <tr><td>File names: Group9_CAM_EP_Assignment2_slides.pdf + _presentation.mp4</td></tr>
     <tr><td>Dry-run timed 13:30–16:30 once; roles assigned</td></tr>
     <tr><td>Desk open on HSBC H1; notebook Stages 1 / 3.1b / 6 / 8 bookmarked</td></tr>
-    <tr><td>Say 75% FinBERT / 35% 8-way once — never quote Yahoo press vs Q&amp;A (0 of 20 kept)</td></tr>
+    <tr><td>Say FinBERT 60% / κ 0.28 on n=90; silver FT lift is the trap; never 75%</td></tr>
   </table>
   <p class="muted">Limitation if asked: 8-way 35% / Aidan 50% — below 70%. FT not promoted. Evaluation still open, not a missing method.</p>
   <div class="footer"><span>Rehearsal only</span><span>13 / 13</span></div>
