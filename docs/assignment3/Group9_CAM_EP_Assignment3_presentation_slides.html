@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>Group 9 · CAM EP Assignment 3</title>
+<style>
+@page { size: 13.333in 7.5in; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; color: #0b1f33;
+  font-family: Arial, Helvetica, sans-serif; font-size: 14pt; line-height: 1.28; }
+.slide { width: 13.333in; height: 7.5in; padding: 0.38in 0.48in 0.42in;
+  page-break-after: always; break-after: page; position: relative; overflow: hidden; background: #fff; }
+.slide:last-child { page-break-after: auto; break-after: auto; }
+.kicker { font-size: 14pt; color: #486581; letter-spacing: 0.04em; text-transform: uppercase;
+  font-weight: 700; margin: 0 0 0.08in; }
+h1 { font-size: 28pt; line-height: 1.15; margin: 0 0 0.18in; font-weight: 700; }
+h2 { font-size: 22pt; line-height: 1.15; margin: 0 0 0.16in; font-weight: 700; }
+h3 { font-size: 14pt; margin: 0 0 0.08in; font-weight: 700; color: #1a3d5c; }
+p { margin: 0 0 0.1in; }
+.footer { position: absolute; left: 0.48in; right: 0.48in; bottom: 0.18in;
+  display: flex; justify-content: space-between; font-size: 14pt; color: #627d98;
+  border-top: 2px solid #c4a35a; padding-top: 0.08in; }
+.stats { display: flex; gap: 0.16in; margin: 0.12in 0 0.16in; }
+.stat { flex: 1; background: #f4f7fa; border: 1px solid #d9e2ec; padding: 0.12in 0.14in; text-align: center; }
+.stat .v { font-size: 22pt; font-weight: 700; color: #0b1f33; }
+.stat .l { font-size: 14pt; color: #486581; margin-top: 0.04in; }
+.stat.warn .v { color: #6b4e12; }
+.stat.danger .v { color: #7a1f12; }
+.callout { background: #fff8eb; border-left: 6px solid #c4a35a; padding: 0.12in 0.16in; margin: 0.1in 0 0.14in; }
+.callout.info { background: #eef4f8; border-left-color: #1a3d5c; }
+.callout.ok { background: #e8f3ea; border-left-color: #1e4d2b; }
+.callout.bad { background: #f8ece8; border-left-color: #7a1f12; }
+.callout .t { font-weight: 700; margin-bottom: 0.04in; }
+table { width: 100%; border-collapse: collapse; margin: 0.08in 0 0.12in; }
+th, td { border: 1px solid #d9e2ec; padding: 0.06in 0.08in; text-align: left; vertical-align: top; font-size: 14pt; }
+th { background: #0b1f33; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f7f9fb; }
+.cols { display: flex; gap: 0.22in; }
+.cols > div { flex: 1; }
+.muted { color: #486581; }
+.quote { background: #f7f9fb; border-left: 5px solid #1a3d5c; padding: 0.1in 0.14in; margin-top: 0.08in; }
+</style></head><body>
+<section class="slide">
+  <div class="kicker">Group 9 · Bank of England PRA · Assignment 3 · 15 minutes</div>
+  <h1>Supervisory earnings pipeline</h1>
+  
+<div class="callout"><div class="t">The question</div>
+Not whether a call can be summarised. Whether earnings Q&amp;A carries a <strong>leading</strong> signal that reported metrics <strong>alone</strong> do not.</div>
+<div class="stats">
+  <div class="stat"><div class="v">1,500</div><div class="l">Firms the PRA supervises</div></div>
+  <div class="stat"><div class="v">137</div><div class="l">UK results transcripts</div></div>
+  <div class="stat warn"><div class="v">0.28</div><div class="l">FinBERT kappa, not 60%</div></div>
+  <div class="stat warn"><div class="v">WATCH</div><div class="l">HSBC H1 2025</div></div>
+</div>
+<p>These slides are the story told in the pitch, closed with the cases held for this report. The notebook is the technical walkthrough.</p>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>1 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Background · Speaks: Taz</div>
+  <h2>Structured returns are the pipeline. The call is not.</h2>
+  
+<div class="cols">
+  <div>
+    <h3>What the PRA already runs</h3>
+    <p>About 1,500 firms. Returns on a defined schedule, checked against defined fields.</p>
+    <h3>What stays outside</h3>
+    <p>Quarterly results: a curated presentation plus unscripted Q&amp;A. Expensive to read properly, so the signal is not used systematically.</p>
+  </div>
+  <div>
+    <div class="callout info"><div class="t">Two words</div>
+    Leading: did the call move before the stress, not after. Alone: information the four reported lines do not already contain.</div>
+  </div>
+</div>
+<p><strong>What we measure besides tone:</strong> was the answer direct, did it supply the metric, or did it change the subject. Positive and evasive can be the same sentence.</p>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>2 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Background · Speaks: Bupathi</div>
+  <h2>Positive tone, evasive answer</h2>
+  
+<div class="quote">Analyst: the 90-day past-due rate on the UK cards book, this quarter against the last. Management: comfortable with the overall credit picture; the portfolio remains robust.</div>
+<table>
+<tr><th>What a tone model writes</th><th>What we also write</th></tr>
+<tr><td>Positive. The reply sounds confident.</td><td>Directness low. The number asked for was not given.</td></tr>
+<tr><td>One label for the whole answer.</td><td>Topic substituted: UK cards became “overall credit”.</td></tr>
+</table>
+<div class="callout"><div class="t">Why it matters</div>
+If directness on one topic falls while the tone stays cheerful, across 62 paired quarters, that is the warning. Sentiment alone is not enough.</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>3 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Development · Speaks: Susana</div>
+  <h2>Same chain as the pitch. Now it is the product.</h2>
+  
+<table>
+<tr><th style="width:18%">Step</th><th>What happens</th><th style="width:28%">Owner</th></tr>
+<tr><td>1 Ingest</td><td>PDFs and Excel. Files stay inputs.</td><td>Susana</td></tr>
+<tr><td>2 Prepare</td><td>Speaker split, then analyst Q&amp;A pairs.</td><td>Susana</td></tr>
+<tr><td>3 Model</td><td>BERTopic, FinBERT, lexicon, behaviour, eight-way map.</td><td>Debanjan · Alfred · Bupathi · Aidan</td></tr>
+<tr><td>4 Compare</td><td>Time, matched peer, pack versus Q&amp;A.</td><td>Susana · Aidan</td></tr>
+<tr><td>5 Decide</td><td>Rules to alert, watch, or null.</td><td>Aidan · Bupathi</td></tr>
+<tr><td>6 Publish</td><td>PRA note. Notebook is the factory.</td><td>Rafael · Susana</td></tr>
+</table>
+<div class="callout"><div class="t">Re-run</div>
+45–90 minutes when new IR files land. Recalibration is a human gate, not a job that retrains itself.</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>4 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Development · data · Speaks: Susana</div>
+  <h2>137 files. Gaps left as gaps.</h2>
+  
+<table>
+<tr><th>Fact from the build</th><th>Figure</th></tr>
+<tr><td>UK transcripts. One equity-analyst meeting excluded.</td><td>137 files, 136 results calls</td></tr>
+<tr><td>Quarters where both banks published. Paired by quarter, not by full year.</td><td>62 quarters</td></tr>
+<tr><td>Speaker turns, then Q&amp;A pairs. 192 replies sat inside an analyst turn.</td><td>4,188 turns · 1,213 pairs</td></tr>
+<tr><td>Answers that address the four metrics, among questions about them.</td><td>600 of 818 · 73%</td></tr>
+<tr><td>Empty answers, and rows with no publication date. Kept, not patched.</td><td>108 · 369</td></tr>
+</table>
+<p class="muted">HSBC is twice a year until 2008. Barclays starts in 2010 Q2. Nothing is interpolated or filled with zero. Credit Suisse was built and held out of the pitch. It is in this report, and it is not in the peer gap.</p>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>5 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Development · methods · Speaks: Aidan · Debanjan · Alfred</div>
+  <h2>Categories first. Then the models.</h2>
+  
+<table>
+<tr><th style="width:28%">We kept</th><th>Why this order</th></tr>
+<tr><td>18 PRA categories, before any transcript</td><td>A map built from the calls would succeed by design. Liquidity barely mentioned is a finding.</td></tr>
+<tr><td>BERTopic, LDA as the check</td><td>Coherence 0.46 versus 0.40. Five topics. Ids are not permanent alert keys.</td></tr>
+<tr><td>Whole-turn FinBERT</td><td>Lexicon kappa 0.02, chance. Sentence scoring kappa 0.13. Neither replaces the whole answer.</td></tr>
+<tr><td>Behaviour, not a fourth sentiment class</td><td>Direct, metric supplied, topic substituted. Avoidance is behaviour.</td></tr>
+</table>
+<div class="callout"><div class="t">Fine-tune stays off</div>
+A gain on labels the model helped to create is not a promotion. The second coder is still the gate. We promote only if the fine-tune beats plain FinBERT on human labels.</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>6 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Development · validation · Speaks: Aidan · Alfred</div>
+  <h2>The 70% bar was not met</h2>
+  
+<div class="stats">
+  <div class="stat warn"><div class="v">0.28</div><div class="l">FinBERT kappa</div></div>
+  <div class="stat"><div class="v">0.02</div><div class="l">Lexicon kappa. Chance.</div></div>
+  <div class="stat"><div class="v">80%</div><div class="l">Questions called neutral</div></div>
+  <div class="stat danger"><div class="v">70%</div><div class="l">Bar set first. Not met.</div></div>
+</div>
+<div class="cols">
+  <div>
+    <h3>Say kappa, not 60%</h3>
+    <p>Both methods reach for neutral, so raw agreement flatters them. FinBERT does something. The lexicon does not. They agree with each other about 58% of the time.</p>
+  </div>
+  <div>
+    <h3>What we did not move</h3>
+    <p>The 70% bar was set before coding. We published the miss. Directness is triage: where to look, not a judgement of a firm or a person.</p>
+  </div>
+</div>
+<div class="callout bad"><div class="t">Anachronism</div>
+The PRA did not exist before 2013. A category from today’s PRA sources, laid on a 2006 transcript, is anachronistic. The run is provisional for that reason.</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>7 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Development · episode · Speaks: Rafael · Bupathi</div>
+  <h2>HSBC 2025 is watch. The peer gap is not an alert.</h2>
+  
+<div class="stats">
+  <div class="stat danger"><div class="v">−0.13</div><div class="l">FinBERT net</div></div>
+  <div class="stat"><div class="v">8</div><div class="l">Analyst turns</div></div>
+  <div class="stat warn"><div class="v">n/a</div><div class="l">Metric hits in the call</div></div>
+  <div class="stat warn"><div class="v">WATCH</div><div class="l">Rule A3</div></div>
+</div>
+<div class="cols">
+  <div>
+    <h3>Why alert did not fire</h3>
+    <p>Matched Barclays on the same half-year is entirely FinBERT-neutral (n=7). The gap is about −0.13. Rule A2 refuses it. Absence of a metric hit is not recorded as agreement.</p>
+    <div class="quote">The pack shows the quote and the sample size. It does not rate HSBC.</div>
+  </div>
+  <div>
+    <h3>The other two reviewed cases</h3>
+    <table>
+    <tr><th>Case</th><th>Verdict</th></tr>
+    <tr><td>Barclays 2026-H1, net −0.11, n=7</td><td>Watch. Peer refused.</td></tr>
+    <tr><td>Credit Suisse 2022-Q4, net +0.08, n=20</td><td>Null. Not a predicted collapse.</td></tr>
+    </table>
+  </div>
+</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>8 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Results · Speaks: Rafael · Taz</div>
+  <h2>What the finished run shows</h2>
+  
+<table>
+<tr><th>Finding</th><th>Number</th><th>Do not claim</th></tr>
+<tr><td>Q&amp;A is not a copy of the pack</td><td>Agree on 26% of 212 overlaps</td><td>That disagreement is automatically an alert</td></tr>
+<tr><td>Credit narrative is the weak join</td><td>18% agree, 44 rows</td><td>That ECL is mis-stated</td></tr>
+<tr><td>Soft, without a bad peer, is watch</td><td>HSBC −0.13, rule A3</td><td>That the firm is weaker</td></tr>
+<tr><td>A known failure can score null</td><td>CS Q4 2022, FinBERT +0.08</td><td>That the pipeline saw the collapse coming</td></tr>
+</table>
+<p class="muted">BERTopic coherence 0.46, LDA 0.40. Both stay. Only BERTopic names the live themes, and even those names are not used as permanent alert keys.</p>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>9 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Results · recommendations · Speaks: Taz</div>
+  <h2>What the Bank should do with this</h2>
+  
+<div class="cols">
+  <div>
+    <h3>Use now</h3>
+    <p>Run the pack when filings land. A person accepts or rejects watch, alert, or null. Keep the peer-quality gate. File a null in the same way as a watch.</p>
+    <h3>Do not do</h3>
+    <p>Do not promote the fine-tuned head. Do not add banks to make the peer gap look busier. Do not treat neutral as “no issue”.</p>
+  </div>
+  <div>
+    <div class="callout info"><div class="t">Next analysis</div>
+    Second coder on the 90-pair gold. Retag the four metrics inside the episode so the agree column is evidenced rather than n/a. Only then reopen promotion.</div>
+    <div class="callout"><div class="t">Limit</div>
+    Eight turns is a print, not a population. Hedged answers still collapse toward neutral. That limit is on the note.</div>
+  </div>
+</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>10 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Technical walkthrough · Speaks: Susana</div>
+  <h2>These slides are the story. The notebook is the proof.</h2>
+  
+<div class="cols">
+  <div>
+    <h3>Open the notebook, not every cell</h3>
+    <table>
+    <tr><th>Stage</th><th>Show</th></tr>
+    <tr><td>0</td><td>Colab clones the repo, then finds scripts/</td></tr>
+    <tr><td>1</td><td>PDFs to speaker turns to Q&amp;A pairs</td></tr>
+    <tr><td>2–3</td><td>BERTopic, then FinBERT on question and answer</td></tr>
+    <tr><td>6</td><td>Three baselines, each with n</td></tr>
+    <tr><td>8–9</td><td>Rules, then the PRA note</td></tr>
+    </table>
+  </div>
+  <div>
+    <h3>For a technical listener</h3>
+    <p>State lives in data/boe.sqlite. CSV copies are in data/processed/. Human labels are scored, not rewritten.</p>
+    <div class="callout info"><div class="t">If a live re-fit is too slow</div>
+    Walk the saved outputs already in the notebook, then the PRA note for HSBC 2025-H1. Do not refit BERTopic on stage.</div>
+  </div>
+</div>
+
+  <div class="footer"><span>Group 9 · BoE employer project</span><span>11 / 12</span></div>
+</section>
+<section class="slide">
+  <div class="kicker">Close · Speaks: Taz</div>
+  <h2>Sentiment alone is not enough</h2>
+  
+<div class="callout ok"><div class="t">Close</div>
+The strongest result is a negative one. FinBERT and the lexicon agree about 58% of the time. FinBERT calls about 80% of questions neutral and misses the hedged negatives. Kappa is 0.28. We did not move the 70% bar. HSBC half-year 2025 is watch, not a rating. Credit Suisse’s failure quarter, held out of the pitch, is null.</div>
+<div class="cols">
+  <div class="callout info"><div class="t">For the Bank</div>
+  Is alert / watch / null the right shape, and is a 45–90 minute re-run acceptable each quarter?</div>
+  <div class="callout"><div class="t">For markers</div>
+  Depth on two banks, an honest miss on the 70% bar, and a pipeline that can say null.</div>
+</div>
+
+  <div class="footer"><span>Group9_CAM_EP_Assignment3_presentation_slides.pdf</span><span>12 / 12</span></div>
+</section>
+
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>Group 9 · CAM EP Assignment 3 · Report</title>
+<style>
+@page { size: A4; margin: 16mm 16mm 18mm 16mm; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; color: #1a1a18;
+  font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.35; }
+.kicker { font-size: 10pt; font-weight: 700; color: #6b6b68; letter-spacing: 0.04em; margin: 0 0 4px; }
+h1 { font-size: 18pt; line-height: 1.2; color: #1b3a5c; margin: 0 0 8px; font-weight: 700; }
+h2 { font-size: 16pt; color: #1b3a5c; margin: 16px 0 6px; font-weight: 700; }
+.deck { font-size: 11pt; color: #3c3c3a; margin: 0 0 6px; }
+.meta { font-size: 10pt; color: #1b3a5c; margin: 0 0 2px; }
+.sub { font-size: 9pt; color: #6b6b68; margin: 0 0 10px; }
+.note { font-size: 9pt; color: #6b6b68; font-style: italic; margin: 0 0 8px; }
+p { margin: 0 0 8px; }
+table { width: 100%; border-collapse: collapse; margin: 6px 0 2px; }
+th, td { border: 1px solid #d9e2ec; padding: 4px 6px; text-align: left; vertical-align: top; font-size: 10pt; }
+th { background: #1b3a5c; color: #fff; font-weight: 700; }
+tr:nth-child(even) td { background: #f4f7fa; }
+caption { caption-side: bottom; text-align: left; font-size: 9pt; color: #6b6b68; margin-top: 2px; padding-top: 2px; }
+pre { font-family: "Courier New", Courier, monospace; font-size: 10pt; background: #f4f7fa;
+  border-left: 4px solid #1b3a5c; padding: 8px 10px; white-space: pre-wrap; margin: 4px 0; }
+</style></head><body>
+<p class="kicker">TECHNICAL REPORT</p>
+<h1>Assignment 3: Final report</h1>
+<p class="deck">Employer project with the Bank of England (Group 9). Reports the pipeline from earnings Q&amp;A to an alert, watch, or null pack, the decisions behind it, and what a supervisor should do with the result.</p>
+<p class="meta">Cambridge Data Science Career Accelerator · Group 9 · 2026</p>
+<p class="sub">Banks: HSBC · Barclays &nbsp;&nbsp; Methods: BERTopic · LDA · FinBERT · LDSA · rules protocol &nbsp;&nbsp; Store: data/boe.sqlite</p>
+<h2>Executive summary</h2>
+<p class="note">Front matter. Not counted in the 1,500-word body, following the Assignment 1 convention. Counted prose is Sections 1–3.</p>
+<p>Group 9 asked whether earnings Q&A carries a leading signal that reported metrics alone do not. The pipeline scores tone and, separately, whether the answer was direct, supplied the number, and stayed on the topic asked. The eighteen risk categories were taken from PRA material before any transcript was read. FinBERT agrees with one human coder 60% of the time, kappa 0.28, under a 70% bar set in advance. HSBC half-year 2025 is watch. Credit Suisse’s 2022 failure quarter, held out of the pitch, is null.</p>
+<h2>1. Background and context</h2>
+<p>The Prudential Regulation Authority supervises around 1,500 firms, mainly through structured returns: data on a defined schedule, checked against defined fields. Quarterly results sit outside that pipeline. They mix a curated management presentation with unscripted analyst Q&A, and reading them properly takes both financial and technical skill, so any signal in them is not used systematically. The question is not whether a call can be summarised. It is whether earnings announcements, analyst Q&A, and other public material carry a leading signal about a firm’s prudential condition that the reported metrics alone do not.</p>
+<p>Leading and alone are the words that do the work. A cheerful tone that never answers the question is not the same evidence as a number that moved. This project answers with a repeatable pipeline, not a rating of a firm or of a person. Public PDFs and Excel packs go in. What comes out is a pack a desk can check: the theme, the tone, and whether the answer was direct, supplied the metric, or changed the subject. Re-running it next quarter takes about 45 to 90 minutes. A null — no early-warning edge from the call — is a valid result.</p>
+<table>
+<tr><th>Decision</th><th>What was locked</th></tr>
+<tr><td>Banks</td><td>HSBC and Barclays. UK-incorporated, full PRA oversight.</td></tr>
+<tr><td>Question</td><td>Does Q&amp;A carry a signal the four reported lines miss?</td></tr>
+<tr><td>Output</td><td>Alert, watch, or null, with quotes and sample size. Not a firm rating.</td></tr>
+<tr><td>Out of scope</td><td>Video, private returns, training a model from scratch, extra banks.</td></tr>
+</table>
+<p class="sub">Table 1. Scope carried from the plan into the finished pipeline.</p>
+<h2>2. Project development</h2>
+<p>The first decision was what to measure, because a sentiment label only describes the conversation. Beside tone, the pipeline scores the answer itself: was it direct, did it supply the metric that was asked for, and was the topic substituted. In one worked case an analyst asked for the 90-day past-due rate on the UK cards book, this quarter against the last. Management said they were comfortable with the overall credit picture and that the portfolio remained robust. The tone is positive. The record is also evasive: directness is low, the requested number is absent, and UK cards has been replaced by “overall credit”. If directness on one topic falls while the tone stays cheerful, that is a warning a supervisor can use. Sentiment alone is not enough.</p>
+<p>The second decision was to fix the categories before anyone read a transcript. Eighteen prudential categories were taken from published PRA and Basel material and linked to reporting families a supervisor already uses, including LCR, NSFR and ALMM for liquidity. Capital is split into the current position and forward-looking stress planning. Profitability keeps an interest-rate element for IRRBB. Mixed and untagged rows stay unmapped until a person separates them. Built this way, the map is a test. Built from the transcripts, it would succeed by design. Where it fails is informative: if liquidity is first-order for the PRA and the call barely mentions it, that absence is a finding. A later eight-way filing of the same map groups quotes. It does not fire an alert.</p>
+<p>Scope stayed on HSBC and Barclays, both UK-incorporated and under full PRA oversight. The plan named 20 transcripts. The finished UK set is 137 files, 136 of them results calls. One HSBC equity-analyst meeting is a different event and is excluded rather than averaged in. Peer comparison uses the 62 quarters in which both banks published, paired by quarter rather than by complete year, which keeps 2010 and 2011. HSBC reported twice a year until 2008. Barclays does not appear until the second quarter of 2010. Gaps stay gaps. Nothing is interpolated or filled with zero. The four metrics stayed locked: total income, operating costs, credit impairment or ECL, and CET1. Credit Suisse 2020–2022 was built as an out-of-sample third bank and was held out of the pitch. It is in this report. It does not enter the HSBC–Barclays peer gap.</p>
+<p>Preparation is six steps from PDF to a scored pair, because an unnamed turn would poison question-versus-answer sentiment. pdfplumber extracts the text. Each bank has its own speaker rule: HSBC puts name and role on one line, Barclays puts name and firm on their own line, and the Credit Suisse pattern is tried first so it does not steal other speakers. That yields 4,188 speaker turns, and every analyst turn is named. Those turns become 1,213 question-and-answer pairs. In 192 cases an executive reply sat inside the analyst’s turn and had to be split. HSBC’s “interim” and Barclays’ “Q2” keep their original labels and also receive a shared calendar period. The store is SQLite, which the notebook rebuilds. On Colab, Stage 0 clones the public repository and runs the scripts from that clone. Among questions about the four metrics, 600 answers address the metric and 218 do not, coverage of 73%. The record keeps its limits: 108 empty answers and 369 rows with no publication date.</p>
+<p>Two events were chosen as temporal tests, and they do not prove the same thing. Late 2019 into early 2020 asks whether directness on credit and provisioning fell before the lockdowns. The 2022–23 stress asks whether directness on liquidity dropped in the months before SVB and Credit Suisse failed. COVID was an external shock, so a move in the call is association, not a prediction. The peer window for a matched gap starts in 2012. A Yahoo Finance check covers recent headlines only, not the full twenty years. Time, peer, and pack versus narrative are the baselines. Both a divergence and an agreement count as findings.</p>
+<p>Topics use BERTopic rather than LDA because short financial questions need dense embeddings. On this corpus BERTopic coherence is 0.46 against LDA at 0.40, with five live topics, so LDA stays the check. Topic numbers move if the model is refit, so a pack cites the quote, not a permanent topic id. Sentiment was scored blind against one human coder on 90 pairs. Whole-turn FinBERT agrees 60% of the time, Cohen’s kappa 0.28, macro-F1 0.52. The Loughran–McDonald lexicon agrees 42%, kappa 0.02, which is chance once the shared habit of choosing neutral is removed. Kappa is the figure we stand behind, not 60% on its own. FinBERT labels about 80% of questions neutral and misses most human negatives, which is the hedged language supervisors care about. The two sentiment methods agree with each other only about 58% of the time. Sentence scoring and an LLM coder were also run. Neither met the 70% bar set before coding began, and the bar was not moved.</p>
+<p>A light fine-tune of FinBERT was trained and not promoted. A gain on labels the model family helped to create would be circular, so it is not a reason to change the head. The gate stays shut until the second coder’s blind pass is in, and only a win against plain FinBERT on those human labels would open it. Scripts score the human files. They do not rewrite them. The pack itself is rules, not one risk score, and alert, watch, and null are not a PRA rating. Alert needs a credit narrative that disagrees with the pack, or a matched peer gap worse than −0.10 where neither side is entirely FinBERT-neutral. Watch is a soft net below −0.08 without that contradiction. Null is flat tone: no early-warning edge.</p>
+<p>The proof cases are where the pitch becomes a product. HSBC half-year 2025 is watch: FinBERT net −0.13 on eight analyst turns. The matched Barclays print is entirely FinBERT-neutral, so the gap of about −0.13 is shown and refused as an alert. Barclays half-year 2026 is the same shape of watch in the other direction. Credit Suisse’s fourth quarter of 2022, the failure window held out of the pitch, is null: net +0.08 on 20 turns and no FinBERT negatives. The lexicon flags loss words inside some of those neutral turns. That is disclosed on the note. It does not flip the rule. Across 2020–2022 the Credit Suisse tone does not worsen into the collapse, so the pipeline is not read as having predicted a failure it did not see.</p>
+<p>Two constraints sit on the method, taken from the Bank’s own trusted-AI tests rather than from an internal checklist. Directness is a triage signal. It says where to look. It is not an assessment of a firm or of an individual, and no conclusion follows without a person. The regulatory regime also changed under the data. The PRA did not exist before 2013, so a category built from today’s PRA sources, laid on a 2006 transcript, is anachronistic by construction. The run is provisional for that reason. On 212 bank-quarter-metric overlaps, narrative direction and the pack agree 26% of the time, and credit impairment agrees on 18% of 44 rows. Many of those splits are a flat narrative against a pack that moved, which is the neutral bias again, so they are a lead for a person, not an automatic alert.</p>
+<table>
+<tr><th>Choice</th><th>Alternative considered</th><th>Why this one</th></tr>
+<tr><td>BERTopic</td><td>Fixed taxonomy only, or LDA as the live model</td><td>Themes come from the Q&amp;A. LDA is the coherence check (0.46 vs 0.40).</td></tr>
+<tr><td>Whole-turn FinBERT</td><td>Sentence FinBERT, lexicon, or LLM as the scorer</td><td>Best of the tested units on answers. None met 70%.</td></tr>
+<tr><td>Rules protocol</td><td>A single risk score</td><td>A desk can re-run and refuse a bad peer gap.</td></tr>
+<tr><td>Human gold gate</td><td>Promote the fine-tune on silver labels</td><td>Silver lift was circular (0.43 to 0.64). Head stays unpromoted.</td></tr>
+</table>
+<p class="sub">Table 2. Model choices against the alternatives that were actually run.</p>
+<p><strong>Protocol conditions, as implemented.</strong></p>
+<pre>A1 alert  — topic negative share rises AND credit-impairment narrative disagrees with the pack.
+A2 alert  — matched peer gap &lt; −0.10, both n ≥ 3, peer side not 100% FinBERT-neutral.
+A3 watch  — FinBERT net &lt; −0.08 and the pack is not contradicted.
+N1 null   — tone flat and pack and narrative agree. Report no early-warning edge.</pre>
+<p class="sub">Code snapshot. Rules in scripts/build_supervisory_episode.py, published by scripts/generate_pra_note.py.</p>
+<h2>3. Results</h2>
+<p>The strongest result is a negative one. The two sentiment methods agree with each other only about 58% of the time. FinBERT calls about 80% of questions neutral. Against a human coder it reaches kappa 0.28, under the 70% bar set before the work started, and it misses the hedged negatives a supervisor would want to see. The behavioural record — directness, whether the metric was supplied, whether the topic was substituted — is what the pack adds on top of tone. HSBC half-year 2025 is watch, not a rating of the firm, and the peer alert is refused because the matched Barclays print is model-flat. Credit Suisse’s failure quarter, held out of the pitch, is null.</p>
+<p>For the Bank, use the pack as triage when filings land. A person accepts or rejects watch, alert, or null. Do not promote the fine-tune until the second coder’s blind labels are in, and only if it beats plain FinBERT there. Do not fill gaps in the peer history, and do not treat a neutral score as “no issue”. Next is that second coder, a retag of metric hits so an agree column is evidenced rather than empty, and a clear note wherever a current PRA category is laid on a year before 2013.</p>
+<table>
+<tr><th>Episode</th><th>FinBERT net</th><th>n</th><th>Verdict</th></tr>
+<tr><td>HSBC 2025-H1</td><td>−0.13</td><td>8</td><td>Watch (A3). Peer alert refused.</td></tr>
+<tr><td>Barclays 2026-H1</td><td>−0.11</td><td>7</td><td>Watch (A3). Peer alert refused.</td></tr>
+<tr><td>Credit Suisse 2022-Q4</td><td>+0.08</td><td>20</td><td>Null (N1). Out of sample.</td></tr>
+</table>
+<p class="sub">Table 3. Reviewed protocol cases. Source: PRA notes generated 27 September 2026.</p>
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>FinBERT vs human gold</td><td>60% raw, kappa 0.28, macro-F1 0.52. Bar of 70% not met.</td></tr>
+<tr><td>Eight-way dual code</td><td>Machine vs machine 35%. Human vs machine 50% (n=60).</td></tr>
+<tr><td>Sentence FinBERT / LLM</td><td>Sentence kappa 0.13. LLM negative recall on questions 69% vs FinBERT 31%.</td></tr>
+<tr><td>Pack vs narrative</td><td>Agree on 26% of 212 overlaps. Credit impairment 18% of 44.</td></tr>
+<tr><td>Fine-tune</td><td>Not promoted. active_model_id stays empty.</td></tr>
+</table>
+<p class="sub">Table 4. Validation the verdict depends on.</p>
+<h2>Reproducibility</h2>
+<p>Notebook: notebooks/boe_earnings_insights.ipynb. On Colab, Stage 0 clones https://github.com/susanavenda/boe-earnings-insights and runs scripts/ from that clone. CSV mirrors of the tables are in data/processed/. Team: Aidan, Alfred, Bupathi, Debanjan, Rafael, Susana Venda, Taz.</p>
+<p class="sub">Word count: 1637 words in Sections 1–3 (Section 1: 196; Section 2: 1230; Section 3: 211). Tables, captions, the code snapshot, the executive summary, and this line are excluded.</p>
+</body></html>
