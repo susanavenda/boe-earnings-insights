@@ -162,6 +162,93 @@ def test_topic_substitution_is_behaviour_not_a_sentiment_label():
     )
     out = behavioural_signals(qa)
     assert float(out["topic_substitution"].iloc[0]) == 1.0
+    assert bool(out["substitution_measurable"].iloc[0]) is True
+
+
+def test_m6_matches_whole_words_not_substrings():
+    # "forward" contains "rwa" and "decline" contains "ecl": neither is a metric ask.
+    qa = pd.DataFrame(
+        [
+            {
+                "question_text": "Going forward, how do you see the decline in margins?",
+                "answer_text": "We expect margins to stabilise in the second half.",
+            },
+            {
+                "question_text": "Where do you see RWAs and the CET1 ratio by year end?",
+                "answer_text": "We expect capital to stay inside the target range.",
+            },
+        ]
+    )
+    out = behavioural_signals(qa)
+    assert pd.isna(out["metric_coverage"].iloc[0])
+    assert bool(out["substitution_measurable"].iloc[0]) is False
+    assert float(out["metric_coverage"].iloc[1]) == 1.0
+
+
+def test_m6_empty_answer_is_missing_not_indirect():
+    qa = pd.DataFrame(
+        [
+            {
+                "question_text": "Can you update on CET1 this quarter please?",
+                "answer_text": "",
+            },
+            {
+                "question_text": "Can you update on CET1 this quarter please?",
+                "answer_text": float("nan"),
+            },
+        ]
+    )
+    out = behavioural_signals(qa)
+    for col in ("directness", "metric_coverage", "topic_substitution"):
+        assert out[col].isna().all(), col
+    assert not out["substitution_measurable"].any()
+
+
+def test_m6_substitution_does_not_read_or_change_shared_seed_columns():
+    # Seed columns say capital→capital; the text says capital→profitability.
+    qa = pd.DataFrame(
+        [
+            {
+                "question_text": "What about the CET1 ratio this quarter?",
+                "answer_text": "Revenue and fee income were very strong this quarter.",
+                "seed_topic_q": "capital",
+                "seed_topic_a": "capital",
+            }
+        ]
+    )
+    out = behavioural_signals(qa)
+    assert float(out["topic_substitution"].iloc[0]) == 1.0
+    assert out["seed_topic_q"].iloc[0] == "capital"
+    assert out["seed_topic_a"].iloc[0] == "capital"
+
+
+def test_state_summary_reports_m6_denominators():
+    from build_a1_evidence import state_summary
+
+    qa = behavioural_signals(
+        pd.DataFrame(
+            [
+                {
+                    "question_text": "What about the CET1 ratio this quarter?",
+                    "answer_text": "Revenue and fee income were very strong this quarter.",
+                },
+                {
+                    "question_text": "Good morning, a broader question on strategy.",
+                    "answer_text": "Thank you, we remain focused on execution.",
+                },
+                {
+                    "question_text": "And on impairment?",
+                    "answer_text": "",
+                },
+            ]
+        ).assign(pair_id=["a", "b", "c"], bank="hsbc", quarter="2025-interim")
+    )
+    ss = state_summary(qa, None).iloc[0]
+    assert int(ss["n_pairs"]) == 3
+    assert int(ss["n_coverage_asked"]) == 1
+    assert int(ss["n_substitution_measurable"]) == 1
+    # Rate stays over answered pairs (empty answer excluded, unmeasurable = 0.0).
+    assert float(ss["substitution_rate"]) == 0.5
 
 
 def test_equity_analysts_meeting_is_other_not_results_call():
