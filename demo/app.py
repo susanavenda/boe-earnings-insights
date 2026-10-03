@@ -227,11 +227,17 @@ def in_peer_window(label) -> bool:
 
 
 def agree_row(row: pd.Series) -> str:
+    # 0/1 from SQLite is not `is True` / `is False`.
+    labelled = None
     faith = row.get("faithful")
-    if faith is True:
-        return "yes"
-    if faith is False:
-        return "no"
+    try:
+        missing = bool(pd.isna(faith))
+    except (TypeError, ValueError):
+        missing = faith is None
+    if not missing:
+        labelled = "yes" if bool(faith) else "no"
+    if labelled is not None:
+        return labelled
     nar = str(row.get("narrative_direction") or "").strip().lower()
     hits = row.get("n_qa_hits")
     if pd.isna(hits) or int(hits or 0) == 0 or nar in ("", "nan", "none"):

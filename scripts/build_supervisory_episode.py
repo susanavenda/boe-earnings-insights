@@ -12,6 +12,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from keywords import any_keyword  # noqa: E402
 from periods import calendar_period, matched_peer_gap, period_sort_key  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
 
@@ -54,7 +55,7 @@ REVIEWED_IDS = frozenset(e["id"] for e in EPISODES)
 METRIC_KW = {
     "credit_impairment": ["impairment", "ecl", "stage 2", "credit cost", "cost of risk", "viu", "npl"],
     "operating_costs": ["cost", "costs", "efficiency", "expense"],
-    "cet1_ratio": ["cet1", "capital"],
+    "cet1_ratio": ["cet1", "capital ratio", "rwa", "tier 1"],
     "total_income": ["nii", "income", "revenue", "hibor", "fee"],
 }
 
@@ -271,7 +272,7 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
 
     briefs = []
     for metric, kws in METRIC_KW.items():
-        hits = ep[ep["text"].str.lower().apply(lambda t: any(k in t for k in kws))]
+        hits = ep[ep["text"].fillna("").apply(lambda t: any_keyword(t, kws))]
         row_s = struct[struct["metric"] == metric]
         direction = row_s["direction"].iloc[0] if len(row_s) else "n/a"
         value = float(row_s["value"].iloc[0]) if len(row_s) else None
