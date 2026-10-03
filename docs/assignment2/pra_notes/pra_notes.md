@@ -1,6 +1,6 @@
 # PRA supervisory note — HSBC 2025-interim (H1)
 
-**Date:** 2026-09-27 · **Group 9** · Bank of England employer project  
+**Date:** 2026-10-03 · **Group 9** · Bank of England employer project  
 **Window:** 2025-H1 (narrative `2025-interim` · pack `2025-q2`)
 
 ---
@@ -28,10 +28,10 @@ HSBC 2025-interim (H1): FinBERT net -0.13; Topic 1=0 turns; peer on 2025-H1: HSB
 
 | Metric | Reported | Q&A tone | Agree? |
 |---|---|---|---|
-| credit_impairment | down | down | n/a |
-| operating_costs | down | down | n/a |
-| cet1_ratio | flat | flat | n/a |
-| total_income | down | down | n/a |
+| credit_impairment | up | down | no |
+| operating_costs | up | down | no |
+| cet1_ratio | flat | flat | yes |
+| total_income | down | down | yes |
 
 *Agree? = yes/no only when Q&A tone exists; **n/a** if no metric hits in the episode (absence ≠ agreement).*
 
@@ -67,7 +67,7 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 # PRA supervisory note — Barclays 2026-q2 (H1)
 
-**Date:** 2026-09-27 · **Group 9** · Bank of England employer project  
+**Date:** 2026-10-03 · **Group 9** · Bank of England employer project  
 **Window:** 2026-H1 (narrative `2026-q2` · pack `2026-q2`)
 
 ---
@@ -76,18 +76,18 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 **WATCH — soft Q&A tone but narrative broadly agrees with pack directions**
 
-Barclays 2026-q2 (H1): FinBERT net -0.11; Topic 1=1 turns; peer on 2026-H1: HSBC=-0.029 (n=19) vs Barclays=-0.107 (n=7); gap=0.079
+Barclays 2026-q2 (H1): FinBERT net -0.11; Topic 1=1 turns; peer on 2026-H1: HSBC=0.000 (n=9) vs Barclays=-0.107 (n=7); gap=0.107 — Matched 2026-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=0.000, n=9, non-neut=0%; Barclays net=-0.107, n=7, non-neut=14%). Gap 0.107 is not treated as an A2 alert.
 
 | KPI | Value |
 |---|---|
 | Analyst turns | 7 |
 | FinBERT net | -0.107 |
 | Topic 1 turns / neg share | 1 / 0% |
-| Peer sides (matched) | HSBC -0.029 (n=19, non-neut 5%) · Barclays -0.107 (n=7, non-neut 14%) |
-| Peer gap (HSBC − Barclays) | 0.079 |
+| Peer sides (matched) | HSBC 0.000 (n=9, non-neut 0%) · Barclays -0.107 (n=7, non-neut 14%) |
+| Peer gap (HSBC − Barclays) | 0.107 · **not used for A2** |
 | Rules fired | A3 |
 
-
+**Peer caveat:** Matched 2026-H1 has both banks, but one side is 100% FinBERT-neutral (HSBC net=0.000, n=9, non-neut=0%; Barclays net=-0.107, n=7, non-neut=14%). Gap 0.107 is not treated as an A2 alert.
 
 ---
 
@@ -95,10 +95,10 @@ Barclays 2026-q2 (H1): FinBERT net -0.11; Topic 1=1 turns; peer on 2026-H1: HSBC
 
 | Metric | Reported | Q&A tone | Agree? |
 |---|---|---|---|
-| credit_impairment | down | n/a | n/a |
-| operating_costs | down | flat | n/a |
+| credit_impairment | up | n/a | n/a |
+| operating_costs | up | flat | no |
 | cet1_ratio | flat | n/a | n/a |
-| total_income | up | down | n/a |
+| total_income | up | flat | no |
 
 *Agree? = yes/no only when Q&A tone exists; **n/a** if no metric hits in the episode (absence ≠ agreement).*
 
@@ -134,7 +134,7 @@ Assuming new IR PDFs/Excel packs are available: **~45–90 minutes** (drop files
 
 # PRA supervisory note — Credit Suisse 2022-q4 (FY)
 
-**Date:** 2026-09-27 · **Group 9** · Bank of England employer project  
+**Date:** 2026-10-03 · **Group 9** · Bank of England employer project  
 **Window:** 2022-FY (narrative `2022-q4` · pack `2022-q4`)
 
 ---
@@ -149,7 +149,7 @@ Credit Suisse 2022-q4 (FY): FinBERT net 0.08. Peer gap is HSBC−Barclays only; 
 |---|---|
 | Analyst turns | 20 |
 | FinBERT net | 0.079 |
-| Topic 1 turns / neg share | 1 / 0% |
+| Topic 1 turns / neg share | 0 / 0% |
 | Peer sides (matched) | HSBC 0.000 (n=6, non-neut 0%) · Barclays -0.166 (n=14, non-neut 21%) |
 | Peer gap (HSBC − Barclays) | n/a |
 | Rules fired | N1 |
@@ -162,10 +162,10 @@ Credit Suisse 2022-q4 (FY): FinBERT net 0.08. Peer gap is HSBC−Barclays only; 
 
 | Metric | Reported | Q&A tone | Agree? |
 |---|---|---|---|
-| credit_impairment | up | flat | n/a |
-| operating_costs | up | flat | n/a |
-| cet1_ratio | up | flat | n/a |
-| total_income | down | flat | n/a |
+| credit_impairment | up | n/a | n/a |
+| operating_costs | up | flat | no |
+| cet1_ratio | up | flat | no |
+| total_income | down | flat | no |
 
 *Agree? = yes/no only when Q&A tone exists; **n/a** if no metric hits in the episode (absence ≠ agreement).*
 
