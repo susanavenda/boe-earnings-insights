@@ -1,6 +1,8 @@
 """Stage 4 — Rafael extractive briefs, four KPI lock, no gold recode."""
 from __future__ import annotations
 
+import math
+
 from build_metric_briefs import METRIC_KW, METRIC_LABELS, extractive_brief
 
 
@@ -28,7 +30,7 @@ def test_extractive_brief_stays_in_source():
     assert overlap >= 0.2
     missing, ov = extractive_brief("No numbers here at all.", "cet1_ratio")
     assert "not clearly discussed" in missing
-    assert ov == 1.0
+    assert math.isnan(ov)
 
 
 def test_notebook_four_metrics_lock(nb_code):
