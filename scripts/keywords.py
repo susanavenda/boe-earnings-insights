@@ -116,3 +116,15 @@ def directness_v2(question: str, answer: str, answer_word_cap: int = 100) -> flo
     if not tq:
         return None
     return round(len(tq & ta) / len(tq), 3)
+
+
+def narrative_direction(qa_net: float, metric: str | None = None, flat_band: float = 0.05) -> str:
+    """Q&A tone as a direction comparable with the reported one.
+
+    Positive tone reads as "up". For costs and impairment a rising charge is bad
+    news, so negative tone reads as "up" there.
+    """
+    narr = "up" if qa_net > flat_band else "down" if qa_net < -flat_band else "flat"
+    if metric in ABS_DIRECTION_METRICS:
+        narr = {"up": "down", "down": "up"}.get(narr, narr)
+    return narr

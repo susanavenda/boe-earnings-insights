@@ -14,9 +14,9 @@ sys.path.insert(0, str(ROOT / "demo"))
 
 from build_a1_evidence import behavioural_signals, prudential_map, state_summary
 from build_qa_browser_export import flatten_qa_pairs
-from demo.app import agree_row
+from pipeline.agreement import agree_row
 from generate_pra_note import render_note
-from keywords import faith_label, reported_direction
+from keywords import faith_label, narrative_direction, reported_direction
 
 
 def test_faith_label_accepts_sqlite_floats():
@@ -121,3 +121,15 @@ def test_stage_64_does_not_overwrite_narrative_without_metric():
     src = "\n".join("".join(c.get("source") or []) for c in nb["cells"])
     assert "_save('narrative_df', eval_narrative)" not in src
     assert "reported_direction" in src
+
+
+def test_negative_tone_agrees_with_a_rising_charge():
+    # Bigger impairment/cost charge is "up"; negative Q&A tone should agree with it.
+    for metric in ("credit_impairment", "operating_costs"):
+        assert narrative_direction(-0.3, metric) == "up"
+        assert narrative_direction(0.3, metric) == "down"
+        assert narrative_direction(0.0, metric) == "flat"
+        assert narrative_direction(-0.3, metric) == reported_direction(-500, -400, metric=metric)
+    # Income and CET1 keep the plain mapping.
+    assert narrative_direction(0.3, "total_income") == "up"
+    assert narrative_direction(-0.3, "cet1_ratio") == "down"
