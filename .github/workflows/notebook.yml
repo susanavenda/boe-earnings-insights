@@ -115,12 +115,19 @@ jobs:
               sys.exit(1)
           EOF
 
-      - name: Upload executed notebook
+      - name: Export submission tables
+        # Only from a clean run, so the CSVs always match a green executed.ipynb.
+        if: success()
+        run: python scripts/export_tables.py
+
+      - name: Upload executed notebook and submission tables
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: executed-notebook
-          path: executed.ipynb
+          path: |
+            executed.ipynb
+            data/exports/
           retention-days: 14
 
       - name: Commit executed notebook back to the branch

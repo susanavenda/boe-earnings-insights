@@ -76,7 +76,8 @@ A1 Appendix D. Use these names on the pitch, not the old placeholders.
 │   ├── raw/transcripts/       # INPUT — Q&A PDFs
 │   ├── structured/            # INPUT — Excel packs
 │   ├── boe.sqlite             # system of record (gitignored; rebuild via notebook/scripts)
-│   └── processed/             # empty placeholder (legacy CSVs removed)
+│   ├── processed/             # internal scratch CSVs (gitignored)
+│   └── exports/               # submission tables + MANIFEST.md (run ID, commit) — scripts/export_tables.py
 ├── docs/
 │   ├── code.md                # factory code map (stages, sqlite, invariants)
 │   ├── assignment1/           # A1 PDF/DOCX + technical report
