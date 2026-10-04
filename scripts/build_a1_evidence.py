@@ -231,25 +231,51 @@ def _split_bleed(text: str, names: list[str]) -> tuple[str, str]:
     return text[: m.start()].strip(), text[m.start() :].strip()
 
 
+def _norm_speaker(name) -> str:
+    return re.sub(r"\s+", " ", str(name or "").strip().lower())
+
+
+def _analysts_in_file(g: pd.DataFrame) -> set[str]:
+    """Speakers already tagged analyst in this transcript.
+
+    A follow-up often has an empty firm, so the segmenter labels it management.
+    It is still the next question.
+    """
+    if "role" not in g.columns or "speaker" not in g.columns:
+        return set()
+    names = g.loc[g["role"].astype(str) == "analyst", "speaker"]
+    return {n for n in (_norm_speaker(s) for s in names) if n}
+
+
 def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
-    """Consecutive analyst turn + following management turn(s) = one pair."""
+    """Consecutive analyst turn + following management turn(s) = one pair.
+
+    A later turn from someone who asked in this file stays a question. It is
+    not merged into answer_text.
+    """
     df = all_turns.copy().reset_index(drop=True)
     df["section"] = "qa"
     names = _mgmt_names(df)
     rows = []
     for source, g in df.groupby("source", sort=False):
         g = g.reset_index(drop=True)
+        analysts = _analysts_in_file(g)
         i = 0
         pid = 0
         while i < len(g):
             row = g.iloc[i]
-            if row["role"] != "analyst":
+            if row["role"] != "analyst" and _norm_speaker(row.get("speaker")) not in analysts:
                 i += 1
                 continue
             answers = []
             j = i + 1
-            while j < len(g) and g.iloc[j]["role"] == "management":
-                answers.append(str(g.iloc[j]["text"]))
+            while j < len(g):
+                nxt = g.iloc[j]
+                if nxt["role"] == "analyst" or _norm_speaker(nxt.get("speaker")) in analysts:
+                    break
+                if nxt["role"] != "management":
+                    break
+                answers.append(str(nxt["text"]))
                 j += 1
             pid += 1
             qtext = str(row["text"])
@@ -270,7 +296,7 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
                     "date": "",
                     "analyst": row.get("speaker"),
                     "analyst_firm": row.get("firm"),
-                    "speaker_type": row.get("role") or "analyst",
+                    "speaker_type": "analyst",
                     "question_text": qtext,
                     "answer_text": atext,
                     "n_answer_turns": len(answers),
