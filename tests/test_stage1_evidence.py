@@ -147,6 +147,59 @@ def test_seed_label_stays_on_four_kpi_lines():
     assert seed_label("total income and CET1 together") == "mixed"
 
 
+def test_pair_qa_keeps_analyst_followup_out_of_the_answer():
+    turns = pd.DataFrame(
+        [
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Aman Rakkar",
+                "firm": "Barclays",
+                "role": "analyst",
+                "text": "Can you update on the cost of risk this quarter?",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Pam Kaur",
+                "firm": "Group CFO",
+                "role": "management",
+                "text": "We will come back to that with the IR team.",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Aman Rakkar",
+                "firm": "",
+                "role": "management",
+                "text": "Just a follow-up on impairment. Is the charge still rising?",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Someone Else",
+                "firm": "Citi",
+                "role": "analyst",
+                "text": "A separate question on the CET1 ratio please.",
+            },
+        ]
+    )
+    pairs = pair_qa(turns)
+    assert list(pairs["pair_id"]) == [
+        "hsbc_2025-interim_001",
+        "hsbc_2025-interim_001b",
+        "hsbc_2025-interim_002",
+    ]
+    assert "follow-up" not in pairs.iloc[0]["answer_text"].lower()
+    assert "impairment" in pairs.iloc[1]["question_text"].lower()
+    assert pairs.iloc[1]["speaker_type"] == "analyst"
+    assert pairs.iloc[1]["analyst"] == "Aman Rakkar"
+
+
 def test_pair_qa_consecutive_and_bleed_split():
     turns = pd.DataFrame(
         [
