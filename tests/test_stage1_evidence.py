@@ -177,10 +177,23 @@ def test_pair_qa_keeps_analyst_followup_out_of_the_answer():
                 "role": "management",
                 "text": "Just a follow-up on impairment. Is the charge still rising?",
             },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Someone Else",
+                "firm": "Citi",
+                "role": "analyst",
+                "text": "A separate question on the CET1 ratio please.",
+            },
         ]
     )
     pairs = pair_qa(turns)
-    assert len(pairs) == 2
+    assert list(pairs["pair_id"]) == [
+        "hsbc_2025-interim_001",
+        "hsbc_2025-interim_001b",
+        "hsbc_2025-interim_002",
+    ]
     assert "follow-up" not in pairs.iloc[0]["answer_text"].lower()
     assert "impairment" in pairs.iloc[1]["question_text"].lower()
     assert pairs.iloc[1]["speaker_type"] == "analyst"

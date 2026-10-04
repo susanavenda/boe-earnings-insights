@@ -262,9 +262,11 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
         analysts = _analysts_in_file(g)
         i = 0
         pid = 0
+        follow_n = 0
         while i < len(g):
             row = g.iloc[i]
-            if row["role"] != "analyst" and _norm_speaker(row.get("speaker")) not in analysts:
+            is_followup = row["role"] != "analyst" and _norm_speaker(row.get("speaker")) in analysts
+            if row["role"] != "analyst" and not is_followup:
                 i += 1
                 continue
             answers = []
@@ -277,7 +279,14 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
                     break
                 answers.append(str(nxt["text"]))
                 j += 1
-            pid += 1
+            if is_followup:
+                follow_n += 1
+                stem = f"{row['bank']}_{row['quarter']}_{pid:03d}"
+                pair_id = f"{stem}{chr(ord('a') + follow_n)}"
+            else:
+                pid += 1
+                follow_n = 0
+                pair_id = f"{row['bank']}_{row['quarter']}_{pid:03d}"
             qtext = str(row["text"])
             pair_mode = "consecutive"
             if not answers:
@@ -288,7 +297,7 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
             atext = " ".join(answers)
             rows.append(
                 {
-                    "pair_id": f"{row['bank']}_{row['quarter']}_{pid:03d}",
+                    "pair_id": pair_id,
                     "bank": row["bank"],
                     "quarter": row["quarter"],
                     "source": row["source"],
@@ -377,14 +386,15 @@ def _m6_metrics(text: str) -> list[str]:
 def metric_coverage_for(question, answer, metric: str) -> float | None:
     """M6 coverage for one metric.
 
-    None when that metric was not asked. 0 when it was asked and the answer
-    does not use its words. 1 when the answer covers it.
+    None when that metric was not asked, or when the answer is empty (a missing
+    parse, not a failure to cover). 0 when it was asked and the answer does not
+    use its words. 1 when the answer covers it.
     """
     keys = METRIC_KW[metric]
     if _blank(question) or not any_keyword(question, keys):
         return None
     if _blank(answer):
-        return 0.0
+        return None
     return float(any_keyword(str(answer), keys))
 
 

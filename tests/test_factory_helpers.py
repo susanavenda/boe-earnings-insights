@@ -575,6 +575,9 @@ def test_m6_fires_when_impairment_is_asked_and_not_covered():
     covered = asked.copy()
     covered.loc[0, "answer_text"] = "The impairment charge is lower than last year."
     assert "M6" not in build_one(corp, reported, pd.DataFrame(), spec, qa=covered)["episode"]["rules_fired"]
+    empty = asked.copy()
+    empty.loc[0, "answer_text"] = ""
+    assert "M6" not in build_one(corp, reported, pd.DataFrame(), spec, qa=empty)["episode"]["rules_fired"]
 
 
 def test_corpus_quarter_specs_skip_the_three_reviewed():
