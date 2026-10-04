@@ -392,6 +392,98 @@
         ],
         "meets_m4_bar": false
       }
+    },
+    "llm_codex": {
+      "question": {
+        "name": "llm_codex_question",
+        "n": 90,
+        "raw_agreement": 0.7,
+        "cohen_kappa": 0.4978301301921886,
+        "macro_f1": 0.6452858565534623,
+        "recall_by_class": {
+          "negative": 0.7428571428571429,
+          "neutral": 0.6530612244897959,
+          "positive": 0.8333333333333334
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            26,
+            7,
+            2
+          ],
+          [
+            9,
+            32,
+            8
+          ],
+          [
+            1,
+            0,
+            5
+          ]
+        ],
+        "meets_m4_bar": true
+      },
+      "answer": {
+        "name": "llm_codex_answer",
+        "n": 85,
+        "raw_agreement": 0.5529411764705883,
+        "cohen_kappa": 0.2617142857142857,
+        "macro_f1": 0.5006587615283268,
+        "recall_by_class": {
+          "negative": 0.5,
+          "neutral": 0.5,
+          "positive": 0.7142857142857143
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            4,
+            3,
+            1
+          ],
+          [
+            10,
+            28,
+            18
+          ],
+          [
+            1,
+            5,
+            15
+          ]
+        ],
+        "meets_m4_bar": false
+      },
+      "pooled": {
+        "name": "llm_codex_pooled",
+        "n": 175,
+        "raw_agreement": 0.6285714285714286,
+        "cohen_kappa": 0.40859935530830815,
+        "macro_f1": 0.6104267761602588,
+        "recall_by_class": {
+          "negative": 0.6976744186046512,
+          "neutral": 0.5714285714285714,
+          "positive": 0.7407407407407407
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            30,
+            10,
+            3
+          ],
+          [
+            19,
+            60,
+            26
+          ],
+          [
+            2,
+            5,
+            20
+          ]
+        ],
+        "meets_m4_bar": false
+      }
     }
   },
   "coder_vs_coder": {
@@ -492,11 +584,13 @@
     "humans+finbert_sentence_question": 0.2765801972963099,
     "humans+lm_lexicon_question": 0.11946559332719076,
     "humans+llm_question": 0.40738498789346245,
+    "humans+llm_codex_question": 0.41143455098934556,
     "humans_answer": 0.44962182603997847,
     "humans+finbert_turn_answer": 0.2663327893759495,
     "humans+finbert_sentence_answer": 0.17777022433718548,
     "humans+lm_lexicon_answer": 0.2035388623534521,
-    "humans+llm_answer": 0.2941972920696325
+    "humans+llm_answer": 0.2941972920696325,
+    "humans+llm_codex_answer": 0.3269137006338372
   },
   "headline": {
     "finbert_turn_raw": 0.5930232558139535,
@@ -508,9 +602,12 @@
     "llm_kappa": 0.3905506679700228,
     "llm_macro_f1": 0.5869490328256856,
     "llm_meets_m4_bar": false,
-    "best_unit_by_macro_f1": "llm",
+    "llm_codex_raw": 0.6285714285714286,
+    "llm_codex_kappa": 0.40859935530830815,
+    "llm_codex_macro_f1": 0.6104267761602588,
+    "best_unit_by_macro_f1": "llm_codex",
     "m4_met_by_turn": false,
     "m4_met_by_sentence": false
   },
-  "pitch_line": "Human gold n=172 labels (2 coders): FinBERT turn-level 59% raw / macro-F1 0.51; sentence-level 48% / 0.42; LLM annotator 66% / 0.59. M4 bar 70% not met."
+  "pitch_line": "Human gold n=172 labels (2 coders): FinBERT turn-level 59% raw / macro-F1 0.51; sentence-level 48% / 0.42; LLM annotator 66% / 0.59; second LLM (Codex) 63% / 0.61. M4 bar 70% not met."
 }

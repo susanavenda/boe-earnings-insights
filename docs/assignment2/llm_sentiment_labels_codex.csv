@@ -1,0 +1,176 @@
+pair_id,side,label,confidence,rationale,llm_model
+barclays_2011-q3_002,question,neutral,high,Requests reconciliation of £559 million and £711 million hedge gains,gpt-5
+barclays_2011-q3_002,answer,neutral,low,Explains £559 million net hedging benefit versus £711 million product hedges,gpt-5
+barclays_2012-q3_004,question,negative,medium,Challenges the downward Basel III capital shift and higher transitional deductions,gpt-5
+barclays_2012-q3_004,answer,negative,high,Flags weak European growth and somewhat deteriorated impairments despite lower costs,gpt-5
+barclays_2013-q1_001,question,negative,high,Probes rising retail impairments and their future capital implications,gpt-5
+barclays_2013-q1_001,answer,neutral,medium,Forecasts margin decline offset by volume leaving customer interest income flat to up,gpt-5
+barclays_2014-q2_001,question,negative,medium,Tests whether restructuring caused franchise dislocation especially in the United States,gpt-5
+barclays_2014-q2_001,answer,negative,high,Reports weaker July and reduced dark pool activity despite broader franchise resilience,gpt-5
+barclays_2014-q2_010,question,neutral,high,Requests quarterly Core litigation and conduct cost breakdowns,gpt-5
+barclays_2014-q2_010,answer,neutral,low,Explains lending credit hedge accounting amid substantial turn bleed,gpt-5
+barclays_2019-q2_010,question,negative,high,Questions the nine percent RoTE target against lower consensus revenue,gpt-5
+barclays_2019-q2_010,answer,positive,high,Adds second half cost actions and income tailwinds supporting the nine percent target,gpt-5
+barclays_2020-q1_003,question,neutral,medium,Asks how provision size affects transitional capital relief,gpt-5
+barclays_2020-q1_003,answer,neutral,high,Explains relief varies with the scale of stage one and two provisions,gpt-5
+barclays_2020-q1_005,question,negative,medium,Probes potential acquiring chargeback risk,gpt-5
+barclays_2020-q1_005,answer,neutral,high,Reports no unusual chargeback metrics despite sharply lower acquiring volumes,gpt-5
+barclays_2020-q1_009,question,negative,high,Warns UK NII and consensus revenue may fall materially further,gpt-5
+barclays_2020-q1_009,answer,positive,medium,Guides NII above £5 billion while quantifying £500 million of revenue headwinds,gpt-5
+barclays_2020-q3_010,question,neutral,high,Asks whether deposit inflows changed structural hedge strategy,gpt-5
+barclays_2020-q3_010,answer,neutral,medium,Says hedge resizing awaits evidence that recent deposit inflows are sticky,gpt-5
+barclays_2020-annual_003,question,positive,medium,Frames potential NIM performance above the 2.4 percent assumption,gpt-5
+barclays_2020-annual_003,answer,positive,medium,Allows modest NIM upside and reports exceptionally benign underlying credit conditions,gpt-5
+barclays_2020-annual_008,question,negative,high,Challenges flat costs despite falling revenue and questions credit staging confidence,gpt-5
+barclays_2020-annual_008,answer,positive,medium,Adds point of sale financing growth and flexible CIB bonus costs,gpt-5
+barclays_2021-q1_002,question,neutral,high,Requests impairment run rate and hedge sizing assumptions,gpt-5
+barclays_2021-q1_002,answer,positive,high,Guides impairment run rate well below £500 million because unsecured books shrank,gpt-5
+barclays_2022-q3_001,question,negative,high,Highlights a significant 2023 cost gap and asks what flexibility remains,gpt-5
+barclays_2022-q3_001,answer,neutral,medium,Balances FX and inflation headwinds against income benefits efficiencies and compensation flexibility,gpt-5
+barclays_2023-q3_008,question,negative,high,Warns falling UK margins could erase consensus and threaten ten percent returns,gpt-5
+barclays_2023-q3_008,answer,neutral,low,Contains only another analyst question about transaction banking revenue decline,gpt-5
+barclays_2024-q1_001,question,positive,medium,Frames stabilising deposits and improving NIM before asking whether migration has stopped,gpt-5
+barclays_2024-q1_001,answer,positive,high,Reports slower deposit migration and lower full year impairment expectations,gpt-5
+barclays_2024-q2_001,question,neutral,high,Requests clarification of second quarter structural cost actions,gpt-5
+barclays_2024-q2_001,answer,positive,high,Reports £0.4 billion savings and clear visibility toward the £1 billion goal,gpt-5
+barclays_2024-q2_003,question,neutral,low,Asks about structural hedge mechanics without enough usable detail,gpt-5
+barclays_2024-q2_005,question,negative,high,Highlights rising nonperforming card loans despite a turning provision charge,gpt-5
+barclays_2024-q2_005,answer,negative,medium,Flags employment softness and warns card impairments can rise over time,gpt-5
+barclays_2024-q2_006,question,neutral,low,Names BUK and US consumer topics without stating a usable question,gpt-5
+barclays_2024-q2_006,answer,neutral,medium,Reports UK deposit stabilisation alongside US card NIM and late fee headwinds,gpt-5
+barclays_2024-q3_001,question,neutral,high,Requests explanation of quarter to quarter structural hedge volatility,gpt-5
+barclays_2024-q3_001,answer,positive,high,Reports continued hedge momentum and positive mortgage and card margins,gpt-5
+barclays_2024-q3_004,question,positive,medium,Frames delayed capital headwinds as potential capacity for earlier distributions,gpt-5
+barclays_2024-q3_004,answer,neutral,low,Declines client specific card commentary and only confirms the General Motors announcement,gpt-5
+barclays_2024-q3_007,question,neutral,medium,Seeks technical reconciliation of unusually low rate sensitivity,gpt-5
+barclays_2024-q3_007,answer,neutral,high,Explains hedge maturity yields keep producing income despite falling rates,gpt-5
+barclays_2024-q3_009,question,neutral,high,Requests technical explanation of hedge duration sensitivity and reinvestment,gpt-5
+barclays_2024-q3_009,answer,positive,high,Raises locked structural hedge income from £8.6 billion to £12.4 billion,gpt-5
+barclays_2024-annual_001,question,neutral,low,Contains only thanks to Venkat and Anna without an actual ask,gpt-5
+barclays_2024-annual_001,answer,positive,high,Reports every 2024 target achieved and stronger momentum entering 2025,gpt-5
+barclays_2024-annual_002,question,positive,medium,Asks whether regulatory easing could create material funding and lending tailwinds,gpt-5
+barclays_2024-annual_002,answer,neutral,high,Explains affordability testing may matter more than loan to income restrictions,gpt-5
+barclays_2024-annual_003,question,negative,low,Raises concern about absolute cost growth beyond the £16.7 billion base,gpt-5
+barclays_2024-annual_003,answer,negative,high,Guides 2025 costs above £17 billion before expected 2026 savings,gpt-5
+barclays_2024-annual_004,question,neutral,high,Requests fixed income market share and Tesco customer opportunity details,gpt-5
+barclays_2024-annual_004,answer,neutral,low,Mixes securitised product performance with unrelated rate sensitivity mechanics,gpt-5
+barclays_2025-q1_001,question,negative,medium,Probes increased US card reserves beyond the disclosed post model adjustment,gpt-5
+barclays_2025-q1_001,answer,neutral,low,Discusses partnership opportunities without addressing the reserve build,gpt-5
+barclays_2025-q1_004,question,neutral,medium,Asks what spending changes would follow conservative banking wallet assumptions,gpt-5
+barclays_2025-q1_006,question,positive,high,Frames exceptionally strong fixed income performance before testing its sustainability,gpt-5
+barclays_2025-q1_006,answer,neutral,low,Contains only an Investor Relations fragment and no management substance,gpt-5
+barclays_2025-q1_009,question,neutral,low,Offers thanks without posing an analyzable question,gpt-5
+barclays_2025-q1_009,answer,neutral,low,Contains only the speaker name Anna Cross,gpt-5
+barclays_2025-q2_001,question,positive,medium,Frames comfortable capital and asks about distribution upside versus acquisitions,gpt-5
+barclays_2025-q2_001,answer,positive,high,Reports six consecutive market beats and dissipating Banking headwinds,gpt-5
+barclays_2025-q3_001,question,positive,high,Frames twenty percent US consumer growth and asks whether revenues are sustainable,gpt-5
+barclays_2025-q3_001,answer,neutral,low,Contains only a fragment about lending spreads and no management answer,gpt-5
+barclays_2025-q3_002,question,neutral,medium,Asks how deregulation may change competitive capital deployment and product margins,gpt-5
+barclays_2025-q3_002,answer,negative,low,Warns weak financial controls can enable bad acting in NBFI exposures,gpt-5
+barclays_2025-q3_006,question,negative,high,Probes whether recent NBFI events exposed further risks during the portfolio review,gpt-5
+barclays_2025-annual_003,question,neutral,high,Requests product gap details and drivers of above GDP UK loan growth,gpt-5
+barclays_2025-annual_003,answer,neutral,low,Explains longer hedge duration using observed customer deposit behaviour,gpt-5
+barclays_2026-q1_001,question,neutral,low,Provides greetings only before the question text is truncated,gpt-5
+barclays_2026-q1_001,answer,positive,high,Upgrades confidence in 2026 NII and says later consensus is too low,gpt-5
+barclays_2026-q1_003,question,neutral,low,Mentions BUK costs but truncates before any substantive ask,gpt-5
+barclays_2026-q1_005,question,neutral,high,Requests hedge notional and ECL overlay mechanics,gpt-5
+barclays_2026-q1_005,answer,neutral,high,Explains hedge changes reflect long term deposit behaviour rather than quarterly movements,gpt-5
+barclays_2026-q1_008,question,negative,high,Challenges management for dismissing severe geopolitical and market risks,gpt-5
+barclays_2026-q1_008,answer,neutral,medium,Reiterates current RoTE and capital strength without answering the stress scenario,gpt-5
+barclays_2026-q2_002,question,neutral,low,Says thanks without asking a substantive question,gpt-5
+barclays_2026-q2_002,answer,neutral,low,Provides only Anna Cross as the management content,gpt-5
+barclays_2026-q2_003,question,negative,high,Highlights unexpectedly weak PBWM net new assets despite proposition investment,gpt-5
+barclays_2026-q2_003,answer,positive,medium,Adds custody fee removal and record mortgage completions despite weak PBWM inflows,gpt-5
+barclays_2026-q2_004,question,neutral,low,Contains only a brief thank you before the question is lost,gpt-5
+barclays_2026-q2_004,answer,positive,high,Guides second half product margins from negative to neutral or positive,gpt-5
+barclays_2026-q2_005,question,negative,high,Questions whether added investment weakens the commitment to annual BUK cost declines,gpt-5
+barclays_2026-q2_007,question,positive,medium,Frames structural cost actions as unusually high return investments,gpt-5
+barclays_2026-q2_007,answer,positive,high,Raises expected efficiency savings above £2 billion and states increased confidence,gpt-5
+hsbc_2013-q1_004,question,neutral,medium,Requests North American trading detail while noting sluggish Commercial Banking,gpt-5
+hsbc_2013-q1_004,answer,negative,low,Reports Asia margin compression and high regional cost income ratios amid turn bleed,gpt-5
+hsbc_2013-interim_001,question,neutral,high,Requests explanation of lower interest rate sensitivity,gpt-5
+hsbc_2013-interim_001,answer,positive,low,Attributes lower US impairments to a $500 million collateral value increase,gpt-5
+hsbc_2020-interim_007,question,negative,high,Challenges UK mortgage growth despite higher provisions and downside risk,gpt-5
+hsbc_2020-interim_007,answer,negative,medium,Flags over $2 billion of Commercial ECLs despite low risk mortgages,gpt-5
+hsbc_2020-annual_004,question,neutral,high,Requests FX translation treatment for 2021 revenue and cost forecasts,gpt-5
+hsbc_2020-annual_004,answer,neutral,high,Quantifies matching FX effects on revenue and costs without changing the outlook,gpt-5
+hsbc_2021-q1_001,question,negative,high,Expresses surprise that capital missed the strength implied by earnings and lower RWAs,gpt-5
+hsbc_2021-q1_001,answer,neutral,medium,Explains temporary capital deductions while retaining restructuring and distribution plans,gpt-5
+hsbc_2021-interim_005,question,neutral,high,Requests cost mix and normalized wealth revenue clarification,gpt-5
+hsbc_2021-interim_005,answer,negative,high,Raises variable pay accrual and delays China wealth normalization until at least Q4,gpt-5
+hsbc_2021-q3_007,question,neutral,high,Requests IFRS 17 impact and delayed cost to achieve spending mechanics,gpt-5
+hsbc_2021-q3_007,answer,negative,high,Confirms three month programme delays and a Q4 investment cost increase,gpt-5
+hsbc_2022-interim_001,question,negative,high,Questions capital rebuilding buyback timing and potentially significant separation costs,gpt-5
+hsbc_2022-interim_001,answer,negative,high,Delays buybacks and details multibillion dollar separation costs and execution risks,gpt-5
+hsbc_2022-q3_001,question,positive,medium,Argues cautious NII guidance understates benefits from rising rates,gpt-5
+hsbc_2022-q3_001,answer,positive,high,Raises like for like revenue guidance by at least $1.5 billion,gpt-5
+hsbc_2023-q3_002,question,neutral,medium,Requests detail on technology spending and trading book funding cost guidance,gpt-5
+hsbc_2023-q3_002,answer,negative,medium,Reveals higher than expected inflation while maintaining existing cost guidance,gpt-5
+hsbc_2023-annual_008,question,negative,high,Challenges repeated cost overruns and asks what offsets exist if revenue disappoints,gpt-5
+hsbc_2023-annual_008,answer,neutral,medium,Balances unexpected levies and higher investment against divestment savings and revenue opportunities,gpt-5
+hsbc_2024-q1_003,question,negative,high,Highlights deposit outflows versus peers and asks whether strategy caused them,gpt-5
+hsbc_2024-q1_003,answer,positive,high,Shows outflows funded wealth inflows and confirms a net structural hedge tailwind,gpt-5
+hsbc_2024-interim_006,question,neutral,low,Contains only congratulations to Noel before the substantive question moves into the answer,gpt-5
+hsbc_2024-interim_006,answer,positive,high,Raises confidence in $43 billion NII and identifies improving deposit migration,gpt-5
+hsbc_2024-interim_007,question,neutral,low,Offers farewell praise to Noel without presenting the actual question,gpt-5
+hsbc_2024-interim_007,answer,positive,high,Reports Wealth exceeded seasonal expectations with strong lead indicators,gpt-5
+hsbc_2024-q3_008,question,negative,medium,Probes the $1.1 billion rise in stage three Hong Kong loans,gpt-5
+hsbc_2024-q3_008,answer,negative,medium,Warns further CRE migrations may occur before interest rates ease,gpt-5
+hsbc_2024-annual_002,question,neutral,high,Requests return and risk details for cost reallocation and tariff planning,gpt-5
+hsbc_2024-annual_002,answer,positive,high,Expects higher returns from reallocated costs and calls January trading encouraging,gpt-5
+hsbc_2024-annual_006,question,negative,medium,Questions whether lower buybacks and higher restructuring costs are permanent,gpt-5
+hsbc_2024-annual_006,answer,positive,medium,Attributes the smaller buyback to timing and identifies future savings tailwinds,gpt-5
+hsbc_2024-annual_008,question,neutral,high,Asks whether faster reallocations create upside and probes CRE deterioration,gpt-5
+hsbc_2024-annual_008,answer,positive,high,Calls China CRE past trough and sees no material future ECL driver,gpt-5
+hsbc_2024-annual_009,question,negative,medium,Challenges the sharp fall in Hong Kong CRE stage three coverage,gpt-5
+hsbc_2024-annual_009,answer,neutral,high,Explains lower coverage through secured migrations and China CRE writeoffs,gpt-5
+hsbc_2024-annual_011,question,neutral,high,Requests sources timing and restructuring charges for the $1.5 billion reallocation,gpt-5
+hsbc_2024-annual_011,answer,neutral,high,Confirms identified costs but withholds timing and precise one off charges,gpt-5
+hsbc_2025-q1_002,question,positive,medium,Frames strong results and asks how trade resilience creates further opportunities,gpt-5
+hsbc_2025-q1_002,answer,positive,high,Reports 300000 new Hong Kong customers and expects additional trade market share,gpt-5
+hsbc_2025-q1_003,question,neutral,high,Requests scenario comparability and the latest Hong Kong CRE trend,gpt-5
+hsbc_2025-q1_003,answer,neutral,high,Reports one downgrade but no significant Hong Kong CRE ECL impact,gpt-5
+hsbc_2025-q1_006,question,neutral,medium,Tests whether mid teens returns survive the tariff downside without extra cuts,gpt-5
+hsbc_2025-q1_006,answer,positive,high,Commits to mid teens returns under downside without additional cost actions,gpt-5
+hsbc_2025-q1_009,question,negative,medium,Questions higher FX costs current downside conditions and Bocom valuation risk,gpt-5
+hsbc_2025-q1_009,answer,neutral,high,Explains offsetting FX revenue and says Bocom has no distribution impact,gpt-5
+hsbc_2025-q1_010,question,neutral,high,Requests stimulus treatment and loan growth assumptions under tariff uncertainty,gpt-5
+hsbc_2025-q1_010,answer,neutral,medium,Balances confidence in China with continued delays to corporate loan demand,gpt-5
+hsbc_2025-q1_011,question,negative,medium,Probes falling trade demand and possible client opportunities under tariffs,gpt-5
+hsbc_2025-q1_011,answer,neutral,medium,Confirms major trade slowdown but expects deeper relationships and new clients,gpt-5
+hsbc_2025-interim_001,question,neutral,high,Requests HIBOR timing and cost of risk assumptions beyond 2025,gpt-5
+hsbc_2025-interim_001,answer,neutral,high,Explains HIBOR assumptions and declines to guide ECL beyond 2025,gpt-5
+hsbc_2025-interim_003,question,negative,high,Challenges BoCom impairment timing and warns Hong Kong CRE pressure may worsen,gpt-5
+hsbc_2025-interim_003,answer,negative,medium,Flags continued office CRE pressure despite residential stabilisation and adequate reserves,gpt-5
+hsbc_2025-interim_008,question,negative,medium,Tests whether further BoCom impairment could constrain capital and shareholder returns,gpt-5
+hsbc_2025-interim_008,answer,neutral,high,Reports ample deduction headroom and no material capital or distribution impact,gpt-5
+hsbc_2025-q3_002,question,positive,high,Frames major NII guidance and insurance growth improvements before asking sustainability,gpt-5
+hsbc_2025-q3_002,answer,positive,high,Confirms deposit strength structural hedge tailwinds and no material insurance one offs,gpt-5
+hsbc_2025-q3_003,question,negative,high,Raises NII deposit cost risk and worsening Hong Kong CRE stage three loans,gpt-5
+hsbc_2025-q3_003,answer,positive,high,Upgrades NII guidance while noting continued office CRE pressure,gpt-5
+hsbc_2025-q3_005,question,positive,high,Argues current earnings support a high teens rather than mid teens return target,gpt-5
+hsbc_2025-q3_005,answer,neutral,high,Maintains the existing mid teens target and offers no upgraded commitment,gpt-5
+hsbc_2025-q3_008,question,negative,high,Probes higher UK investment impairments and uncertain Madoff litigation outcomes,gpt-5
+hsbc_2025-q3_008,answer,positive,medium,Reports sustainable UK lending growth and no notable impairment concentration,gpt-5
+hsbc_2025-q3_010,question,negative,high,Questions worsening high LTV Hong Kong CRE loans and falling provisions,gpt-5
+hsbc_2025-q3_010,answer,negative,medium,Says high LTV exposure is stable net of provisions but office challenges continue,gpt-5
+hsbc_2025-annual_005,question,positive,medium,Frames strong capital generation as supporting earlier buybacks,gpt-5
+hsbc_2025-annual_005,answer,positive,high,Reports strong capital generation higher dividends and continued deposit growth,gpt-5
+hsbc_2025-annual_007,question,neutral,high,Requests technology detail before expressing discomfort with CRE coverage,gpt-5
+hsbc_2025-annual_007,answer,positive,high,Reports major application retirements productivity gains and residential CRE normalisation,gpt-5
+hsbc_2026-q1_001,question,positive,high,Frames continued exceptional Wealth momentum and CSM growth,gpt-5
+hsbc_2026-q1_001,answer,positive,high,Reports April Wealth momentum despite March slowdown and continued customer growth,gpt-5
+hsbc_2026-q1_002,question,negative,high,Challenges elevated cost growth and asks what could worsen Middle East credit losses,gpt-5
+hsbc_2026-q1_002,answer,neutral,high,Explains savings timing and says severe Middle East stress is already embedded,gpt-5
+hsbc_2026-q1_005,question,negative,high,Questions whether the fraud loss is one off and downside risk may rise,gpt-5
+hsbc_2026-q1_005,answer,neutral,high,Reports no comparable fraud after review and keeps downside weighting near its peak,gpt-5
+hsbc_2026-q1_008,question,negative,high,Warns first quarter credit costs imply sustained Middle East drag,gpt-5
+hsbc_2026-q1_008,answer,positive,medium,Shows underlying credit costs below last year after removing two exceptional charges,gpt-5
+hsbc_2026-interim_001,question,neutral,high,Requests cost drivers and whether China rules slowed client acquisition,gpt-5
+hsbc_2026-interim_001,answer,positive,high,Reports unchanged onboarding stronger customer momentum and $300 million extra savings,gpt-5
+hsbc_2026-interim_003,question,negative,medium,Questions whether buoyant markets create an unsustainably high Wealth base,gpt-5
+hsbc_2026-interim_003,answer,positive,medium,Reports Wealth resilience in a down quarter and durable insurance annuity income,gpt-5
+hsbc_2026-interim_006,question,positive,medium,Frames accelerating growth while asking how investment discipline preserves operating leverage,gpt-5
+hsbc_2026-interim_006,answer,neutral,high,Explains granular investment governance without changing growth or cost guidance,gpt-5
+hsbc_2026-interim_008,question,negative,medium,Questions why taxes remain high and asks how higher variable pay affects costs,gpt-5
+hsbc_2026-interim_008,answer,negative,medium,Declines to forecast lower tax and warns global minimum tax can add liabilities,gpt-5
