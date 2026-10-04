@@ -12,6 +12,6 @@ Rebuild the DB by running the notebook (Stage 0+) or product scripts under `scri
 
 ## Submission tables (`exports/`)
 
-`scripts/export_tables.py` writes one CSV per headline table from `boe.sqlite` (transcript text dropped) and a `MANIFEST.md` with the run and commit they came from. The notebook workflow runs it after every clean run and uploads `data/exports/` with `executed.ipynb` in the `executed-notebook` artifact.
+`scripts/export_tables.py` writes one CSV per headline table from `boe.sqlite` and a `MANIFEST.md` with the run and commit they came from. `qa_pairs.csv` is slim (pair_id, bank, quarter, source, analyst, question, answer) so the Assignment 3 submission includes the text; every other table drops question/answer text. The notebook workflow runs it after every clean run and uploads `data/exports/` with `executed.ipynb` in the `executed-notebook` artifact.
 
 Commit the CSVs **once**, from the artifact of the final green run, so the submitted files match the cited run. Don't edit them by hand; to refresh, re-export from a new green run and commit that artifact's `data/exports/` instead.

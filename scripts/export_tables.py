@@ -43,7 +43,11 @@ TABLES: dict[str, str] = {
     "topic_coherence": "Topic model coherence (c_v)",
     "protocol": "Stage 8 supervisory protocol rules (M1-M6)",
     "pra_supervisor_log": "SYNTHETIC: invented supervisor actions for the desk demo, not a Bank of England record",
+    "qa_pairs": "Stage 1.5 question-answer pairs with text (slim: ids, analyst, question, answer)",
 }
+
+# Slim exports: only these columns. qa_pairs is the one place the transcript text is exported.
+COLUMNS = {"qa_pairs": ["pair_id", "bank", "quarter", "source", "analyst", "question_text", "answer_text"]}
 
 # The report's headline numbers come from these; without them the export is useless.
 REQUIRED = ("struct_vs_unstruct", "reported_metrics", "state_summary", "behavioural_signals")
@@ -51,7 +55,7 @@ REQUIRED = ("struct_vs_unstruct", "reported_metrics", "state_summary", "behaviou
 # Invented desk actions for the demo, not a Bank of England record: say so in the file name.
 FILE_NAMES = {"pra_supervisor_log": "pra_supervisor_log_SYNTHETIC"}
 
-# Transcript text stays in the internal DB; the exports carry figures, not transcripts.
+# Every other table carries figures only; the text is in qa_pairs.csv, joined on pair_id.
 DROP_COLS = {"question_text", "answer_text"}
 
 
@@ -113,7 +117,10 @@ def export(out_dir: Path = EXPORTS) -> dict[str, int]:
         df = load_df(name)
         if name == "behavioural_signals":
             frames["behavioural_signals_full"] = df
-        df = df.drop(columns=[c for c in df.columns if c in DROP_COLS])
+        if name in COLUMNS:
+            df = df[[c for c in COLUMNS[name] if c in df.columns]]
+        else:
+            df = df.drop(columns=[c for c in df.columns if c in DROP_COLS])
         df.to_csv(out_dir / _file(name), index=False)
         frames[name], counts[name] = df, len(df)
 
