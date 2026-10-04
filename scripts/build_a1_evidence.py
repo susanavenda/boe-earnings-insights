@@ -348,6 +348,20 @@ def _m6_metrics(text: str) -> list[str]:
     return [m for m, keys in METRIC_KW.items() if any_keyword(text, keys)]
 
 
+def metric_coverage_for(question, answer, metric: str) -> float | None:
+    """M6 coverage for one metric.
+
+    None when that metric was not asked. 0 when it was asked and the answer
+    does not use its words. 1 when the answer covers it.
+    """
+    keys = METRIC_KW[metric]
+    if _blank(question) or not any_keyword(question, keys):
+        return None
+    if _blank(answer):
+        return 0.0
+    return float(any_keyword(str(answer), keys))
+
+
 def _m6_bucket(text: str) -> str:
     """Four-line bucket for substitution: untagged, one bucket, or mixed."""
     hits = _m6_metrics(text)
