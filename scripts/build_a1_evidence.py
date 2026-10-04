@@ -495,7 +495,27 @@ def substitution_headline(qa: pd.DataFrame) -> str:
         return "no measurable pairs"
     k = int(pd.to_numeric(qa.loc[flag, "topic_substitution"], errors="coerce").fillna(0).sum())
     lo, hi = wilson_interval(k, n)
-    return f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%})"
+    answered = int(pd.to_numeric(qa["topic_substitution"], errors="coerce").notna().sum())
+    return (
+        f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%}); "
+        f"{answered - n} of {answered} answered pairs could not be measured"
+    )
+
+
+def directness_length_corr(qa: pd.DataFrame) -> float | None:
+    """Pearson r between directness (v1) and answer length in words.
+
+    v1 is token overlap, so it rises with answer length; v2 caps the answer at
+    100 words. Report r next to both measures.
+    """
+    if qa is None or qa.empty or "directness" not in qa.columns:
+        return None
+    d = pd.to_numeric(qa["directness"], errors="coerce")
+    n_words = qa["answer_text"].fillna("").astype(str).str.split().str.len()
+    ok = d.notna()
+    if ok.sum() < 3:
+        return None
+    return round(float(d[ok].corr(n_words[ok])), 2)
 
 
 def cohort_of(bank) -> str:
@@ -580,6 +600,7 @@ def main(*, configure_store: bool = True) -> None:
     save_df("behavioural_signals", beh)
     print(beh[["directness", "directness_v2", "topic_substitution"]].mean(numeric_only=True).to_string())
     print("substitution", substitution_headline(beh))
+    print("directness v1 vs answer length r =", directness_length_corr(beh))
 
     pmap = prudential_map(beh)
     save_df("prudential_map", pmap)

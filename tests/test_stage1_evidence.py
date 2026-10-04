@@ -384,3 +384,23 @@ def test_equity_analysts_meeting_is_other_not_results_call():
 def test_notebook_tags_event_type_and_filters_results_call(nb_code):
     assert "event_type_from_source" in nb_code
     assert "results_call" in nb_code
+
+
+def test_substitution_headline_states_unmeasured_and_length_corr():
+    from build_a1_evidence import directness_length_corr, substitution_headline
+
+    qa = behavioural_signals(
+        pd.DataFrame(
+            [
+                {"question_text": "What about the CET1 ratio this quarter?",
+                 "answer_text": "Revenue and fee income were very strong this quarter."},
+                {"question_text": "Good morning, a broader question on strategy.",
+                 "answer_text": "Thank you, we remain focused on execution."},
+                {"question_text": "And on impairment?", "answer_text": ""},
+            ]
+        )
+    )
+    head = substitution_headline(qa)
+    assert "of 1 measurable pairs" in head
+    assert "1 of 2 answered pairs could not be measured" in head
+    assert directness_length_corr(qa) is None  # fewer than 3 answered rows
