@@ -12,6 +12,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from keywords import faith_label  # noqa: E402
 from store import load_df, load_json, save_text  # noqa: E402
 from build_supervisory_episode import is_reviewed_episode  # noqa: E402
 
@@ -36,11 +37,7 @@ def render_note(ep: dict, briefs: pd.DataFrame, protocol: pd.DataFrame) -> str:
 
     brief_rows = []
     for _, r in eb.iterrows():
-        faith = r.get("faithful")
-        if faith is True or faith is False:
-            agree = "yes" if faith else "no"
-        else:
-            agree = "n/a"  # missing Q&A tone — not agreement
+        agree = faith_label(r.get("faithful")) or "n/a"  # missing Q&A tone — not agreement
         narr = r.get("narrative_direction")
         narr_s = "n/a" if narr is None or (isinstance(narr, float) and pd.isna(narr)) else str(narr)
         brief_rows.append(

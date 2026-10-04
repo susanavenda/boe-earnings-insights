@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install lightweight test deps
-        run: pip install pytest pytest-cov pandas numpy scikit-learn
+        run: pip install pytest pytest-cov pandas numpy scikit-learn openpyxl
       - name: Run tests
         run: pytest tests/ -q -m "not slow" --cov=scripts --cov-config=.coveragerc --cov-report=term-missing
         env:

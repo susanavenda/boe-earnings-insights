@@ -18,7 +18,10 @@ def test_protocol_cases_are_exactly_three():
 def test_protocol_rules_are_alert_watch_null():
     proto = build_protocol()
     assert set(proto["severity"]) == {"alert", "watch", "null"}
-    assert set(proto["rule_id"]) == {"A1", "A2", "A3", "N1"}
+    assert set(proto["rule_id"]) == {"A1", "A2", "A3", "N1", "M6"}
+    m6 = proto.loc[proto["rule_id"] == "M6"].iloc[0]
+    assert m6["severity"] == "watch"
+    assert m6["condition"] == "At least 3 impairment questions in the quarter and coverage below 50%"
 
 
 def test_cs_trend_is_not_an_extra_protocol_case():

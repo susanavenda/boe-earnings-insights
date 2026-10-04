@@ -546,12 +546,45 @@ def test_build_one_protocol_paths():
     assert out["episode"]["id"] == "hsbc_2025_h1"
     assert out["episode"]["rules_fired"]
     proto = build_protocol()
-    assert len(proto) == 4
+    assert len(proto) == 5
     cs_spec = [e for e in EPISODES if e["id"] == "cs_2022_q4"][0]
     cs_corp, cs_rep = _episode_frames(bank="credit_suisse", quarter="2022-q4", struct="2022-q4", soft=False, impair_hit=False)
     cs_out = build_one(cs_corp, cs_rep, pd.DataFrame(), cs_spec)
     assert cs_out["episode"]["peer_gap_hsbc_minus_barclays"] is None
     assert "n/a" in (cs_out["episode"]["peer_caveat"] or "").lower() or cs_out["episode"]["peer_caveat"]
+
+
+def _impairment_qa(*answers: str) -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "question_text": "How is the impairment charge trending?",
+                "answer_text": answer,
+            }
+            for answer in answers
+        ]
+    )
+
+
+def test_m6_fires_when_impairment_coverage_is_below_half():
+    spec = [e for e in EPISODES if e["id"] == "hsbc_2025_h1"][0]
+    corp, reported = _episode_frames(soft=False, impair_hit=False)
+    uncovered = "We will come back to costs next quarter."
+    covered = "The impairment charge is lower than last year."
+    run = lambda qa=None: build_one(corp, reported, pd.DataFrame(), spec, qa=qa)
+
+    assert "M6" not in run()["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered))["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered, uncovered, covered, covered))["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered, uncovered, ""))["episode"]["rules_fired"]
+
+    flagged = run(_impairment_qa(uncovered, uncovered, uncovered))
+    assert flagged["episode"]["rules_fired"] == ["M6"]
+    assert flagged["episode"]["verdict"].startswith("WATCH")
+    below_half = run(_impairment_qa(uncovered, uncovered, covered))
+    assert below_half["episode"]["rules_fired"] == ["M6"]
 
 
 def test_corpus_quarter_specs_skip_the_three_reviewed():

@@ -7,6 +7,7 @@ from build_a1_evidence import (
     METRIC_KW,
     behavioural_signals,
     pair_qa,
+    prudential8_label,
     seed_label,
 )
 from segment_transcripts import classify_role, infer_bank, infer_quarter, segment_transcript
@@ -95,6 +96,42 @@ def test_sell_side_is_analyst_not_bank_name():
     assert classify_role("Group CFO", "hsbc", "Georges Elhedery") == "management"
 
 
+def test_seed_label_is_whole_word_and_skips_false_friends():
+    assert seed_label("capital markets franchise") == "untagged"
+    assert seed_label("cost of risk rose") == "asset_quality"
+    assert seed_label("Going forward, the decline in margins") == "untagged"
+    assert prudential8_label("the capital markets desk") == "market_traded_risk"
+
+
+def test_directness_v2_ignores_stop_words_and_caps_the_answer():
+    qa = pd.DataFrame(
+        [
+            {
+                "question_text": "What about the CET1 ratio this quarter?",
+                "answer_text": " ".join(["thank you for the question"] * 40 + ["the CET1 ratio is unchanged"]),
+            }
+        ]
+    )
+    out = behavioural_signals(qa)
+    # The ratio is past the first 100 words, so v2 does not see it. v1 still can.
+    assert float(out["directness"].iloc[0]) > 0
+    assert float(out["directness_v2"].iloc[0]) == 0.0
+
+
+def test_blank_treats_none_string_as_empty():
+    qa = pd.DataFrame(
+        [
+            {
+                "question_text": "Can you update on CET1 this quarter please?",
+                "answer_text": "None",
+            }
+        ]
+    )
+    out = behavioural_signals(qa)
+    assert out["directness"].isna().all()
+    assert not out["substitution_measurable"].any()
+
+
 def test_seed_label_stays_on_four_kpi_lines():
     assert set(METRIC_KW) == {
         "total_income",
@@ -108,6 +145,59 @@ def test_seed_label_stays_on_four_kpi_lines():
     assert seed_label("CET1 capital ratio and RWA") == "capital"
     assert seed_label("good morning everyone") == "untagged"
     assert seed_label("total income and CET1 together") == "mixed"
+
+
+def test_pair_qa_keeps_analyst_followup_out_of_the_answer():
+    turns = pd.DataFrame(
+        [
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Aman Rakkar",
+                "firm": "Barclays",
+                "role": "analyst",
+                "text": "Can you update on the cost of risk this quarter?",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Pam Kaur",
+                "firm": "Group CFO",
+                "role": "management",
+                "text": "We will come back to that with the IR team.",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Aman Rakkar",
+                "firm": "",
+                "role": "management",
+                "text": "Just a follow-up on impairment. Is the charge still rising?",
+            },
+            {
+                "bank": "hsbc",
+                "quarter": "2025-interim",
+                "source": "x.pdf",
+                "speaker": "Someone Else",
+                "firm": "Citi",
+                "role": "analyst",
+                "text": "A separate question on the CET1 ratio please.",
+            },
+        ]
+    )
+    pairs = pair_qa(turns)
+    assert list(pairs["pair_id"]) == [
+        "hsbc_2025-interim_001",
+        "hsbc_2025-interim_001b",
+        "hsbc_2025-interim_002",
+    ]
+    assert "follow-up" not in pairs.iloc[0]["answer_text"].lower()
+    assert "impairment" in pairs.iloc[1]["question_text"].lower()
+    assert pairs.iloc[1]["speaker_type"] == "analyst"
+    assert pairs.iloc[1]["analyst"] == "Aman Rakkar"
 
 
 def test_pair_qa_consecutive_and_bleed_split():
@@ -175,7 +265,7 @@ def test_m6_matches_whole_words_not_substrings():
             },
             {
                 "question_text": "Where do you see RWAs and the CET1 ratio by year end?",
-                "answer_text": "We expect capital to stay inside the target range.",
+                "answer_text": "We expect the CET1 ratio to stay inside the target range.",
             },
         ]
     )

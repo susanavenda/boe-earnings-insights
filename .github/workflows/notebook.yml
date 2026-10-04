@@ -1,0 +1,149 @@
+name: notebook
+
+# Full top-to-bottom run of notebooks/boe_earnings_insights.ipynb on a fresh kernel.
+# Slow (~45-90 min), so it does not run on every PR. It runs:
+#   - manually (Actions -> notebook -> Run workflow)
+#   - on push to main when the notebook, scripts, data or requirements change
+#   - on a PR once it has the label "run-notebook"
+# The executed notebook is uploaded as an artifact, including when a cell fails.
+# If every cell runs cleanly on a PR (or a manual run on a branch other than main),
+# the executed notebook is committed back to that branch, so the PR carries the outputs.
+# Pushes made with the workflow token do not trigger new workflow runs, so this cannot loop.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "notebooks/**"
+      - "scripts/**"
+      - "data/**"
+      - "requirements.txt"
+      - ".github/workflows/notebook.yml"
+  pull_request:
+    types: [labeled, synchronize]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notebook-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run-notebook:
+    if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'run-notebook')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      BOE_ROOT: ${{ github.workspace }}
+      # LLM passes stay off: the notebook skips them when no key is set.
+      OPENAI_API_KEY: ""
+      GEMINI_API_KEY: ""
+      GOOGLE_API_KEY: ""
+      BOE_LLM_PROVIDER: ""
+      BOE_USE_LLM_PREPROCESSING: ""
+      BOE_USE_ABSTRACTIVE_SUMMARIES: "0"
+      GITHUB_TOKEN: ""
+      PYTHONUTF8: "1"
+      MPLBACKEND: Agg
+      TOKENIZERS_PARALLELISM: "false"
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      NLTK_DATA: ${{ github.workspace }}/.cache/nltk_data
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # The PR branch itself (not the merge preview), so the result can be pushed back to it.
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Cache model downloads (FinBERT, sentence-transformers, NLTK)
+        uses: actions/cache@v4
+        with:
+          path: |
+            .cache/huggingface
+            .cache/nltk_data
+          key: models-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: models-${{ runner.os }}-
+
+      - name: Install dependencies (CPU torch)
+        run: |
+          python -m pip install --upgrade pip
+          # CPU wheel first so requirements.txt does not pull the ~2 GB CUDA build.
+          pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+          pip install papermill nbformat nbclient pytest
+          python -m ipykernel install --user --name python3
+
+      - name: Execute notebook top to bottom
+        working-directory: notebooks
+        run: |
+          papermill boe_earnings_insights.ipynb ../executed.ipynb \
+            --kernel python3 \
+            --log-output \
+            --progress-bar
+
+      - name: Run tests that need the built database and topic models
+        run: pytest tests/ -q -m "not slow" -rs
+
+      - name: Check every code cell ran without errors
+        if: ${{ !cancelled() }}
+        run: |
+          python - <<'EOF'
+          import sys
+          from pathlib import Path
+          import nbformat
+          p = Path("executed.ipynb")
+          if not p.exists():
+              sys.exit("executed.ipynb was not written (papermill failed before the first cell)")
+          nb = nbformat.read(p, as_version=4)
+          code = [(i, c) for i, c in enumerate(nb.cells) if c.cell_type == "code"]
+          unrun = [i for i, c in code if c.get("execution_count") is None]
+          errors = [(i, o.get("ename"), o.get("evalue", "")[:200])
+                    for i, c in code for o in c.get("outputs", [])
+                    if o.get("output_type") == "error"]
+          print(f"code cells: {len(code)}  unrun: {len(unrun)}  errors: {len(errors)}")
+          for i, name, msg in errors:
+              print(f"  cell {i}: {name}: {msg}")
+          if errors or unrun:
+              print(f"unrun cells: {unrun[:20]}")
+              sys.exit(1)
+          EOF
+
+      - name: Upload executed notebook
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: executed-notebook
+          path: executed.ipynb
+          retention-days: 14
+
+      - name: Commit executed notebook back to the branch
+        # Only after a clean run; PRs from forks get a read-only token, so they are skipped.
+        if: >-
+          success() &&
+          github.ref_name != 'main' &&
+          (github.event_name == 'workflow_dispatch' ||
+           (github.event_name == 'pull_request' &&
+            github.event.pull_request.head.repo.full_name == github.repository))
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          cp executed.ipynb notebooks/boe_earnings_insights.ipynb
+          if git diff --quiet -- notebooks/boe_earnings_insights.ipynb; then
+            echo "Notebook unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add notebooks/boe_earnings_insights.ipynb
+          git commit -m "Notebook executed top to bottom in CI (run ${{ github.run_id }})"
+          # Someone may have pushed during the 45-90 min run. Do not overwrite their work.
+          if ! git push origin "HEAD:${BRANCH}"; then
+            echo "::warning::The branch moved during the run, so the executed notebook was not pushed. Download it from the artifact or re-run."
+          fi

@@ -16,6 +16,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from keywords import keyword_in_text  # noqa: E402
 from store import load_df, save_df  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
@@ -30,7 +31,7 @@ METRIC_LABELS = {
 METRIC_KW = {
     "credit_impairment": ["impairment", "ecl", "stage 2", "credit cost", "cost of risk", "viu"],
     "operating_costs": ["cost", "costs", "efficiency", "expense"],
-    "cet1_ratio": ["cet1", "capital"],
+    "cet1_ratio": ["cet1", "capital ratio", "rwa", "tier 1"],
     "total_income": ["nii", "income", "revenue", "hibor", "fee"],
 }
 
@@ -54,7 +55,7 @@ def extractive_brief(text: str, metric: str, max_sents: int = 2) -> tuple[str, f
     scored = []
     for s in sents:
         sl = s.lower()
-        hit = sum(1 for k in kws if k in sl)
+        hit = sum(1 for k in kws if keyword_in_text(s, k))
         if hit:
             scored.append((hit, len(s), s))
     if not scored:
