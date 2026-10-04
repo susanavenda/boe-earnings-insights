@@ -50,6 +50,13 @@ def keyword_count(text: str, keyword: str) -> int:
     return len(_pattern(keyword).findall(str(text or "")))
 
 
+def keyword_spans(text: str, keyword: str) -> set[tuple[int, int]]:
+    """(start, end) of each whole-word hit. "cost" and "costs" share a pattern, so dedupe on spans."""
+    if not str(keyword).strip():
+        return set()
+    return {m.span() for m in _pattern(keyword).finditer(str(text or ""))}
+
+
 def keyword_in_text(text: str, keyword: str) -> bool:
     return keyword_count(text, keyword) > 0
 
