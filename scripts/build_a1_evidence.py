@@ -251,7 +251,8 @@ def pair_qa(all_turns: pd.DataFrame) -> pd.DataFrame:
     """Consecutive analyst turn + following management turn(s) = one pair.
 
     A later turn from someone who asked in this file stays a question. It is
-    not merged into answer_text.
+    not merged into answer_text. Its id keeps the previous pair number and
+    adds a letter (``_002b``) so later labelled ids do not move.
     """
     df = all_turns.copy().reset_index(drop=True)
     df["section"] = "qa"

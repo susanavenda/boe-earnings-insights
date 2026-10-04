@@ -77,7 +77,7 @@ jobs:
           # CPU wheel first so requirements.txt does not pull the ~2 GB CUDA build.
           pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -r requirements.txt
-          pip install papermill nbformat nbclient
+          pip install papermill nbformat nbclient pytest
           python -m ipykernel install --user --name python3
 
       - name: Execute notebook top to bottom

@@ -198,15 +198,19 @@ def build_protocol() -> pd.DataFrame:
             {
                 "rule_id": "M6",
                 "severity": "watch",
-                "condition": "Impairment asked about and not covered",
-                "action": "Watch — a credit-impairment question was asked and the answer did not cover it",
+                "condition": "At least 3 impairment questions in the quarter and coverage below 50%",
+                "action": "Watch — credit-impairment coverage is below half across at least 3 questions",
             },
         ]
     )
 
 
 def impairment_asked_not_covered(qa: pd.DataFrame | None, bank: str, quarter: str) -> bool:
-    """True when some pair asks about credit impairment and metric_coverage for it is 0."""
+    """True when this quarter has at least 3 impairment questions and coverage is below 50%.
+
+    An empty answer is missing (metric_coverage_for returns None) and does not count.
+    The 3-question and 50% cutoffs are the proposed thresholds, pending J.
+    """
     if qa is None or qa.empty or "question_text" not in qa.columns:
         return False
     sub = qa[
@@ -214,10 +218,15 @@ def impairment_asked_not_covered(qa: pd.DataFrame | None, bank: str, quarter: st
         & (qa["quarter"].astype(str) == str(quarter))
     ]
     answers = sub["answer_text"] if "answer_text" in sub.columns else pd.Series([""] * len(sub))
+    scores = []
     for question, answer in zip(sub["question_text"], answers):
-        if metric_coverage_for(question, answer, "credit_impairment") == 0.0:
-            return True
-    return False
+        covered = metric_coverage_for(question, answer, "credit_impairment")
+        if covered is None:
+            continue
+        scores.append(covered)
+    if len(scores) < 3:
+        return False
+    return (sum(scores) / len(scores)) < 0.5
 
 
 def build_one(corp, reported, peer, spec: dict, qa: pd.DataFrame | None = None) -> dict:
@@ -372,7 +381,7 @@ def build_one(corp, reported, peer, spec: dict, qa: pd.DataFrame | None = None) 
     elif "A3" in fired:
         verdict = "WATCH — soft Q&A tone but narrative broadly agrees with pack directions"
     elif "M6" in fired:
-        verdict = "WATCH — impairment asked about and not covered"
+        verdict = "WATCH — impairment coverage below 50% across at least 3 questions"
     else:
         verdict = "NULL — no early-warning edge from Q&A this quarter"
 

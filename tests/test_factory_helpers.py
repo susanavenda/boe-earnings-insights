@@ -554,30 +554,37 @@ def test_build_one_protocol_paths():
     assert "n/a" in (cs_out["episode"]["peer_caveat"] or "").lower() or cs_out["episode"]["peer_caveat"]
 
 
-def test_m6_fires_when_impairment_is_asked_and_not_covered():
-    spec = [e for e in EPISODES if e["id"] == "hsbc_2025_h1"][0]
-    corp, reported = _episode_frames(soft=False, impair_hit=False)
-    asked = pd.DataFrame(
+def _impairment_qa(*answers: str) -> pd.DataFrame:
+    return pd.DataFrame(
         [
             {
                 "bank": "hsbc",
                 "quarter": "2025-interim",
                 "question_text": "How is the impairment charge trending?",
-                "answer_text": "We will come back to costs next quarter.",
+                "answer_text": answer,
             }
+            for answer in answers
         ]
     )
-    bare = build_one(corp, reported, pd.DataFrame(), spec)
-    flagged = build_one(corp, reported, pd.DataFrame(), spec, qa=asked)
-    assert "M6" not in bare["episode"]["rules_fired"]
+
+
+def test_m6_fires_when_impairment_coverage_is_below_half():
+    spec = [e for e in EPISODES if e["id"] == "hsbc_2025_h1"][0]
+    corp, reported = _episode_frames(soft=False, impair_hit=False)
+    uncovered = "We will come back to costs next quarter."
+    covered = "The impairment charge is lower than last year."
+    run = lambda qa=None: build_one(corp, reported, pd.DataFrame(), spec, qa=qa)
+
+    assert "M6" not in run()["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered))["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered, uncovered, covered, covered))["episode"]["rules_fired"]
+    assert "M6" not in run(_impairment_qa(uncovered, uncovered, ""))["episode"]["rules_fired"]
+
+    flagged = run(_impairment_qa(uncovered, uncovered, uncovered))
     assert flagged["episode"]["rules_fired"] == ["M6"]
     assert flagged["episode"]["verdict"].startswith("WATCH")
-    covered = asked.copy()
-    covered.loc[0, "answer_text"] = "The impairment charge is lower than last year."
-    assert "M6" not in build_one(corp, reported, pd.DataFrame(), spec, qa=covered)["episode"]["rules_fired"]
-    empty = asked.copy()
-    empty.loc[0, "answer_text"] = ""
-    assert "M6" not in build_one(corp, reported, pd.DataFrame(), spec, qa=empty)["episode"]["rules_fired"]
+    below_half = run(_impairment_qa(uncovered, uncovered, covered))
+    assert below_half["episode"]["rules_fired"] == ["M6"]
 
 
 def test_corpus_quarter_specs_skip_the_three_reviewed():
