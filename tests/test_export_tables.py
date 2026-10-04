@@ -37,7 +37,9 @@ def test_export_writes_every_table_and_manifest(db):
     out = db / "exports"
     counts = export_tables.export(out)
     assert set(counts) == set(export_tables.TABLES)
-    assert {p.stem for p in out.glob("*.csv")} == set(export_tables.TABLES)
+    expected = {export_tables.FILE_NAMES.get(t, t) for t in export_tables.TABLES}
+    assert {p.stem for p in out.glob("*.csv")} == expected
+    assert (out / "pra_supervisor_log_SYNTHETIC.csv").exists()
 
     beh = pd.read_csv(out / "behavioural_signals.csv")
     assert not {"question_text", "answer_text"} & set(beh.columns)
@@ -50,11 +52,22 @@ def test_export_writes_every_table_and_manifest(db):
     assert "50% of 2 measurable pairs" in manifest
 
 
-def test_export_fails_loudly_when_a_table_is_missing(db, tmp_path):
+def test_export_fails_loudly_when_a_required_table_is_missing(db, tmp_path):
+    with store.connect() as conn:
+        conn.execute('DROP TABLE "struct_vs_unstruct"')
+    with pytest.raises(SystemExit, match="struct_vs_unstruct"):
+        export_tables.export(tmp_path / "exports")
+
+
+def test_optional_table_missing_is_skipped_and_listed(db, tmp_path):
     with store.connect() as conn:
         conn.execute('DROP TABLE "peer_gap"')
-    with pytest.raises(SystemExit, match="peer_gap"):
-        export_tables.export(tmp_path / "exports")
+    out = tmp_path / "exports"
+    counts = export_tables.export(out)
+    assert "peer_gap" not in counts
+    assert not (out / "peer_gap.csv").exists()
+    manifest = (out / "MANIFEST.md").read_text(encoding="utf-8")
+    assert "## Not exported" in manifest and "`peer_gap`" in manifest
 
 
 def test_stale_csvs_are_removed(db):

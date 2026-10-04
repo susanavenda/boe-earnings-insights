@@ -42,8 +42,14 @@ TABLES: dict[str, str] = {
     "cs_quarter_trend": "Credit Suisse out-of-sample FinBERT trend",
     "topic_coherence": "Topic model coherence (c_v)",
     "protocol": "Stage 8 supervisory protocol rules (M1-M6)",
-    "pra_supervisor_log": "Stage 8 supervisory episode log (synthetic supervisor actions)",
+    "pra_supervisor_log": "SYNTHETIC: invented supervisor actions for the desk demo, not a Bank of England record",
 }
+
+# The report's headline numbers come from these; without them the export is useless.
+REQUIRED = ("struct_vs_unstruct", "reported_metrics", "state_summary", "behavioural_signals")
+
+# Invented desk actions for the demo, not a Bank of England record: say so in the file name.
+FILE_NAMES = {"pra_supervisor_log": "pra_supervisor_log_SYNTHETIC"}
 
 # Transcript text stays in the internal DB; the exports carry figures, not transcripts.
 DROP_COLS = {"question_text", "answer_text"}
@@ -85,21 +91,30 @@ def headline_figures(frames: dict[str, pd.DataFrame]) -> list[str]:
     return lines
 
 
+def _file(name: str) -> str:
+    return f"{FILE_NAMES.get(name, name)}.csv"
+
+
 def export(out_dir: Path = EXPORTS) -> dict[str, int]:
     missing = [t for t in TABLES if not has_df(t)]
-    if missing:
-        raise SystemExit(f"not in boe.sqlite (run the notebook first): {', '.join(missing)}")
+    hard = [t for t in missing if t in REQUIRED]
+    if hard:
+        raise SystemExit(f"not in boe.sqlite (run the notebook first): {', '.join(hard)}")
+    for t in missing:
+        print(f"WARN: {t} not in boe.sqlite; skipped and listed in MANIFEST.md")
     out_dir.mkdir(parents=True, exist_ok=True)
     for old in out_dir.glob("*.csv"):
         old.unlink()
 
     frames, counts = {}, {}
     for name in TABLES:
+        if name in missing:
+            continue
         df = load_df(name)
         if name == "behavioural_signals":
             frames["behavioural_signals_full"] = df
         df = df.drop(columns=[c for c in df.columns if c in DROP_COLS])
-        df.to_csv(out_dir / f"{name}.csv", index=False)
+        df.to_csv(out_dir / _file(name), index=False)
         frames[name], counts[name] = df, len(df)
 
     run_id, run_url = _run()
@@ -121,9 +136,12 @@ def export(out_dir: Path = EXPORTS) -> dict[str, int]:
         "",
         "| File | Rows | Contents |",
         "|---|---:|---|",
-        *[f"| `{n}.csv` | {counts[n]} | {d} |" for n, d in TABLES.items()],
+        *[f"| `{_file(n)}` | {counts[n]} | {d} |" for n, d in TABLES.items() if n in counts],
         "",
     ]
+    if missing:
+        lines += ["## Not exported", "", "Not in `boe.sqlite` for this run:", "",
+                  *[f"- `{t}`: {TABLES[t]}" for t in missing], ""]
     (out_dir / "MANIFEST.md").write_text("\n".join(lines), encoding="utf-8")
     return counts
 
