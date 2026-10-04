@@ -93,7 +93,7 @@ jobs:
         run: pytest tests/ -q -m "not slow" -rs
 
       - name: Check every code cell ran without errors
-        if: always()
+        if: ${{ !cancelled() }}
         run: |
           python - <<'EOF'
           import sys
@@ -117,7 +117,7 @@ jobs:
           EOF
 
       - name: Upload executed notebook
-        if: always()
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: executed-notebook

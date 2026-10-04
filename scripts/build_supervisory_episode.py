@@ -12,6 +12,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_a1_evidence import metric_coverage_for  # noqa: E402
 from keywords import any_keyword, faith_label, narrative_direction  # noqa: E402
 from periods import calendar_period, matched_peer_gap, period_sort_key  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
@@ -194,11 +195,32 @@ def build_protocol() -> pd.DataFrame:
                 "condition": "Topics stable, FinBERT net ≈ flat, structured↔unstructured agree",
                 "action": "Report ‘no early-warning edge from Q&A this quarter’ — valid outcome",
             },
+            {
+                "rule_id": "M6",
+                "severity": "watch",
+                "condition": "Impairment asked about and not covered",
+                "action": "Watch — a credit-impairment question was asked and the answer did not cover it",
+            },
         ]
     )
 
 
-def build_one(corp, reported, peer, spec: dict) -> dict:
+def impairment_asked_not_covered(qa: pd.DataFrame | None, bank: str, quarter: str) -> bool:
+    """True when some pair asks about credit impairment and metric_coverage for it is 0."""
+    if qa is None or qa.empty or "question_text" not in qa.columns:
+        return False
+    sub = qa[
+        (qa["bank"].astype(str).str.lower() == str(bank).lower())
+        & (qa["quarter"].astype(str) == str(quarter))
+    ]
+    answers = sub["answer_text"] if "answer_text" in sub.columns else pd.Series([""] * len(sub))
+    for question, answer in zip(sub["question_text"], answers):
+        if metric_coverage_for(question, answer, "credit_impairment") == 0.0:
+            return True
+    return False
+
+
+def build_one(corp, reported, peer, spec: dict, qa: pd.DataFrame | None = None) -> dict:
     bank, quarter = spec["bank"], spec["quarter"]
     reviewed = is_reviewed_episode(spec)
     ep = corp[(corp["bank"] == bank) & (corp["quarter"] == quarter)].copy()
@@ -338,6 +360,8 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
     if ep_net < -0.08 and impair_flag != "no":
         # soft tone; only A3 when impairment does not actively disagree (True or None)
         fired.append("A3")
+    if impairment_asked_not_covered(qa, bank, quarter):
+        fired.append("M6")
     if not fired:
         fired.append("N1")
 
@@ -347,6 +371,8 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
         verdict = "ALERT — large matched peer gap (HSBC softer than Barclays on H1/FY window)"
     elif "A3" in fired:
         verdict = "WATCH — soft Q&A tone but narrative broadly agrees with pack directions"
+    elif "M6" in fired:
+        verdict = "WATCH — impairment asked about and not covered"
     else:
         verdict = "NULL — no early-warning edge from Q&A this quarter"
 
@@ -433,11 +459,11 @@ def main(only_id: str | None = None):
     reported = load_df("reported_metrics")
     peer = load_df("peer_matched_quarters")
 
+    qa = _try_load("qa_pairs_full")
+    if qa is None:
+        qa = _try_load("qa_pairs")
     specs = [{**e, "reviewed": True} for e in EPISODES if only_id is None or e["id"] == only_id]
     if only_id is None:
-        qa = _try_load("qa_pairs_full")
-        if qa is None:
-            qa = _try_load("qa_pairs")
         specs = specs + corpus_quarter_specs(qa)
     if not specs:
         raise SystemExit(f"No episode matched id={only_id}")
@@ -447,7 +473,7 @@ def main(only_id: str | None = None):
 
     all_eps, all_briefs, all_quotes, all_topics, all_timeline = [], [], [], [], []
     for spec in specs:
-        out = build_one(corp, reported, peer, spec)
+        out = build_one(corp, reported, peer, spec, qa=qa)
         all_eps.append(out["episode"])
         all_briefs.append(out["briefs"])
         all_quotes.append(out["quotes"])
