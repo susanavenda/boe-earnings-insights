@@ -59,7 +59,8 @@ def extractive_brief(text: str, metric: str, max_sents: int = 2) -> tuple[str, f
             scored.append((hit, len(s), s))
     if not scored:
         brief = f"Metric ({METRIC_LABELS[metric]}) not clearly discussed in this turn."
-        return brief, 1.0
+        # No extracted evidence: source overlap is undefined, not perfect.
+        return brief, float("nan")
     scored.sort(key=lambda x: (-x[0], x[1]))
     chosen = [s for _, __, s in scored[:max_sents]]
     brief = " ".join(chosen)
@@ -119,7 +120,7 @@ def main():
     df = pd.DataFrame(rows)
     save_df("metric_briefs_faithful", df)
     print(df.groupby(["bank", "quarter", "method"]).size())
-    print("mean faithfulness", df["faithfulness_overlap"].mean())
+    print("mean source-token overlap (not factual accuracy)", df["faithfulness_overlap"].mean())
     print("wrote metric_briefs_faithful → data/boe.sqlite")
 
 
