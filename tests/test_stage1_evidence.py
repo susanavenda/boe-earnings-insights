@@ -384,3 +384,29 @@ def test_equity_analysts_meeting_is_other_not_results_call():
 def test_notebook_tags_event_type_and_filters_results_call(nb_code):
     assert "event_type_from_source" in nb_code
     assert "results_call" in nb_code
+
+
+def test_split_mixed_ranks_buckets_and_keeps_duplicate_pair_ids():
+    from build_a1_evidence import resolve_seed, split_mixed
+
+    qa = pd.DataFrame(
+        [
+            # costs twice, income once: efficiency wins on count
+            {"pair_id": "x_001", "question_text": "Costs are up and costs keep rising, but what about NII?"},
+            # one each: first mention wins the tie
+            {"pair_id": "x_001", "question_text": "On CET1, and then on impairment."},
+            {"pair_id": "x_002", "question_text": "Thanks for taking my question."},
+        ]
+    )
+    qa["seed_topic_q"] = qa["question_text"].map(seed_label)
+    assert qa["seed_topic_q"].tolist() == ["mixed", "mixed", "untagged"]
+
+    long, pairs = split_mixed(qa)
+    assert len(pairs) == 2  # same pair_id, two rows
+    assert pairs["primary_bucket"].tolist() == ["efficiency", "capital"]
+    assert pairs["primary_by"].tolist() == ["count", "first_mention"]
+    assert pairs["review"].tolist() == [False, True]
+    assert long.groupby("row_key")["share"].sum().round(2).eq(1).all()
+    # "cost" and "costs" share a pattern; one word is one mention
+    assert long.loc[long["seed_bucket"] == "efficiency", "n_mentions"].iloc[0] == 2
+    assert resolve_seed(qa, pairs).tolist() == ["efficiency", "capital", "untagged"]
