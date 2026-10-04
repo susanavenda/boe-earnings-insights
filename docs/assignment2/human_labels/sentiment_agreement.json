@@ -1,11 +1,12 @@
 {
-  "n_coders": 1,
+  "n_coders": 2,
   "coders": [
-    "alfred"
+    "alfred",
+    "taz"
   ],
   "n_pairs": 90,
   "m4_bar": 0.7,
-  "gold_rule": "single coder",
+  "gold_rule": "majority across coders; tie \u2192 first-listed coder",
   "human_label_dist": {
     "question": {
       "neutral": 49,
@@ -13,10 +14,10 @@
       "positive": 6
     },
     "answer": {
-      "neutral": 47,
+      "neutral": 50,
       "positive": 20,
       "negative": 16,
-      "": 7
+      "": 4
     }
   },
   "machine_vs_human": {
@@ -237,13 +238,13 @@
       },
       "answer": {
         "name": "lm_lexicon_answer",
-        "n": 83,
-        "raw_agreement": 0.43373493975903615,
-        "cohen_kappa": 0.03631422924901195,
-        "macro_f1": 0.3847353050962827,
+        "n": 86,
+        "raw_agreement": 0.45348837209302323,
+        "cohen_kappa": 0.052063789868668,
+        "macro_f1": 0.39409700722394225,
         "recall_by_class": {
           "negative": 0.25,
-          "neutral": 0.5319148936170213,
+          "neutral": 0.56,
           "positive": 0.35
         },
         "confusion_true_rows_pred_cols": [
@@ -254,7 +255,7 @@
           ],
           [
             15,
-            25,
+            28,
             7
           ],
           [
@@ -267,13 +268,13 @@
       },
       "pooled": {
         "name": "lm_lexicon_pooled",
-        "n": 173,
-        "raw_agreement": 0.42196531791907516,
-        "cohen_kappa": 0.022930080198802716,
-        "macro_f1": 0.3913702784670526,
+        "n": 176,
+        "raw_agreement": 0.4318181818181818,
+        "cohen_kappa": 0.03222258880457507,
+        "macro_f1": 0.3966346153846154,
         "recall_by_class": {
           "negative": 0.35294117647058826,
-          "neutral": 0.4791666666666667,
+          "neutral": 0.494949494949495,
           "positive": 0.34615384615384615
         },
         "confusion_true_rows_pred_cols": [
@@ -284,7 +285,7 @@
           ],
           [
             36,
-            46,
+            49,
             14
           ],
           [
@@ -389,18 +390,79 @@
       }
     }
   },
-  "coder_vs_coder": {},
+  "coder_vs_coder": {
+    "alfred_vs_taz_question": {
+      "name": "alfred_vs_taz_question",
+      "n": 90,
+      "raw_agreement": 0.6555555555555556,
+      "cohen_kappa": 0.3697763722611249,
+      "macro_f1": 0.6079365079365079,
+      "recall_by_class": {
+        "negative": 0.4857142857142857,
+        "neutral": 0.7755102040816326,
+        "positive": 0.6666666666666666
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          17,
+          16,
+          2
+        ],
+        [
+          8,
+          38,
+          3
+        ],
+        [
+          0,
+          2,
+          4
+        ]
+      ],
+      "meets_m4_bar": false
+    },
+    "alfred_vs_taz_answer": {
+      "name": "alfred_vs_taz_answer",
+      "n": 82,
+      "raw_agreement": 0.47560975609756095,
+      "cohen_kappa": 0.1478975350410826,
+      "macro_f1": 0.40151425373625654,
+      "recall_by_class": {
+        "negative": 0.125,
+        "neutral": 0.5217391304347826,
+        "positive": 0.65
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          2,
+          7,
+          7
+        ],
+        [
+          1,
+          24,
+          21
+        ],
+        [
+          1,
+          6,
+          13
+        ]
+      ],
+      "meets_m4_bar": false
+    }
+  },
   "krippendorff_alpha": {
-    "humans_question": null,
-    "humans+finbert_turn_question": 0.21653495440729476,
-    "humans+finbert_sentence_question": 0.14918958742632615,
-    "humans+lm_lexicon_question": -0.01400171013253515,
-    "humans+llm_question": 0.39332296278568857,
-    "humans_answer": null,
-    "humans+finbert_turn_answer": 0.3340993233754628,
-    "humans+finbert_sentence_answer": 0.03898447840211772,
-    "humans+lm_lexicon_answer": 0.03784119106699757,
-    "humans+llm_answer": 0.09276437847866426
+    "humans_question": 0.3676353276353277,
+    "humans+finbert_turn_question": 0.2890437289764536,
+    "humans+finbert_sentence_question": 0.2765801972963099,
+    "humans+lm_lexicon_question": 0.11946559332719076,
+    "humans+llm_question": 0.40738498789346245,
+    "humans_answer": 0.11758781316882794,
+    "humans+finbert_turn_answer": 0.18666666666666665,
+    "humans+finbert_sentence_answer": 0.06899368329340017,
+    "humans+lm_lexicon_answer": 0.09638145888732463,
+    "humans+llm_answer": 0.22186765199865632
   },
   "headline": {
     "finbert_turn_raw": 0.6046511627906976,
@@ -416,5 +478,5 @@
     "m4_met_by_turn": false,
     "m4_met_by_sentence": false
   },
-  "pitch_line": "Human gold n=172 labels (1 coder): FinBERT turn-level 60% raw / macro-F1 0.52; sentence-level 46% / 0.41; LLM annotator 55% / 0.54. M4 bar 70% not met."
+  "pitch_line": "Human gold n=172 labels (2 coders): FinBERT turn-level 60% raw / macro-F1 0.52; sentence-level 46% / 0.41; LLM annotator 55% / 0.54. M4 bar 70% not met."
 }

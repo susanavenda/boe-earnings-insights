@@ -44,3 +44,15 @@ not politeness, not whether the speaker is friendly, not whether the number is b
 
 Aim for one sitting (~45–60 min). Two coders → we report raw %, Cohen's κ and Krippendorff's α
 (`python scripts/score_sentiment_human.py`).
+
+## Answer-side rule, tightened after the first two-coder pass (4 Oct)
+
+On the first blind pass the two coders agreed on 66% of questions (κ 0.37) but only 48% of management answers (κ 0.15), mostly positive vs neutral. Agreed rule for answers:
+
+**Score what is new in the answer, not how confident it sounds.**
+
+- **Positive** only if the answer gives new good news or a firmer commitment than the question assumed ("now expect", "ahead of", "better than", "below" for costs).
+- **Neutral** if it is confident in tone but only restates existing guidance or targets ("as we said", "remain", "reiterate", "unchanged").
+- **Negative** if it gives new bad news, a downgrade, or a weaker commitment.
+
+The 43 answers the coders disagreed on are re-coded under this rule: `sentiment_answer_disagreements.md` → `sentiment_answer_recode_<name>.csv`. The 48% stays as the blind first-pass figure.
