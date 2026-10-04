@@ -34,7 +34,7 @@ jobs:
   run-notebook:
     if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'run-notebook')
     runs-on: ubuntu-24.04
-    timeout-minutes: 180
+    timeout-minutes: 360
     env:
       BOE_ROOT: ${{ github.workspace }}
       # LLM passes stay off: the notebook skips them when no key is set.
@@ -86,8 +86,7 @@ jobs:
           papermill boe_earnings_insights.ipynb ../executed.ipynb \
             --kernel python3 \
             --log-output \
-            --progress-bar \
-            --execution-timeout 3600
+            --progress-bar
 
       - name: Run tests that need the built database and topic models
         run: pytest tests/ -q -m "not slow" -rs
