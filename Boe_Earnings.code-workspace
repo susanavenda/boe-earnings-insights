@@ -1,16 +1,11 @@
 {
   "folders": [
     {
-      "name": "Pipeline (factory)",
+      "name": "Pipeline (factory + desk)",
       "path": "."
-    },
-    {
-      "name": "Demo (desk)",
-      "path": "../boe-earnings-demo"
     }
   ],
   "settings": {
-    "python.defaultInterpreterPath": "${workspaceFolder:Pipeline (factory)}/.venv/bin/python",
     "python.terminal.activateEnvironment": true,
     "jupyter.kernels.excludePythonEnvironments": [],
     "jupyter.jupyterServerType": "local",

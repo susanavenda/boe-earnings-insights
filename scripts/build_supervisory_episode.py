@@ -12,12 +12,16 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from periods import calendar_period  # noqa: E402
+from periods import calendar_period, matched_peer_gap, period_sort_key  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
 
 PROC = ROOT / "data" / "processed"
 
-# Default case studies for A2/A3
+# Protocol cases only (reviewed). Extra CS 2020–2022 calls stay in the corpus for a FinBERT
+# trend (build_cs_quarter_trend) and must not inherit A1–A3 as extra "failed-bank"
+# proofs. A2 is HSBC−Barclays; out-of-sample banks force peer_gap n/a.
+# The same A1–A3/N1 gates may run on other bank-quarters from qa_pairs_full; those
+# outputs are tagged reviewed=False and must not look like these three captions.
 EPISODES = [
     {
         "id": "hsbc_2025_h1",
@@ -35,7 +39,17 @@ EPISODES = [
         "calendar_period": "2026-H1",
         "label": "Barclays 2026-q2 (H1)",
     },
+    {
+        "id": "cs_2022_q4",
+        "bank": "credit_suisse",
+        "quarter": "2022-q4",
+        "struct_quarter": "2022-q4",
+        "calendar_period": "2022-FY",
+        "label": "Credit Suisse 2022-q4 (FY)",
+    },
 ]
+
+REVIEWED_IDS = frozenset(e["id"] for e in EPISODES)
 
 METRIC_KW = {
     "credit_impairment": ["impairment", "ecl", "stage 2", "credit cost", "cost of risk", "viu", "npl"],
@@ -43,6 +57,108 @@ METRIC_KW = {
     "cet1_ratio": ["cet1", "capital"],
     "total_income": ["nii", "income", "revenue", "hibor", "fee"],
 }
+
+
+def is_reviewed_episode(ep: dict) -> bool:
+    """The three EPISODES captions. Anything else is computed, not reviewed."""
+    if ep.get("reviewed") is False:
+        return False
+    if ep.get("reviewed") is True:
+        return True
+    return ep.get("id") in REVIEWED_IDS
+
+
+def struct_quarter_for(bank: str, quarter: str) -> str:
+    q = str(quarter).lower().strip()
+    if str(bank).lower() == "hsbc":
+        if q.endswith("interim"):
+            return q[: -len("interim")] + "q2"
+        if q.endswith("annual"):
+            return q[: -len("annual")] + "fy"
+    return q
+
+
+def auto_episode_id(bank: str, quarter: str) -> str:
+    b = str(bank).lower().replace("credit_suisse", "cs")
+    return f"{b}_{str(quarter).lower()}".replace("-", "_")
+
+
+def corpus_quarter_specs(qa: pd.DataFrame) -> list[dict]:
+    """One spec per bank×quarter in the Browse export, excluding EPISODES."""
+    if qa is None or qa.empty or not {"bank", "quarter"}.issubset(qa.columns):
+        return []
+    seen = {(e["bank"], e["quarter"]) for e in EPISODES}
+    specs = []
+    for row in qa[["bank", "quarter"]].drop_duplicates().itertuples(index=False):
+        bank, quarter = str(row.bank), str(row.quarter)
+        if (bank, quarter) in seen:
+            continue
+        if not bank or not quarter or bank.lower() in {"nan", "none"}:
+            continue
+        period = calendar_period(quarter)
+        if "calendar_period" in qa.columns:
+            hit = qa[(qa["bank"].astype(str) == bank) & (qa["quarter"].astype(str) == quarter)]
+            raw = hit["calendar_period"].iloc[0] if not hit.empty else None
+            if raw is not None and not (isinstance(raw, float) and pd.isna(raw)):
+                period = str(raw)
+        specs.append(
+            {
+                "id": auto_episode_id(bank, quarter),
+                "bank": bank,
+                "quarter": quarter,
+                "struct_quarter": struct_quarter_for(bank, quarter),
+                "calendar_period": period,
+                "label": f"{bank.replace('_', ' ').title()} {quarter}",
+                "reviewed": False,
+            }
+        )
+    return specs
+
+
+def _try_load(name: str):
+    try:
+        return load_df(name)
+    except Exception:
+        return None
+
+
+def build_cs_quarter_trend(corp: pd.DataFrame) -> pd.DataFrame:
+    """Extra 2020–2022 CS scan. Not protocol — EPISODES stays at cs_2022_q4 only."""
+    cs = corp[corp["bank"].astype(str).str.lower() == "credit_suisse"].copy()
+    empty_cols = [
+        "quarter",
+        "n",
+        "finbert_net",
+        "n_pos",
+        "n_neg",
+        "n_neu",
+        "neg_share",
+        "n_topics",
+        "n_topic_unassigned",
+        "calendar_period",
+    ]
+    if cs.empty or "finbert_net" not in cs.columns:
+        return pd.DataFrame(columns=empty_cols)
+    rows = []
+    for q, g in cs.groupby("quarter", sort=False):
+        sent = g["finbert_sentiment"].astype(str).str.lower()
+        topic = g["topic"] if "topic" in g.columns else pd.Series([-1] * len(g), index=g.index)
+        rows.append(
+            {
+                "quarter": q,
+                "n": int(len(g)),
+                "finbert_net": float(g["finbert_net"].mean()),
+                "n_pos": int((sent == "positive").sum()),
+                "n_neg": int((sent == "negative").sum()),
+                "n_neu": int((sent == "neutral").sum()),
+                "neg_share": float((sent == "negative").mean()),
+                "n_topics": int(topic.nunique()),
+                "n_topic_unassigned": int((topic == -1).sum()),
+                "calendar_period": calendar_period(q),
+            }
+        )
+    out = pd.DataFrame(rows)
+    return out.sort_values("calendar_period", key=lambda s: s.map(period_sort_key)).reset_index(drop=True)
 
 
 def clip(text: str, n: int = 280) -> str:
@@ -83,6 +199,7 @@ def build_protocol() -> pd.DataFrame:
 
 def build_one(corp, reported, peer, spec: dict) -> dict:
     bank, quarter = spec["bank"], spec["quarter"]
+    reviewed = is_reviewed_episode(spec)
     ep = corp[(corp["bank"] == bank) & (corp["quarter"] == quarter)].copy()
     ep_net = float(ep["finbert_net"].mean()) if len(ep) else float("nan")
     topic_share = (
@@ -141,6 +258,16 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
             )
     elif hsbc_row is None or bar_row is None:
         peer_caveat = f"No matched peer for {period}: missing {'HSBC' if hsbc_row is None else 'Barclays'} turns."
+
+    # A2 is HSBC−Barclays only. Out-of-sample banks (CS) must not inherit that gap.
+    if bank not in {"hsbc", "barclays"}:
+        peer_gap = None
+        peer_usable_for_a2 = False
+        peer_caveat = "Peer gap is HSBC−Barclays only; n/a for out-of-sample banks."
+
+    if not reviewed:
+        # Gates above still decide A2. Do not attach a caption that was never reviewed.
+        peer_caveat = None
 
     briefs = []
     for metric, kws in METRIC_KW.items():
@@ -251,6 +378,7 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
         "peer_barclays_non_neutral_share": peer_barclays_nn,
         "peer_usable_for_a2": peer_usable_for_a2,
         "peer_caveat": peer_caveat,
+        "reviewed": reviewed,
         "rules_fired": fired,
         "verdict": verdict,
         "headline": (
@@ -259,7 +387,10 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
             f"Barclays={peer_barclays_net:.3f} (n={peer_barclays_n}); gap={peer_gap:.3f}"
             + (f" — {peer_caveat}" if peer_caveat else "")
             if peer_gap is not None
-            else f"{spec['label']}: FinBERT net {ep_net:.2f}." + (f" {peer_caveat}" if peer_caveat else "")
+            else (
+                f"{spec['label']}: FinBERT net {ep_net:.2f}."
+                + (f" {peer_caveat}" if peer_caveat else "")
+            )
         ),
         "pitch_angle": verdict,
     }
@@ -301,7 +432,12 @@ def main(only_id: str | None = None):
     reported = load_df("reported_metrics")
     peer = load_df("peer_matched_quarters")
 
-    specs = [e for e in EPISODES if only_id is None or e["id"] == only_id]
+    specs = [{**e, "reviewed": True} for e in EPISODES if only_id is None or e["id"] == only_id]
+    if only_id is None:
+        qa = _try_load("qa_pairs_full")
+        if qa is None:
+            qa = _try_load("qa_pairs")
+        specs = specs + corpus_quarter_specs(qa)
     if not specs:
         raise SystemExit(f"No episode matched id={only_id}")
 
@@ -331,17 +467,19 @@ def main(only_id: str | None = None):
     save_json("supervisory_episode", primary)
     save_json("supervisory_episodes", all_eps)
 
-    if {"calendar_period", "bank", "sentiment_net"}.issubset(peer.columns):
-        pivot = peer.pivot_table(
-            index="calendar_period", columns="bank", values="sentiment_net", aggfunc="mean"
-        )
-        if "hsbc" in pivot.columns and "barclays" in pivot.columns:
-            gap = pivot.copy()
-            gap["gap"] = gap["hsbc"] - gap["barclays"]
-            save_df("peer_gap_matched", gap.reset_index())
+    cs_trend = build_cs_quarter_trend(corp)
+    save_df("cs_quarter_trend", cs_trend)
 
-    print(json.dumps(all_eps, indent=2))
-    print(f"wrote {len(all_eps)} episodes → data/boe.sqlite")
+    gap = matched_peer_gap(peer)
+    if not gap.empty:
+        save_df("peer_gap_matched", gap)
+
+    print(json.dumps([e for e in all_eps if is_reviewed_episode(e)], indent=2))
+    n_rev = sum(1 for e in all_eps if is_reviewed_episode(e))
+    print(f"wrote {len(all_eps)} episodes ({n_rev} reviewed, {len(all_eps) - n_rev} unreviewed) → data/boe.sqlite")
+    if not cs_trend.empty:
+        print("CS extra-year FinBERT trend (not protocol):")
+        print(cs_trend.to_string(index=False))
 
 
 if __name__ == "__main__":

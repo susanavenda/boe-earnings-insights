@@ -1,0 +1,21 @@
+[run]
+branch = false
+source = scripts
+omit =
+    scripts/download_cs_years.py
+    scripts/ingest_credit_suisse.py
+    scripts/build_credit_suisse_inputs.py
+    scripts/finetune_sentiment.py
+    scripts/generate_a2_outputs.py
+    scripts/migrate_to_db.py
+    scripts/score_qa_sentiment.py
+    scripts/label_agreement.py
+
+[report]
+fail_under = 80
+skip_covered = true
+show_missing = true
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise SystemExit

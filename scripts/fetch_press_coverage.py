@@ -84,11 +84,10 @@ def _item_fields(it: dict) -> dict:
 
 def fetch_press(bank: str, max_items: int | None = None) -> pd.DataFrame:
     """Raw ticker feed. Caller should `filter_earnings_relevant` before scoring."""
-    import yfinance as yf
-
     bank = str(bank).lower()
     if bank not in TICKERS:
         raise KeyError(f"unknown bank {bank!r}; expected {list(TICKERS)}")
+    import yfinance as yf
     t = yf.Ticker(TICKERS[bank])
     items = list(t.news or [])
     if max_items is not None:

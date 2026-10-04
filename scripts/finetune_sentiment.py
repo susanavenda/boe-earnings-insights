@@ -10,8 +10,8 @@ Label sets
   FinBERT∩LDSA agree → keyword override → LDSA signal → else neutral. Silver is built
   *from* FinBERT and LDSA, so agreement with silver is partly circular. It is the
   training signal and an audit, never the promotion gate.
-* **human gold** — the M4 60-pair pack (docs/assignment2/human_labels/
-  sentiment_60_labels_<coder>.csv, question side) plus any ``human_label`` filled in
+* **human gold** — the M4 90-pair pack (`sentiment_90_labels_<coder>.csv`;
+  `sentiment_60_labels_<coder>.csv` still accepted) question side plus any ``human_label`` filled in
   docs/hand_validation_sample.csv. Human rows are **held out of training entirely**
   and are the only set the promotion gate reads.
 
@@ -20,6 +20,9 @@ Promotion gate (writes ``model_registry``)
     active_model_id = "finbert-domain-ft"  iff  n_human ≥ MIN_HUMAN
                                             and  ft_macro_f1(human) ≥ zs_macro_f1(human) + MARGIN
     else active_model_id = None            (zero-shot FinBERT stays the pipeline scorer)
+
+On this pack the silver-dev lift (macro-F1 0.433 → 0.642) is the circular trap;
+against Alfred's 90-pair human gold FT scored below zero-shot, so it stays unpromoted.
 
 Writes into data/boe.sqlite: sentiment_labels, sentiment_finetuned, finetune_metrics,
 model_registry (JSON docs) and refreshes corpus_analyst (ft_sentiment, ft_score,
@@ -30,7 +33,6 @@ Usage (repo root):  python scripts/finetune_sentiment.py [--device cpu] [--epoch
 from __future__ import annotations
 
 import argparse
-import glob
 import json
 import random
 import sys
@@ -55,6 +57,7 @@ from transformers import (
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from score_sentiment_human import iter_coder_label_files  # noqa: E402
 from sentiment import LABELS as _LABELS  # noqa: E402
 from sentiment import build_vocab, management_names_from_turns, normalise_for_sentiment  # noqa: E402
 from store import configure, has_df, load_df, save_df, save_json  # noqa: E402
@@ -111,10 +114,8 @@ def _key(s: pd.Series) -> pd.Series:
 
 def load_human_gold() -> pd.DataFrame:
     """pair_id/text → human question label. Majority across coders; tie → first coder."""
-    files = sorted(glob.glob(str(HL / "sentiment_60_labels_*.csv")))
-    files = [f for f in files if not f.endswith("template.csv")]
     votes: dict[str, list[str]] = {}
-    for f in files:
+    for _name, f in iter_coder_label_files(HL):
         df = pd.read_csv(f)
         if not {"pair_id", "q_label"}.issubset(df.columns):
             continue

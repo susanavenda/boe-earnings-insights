@@ -87,7 +87,7 @@
   <tr><td>1 Evidence</td><td>PDFs → speakers → analyst corpus → Q&amp;A pairs</td><td>Susana</td><td>3,218 turns · 1,002 pairs · 137 PDFs + 114 packs</td></tr>
   <tr><td>2 Topics</td><td>4-line seed, then BERTopic + LDA</td><td>Debanjan</td><td>6 named clusters + residual −1 (working-sample n)</td></tr>
   <tr><td>3 Sentiment</td><td>FinBERT Q vs A · LDSA · M6 · 8-way map</td><td>Alfred · Bupathi · Aidan</td><td>Heavy Q-neutral on hedges · M6 sub ~5% · 8-way 35%</td></tr>
-  <tr><td>3.4 FT</td><td>Light FinBERT adapt, gated</td><td>Alfred</td><td>Hold-out F1 up; full silver worse — not promoted</td></tr>
+  <tr><td>3.4 FT</td><td>Light FinBERT adapt, gated</td><td>Alfred</td><td>Silver looked better; human gold worse — not promoted</td></tr>
   <tr><td>4 Briefs</td><td>Four-metric summaries</td><td>Rafael</td><td>Extractive briefs are A2 evidence; DistilBART is polish</td></tr>
   <tr><td>5 Refine</td><td>Clusters that matter for A2</td><td>Debanjan</td><td>Do not treat residual −1 as a theme</td></tr>
   <tr><td>6 Views</td><td>Temporal · peer · struct↔Q&amp;A</td><td>Susana</td><td>calendar_period() · 2025-H1 gap −0.126 not A2-usable</td></tr>
@@ -123,10 +123,10 @@
 <h2>Honest evaluation (say once)</h2>
 <div class="stats">
   <div class="stat danger"><div class="v">35%</div><div class="l">Machine coder1 vs coder2 — headline</div></div>
-  <div class="stat warn"><div class="v">75%</div><div class="l">FinBERT vs hand gold n=20 (macro-F1 0.61)</div></div>
+  <div class="stat warn"><div class="v">60%</div><div class="l">FinBERT vs Alfred gold n=90 (κ 0.28)</div></div>
 </div>
 <p>Q-side keywords vs A-side keywords, no human. The taxonomy does not stabilize even as a machine dual-code. Keep it as a method, not a category law. 70% bar not met. Aidan vs coder1 is 50%. Confusion clusters on costs↔earnings↔franchise and credit↔IRRBB.</p>
-<p>Hedged bank Q&amp;A scores heavily Neutral — that is why peer ALERT is gated when one side is 100% FinBERT-flat (Barclays H1). Light FT: hold-out macro-F1 0.433 → 0.642 (n=30) but full silver accuracy 55% vs zero-shot 62%. Do not promote.</p>
+<p>Hedged bank Q&amp;A scores heavily Neutral — that is why peer ALERT is gated when one side is 100% FinBERT-flat (Barclays H1). On silver labels alone, fine-tuning looked like it helped (0.433 → 0.642) — that is the circular trap the gate exists to catch. Against human gold it did worse, so it stays unpromoted.</p>
 
 <h2>Stage-by-stage</h2>
 <details open>
@@ -152,7 +152,7 @@
 </details>
 <details>
   <summary>7–9 Status, protocol, publish</summary>
-  <p>Stage 8 packs HSBC H1 as WATCH (A3). Stage 9 writes the PRA one-pager and the product subset the demo reads. Re-run 45–90 minutes. Stage 0 stubs unused ParametricUMAP so a protobuf mismatch cannot kill a fresh kernel.</p>
+  <p>Stage 8 packs HSBC H1 as WATCH (A3) and Credit Suisse Q4 2022 as a disclosed NULL. Extra CS 2020–2022 calls are a FinBERT trend, not extra protocol cases. Stage 9 writes the PRA one-pager and the product subset the demo reads. Re-run 45–90 minutes. Stage 0 stubs unused ParametricUMAP so a protobuf mismatch cannot kill a fresh kernel.</p>
 </details>
 <details open>
   <summary>10.2 Yahoo press — filtered, not a signal · 0 of 20 kept</summary>

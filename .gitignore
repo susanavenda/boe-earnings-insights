@@ -228,6 +228,11 @@ data/boe.sqlite
 data/boe.sqlite-*
 data/processed/*
 !data/processed/.gitkeep
+demo/data/desk.sqlite
+demo/data/desk.sqlite-*
+demo/data/snapshots/
+demo/data/last_run.json
+demo/data/registry/
 
 .DS_Store
 **/.DS_Store

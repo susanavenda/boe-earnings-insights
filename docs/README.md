@@ -18,6 +18,7 @@ One entry point for Group 9. Pick the surface that matches the job.
 | Path | Contents |
 |---|---|
 | [`assignment1/`](assignment1/) | Scope plan, Word/PDF deliverables, report draft |
+| [`code.md`](code.md) | Factory code map — stages, sqlite tables, invariants, tests |
 | [`assignment2/`](assignment2/) | Pitch outline, PRA notes, [`eval_bar_literature.md`](assignment2/eval_bar_literature.md) |
 | [`project/`](project/) | Issue import list (`issues.csv`) |
 | [`assets/`](assets/) | Roadmap images |
@@ -33,6 +34,8 @@ One entry point for Group 9. Pick the surface that matches the job.
 ## Quick links
 
 - Research question and scope: [README](../README.md)
+- Desk: [`../demo/`](../demo/) — `streamlit run demo/app.py`
+- Factory code: [`code.md`](code.md) · [`../scripts/README.md`](../scripts/README.md) · [`../tests/README.md`](../tests/README.md)
 - Transcripts: [`../data/raw/transcripts/`](../data/raw/transcripts/)
 - Structured packs: [`../data/structured/`](../data/structured/)
 - Roadmap image: [`assets/roadmap.png`](assets/roadmap.png)

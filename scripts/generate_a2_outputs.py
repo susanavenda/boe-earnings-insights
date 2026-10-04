@@ -19,7 +19,7 @@ from gensim.models.coherencemodel import CoherenceModel
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from periods import calendar_period, period_sort_key, readable_period_axis  # noqa: E402
+from periods import calendar_period, coverage_window, matched_peer_gap, period_sort_key, readable_period_axis  # noqa: E402
 from store import load_df, save_bytes, save_df  # noqa: E402
 
 
@@ -143,14 +143,11 @@ def main():
         sentiment_net=("finbert_net", "mean")
     )
     peer["calendar_period"] = peer["quarter"].map(calendar_period)
+    peer["coverage_window"] = peer["calendar_period"].map(coverage_window)
     save_df("peer_matched_quarters", peer)
-    both = int(peer.groupby("calendar_period")["bank"].nunique().ge(2).sum())
-    pivot = peer.pivot_table(
-        index="calendar_period", columns="bank", values="sentiment_net", aggfunc="mean"
-    )
-    gap = (pivot["hsbc"] - pivot["barclays"]).dropna()
-    print("matched both-bank periods", both)
-    print(gap)
+    gap = matched_peer_gap(peer)
+    print("matched both-bank periods (2012–2025 panel)", len(gap))
+    print(gap.set_index("calendar_period")["gap"] if not gap.empty else gap)
     print("OK → data/boe.sqlite")
 
 

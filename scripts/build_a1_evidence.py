@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from periods import calendar_period  # noqa: E402
+from periods import calendar_period, coverage_window, year_from_period  # noqa: E402
 from store import configure, has_df, load_df, save_df  # noqa: E402
 
 MONTHS = (
@@ -115,6 +115,41 @@ def infer_quarter(name: str) -> str:
     return f"{y}-{mapping.get(p, p)}"
 
 
+_OTHER_EVENT = (
+    "equity-analysts",
+    "equity_analysts",
+    "analysts-meeting",
+    "analysts_meeting",
+)
+
+
+def event_type_from_source(source: str) -> str:
+    """results_call vs other. Keep the file; default analyses to results_call."""
+    name = Path(str(source)).name.lower()
+    if any(tok in name for tok in _OTHER_EVENT):
+        return "other"
+    return "results_call"
+
+
+def coverage_by_bank_year(manifest: pd.DataFrame) -> pd.DataFrame:
+    """Results-call counts per bank × year (HSBC / Barclays). Zero means absent, not a score."""
+    t = manifest[manifest["kind"] == "transcript"].copy()
+    t = t[t["bank"].isin(["hsbc", "barclays"])]
+    if "event_type" not in t.columns:
+        t["event_type"] = t["source"].map(event_type_from_source)
+    t = t[t["event_type"] == "results_call"]
+    t["year"] = t["quarter"].map(year_from_period)
+    t = t.dropna(subset=["year"])
+    t["year"] = t["year"].astype(int)
+    counts = t.groupby(["year", "bank"]).size().unstack(fill_value=0)
+    for col in ("hsbc", "barclays"):
+        if col not in counts.columns:
+            counts[col] = 0
+    out = counts.reset_index()
+    out["coverage_window"] = out["year"].map(lambda y: coverage_window(str(int(y))))
+    return out[["year", "hsbc", "barclays", "coverage_window"]]
+
+
 def _pdf_date(path: Path) -> str:
     try:
         import pdfplumber
@@ -135,6 +170,8 @@ def build_manifest(raw_root: Path, structured_root: Path) -> pd.DataFrame:
             if "hsbc" in str(path).lower()
             else "barclays"
             if "barclays" in str(path).lower()
+            else "credit_suisse"
+            if "credit_suisse" in str(path).lower()
             else "unknown"
         )
         kind = "transcript" if path.suffix.lower() == ".pdf" else "results_pack"
@@ -147,6 +184,7 @@ def build_manifest(raw_root: Path, structured_root: Path) -> pd.DataFrame:
                 "path": str(path.relative_to(ROOT)),
                 "publication_date": pub,
                 "quarter": infer_quarter(path.name),
+                "event_type": event_type_from_source(path.name),
             }
         )
     df = pd.DataFrame(rows)
@@ -295,29 +333,67 @@ def audit_sample(claims: pd.DataFrame, n: int = 50, seed: int = 9) -> pd.DataFra
     return out.reset_index(drop=True)
 
 
+# M6 matches METRIC_KW on whole words (plural allowed). Plain substring matching
+# read "forward" as RWA and "decline" as ECL. Kept private to M6 so seed_label,
+# seed_topic_q/a and the prudential_map coder2 fallback do not move.
+_M6_METRIC_RX = {
+    m: [re.compile(rf"\b{re.escape(k)}(?:s|es)?\b", re.I) for k in keys]
+    for m, keys in METRIC_KW.items()
+}
+_M6_BUCKET = {
+    "total_income": "profitability",
+    "operating_costs": "efficiency",
+    "credit_impairment": "asset_quality",
+    "cet1_ratio": "capital",
+}
+
+
+def _m6_metrics(text: str) -> list[str]:
+    return [m for m, rxs in _M6_METRIC_RX.items() if any(rx.search(text) for rx in rxs)]
+
+
+def _m6_bucket(text: str) -> str:
+    """Four-line bucket for substitution: untagged, one bucket, or mixed."""
+    hits = _m6_metrics(text)
+    if not hits:
+        return "untagged"
+    return _M6_BUCKET[hits[0]] if len(hits) == 1 else "mixed"
+
+
+def _blank(text) -> bool:
+    return pd.isna(text) or not str(text).strip() or str(text).strip().lower() == "nan"
+
+
 def behavioural_signals(qa: pd.DataFrame) -> pd.DataFrame:
+    """M6 per pair. An empty answer is missing (None), not an indirect answer."""
     out = qa.copy()
-    dirs, covs, subs = [], [], []
+    dirs, covs, subs, measurable = [], [], [], []
     for _, r in out.iterrows():
         qt, at = r["question_text"], r["answer_text"]
+        if _blank(qt) or _blank(at):
+            dirs.append(None)
+            covs.append(None)
+            subs.append(None)
+            measurable.append(False)
+            continue
+        qt, at = str(qt), str(at)
         tq, ta = _tokens(qt), _tokens(at)
-        if not tq or not ta:
-            dirs.append(0.0)
-        else:
-            dirs.append(round(len(tq & ta) / max(len(tq), 1), 3))
-        req = [m for m, keys in METRIC_KW.items() if any(k in qt.lower() for k in keys)]
+        dirs.append(round(len(tq & ta) / len(tq), 3) if tq and ta else None)
+        req = _m6_metrics(qt)
         if not req:
             covs.append(None)
         else:
-            covs.append(float(any(any(k in at.lower() for k in METRIC_KW[m]) for m in req)))
-        qlab, alab = r["seed_topic_q"], r["seed_topic_a"]
-        if qlab in ("untagged", "mixed") or not at:
-            subs.append(0.0)
-        else:
-            subs.append(float(alab not in (qlab, "mixed", "untagged") and alab != qlab))
+            covs.append(float(any(any(rx.search(at) for rx in _M6_METRIC_RX[m]) for m in req)))
+        qlab, alab = _m6_bucket(qt), _m6_bucket(at)
+        # Unchanged definition: only single-bucket Q and A can substitute; the
+        # rest score 0.0. substitution_measurable says which rows could.
+        can = qlab not in ("untagged", "mixed") and alab not in ("untagged", "mixed")
+        measurable.append(can)
+        subs.append(float(can and alab != qlab))
     out["directness"] = dirs
     out["metric_coverage"] = covs
     out["topic_substitution"] = subs
+    out["substitution_measurable"] = measurable
     return out
 
 
@@ -336,11 +412,17 @@ def prudential_map(qa: pd.DataFrame) -> pd.DataFrame:
 
 
 def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFrame:
+    counts = {}
+    if "metric_coverage" in qa.columns:
+        counts["n_coverage_asked"] = ("metric_coverage", "count")
+    if "substitution_measurable" in qa.columns:
+        counts["n_substitution_measurable"] = ("substitution_measurable", "sum")
     agg = qa.groupby(["bank", "quarter"], as_index=False).agg(
         n_pairs=("pair_id", "size"),
         mean_directness=("directness", "mean"),
         metric_coverage_rate=("metric_coverage", "mean"),
         substitution_rate=("topic_substitution", "mean"),
+        **counts,
     )
     if reported is not None and len(reported):
         # Pack labels (q2/h1/4q) vs transcript labels (interim/annual) join on calendar period
@@ -372,13 +454,20 @@ def main(*, configure_store: bool = True) -> None:
         "/",
         int((manifest.kind == "transcript").sum()),
     )
+    n_other = int((manifest["event_type"] == "other").sum()) if "event_type" in manifest.columns else 0
+    print("event_type=other (kept, excluded from default analyses)", n_other)
+    cov = coverage_by_bank_year(manifest)
+    save_df("corpus_coverage", cov)
+    print("coverage by bank × year (results_call only)\n", cov.to_string(index=False))
 
     turns = load_df("all_turns")
     if turns is None or turns.empty:
         raise SystemExit("all_turns missing — run notebook Stage 1 first")
     qa = pair_qa(turns)
     dates = manifest.set_index("source")["publication_date"].to_dict()
+    types = manifest.set_index("source")["event_type"].to_dict()
     qa["date"] = qa["source"].map(lambda s: dates.get(s, "") or "")
+    qa["event_type"] = qa["source"].map(lambda s: types.get(s, event_type_from_source(s)))
     named = (qa["analyst"].fillna("").str.len() > 1).mean()
     n_empty = int((qa["answer_text"].fillna("") == "").sum())
     print(

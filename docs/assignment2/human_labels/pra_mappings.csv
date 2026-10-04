@@ -1,0 +1,19 @@
+pra_code,pra_category,description,active_core_taxonomy
+P01,"Own funds, capital requirements and RWA","Own funds, capital adequacy, capital ratios, capital buffers, risk-weighted assets and capital requirements.",true
+P02,Leverage,"Leverage ratio, Tier 1 leverage capital and leverage exposure measure.",true
+P03,Financial position and performance,"Balance sheet, profit or loss, income, expenses, earnings and financial performance.",true
+P04,Credit risk and asset quality,"Credit quality, impairment, expected credit losses, provisions, non-performing exposures, arrears, forbearance and related credit-risk information.",true
+P05,Large exposures and concentration risk,"Single-name, connected-client, sectoral, geographic and other concentration or large-exposure risk.",true
+P06,Counterparty credit risk,"Counterparty credit risk from derivatives, securities-financing transactions, margining, collateral, CVA and related exposures.",true
+P07,Securitisation,"Securitisation positions, structures, capital treatment and related risk exposures.",true
+P08,Market risk,"Trading-book market risk, market-risk capital requirements, value-at-risk or expected shortfall frameworks and related exposures.",true
+P09,Operational risk,"Operational-risk exposures and capital requirements. This does not automatically include all conduct, complaints or cyber narrative.",true
+P10,Liquidity coverage and liquidity position,"Liquidity Coverage Ratio, high-quality liquid assets, liquidity buffer, contractual inflows and outflows and short-term liquidity resilience.",true
+P11,Stable funding and funding profile,"Net Stable Funding Ratio, available stable funding, required stable funding and structural funding profile.",true
+P12,"Additional liquidity monitoring, funding concentration and counterbalancing capacity","Funding concentration, funding maturity, rollover, funding pricing, currency mismatch, liquidity monitoring and counterbalancing capacity.",true
+P13,Asset encumbrance,"Encumbered and unencumbered assets, collateral, secured funding and asset encumbrance.",true
+P14,Interest rate risk in the banking book,"Economic value of equity, net interest income sensitivity, interest-rate shocks and banking-book interest-rate risk.",true
+P15,"Capital planning, stress testing and distributions","Forecast capital, stress testing, management buffers, capital plans, dividend or buyback capacity and capital actions.",true
+P16,Cash-flow mismatch and Pillar 2 liquidity,"Cash-flow mismatch, internal liquidity stress and Pillar 2 liquidity-related monitoring.",true
+P17,Systemic importance and G-SII,"Global systemically important institution indicators, scoring, buckets and systemic buffers.",true
+P18,"Risk management, governance and scope disclosures","Risk-management objectives and policies, governance, regulatory scope, consolidation and reconciliation disclosures.",true

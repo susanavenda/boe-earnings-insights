@@ -1,0 +1,634 @@
+Credit Suisse Group AG
+Credit Suisse 2021-Q4 results — analyst and investor call
+
+Source note: CS IR site is gone. Speaker-labelled Q&A from public call archives (Motley Fool / Thomson convention: Name -- Role). KPIs are SEC 6-K Exhibit 99.1, 9 February 2023 — not this transcript.
+
+Operator
+
+Good morning. This is the conference operator. Welcome and thank you for joining Credit Suisse fourth quarter and full year 2021 results conference call for analysts and investors. [Operator instructions] I will now turn the conference over to Kinner Lakhani, head of investor relations and group strategy and development.
+
+Please go ahead, Kinner.
+
+Kinner Lakhani -- Head of Investor Relations and Group Strategy and Development
+
+Thank you, Ynette. Good morning, everyone. Thank you for joining us. Before we begin, let me remind you of the important cautionary statements on Slides 2 and 3, including in relation to forward-looking statements, non-GAAP financial measures, and Basel III disclosures.
+
+For a detailed discussion of our results, we refer you to the Credit Suisse fourth quarter 2021 earnings release published this morning. Let me remind you that our 2021 Annual Report and audited financial statements for the year will be published on or around March 10, 2022. I will now hand over to our Group CEO, Thomas Gottstein; and our Group CFO, David Mathers, who will run through the numbers.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, Kinner. And thank you all for joining our fourth quarter and full year 2021 results presentation. We greatly appreciate your participation and engagement. Let me be upfront and begin with some comments about 2021 and more recent events.
+
+Despite a very supportive market environment and strong underlying performances in most of our businesses, especially during the first nine months of 2021, last year was very challenging for Credit Suisse in the context of the supply chain finance funds and the Archegos matters. The fourth quarter was difficult as well as we flagged in our trading update in January. David and I will walk you through all the numbers over the course of today's presentation. Our results were significantly affected by goodwill impairment and litigation provisions.
+
+In addition, they were impacted by lower transaction-based revenues and reflected more normal trading conditions, client deleveraging and a significant reduction of our overall risk appetite in 2021. More generally, we were a bank which just embarked on a new organizational structure and have become very inward focused, especially in December. This all negatively impacted our franchise momentum. At the same time, we took a number of decisive steps last year to position ourselves for sustainable growth.
+
+And let me please highlight the following. Firstly, we strengthened our capital position and substantially reduced our risk positions. Secondly, we strengthened risk and compliance teams, systems and processes and underwent a comprehensive risk review across the entire group, which was completed in the fourth quarter. And thirdly, we strengthened our leadership in the investment bank, in asset management, in risk, in compliance, in technology and operations, in wealth management, as well as most recently in human resources.
+
+This will not be a quick fix, and we expect 2022 will be a transition year. But we have made clear progress in creating the conditions for a much more stable and predictable bank. All of this in line with our announcements on the 4th of November. We have three key priorities for 2022.
+
+First, is to execute with discipline the detailed group strategy and three-year financial plan, which we presented at our investor day on the 4th of November. The board of directors under Axel Lehmann's leadership along with the executive board under my leadership, fully see eye to eye when it comes to our shared commitment to the new strategy of strengthening the core, simplifying the organization and investing for growth. Second, we will continue to improve risk and compliance with an emphasis on risk culture, while it's not losing our client focus and entrepreneurial spirit that has been the hallmark of Credit Suisse since its founding more than 165 years ago. Third, we aim to reestablish franchise momentum grounded in the positive basis for growth in our four divisions with a strong regional overlay and supported by a disciplined approach to costs.
+
+Running our business with a strong balance sheet and with a diligent execution of our strategy is an absolute focus of my executive board. Finally, the root of my confidence for our future lies with our employees. And I want to thank them again for their incredibly hard work and dedication during the last 12 months. I have no doubt that with the commitment of each employee, we will build a stronger bank for our clients, shareholders and other stakeholders.
+
+With that, let me turn to the slides, starting with our key points on Page 4. For the fourth quarter of 2021, we recorded a pre-tax loss of 1.6 billion Swiss francs. Adjusted pre-tax income, excluding significant items, was 0.3 billion Swiss francs. Our fourth quarter reported results were significantly impacted by the goodwill impairment in our investment bank relating to the acquisition of DLJ in 2000 and legacy litigation provisions.
+
+For the full year, we recorded a pre-tax loss of 0.5 billion Swiss francs, primarily driven by the Archegos loss, the goodwill impairment and the major litigation provisions, together totaling 7.6 billion Swiss francs. Adjusted pre-tax income, excluding significant items and Archegos, was 6.6 billion Swiss francs in 2021. At the same time, we maintained our strong capital position with a CET1 ratio of 14.4% and a CET1 leverage ratio of 4.4%, both in line with our ambition to run the bank with a strong capital base going forward. The board will propose a dividend of 0.10 per share for 2021, subject to AGM approval.
+
+We have already made considerable progress implementing our strategy, which includes the creation of a unified wealth management division, a global investment bank and a centralized chief technology and operations organization. We grew our wealth management recurring commissions and fees, supported by an increase in mandate penetration and in assets under management. We progressed our plans to make significant increases in relationship manager hiring, including a roughly 13% increase in APAC relationship managers in 2021. As part of our ambition to generate 1 million to 1.5 billion Swiss francs in annual structural cost savings by 2024 to be invested for growth, we announced a third-party agreement to deliver procurement savings.
+
+The investment bank already released $2 billion of allocated capital versus the end of 2020. That marked significant progress toward our ambition to release more than $3 billion over 2021 and 2022. In other words, we have achieved already two-thirds of the investment bank capital release ambition. We significantly reduced prime chargeable balances by 66%.
+
+These measures underscore our commitment to implementing our strategy. Next slide, please. Here, you see historical reported and adjusted data and the factors that weighed on both sets of results for the fourth quarter. As I already mentioned, and as David will go into more detail about later on.
+
+Next slide, please. We are on Page 6. As mentioned before, 2021 was a very challenging year with our reported results impacted by Archegos, the DLJ goodwill impairment and litigation provisions. At the same time, our underlying performance demonstrated the strength of our franchises.
+
+We saw record underlying pre-tax income in the Swiss Universal Bank and in APAC, reflecting our strength in both our home market and a key growth engine for the global economy, namely APAC. The investment bank posted record revenues across a number of key products, and there was a strong performance in asset management. This provides a great platform to continue executing on our strategy. Finally, the level of provisions for credit losses reflects the strong underlying quality of our lending book.
+
+In the supplement, you can see that our provision for credit losses excluding Archegos have remained well controlled. Slide 7. I would like to turn to the supply chain finance fund matter. The board-commissioned report has been completed and shared with FINMA.
+
+And as the recovery process is ongoing, there is no intention by the board to publish the report. As of the end of 2021, we have recorded 72% of net asset value. And we are taking every possible measure to maximize recovery for investors, including pursuing borrowers and related parties. We filed five insurance claims with corresponding CSAM exposure of approximately $1.2 billion as of the end of 2021.
+
+Let me now turn to the decisive steps we have taken to align risk with our strategy, please. Slide 8. Management and the board of directors spent a great deal of time and energy in 2021 strengthening our risk and compliance efforts, including in our first line of defense. We are committed to continuing this process under the guidance of our new chief risk officer, David Wildermuth, and our chief compliance officer, Rafael Lopez, as well as under the new leadership in asset management, the investment bank and wealth management.
+
+We are confident that the changes we are making across our risk and compliance functions will support our growth ambitions in the strategic plan. You can see the steps we have taken at the top of the slide as regards our leadership and governance, our risk appetite and our risk culture. Next slide, please. Here, you see the substantial risk reduction we achieved since the first quarter of 2021 at the group level as well as in investment bank and across our wealth management businesses.
+
+Our absolute and relative performance in 2021 should be seen in this context versus our peers. Over the course of 2022, we expect to complete the exit of substantially all of our prime services businesses and progressively deploy capital into wealth management and other core businesses in all of our four divisions. Next page, please. This slide shows the steps we have taken quarter by quarter to strengthen our capital position both in terms of our CET1 ratio as well as our Tier 1 leverage ratio.
+
+It also shows that these steps have put us at the top in terms of Tier 1 leverage and in the top half of CET1 capital versus our global peers. Our balance sheet puts us in an excellent position to execute our strategy, which I will turn to in the coming slides. Next page, please. We are diligently executing our three-pillar strategy.
+
+We are strengthening our balance sheet and strengthening our business model by shifting capital to what we see as the most value-creating parts of our businesses. These aspirations include redeploying approximately 3 billion of capital into wealth management over the next three years. We are simplifying our organization by driving structural cost discipline. We are investing for growth in clients, businesses, talent and technology, including our ambition to progressively add approximately 500 relationship managers over the next three years as market conditions allow.
+
+We have already made good progress toward that objective. This goes hand-in-hand with corresponding first and second line of defense investments. Underlying these pillars is strong risk management and a diverse and inclusive culture that builds on our entrepreneurial spirit. Next page, please.
+
+As I said at the investor day, structure follows strategy. I firmly believe we have the right team in place to implement our strategy together. The structure of the executive board has changed significantly with seven new members since the first quarter of 2021. In the second quarter of 2021, Christian Meissner and Ulrich Körner joined us to run the investment bank and the asset management divisions, respectively.
+
+Chief compliance officer, Rafael Lopez Lorenzo, started in the fourth quarter. Our new chief technology and operations officer, Joanne Hannaford; our new chief risk officer, David Wildermuth; and our new CEO, wealth management, Francesco De Ferrari all started on the 1st of January. Finally, we welcome Christine Graeff as our new head of human resources, who took over from Antoinette Poschung as per the 1st of February. Slide 13, please.
+
+We are executing our three-pillar strategy across our four divisions. Let me call out just a few of them. We have invested for growth in wealth management with more than 600 million Swiss francs in investments in digitalization, automation and relationship manager hires in 2021. We have simplified the investment bank through global integration.
+
+We have strengthened the Swiss Bank through stronger collaboration between the corporate bank and private and institutional businesses, generating 10 billion Swiss francs client referral volume in 2021. And in terms of next steps for wealth management, we aim to achieve disciplined lending growth. In the investment bank, we plan to build out our M&A advisory and capital markets businesses, including our investment banking advisory offering for entrepreneurs and family offices in wealth management. We are targeting to more than double CSX clients in 2022 in the Swiss Bank.
+
+We aim to enhance the asset management coverage model for wealth management and institutional clients, as well as third-party clients. Next page, please. Sustainability is a priority of mine, and it is of the utmost importance to infuse it across our divisions and regions. We made significant progress executing our five-pillar strategy in 2021.
+
+Looking forward, I'm delighted that Emma Crystal will become our chief sustainability officer effective 1st of April, reporting directly to me. Emma brings extensive wealth management and sustainability expertise that will enable her to effectively partner with all of our divisions and regions as we deploy our sustainability product shelf and financing to clients. On the right, you see the significant increase in sustainable assets under management that we achieved in 2021. We believe sustainability is a vital part of our value proposition and the right thing to do for our economies and societies.
+
+Next slide, please. Achieving structural cost savings is central to our strategy as it will help fund our growth initiatives. On the left side of the slide, you can see the four main drivers of savings and then our step-by-step approach to reaching our ambition by 2024. These include: Firstly, synergies from Unified wealth management and globally integrated investment bank divisions.
+
+Secondly, procurement centralization and other centralizations. Thirdly, simplification of booking model and reduction of legal entities. And I would note that we have already seen a greater than 20% reduction in CS operating legal entities since 2018. And finally, improved automation and digitalization.
+
+Next page, please. Our strategy pillars are being leveraged to progress our digital transformation to drive change, growth and user experience in a modern world. These include strengthening our cybersecurity infrastructure and simplifying our business platforms. We are investing in our digitally enabled client experience to sharpen our high-touch versus high-tech segments.
+
+As you can see on the right of the slide, we are running a 50-50 split in terms of using our current technology spending to both run the bank and change it. Our experienced global staff gives us a mature presence in high-value locations. Next page, please. Today, we are reaffirming the financial aspirations outlined at the investor day, and I have outlined our step-by-step approach to delivering them.
+
+We aim to release more than $3 billion of investment bank capital over 2021 to 2022 and have already achieved two-thirds of that and to make targeted investments in the investment bank from 2023 onwards. We plan to invest approximately 3 billion of capital into wealth management by 2024. And increase capital allocated into wealth management, the Swiss Bank and asset management divisions to two times the investment bank allocated capital in 2022 and beyond. We have clear return on regulatory capital aspirations for each division.
+
+We expect our strategy to drive growth and to improve our cost-to-income ratio by 2024 to around 70% while maintaining a strong balance sheet to support growth. Our ambition is to achieve a reported group return on tangible equity of greater than 10% by 2024. These aspirations are grounded in the continued implementation of our transformative agenda, building on a culture that drives accountability, diversity and excellence. The successful execution of our strategy and achievements of the aspirations I have set out should deliver improving returns and value to our shareholders while rebuilding a bank that we can all be proud of and with a strong risk culture and a strong balance sheet.
+
+I would like to hand over now to David, who will go over the results in greater detail. I look forward to your questions later on. Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thank you, Thomas, and good morning to everybody. So just as usual, I'd like to go through the key financials and then give some more details on our performance at a divisional level. First, I'd just like to remind you that the fourth quarter of 2021 is the last time that we'll be reporting under our old divisional structure. As you know, we implemented the new organizational structure with effect from the 1st of January of this year.
+
+And I've just included on the slide here a quick reminder what these changes look like, together with the key dates over the coming months. Now, just in particular, I think you should note that we'll be publishing the restated numbers for our historic time series on the morning of April 7, so a couple of months' time. Now, let's just go to a summary, please, of the group results. Now I think you saw our trading update, which we put out on January 25, and that highlighted a number of key themes.
+
+Firstly, clearly, the impairment of the goodwill, primarily in respect of the DLJ acquisition back in 2000, totaling approximately 1.6 billion Swiss francs that I mentioned last November. Second, the increase in litigation provisions that we expected for the quarter, which have been incurred in respect of a number of cases where the group has more proactively pursued settlements. And just to be clear, that increase primarily relates to legacy matters from our investment banking business. And then therefore, we booked either in the investment banking division or to the extent they're handled by the SRU and now the ARU in the corporate center.
+
+Third, I think I mentioned on the 25th that we disclosed the benefit that we've taken in the quarter from real estate gains. And you may recall that -- so that was part of the strategy that we announced in response to the Archegos matter back in the second quarter of last year. And I'll cover these points in more detail as we go through the presentation. Now, just turning through the key reported numbers.
+
+Revenues for the quarter was 4.58 billion Swiss francs, that's 12% lower year on year. And that was primarily driven by a fall in revenues in the investment bank, which were 31% lower year on year at $1.6 billion. Our wealth management-related revenues were 2% higher at 3.2 billion Swiss francs, and that was driven by the strong performance of the Swiss Universal Bank. Total operating expenses were 20% higher year on year at 6.19 billion Swiss francs the quarter.
+
+But you should remember that this is primarily due to the goodwill impairment of 1.6 billion Swiss francs. Goodwill impairments actually flow through the expense line, obviously, together with the litigation provisions. Now overall for the quarter, we reported a pre-tax loss of 1.59 billion Swiss francs. On an adjusted basis, which excludes the goodwill impairment, litigation provisions and other significant items, we earned a pre-tax income of 328 million Swiss francs.
+
+Now the income tax expense totaled 416 million Swiss francs in the quarter, and that continues to be adversely affected by the consequence of the Archegos loss and in the fourth quarter by other items and that's particularly the goodwill impairment for which no tax deduction is available when you actually write it off. Now for reference, that equates to a full year tax rate of about 196%. Although if you strip out Archegos and the goodwill impairment, you can calculate that normalizes at about 28%. And looking forward to 2022, we'd expect an effective tax rate to be in the low 30s for the year.
+
+So let me just give some more detail regarding our adjusted and our reported numbers, both for the fourth quarter and for the full year. Now as I've indicated before, there are a number of items that have had an impact both credit and debit. And I've broken this out on the slide. Now just freeze, from this point on, just assume that when I refer to adjusted numbers, I mean adjusted excluding significant items at Archegos.
+
+So if we start from the left. The fourth quarter reported loss was 1.59 billion Swiss francs. And that reconciles, as you can see moving to the right, to the pre-tax number on an adjusted basis of 328 million Swiss francs. At the bottom, you can see the full year numbers.
+
+So they correspond to 522 million pre-tax loss and adjusted pre-tax income of 6.6 billion Swiss francs. So let's just go through these points in a bit more detail. So first of all, as I've already mentioned, we saw gains from real estate sales. And those were completed predominantly in Switzerland in the fourth quarter.
+
+Those gains were part of the capital steps that we announced in the second quarter of last year and we booked 224 million Swiss francs of gains in the fourth quarter with a total gain of 232 million Swiss francs for the year. And you can see we also booked a 31 million Swiss francs gain in the quarter on our 8.6% interest in all funds with a total gain for the year of 602 million Swiss francs. We then saw smaller items totaling 57 million Swiss francs of losses in the fourth quarter and 212 million Swiss francs in the year as a whole. Now just most notably, I'm sure you remember that in the third quarter, that included the write-down on our investment in New York of a further 113 million Swiss francs and there've been no moves on that since then.
+
+There was no material move in our Archegos position in the fourth quarter. But clearly, the full year results are marred by the total loss relating to this matter of about 4.8 billion Swiss francs. Now, if we move to the right, we had restructuring charges of 33 million Swiss francs in the quarter, and 103 million Swiss francs in the year. And I just want to reiterate the guidance that we gave at the investor day that we'd expect a total cost of around 400 million Swiss francs in restructuring from the beginning of this program to the end, at the end of 2022.
+
+Clearly, though, those costs will only actually flow through as we actually complete our exit from the bulk of the prime services businesses and complete the other organization measures. Now, in terms of major litigation costs then. We took provisions of 436 million Swiss francs in the quarter and a total of 1.16 billion Swiss francs for the year. As I've said already, in the fourth quarter, these were predominantly against a number of legacy cases relating to the investment banking businesses and were booked either in the investment bank P&L, or for cases which were handled by the Strategic Resolution Unit, now the Asset Resolution Unit in the Corporate Center.
+
+The residual investment bank-related goodwill of 1.6 billion Swiss francs, mainly resulting from the DOJ acquisition in 2000 completes the write-off of all the residual goodwill relating to the acquired investment bank assets of DOJ and has been booked in the investment bank and APAC divisions. Let's turn to capital ratios, please. Our CET1 ratio for the fourth quarter stood at 14.4%, and that's stable compared to third quarter but clearly is substantially ahead of the ratio of 12.9% that we reported at the end of 2020. The CET1 leverage ratio was 10 basis points higher quarter on quarter at 4.4% and due to lower leverage exposure, primarily from the reductions in prime services as headline CET1 leverage ratio is unchanged year on year.
+
+But you should remember that this is a function of the temporary COVID measures that FINRA introduced back in 2000, which excluded deposits held at the Central Bank from the leverage exposure calculation during the course of 2020. So if you exclude that temporary measure, the like-for-like improvement in the CET1 leverage ratio was from 3.9% to 4.4% at the end of 2021. Our risk-weighted assets were 10 billion Swiss francs lower than at the end of the previous quarter at 268 billion Swiss francs, while leverage exposure was 48 billion Swiss francs lower, 875 billion Swiss francs. Lower risk appetite across the investment bank in '21, together with the prime services exit, has led to RWA and leverage exposure reductions of 1 billion and 18 billion Swiss francs, respectively, quarter on quarter.
+
+And the reduced risk appetite and the deleveraging by clients I mentioned already led to corresponding falls of 5 billion Swiss francs in RWAs and 7 billion Swiss francs in leverage exposure across our wealth management businesses. Now as we said already, in terms of our ambition to achieve at least $3 billion reduction in the capital allocated to the investment by the bank by the end of this year compared to 2020, that the actions that we already concluded means that we've achieved $2 billion of that total compared to the starting point at the end of 2020. I'd remind you that our medium-term ambition remains to operate the CET1 ratio in excess of 14% pre the impact of the Basel III reforms and a CET1 leverage ratio of about four and a half percent in the future. Now, I just wanted to make a brief point here about the Swiss CET1 capital ratio for Credit Suisse AG, the parent bank, which we discussed in some detail at the investor day back in November.
+
+As you know, our aspiration for the parent is a ratio of 12%. But at the end of 2021, it dipped to 11.7%. And with the phase-in of the transitional regime, to 11.4% as of January 1, 2022. And as we detailed in the earnings release, this is primarily due to FINRA imposing restrictions on the value of our subsidiaries for capital purposes.
+
+Given that the group has an overall ratio of 14.4%, this is about the distribution of capital around the group and not the overall capital level. And as I said back in November, substantial capital repatriations and dividends are due from our U.K., U.S. and Swiss subsidiaries over the course of the next 12 months, which should rebalance this. As a consequence, I'd expect the Swiss CET1 ratio of the parent to increase to above our ratio -- our target of 12% by the year-end.
+
+Next slide, please. Now as I've already mentioned, client deleveraging and challenging markets in some of the regions in which we operate, particularly in Asia, together with reductions in our own risk appetite resulted in a mixed performance for our wealth management businesses in the fourth quarter. However, we've continued to make progress in growing assets under management and increasing our mandate volumes. If we look at the year as a whole, AUM grew by 7% to 1.6 trillion Swiss francs with net new asset contributions from our Institutional and wealth management businesses of 20 billion and 11 billion, respectively.
+
+We saw year-end mandate volumes of 241 billion, 9% higher than the end of 2020, while mandate penetration stood at 31% at the end of '21 compared to 29% a year earlier. And that puts us on track to achieve our medium-term ambition to have a range between 33% and 35%. Let me touch on costs in the next few slides. So what I'll give here is a bit more detail about the operating expenses.
+
+Our reported total for group operating expenses for the full year was 19 billion Swiss francs, and that compares to 17.8 billion Swiss francs for 2020. This increase was adversely impacted by the goodwill impairment of 1.6 billion Swiss francs, which flows through our expense line, but clearly does not relate to ongoing operating expenses. The costs are also inflated by the increase in major litigation provisions that we took in the year. Now on an adjusted basis, therefore, costs decreased from 16.6 billion to 16.0 billion Swiss francs, a decline of 4% year on year.
+
+But I would remind you that the variable compensation costs are lower given that the events of last year required us to make changes to both the amount and the type of compensation that was awarded. So let's turn to that in more detail, please. Now, we will give clearly a full summary in the compensation report that we published as part of our annual report on March 10. But there are a few details that I thought it would be useful to cover now.
+
+The challenges that the firm faced in 2021 required us to balance three factors. First, we need to recognize the losses that our shareholders had suffered from Archegos, the goodwill impairment, the major litigation provisions and the other costs incurred over the course of '21. Second, and against that, we needed to reflect the competitive compensation environment and the strong underlying performance that was delivered by many of our businesses, notwithstanding other problems in '21. And third, clearly, the need to retain and motivate key franchises and personnel as we execute on the strategic plan over '22 to '24.
+
+So the board of directors and the executive board, therefore, decided to reduce the variable compensation pool to 2 billion Swiss francs compared to 2.9 billion Swiss francs in 2020. And that equates to a reduction of 32%. Furthermore, for most Managing Directors and Directors, we also changed the composition of the awards with a higher proportion of cash being paid subject to clawback and a lower proportion in terms of share awards. Just the point I made above though, we remain very focused on ensuring that there is clear alignment with the strategic plan.
+
+And therefore, we've awarded a further instrument to most of our managing directors and directors with a par value of just under 500 million Swiss francs. That includes an upside clause aligned to the achievement of our strategic objectives and a downside clause as certain ambitions and targets are not met. Now, one consequence of this mix of deferred awards for our expense recognition has been the reduction of compensation costs for '21. And therefore, a subsequent increase in deferral costs for future years.
+
+So just provide some guidance here. I'd expect to see an increase of around 1 billion in 2022. That compares to the guidance we gave at the investor day of an increase of about 500 million Swiss francs. That reflects the combination of the amortization of the increased deferred compensation costs I've just summarized, plus an assumption of a more normal accrual of cash awards in 2022.
+
+And although clearly, the size of that increase will depend on the total bonus pool for the current year. So let's just bring this altogether and give you an idea of where we do expect costs will look like for '22. So you'll probably recall some of these numbers from the investor day. But if we move from left to right, we start with the 2021 adjusted expenses, which stood at 16 billion Swiss francs.
+
+In '22, we expect to see the savings resulting from business exits totaling about 400 million and about another 300 million Swiss francs from the structural cost saving measures that we're pushing through. However, the approximately 1 billion Swiss francs increase in compensation costs that I've just outlined, together, our investment plans of an additional 700 million Swiss francs means that overall I would expect our adjusted operating expenses to be at the top of the range of 16.5 billion to 17 billion Swiss francs that we gave last November and probably around 17 billion, but clearly subject to the caveats I've given already. Just to be clear, though, we are not changing our guidance for costs for '23 and '24. I'd reiterate that we would expect that to remain in the range of 16.5 billion to 17 billion once we're through this transitional year.
+
+Let me turn now to the divisional summaries, and let's start with the Swiss Universal Bank. The Swiss Universal Bank concluded a strong performance through the year, with adjusted net revenues for the quarter, fourth quarter of 1.31 billion Swiss francs, 6% higher year on year. Our businesses delivered increases in all major revenue categories, in particular, recurring commissions and fees. We also saw a good performance from our investment banking operations in Switzerland.
+
+Adjusted operating expenses were 3% lower year on year at 770 million Swiss francs, resulting in an adjusted pre-tax income of 546 million Swiss francs, and that's 41% higher than in the fourth quarter of last year. Our reported pre-tax income was 47% higher year on year at 716 million Swiss francs. Now, as we've seen before in the fourth quarter, and this is -- this often happens, there were outflows in our Private Client business totaling 1.8 billion Swiss francs. But I'd remind you for the year, we saw total net new assets in private clients of 1.4 billion positive Swiss francs.
+
+Overall, the Swiss Universal Bank reported a record adjusted pre-tax income for the full year of 2.4 billion Swiss francs, 25% higher year on year as provisions for credit losses fell from 270 million to 6 million Swiss francs. Let me now turn to international wealth management. Adjusted net revenues for the quarter were 695 million Swiss francs, 19% lower year on year. Whilst we saw some stabilization of net interest income on a sequential basis, it's clearly lower compared to the fourth quarter of 2020 due to the cumulative interest rate moves over the period.
+
+Our recurring commissions and fees were 7% lower year on year at 277 million Swiss francs, with higher mandate revenues and a stable margin, offset by lower fees from lending activities. At 156 million Swiss francs, our transaction-based fees were 40% lower than last year, reflecting, among other factors. First, a mark-to-market loss on an investment in Brazil of 19 million Swiss francs, compared to a gain on the same investment of 31 million Swiss francs in the same quarter last year. Second, the reversion of trading activity to more normal levels.
+
+And clearly, third, our own risk reduction in 2021. We should also note reduction in GTS revenues compared to a year ago. But one final point, which is worth mentioning. that is the impact of the fee waiver program.
+
+This was established in the fourth quarter as a goodwill measure for clients impacted by the supply chain finance matter and entails the reimbursement on a quarterly basis of certain commissions and fees arising from current and future business transactions. The negative impact on revenue from this goodwill program across the wealth management businesses was 28 million Swiss francs in the fourth quarter, and the majority of this was incurred in IWM. Operating expenses in IWM was 7% higher at 671 million Swiss francs as we continue to make investments in IWM infrastructure as well as a number of risk and sustainability plans. I think it's clear that a strong aspect of IWM's performance in the fourth quarter was client inflows.
+
+We saw net new assets totaling 2.7 billion Swiss francs in the quarter, which took the total for the year to 11 billion Swiss francs and that's notwithstanding the adverse impact of the supply chain finance matter throughout much of 2021. But it is clear though the overall financial performance for the fourth quarter was unsatisfactory. A combination of the reduction in revenues, particularly transactional revenues, plus the increase in costs, reduced adjusted pre-tax income to 25 million Swiss francs in the quarter. Now if you look at the performance for the whole year, a 1% reduction in adjusted costs and a significant decline in provisions was not enough to offset the 10% decline in net revenues and our adjusted pre-tax income was 770 million Swiss francs, 23% lower than in 2020.
+
+Let's turn to APAC. So the region has been adversely impacted by the weakening of market conditions, particularly in the fourth quarter, but in the second half to a degree as a whole. And that was evidenced both by the significant client deleveraging that we've seen in Asia and by a reduction in activity. In the case of the client deleveraging, the 11% reduction in loans year on year reflected the change in market environment as well as the reduction in our own risk appetite toward a number of customers.
+
+In the case of lower client activity, declining net interest income of 13% and in transaction-based revenues of 33% reflects the weaker environment and a softer GTS performance compared to the fourth quarter of 2020. Although recurring commissions and fees for the quarter improved by 19% to $118 million year on year, driven by higher mandate and fee revenues, our adjusted net revenues were 20% lower year on year at $661 million. Slightly lower operating expenses of $581 million for the quarter meant that the division delivered an adjusted pre-tax income of $94 million. Now, if we include APAC's $113 million share of the goodwill charge relating to DOJ, that results in a reported pre-tax loss for the quarter of $9 million.
+
+Now for the full year, the more resilient market environment earlier in the year meant that notwithstanding higher costs related to the relationship manager hiring and the investments that we've made in China, the division reported an adjusted pre-tax income of $1.01 billion for the year, and that's an increase of 22% compared to 2020. Right, next slide, please. After the strong trading environment that prevailed for most of 2021, we saw a weak close to the year in our investment bank with net revenues of $1.6 billion in the fourth quarter of 2021, compared to $2.3 billion in the very strong final quarter of 2020. We saw weakness in fixed income sales and trading, which was primarily credit-related.
+
+And reduction in equity revenues, which primarily results to our decision to exit the majority of our prime service businesses. Now furthermore, compared to the fourth quarter of 2020 when our equity capital market franchise was buoyed by very heavy levels of SPAC activity, this new issuance has clearly been lower in recent months. And on a more positive note, we saw a strong performance in equity derivatives in our macro businesses and continued momentum in our advisory operations, which were increased market share resulted in a 51% year-on-year increase in revenues to $300 million for the quarter. However, overall, the weaker revenue performance resulted in adjusted pre-tax loss of $233 million for the quarter, and that's notwithstanding a 5% drop in operating expenses which was primarily due to the compensation points that I made earlier in this presentation.
+
+Overall, our underlying performance of the year was much stronger with adjusted net revenues 5% higher compared to 2020 and 25% higher compared to 2019. Our adjusted pre-tax income was two-thirds higher than in 2020 at $3.15 billion, and that's notwithstanding a 15% reduction in allocated capital. However, just to be clear, given the losses relating to Archegos and the DOJ goodwill impairment, that meant this translated into a reported loss for the year of $3.92 billion. Let's turn now to asset management.
+
+Now adjusted net revenues for the division were broadly flat at 387 million compared to 392 million in the fourth quarter of 2020. A 9% improvement in management fees, reflecting higher assets under management and higher investment and partnership income was offset by a 36% decline in performance and placement revenues and that clearly compares to a comparatively strong fourth quarter close to 2020. We saw an increase in adjusted operating expenses of 10% quarter -- for the quarter year on year at 310 million, and that reflected both higher variable compensation costs in the quarter and expenses relating to the supply chain finance funds. We saw positive net new asset inflows for the quarter of 4.7 billion Swiss francs, driven by flows into our index solutions funds and into our emerging markets joint venture, which was partly offset by outflows from some of our fixed income funds.
+
+Overall, the adjusted pre-tax income for the quarter was 79 million Swiss francs, and that's 31% lower year on year. Clearly, if you look at the performance for the full year, 21% revenue growth with good momentum across all the business lines meant that the division delivered an adjusted pre-tax income of 417 million Swiss francs and that clearly compares to an undoubtedly weak performance of 192 million in 2020. Net new assets for the year was 14.6 billion Swiss francs and that increased the assets under management for AM division from 440 billion to 477 billion Swiss francs. So let me just close then with just a few words, please, on the outlook for the current year.
+
+Clearly, as we've said already, 2022 will be a transitional year for Credit Suisse as the benefits of the strategic capital allocation toward our wealth management businesses and the structural cost saving measures that we discussed already will only really materialize from 2023 onwards. And I'd caution that I think we are seeing the end of the extremely favorable business environment that we've seen, particularly from transactions over the last couple of years, which has been driven by the substantial measures that central banks and governments have taken to sustain economies during the pandemic. We're clearly now seeing the start of the tightening of the interest rate environment, which has already begun in the United States and in the U.K. and certain other markets and we expect to be followed by the ECB later this year or in early 2023.
+
+I think this will mean a shift to a more normal trading environment that we've seen over the last couple of years, and we would expect this to be reflected in our results for the first quarter. And adjusted results for the first quarter, that is excluding the Archegos loss last year, are likely weaker than the first quarter of 2021, which arguably saw the peak benefit from the various monetary and fiscal incentives. I think it's worth remembering, though, that while this will be a very different market, it will be one in which our clients do remain in need of good advice and products as they navigate a challenging landscape with the expectation of much higher levels of inflation and interest rates than we've seen for the last decade or so. I think after a difficult close to 2021, we do expect though to see renewed franchise momentum as the new divisional structure takes shape.
+
+And as we've said in our outlook statement in the release, we have seen positive net new asset inflows year-to-date in our wealth management business. Nonetheless, I think it's clear, results this year will be adversely reflected by compensation normalization, by restructuring expenses and of course, by the decline in equity revenues following our decision to exit the majority of our prime business. Now just one point, just to conclude. Whilst this isn't relevant to our underlying performance, I'd also note that we continue to hold an 8.6% stake in Allfunds, the value of which has fallen by about 204 million in the market sell off so far this year.
+
+Now clearly, Allfunds has been an extremely successful investment for Credit Suisse over the last three years. But now it's a quoted listed company that will contribute to a continuing degree of P&L volatility going forward. And with that, I'd like to just to hand back to Thomas before we move to Q&A.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you, David. Let me conclude with a few comments. The board of directors and the executive board are fully committed to the group strategy we outlined in November 2021 with 2022 being a transition year. We reaffirm our financial aspirations, including for group reported return on tangible equity of greater than 10% by 2024.
+
+And we are now fully focused on executing on this strategic plan. We have achieved significant progress on the risk and compliance as we have outlined earlier today by recognizing that there is more to do. And finally, although we experienced a slowdown across our business in the fourth quarter, we are confident that we are regaining client and revenue momentum in the first quarter and have seen encouraging signs so far. Thank you very much.
+
+And with this, I would like to open the Q&A.
+
+Thank you. [Operator instructions] And the first question comes from the line of Magdalena Stoklosa from Morgan Stanley. Please ask your question. Your line is now open.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+Thank you very much and good morning. I've got two questions and they're both on wealth as the kind of driver of the group going forward. So my first question is about business growth and how you see it further out than the first quarter of this year. And if you could give us a sense of your expected trajectory of kind of net new assets and of course, also lending given how much capital becomes available to that division over time.
+
+And really, when you look at the transactional side of things, I know we're coming off of the two strong years. Where do you think that normalizes? And my last one, really on wealth is on net interest income. Because effectively, we have -- we are seeing a tremendous shift in interest rate expectations, U.S., Eurozone as well. Could you give us a sense of the sensitivity that you're likely to see, particularly within the wealth business to the moves in rates in '22 and maybe further out? Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Thank you. Maybe I will kick it off and then David will add a few points, especially on the net interest income. So for the 2022 period, as we also outlined at the investor day, the key drivers for growth will be in terms of transactional revenues -- sorry, in terms of recurring revenues, AUM growth, M&A growth which will be driven by a combination of organic NNA growth that we expect to normalize again and be stronger than in 2021. And also driven by more lending growth, which will both help our NNA growth as well as our net interest.
+
+And in addition to that, our relationship manager hiring intentions across the regions. And as far as transactional revenues are concerned, I would say that the slowdown we saw, especially in the second half this year was somewhat unusual, and we would expect some more normalized levels of transactional revenues in 2022. In addition to that, we are committed to further increasing our level in terms of private equity and alternative investments, as well as other initiatives around mandate penetration which should also help our recurring revenues. These are some of the elements that we discussed in detail at the investor day in November.
+
+But maybe, David, you want to add a few things on the net interest income side?
+
+David Mathers -- Chief Financial Officer
+
+Thanks very much, Thomas. And good morning, Magdalena. Apologies. Look, I think there's no doubt that the moves that we've seen already in U.S.
+
+interest rates and we expect to continue to see during the course of 2022 will be favorable to our dollar net interest income. I mean, I think to give some numbers, if we look at the forward rate curve now, we probably expect to see about a $50 million gain in U.S. dollar net interest income in '22. And that rises to more like about $175 million in '23.
+
+So I think that gives some degree of the sensitivity due to U.S. dollars. I think I should balance that, though, Magdalena, I think you're fully aware of this, but the major Swiss banks are all subject to the exemption threshold that the Swiss National Bank operates, which I believe is broadly similar in concept to that, that the ECB operates as well. So at some point, I mean, I think it seems unlikely that the ECB is going to be at the front of this queue.
+
+I guess we're talking late this year, maybe in '23, we would expect Swiss francs -- Swiss rates to then follow that. So at that point, you'd expect to see some diminution in Swiss franc net interest income as we go back toward 0 interest rates in Swiss franc, which is obviously going to take some time. So that will clearly partly offset the U.S. dollar moves.
+
+So U.S. dollar favorable. Clearly, we need to watch closely when the move in Swiss rates. And you understand perfectly well how the exemption thresholds work in Switzerland and in Europe, although it's slightly bigger, I think, there's a multiplier for Swiss banks, than it is for Eurozone banks.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+Thanks very much, David, for that. Can I just go back to the lending growth because, of course, we've got -- we had kind of two things here. One, quite a significant shift of capital over medium term to wealth. And two, of course, '21 being also that kind of transition year where you've seen quite a lot of deleveraging.
+
+Where is that kind of -- where do you see that loan demand kind of returning within your risk appetite?
+
+Thomas Gottstein -- Chief Executive Officer
+
+I think it's really across all lending activities within wealth management. So starting with mortgages in Switzerland, Lombard -- traditional Lombard lending, single stock structured lending and some of the real asset lending. So it's broad based in terms of the type of lending instruments. And geographically, it's also well balanced.
+
+I think that especially Middle East and in some parts of Asia, we still continue to see a big potential for a pickup in lending growth as well as in certain areas in Europe.
+
+Magdalena Stoklosa -- Morgan Stanley -- Analyst
+
+Thank you.
+
+Operator
+
+Thank you. And the next question comes from the line of Jeremy Sigee from BNB Paribas Exane. Please ask your question. Your line is now open.
+
+Jeremy Sigee -- Exane BNP Paribas -- Analyst
+
+Good morning. Thank you very much. A couple of questions on costs please and the change in the guidance. So firstly, are there any unexpected elements in the deferred comp cost increasing? And if so, just could you talk us through what those unexpected bits are? And then the second question is, does this changing dynamic have any impact on your investment plans either in '22 or '23 or '24 as you try to manage to the existing cost target? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Well, I think that's a very good question, Jeremy. And I wanted to be very open around the comp plan. I think historically we said wait until the comp pool comes out in a month's time. And we thought it would be more useful given the complexity this year to actually give the slides.
+
+So just to recap, I think you can saw that we did have a very difficult balance to actually walk in terms of the compensation pool, particularly given the losses that our shareholders suffered in respect of the issues last year. So that was behind the decision to reduce the variable compensation pool by 32% to 2 billion Swiss francs. But I think there's two factors then to keep in mind. Firstly, and this was something that we agreed on and also discussed with our regulators, we did pay those instruments with a number of deferred cash instruments, as I think has been widely reported.
+
+And secondly, I think as part of the implementation of the strategic plan from '22 to '24, we did also provide our managing directors and directors with this strategic delivery award totaling just under 500 million, which is a cliff vesting instrument. That cliff vesting instrument, as you know, Jeremy, doesn't mean that the cost comes in '24. It's actually time weighted under U.S. GAAP.
+
+And we'd expect probably just under around 50% of that to actually flow through in '22. So that's half of the increase. The other half of the increase reflects a decision which we've made to actually move to lower levels of deferral in 2023 than the past. So that's basically the driver of that increase in our guidance from 500 million to 1 billion in terms of the normalization of the compensation program.
+
+Absent that, there's nothing else that you should be focused on. We obviously are very pleased to have now signed the procurement outsourcing transaction with Chain IQ. There's a number of other strategic cost measures we're actually pushing through, which I discussed in more detail back in November, so we're pushing hard on that. And certainly, driving efficiency from the new structure is a core focus for the executive board of Credit Suisse.
+
+And I think we would look to outperform against what we said before. But I think in the context of the compensation moves, I wanted to be very explicit that essentially, I think we will be at the top end of our guidance for 2022. But also, as I said before, that I'm not changing our guidance for '23 and '24. I think on investment spending, I mean, I think, look, I think we're very committed to our core expansion plans in wealth, and for that matter, in the investment bank too.
+
+But honestly, as you move forward over time, some things become more attractive and some things become less attractive.
+
+Jeremy Sigee -- Exane BNP Paribas -- Analyst
+
+OK, thank you.
+
+Thank you. And the next question comes from the line of Stefan Stalmann from Autonomous Research. Please ask your question. Your line is now open.
+
+Stefan Stalmann -- Autonomous Research -- Analyst
+
+Yes, good morning. Thank you very much for taking my questions. They actually center around the situation at the bank, the solvency situation. Last time, I think you mentioned that you would need to generate about 6 billion of capital through 2027, end of 2027 given the current risk-weighted asset increases baked into the situation at the bank.
+
+Given what has happened in the fourth quarter with the impairment and the change to the regulatory treatment of participation values, where would you say the 6 billion number roughly stands now, please? And the second question related to this is -- have there been already material repatriations of capital or special dividends out of the subsidiaries of the bank into the bank in the fourth quarter or is that all still coming? And if it's still coming, it seems that something is holding up the process. I thought you were expecting substantial repatriations already in 2021. Could you maybe add a little bit of color around that, please?
+
+David Mathers -- Chief Financial Officer
+
+Look, I think we obviously discussed this in some detail back in November. And I think in light of that, we obviously wanted to just give an update on where we stood at this particular point. To your specific question, the 6 billion increase I said before, which is the gap to achieve a 12% target ratio with the full phase-in of the step-up in RWA weightings by '28, is that 6 billion number, it's about 9 billion at this point for 2028, assuming no change in the valuation of the subsidiaries. I mean, I think, Stefan, a sort of unspoken question, which I'll answer anyway really is why did we see this rate reduction in the valuation of the subsidiaries, which we also touched on in the earnings release, you'll see in there as well, is that was a reduction in the regulatory filter that FINMA imposed, really following a review of the value subsidiaries post Archegos and clearly also post the strategic review.
+
+So it was applied at the end of December, basically, and that's what led to this reduction in the parent ratio to 11.7% at the end of December. And as I said, 11.4%, including the phase-in from the 1st of January. So that's the context. And in terms of that look through to '28, that would mean the GAAP increases from 6 billion to 9 billion.
+
+Now in terms of the timing of capital repatriations dividends, that there's been no change is the answer. I mean, we expected to receive a significant dividend from CSH USA at the end of last year in December, and we actually received that dividend. But that was in the plan, which I discussed on the 4th of November. We are expecting to see some very substantial numbers in 2022, which was part of the planning.
+
+Just in order, most notably, we have completed the decommissioning of Credit Suisse Securities Europe Limited, which is the sister entity of CSI. That is now a non-material legal entity. So -- and it has significant trapped capital in it. So that's obviously quite a complex program to go through as we actually do that.
+
+And that's something we'll obviously be in discussion with the U.K. regulators about during the course of this year. Secondly, of course, we will expect to see further dividend from the U.S. I'm not going to comment, but it's probably somewhat material in terms of these numbers.
+
+And then finally, we will receive, I won't expect, the normal dividend from Credit Suisse Schweiz, and then there's obviously other smaller numbers as well in the total of that. I think in timing of that, basically, obviously, the Credit Suisse Schweiz dividend would come in first. And we would expect the U.S. dividend to come in toward later in the year and the restructuring of CECL, which I've talked about before, clearly would be subject to regulatory approval later on this year.
+
+So come way, I guess, somewhere during the year, but I'm not going to give an exact date. But those plans are all the same as they were before, Stefan. I think the change for the 4th of November was that point I made before about the FINMA's decision to reduce the value of the regulatory filter as a consequence of the numbers of last year.
+
+Stefan Stalmann -- Autonomous Research -- Analyst
+
+Right. Thank you very much for that. Thanks, David.
+
+Thank you. And the next question comes from the line of Andrew Coombs from Citi. Please ask your question. Your line is now open.
+
+Andrew Coombs -- Citi -- Analyst
+
+Good morning. If I could ask one follow-up to David and then one broader question to Thomas. First on the follow-up to David, turning back to Jeremy's question, I think you said that of the 500 million increase in compensation in 2022, about half is due to the amortization structure on that 497 million one-off award. Two parts.
+
+First is, can you just reiterate what the second half of the increase in compensation relates to? And with regard to that one-off award, how does the amortization structure then play out over 2023 and 2024 as well, please? My broader question to Thomas would be on Slide 34, where you talk about two real aims accelerating the revenue momentum and strengthening the risk culture. Do you think those two things go hand in hand? And the reason I ask is usually we hear from companies saying, we're going to take on a bit more risk to accelerate our revenue momentum or alternatively taking down risk levels, but perhaps moving to a higher payout ratio or something along those lines. The two things that you are flagging sound almost slightly contradictory. So interested in your broad thoughts on how you can achieve both at the same time.
+
+Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Your first question. I think in terms of the deferral impact. The strategic delivery award is a three-year cliff-vested instrument. So in other words, the compensation committee will assess the progress that's been made during the course of '22, '23 and '24 in terms of the achievement of the strategic goals, which does include the achievement of the risk and compliance goals.
+
+And we'll then decide what the uplift in the value is. There are certain knockout clauses as well in terms of that instrument. So that's the instrument. In terms of the deferral treatment, as it's a three-year cliff vest, cliff vest absent early retirement clauses, I'll come back to that, vest once -- run through the expense line under U.S.
+
+GAAP at one-third, one-third and one-third. But because certain individuals would be eligible for retirement, that pushes up the recognition if they become eligible in that year. So in practice, and it's a little bit of a complex calculation because it's population dependent, you'd expect around 50% of that 500 million to flow through in 2022. And then it's obviously a smaller proportion in '23 and '24.
+
+So it will be something like 50%, 30%, 20%, but it depends very much on the retirement calculations. And that's obviously different from a level vest, and I'd be very happy, Andrew, to talk to you about level vesting amortization under U.S. GAAP separate, but I won't waste everyone's time at this point, but that's how it works. But you asked a very good point on the second question, the other half of the number, which I've given in terms of guidance.
+
+And that is that Credit Suisse has historically operated quite high levels of deferral above that of our peers in Europe. And we would like to move back to a more normal deferral table. Clearly, that doesn't change the economic cost of bonus awards over the lifetime of those bonus awards, but it does mean that more flows through in the first year of that. And I said that's about the other half of this.
+
+Clearly, there's an important caveat on that, Andrew, which is what is the variable compensation pool in total in 2022, which is clearly undetermined at this point. And therefore, there has to be some uncertainty around that guidance. But I think it's material enough that it's worth talking about and making clear, that you understand that does push us toward the top end of our guidance range for '22. Hopefully, that's OK, but I'll be more than happy to follow up afterwards, Andrew.
+
+Thomas Gottstein -- Chief Executive Officer
+
+OK. And Andrew, to your second question, no, I don't think there is any contradiction to that at all. And I would like to come from two angles. First of all, what we've seen really in Q4 was the result of a series of steps we've taken during the year in terms of strengthening our leadership and governance in risk management in terms of recalibrating our risk appetite and reducing our risk positions starting, obviously, within the investment bank and prime services.
+
+But across frankly, the board also exiting certain other businesses like GTS, emerging markets, reduced oil and gas exposures and overall RWA and leverage reduction since the end of the first quarter, as we showed between 10% and 12%. And as a consequence of that, we really saw in Q4, a very low activity in new business, and that has been very much also influenced by slower markets and -- but also somewhat inward focus, I would say, of the organization as we immediately implemented the new structure -- organizational structure, which followed the strategic review that we presented on the 4th of November. And then obviously, as a consequence of that, we are strengthening the risk culture with a much more disciplined approach around risk in both the first line and second line of defense, significant investments across risk and compliance, etc. And this all leads to -- or led to a real slowdown in Q4 and has now been really, I would say, embedded and has now laid the foundation for a very disciplined slow growth coming forward now in Q1 and beyond.
+
+And maybe more conceptually, I mean, banking is about risk management. It's not about avoiding risk. It's about proper risk management, and that's really what the executive board and including myself, are telling all our troops. We want to have disciplined approach to risk, but we want to do new business.
+
+So that's very clear. And in that sense, we see absolutely no contradiction when we say on one side, we want to further strengthen the risk culture. But at the same time, regaining some revenue momentum.
+
+Andrew Coombs -- Citi -- Analyst
+
+I guess, just to follow up and I understand all the points you're making. I think, the issue last year is that your employees necessarily didn't know how much risk they were able to take. And as a function of that, you've clearly seen a large downturn in revenues. Do you think with the steps that you've now put in place, there is a deep understanding across the franchise about exactly what risk tolerance levels are acceptable? And now from here, you're in a position where you can take that forward?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Absolutely. I think that has become very clear. We have recalibrated our risk appetite division by division and region by region. That broken down to country limits, to limits for each of the business areas and product areas.
+
+And we have a very clear framework on limits, and this is now very clear in the organization and fully signed up by all ExB members, both the old ExB members, but also the new ExB members. And I'm really very excited about Francesco on the wealth management side and Christian's collaboration together with David Wildermuth and the risk teams and compliance teams. So this has really been now starting to work very well.
+
+Andrew Coombs -- Citi -- Analyst
+
+OK, thank you.
+
+Thank you. And the next question comes from the line of Kian Abouhossein from J.P. Morgan. Please ask your question.
+
+Your line is now open.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Yes, thank you very much for taking my question. The first question is just coming back to the Credit Suisse AG parent bank, the 7.6 billion versus your 3.5 billion and the additional 7.6 billion. You mentioned regulatory filters. And I just wondered if you can give us a little bit more color on those? And secondly, we haven't heard anything from FINMA on regulatory add-ons on the holding under Basel III, so your regulatory capital.
+
+And I just wonder, can you read anything from this 7.6 billion toward what we should be thinking around FINMA add-ons? If you can maybe comment on that conceptually. And then the second question is regarding your PB business. You indicated two-thirds of balances have been reduced. At the investor day, you talked about 600 million of revenue loss, 400 million of cost from what I recall.
+
+Could you tell us where we stand at this point in terms of revenue reductions and cost reductions? And even if I adjust my numbers within the IB, both in fixed income and equities and compare them to peers, you seem to be underperforming. Maybe you could just touch on that, again, should we just read that as a fourth quarter event, whether derisking? Or should we think we will see further potential relative performance differences against peers for a while?
+
+David Mathers -- Chief Financial Officer
+
+Shall I take the first question, Thomas?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah, please.
+
+David Mathers -- Chief Financial Officer
+
+So I think, Kian, you're absolutely right. And by the way, the page that, just for everyone's benefit, is Page 43 of the earnings release. So just to cover that. So essentially, so yes, as part of the assessment of the financial plans of the entities and particularly post the strategy review, we did revalue them by about 3.5 billion Swiss francs.
+
+And obviously, we've also taken into account in the course of the year, the adverse impact on the entities of the Archegos loss because obviously, that was actually suffered in our subsidiaries and not in the parent itself. However, I think your point is more the application by the FINMA on a cap on the regulatory value for capital purposes. FINMA is entitled to do that under the 2017 decree to put a cap or to provide a different number then valued by us. And that was something they did do on the basis of the numbers projected forward, and they employ an external assessor to do so.
+
+I don't think you can read anything more into it than that. Clearly, that does reduce the value of the Clearly, that does reduce the value of the subsidiaries for capital purposes at the end of the year. That's the 11.7% number and then 11.4% reflects the phasing of the decree basically there afterwards. Clearly, that does obviously provide a reason why what we've talked about before in terms of the distribution of capital being very important and why the redistribution of capital within the bank is also important, too, which is really comes back to what I said to Stefan earlier, which is clearly, Credit Suisse Schweiz has been a regular source of dividends over the years.
+
+But essentially, we obviously need all of our subsidiaries to pay capital back to the parent, basically, and that's a critical process. And incidentally, by the way we have been very successful in terms of that. I think go back to the comment that I made back at in the fourth, I think we've seen about 12 billion of dividends and about 12 billion of capital flowing back into the parent over the last three or four years. But it is obviously important that we complete that during the course of the current year.
+
+And as I said, in order of importance, it is the CECL, which is now a non-material legal entity and has quite substantial capital balances. I think you can dig out the accounts and see them, but the order of 6 billion to 8 billion depending on how much we need for the dormant activities. And then obviously, the U.S. numbers and then Credit Suisse Schweiz, which, as I said before, has been a consistent dividend payer since it was formed back at the end of 2016.
+
+So I hope that helps answer the question. Kian, do you want to just have a follow-on that? Just in case there's anything else I can help with before we move to the second question.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+For David. Just is there -- clearly, there's expectation that we see some FINMA add-ons. And could we see this adjustment on top of your adjustment on the Swiss parent Bank AG. Just wondering, is there any read across that we can take in terms of FINMA add-on? And if you can give us a bit of color around that.
+
+David Mathers -- Chief Financial Officer
+
+Can't really comment. It is a separate process. What I would say in terms of helpful guidance at this point is for the group as a whole, this is not a parent issue per se. For the group as a whole, we expect around 6.5 billion of methodology changes coming through in terms of the RWA numbers for 2022.
+
+Just under half of that is our risk add-ons in respect to the litigation amounts. But I think clearly, I think one cannot rule out that there will be further more direct add-ons in terms of RWA as this process actually works through. But there's nothing I can give any particular guidance at this point, basically to help you out, Kian, sorry.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Sorry, on the PB business, if you could help us on the numbers.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Apology. Can you repeat?
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Sorry, on the prime brokerage business, you indicated two-thirds of the, I think, balances down, but you also gave an indication of 600 million of revenues, 400 million of cost to be reduced in 2022. I just wonder -- I assume some of that is already in the numbers or should we think about the numbers getting bigger?
+
+Thomas Gottstein -- Chief Executive Officer
+
+I was just going to tackle that second part of your question. So where do we stand? So as we said, two-thirds of the balances have been reduced. And in terms of your related question on market share development and how we see it also into the Q1 and '22, I would say the following. First of all, if you take the full year, I think our market shares and relative performance market shares and relative performance versus our peers was, I think, very strong in SP and more broadly in credit.
+
+Left in equity capital markets, M&A was very solid. But clearly, on the GTS side and within that, some of the macro and FX businesses probably underperformed. And then there is obviously the whole equities business where starting from the second quarter, we have not only reduced our prime balances, but also had some negative effect on cash equities. We had a very strong performance in equity derivatives for the full year.
+
+And I would say equity capital markets was obviously strong for a long time up to, I would say, second, third quarter in IPOs. But then clearly, fourth quarter, the SPAC -- or I would say, second half, the SPAC activity really slowed down quite markedly. And as a consequence, on a year-on-year comparison, the fourth quarter to fourth quarter last year or fourth quarter '20 was clearly an underperformance because of the lower SPAC activity. So going forward, I think we are very well positioned in credit in SP as well as in M&A and where we continue to invest.
+
+LevFin, we do think that we are also very well positioned. But with the higher interest rates coming, we think that there will be some slowdown in financing and LevFin activity. And otherwise, in equities, we continue to invest in our technology and AES business as well as in equity derivatives, where we continue to see a good momentum. So that's how I would say we are developing in terms of investments and market shares.
+
+Anything you would like to add, David? OK.
+
+Kian Abouhossein -- J.P. Morgan -- Analyst
+
+Thank you.
+
+Thank you. The next question comes from the line of Benjamin Goy from Deutsche Bank. Please ask your question. Your line is now open.
+
+Benjamin Goy -- Deutsche Bank -- Analyst
+
+Yes. Hi. Good morning. Two questions, please, one on cost and one on your RM hiring pipeline.
+
+So first on cost you highlighted the 17 billion is at the upper end of the range. And then you get some incremental benefit as you outlined in '23 and '24 from this 500 million vesting schedule. But still want to double check given we are at inflationary times, you want to hire more people and ideally, revenues grow. So maybe you can speak about the '23, '24 measures a bit more.
+
+Why you're not, so to say, further increasing when you're already at the upper end of the cost range this year? And then secondly, you mentioned the relationship manager hiring APAC but it was good, IWM is down. But maybe you can comment on the pipeline and how this process of RM hiring is progressing this year? Or is it more that -- a bit more stability is needed until we see a significant acceleration toward the target? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Thank you very much, Benjamin. So Thomas, I'll take the first question?
+
+Thomas Gottstein -- Chief Executive Officer
+
+Yeah.
+
+David Mathers -- Chief Financial Officer
+
+Well, look, I think, firstly, in terms of the expense guidance, I think there's nothing much I'd add to what you said, Benjamin, around 2022. And we've obviously covered CV in some detail. In terms of '23 and '24, I just cast your mind back to the investor day. And we did include the same numbers on Slide 27, which is the structural cost measures we're pushing through.
+
+It's just the nature of these reorganizations that you don't see that much of the benefit in the first year. The prime benefits in terms of the cost reductions will only really start to flow through later this year as we actually complete the transition of our clients off the platform. Until then, we need to maintain that platform for the benefit of our clients while they're finishing it. Equally, the procurement savings coming from the Chain IQ deal, yes, they start this year because the whole relationship goes live later this quarter.
+
+But they only actually build up over time, and they continue to accrete in '23 and '24 as we actually move forward. I think beyond that, and I think we obviously will give updates later this year. But I think it will be very important to talk about the benefits we expect from the centralization of IT and some of the other organizational measures, all of which really only flow through in '23 and '24 from a materiality point of view. And if you look back what we said, we're talking here about structural cost saves of 1 billion to 1.5 billion by '24, of which 300 million comes through only in this year.
+
+So that's, as you might say, is the mathematical underpinning or the result of that basically. So I think that's why we can make this comment that I think we are going to see pressure in '22 as a consequence of the CV effect from the deferred compensation awards and the normalization of CV. But there afterwards, basically, I think we are reiterating our guidance for '23 and '24.
+
+Thomas Gottstein -- Chief Executive Officer
+
+So the relationship manager hiring, as you know, our plan is for the next three years, about 500. That's about 170 per year. And if you look at what we did last year in APAC, that gives you an indication roughly where we think regionally, we will continue to grow in our plan. So 40% to 50% in APAC, about 25% to 30% in the former IWM regions, that is Middle East, that's Europe, that's Latin America and the rest in Switzerland.
+
+Now clearly, the slowdown that we have seen in the last few months in Asia will probably mean that the growth in 2022 in terms of hiring, we'll have to look at and we have to see how the market will further develop. And I cannot exclude that we will be a bit more flexible about the hiring in that region in 2022. But the plan is a three-year plan. It's a long-term plan.
+
+And we'll have to see how China and the rest of Asia will develop over the next few months, and we will adapt accordingly. But in principle, that's kind of the regional breakdown of the growth that we are planning to implement.
+
+Benjamin Goy -- Deutsche Bank -- Analyst
+
+Understood. Thank you.
+
+Thank you. And the next question comes from Daniele Brupbacher from UBS. Please ask your question. Your line is now open.
+
+Daniele Brupbacher -- UBS -- Analyst
+
+Good morning, and thank you. You mentioned that group risk review, which I think is important. Can you tell us in that context, the Greensill report and the conclusions out of that report, is that also part of that, i.e., are all the conclusions and the decisions taken in that sense? And let's say, at least the immediate reactions and actions are taken out of that also in terms of, I don't know, responsibilities, etc.? And then sorry, just very briefly on the parent bank again. David, could you give us the fully loaded ratio versus the 11.4%, is that still above 10% or now a little bit below that? And in that context, the Archegos add-on 1.9 billion, 70 bps more or less at the group level.
+
+Is that also relevant for the parent? I guess the domestic add-on for mortgages is not because that's in the Swiss entity. And if you could just give us some numbers there and probably the regulatory filter, the 7.6 billion you mentioned, doesn't mean you basically FINMA halved the regulatory still to benefit. Is that how I should read it? Thanks.
+
+Thomas Gottstein -- Chief Executive Officer
+
+OK. Let me start with the first question, and then David will take the second question. So the risk review is separate from the supply chain funds and also from Archegos. So as part of the work we went through over the nine months, I would say, since April to the end of the year under the leadership of the tactical crisis committee, initially, that was with the former chief risk officer -- sorry, the former chair of the risk committee on the board and then subsequently under the leadership of our former chairman, we really had three themes that this tactical crisis committee looked at.
+
+One was Archegos agreed across, one was supply chain funds and agreed across and the third one was the risk review. And the risk review was really a very systematic review of all balance sheet items and off-balance sheet items. It was really a very detailed analysis so to speak, vertically through the balance sheet and -- but then also looking at each of the divisions and regions, looking at special themes, special businesses, whether it was in investment banking, whether it was in corporate banking, whether it was Level 3 assets, etc. So this -- these three themes really were part of our work that we went through with the tactical crisis committee week-by-week in the first phase and then every second week thereafter.
+
+So the risk review was really separate from the supply chain fund. And all three have essentially been completed. As we said already earlier, the Archegos -- with the Archegos report coming out, the Paul, Weiss report at the time, then the risk review was completed in the fourth quarter, and we have now also completed the review by the board with respect to the report on the supply chain finance fund, which was commissioned to Deloitte and a Swiss law firm. So all three themes have really been completed.
+
+And from that perspective, also the tactical crisis committee is now essentially being phased out. David, would you like -- the parent?
+
+David Mathers -- Chief Financial Officer
+
+Yeah. On the second point, I mean, I think this is the other. So as I said in answer to Stefan's question before, the look through capital required to be accumulated in the parent by '28 has increased from 6 billion to 9 billion. That means the equivalent look-through ratio is, I think, somewhere between 9.5% and 9.6% actually, Daniele.
+
+So that's the look-through ratio as of now, basically, in terms of that, so just below the 10% level. Clearly, it's the transitional ratio, which is the 11.7% and 11.4%, which is relevant in terms of the capital measures. I think your second question then was around the Pillar 2 add-on in respect of Greensill supply chain funds. That was, as I said, applied originally by FINMA to the parent.
+
+It's still sitting there as well as the group. So that for them means you still got a 60 basis point increase against the 10% minimum for the parent, again, on a transitional basis for that, basically, that's still sitting there. And I think at some point, that will have to be decided where it sits within the legal entity structure, but it's still sitting there at this particular moment. In terms of your third point, which is around the tactical cyclical add-on, which the Swiss National Bank has decided to reimpose with effect from September, you're absolutely correct.
+
+Because there's de minimis residential mortgages booked in the parent, it has a minute impact of 0.2 basis points to be exact of the countercyclical lag on. Whereas the countercyclical lag on for the group is about 24 basis points. And obviously, for CS Schweiz, it's obviously considerably more than that because that's what actually sits, but it does -- it doesn't affect the parent requirements.
+
+Daniele Brupbacher -- UBS -- Analyst
+
+Very clear. Thank you.
+
+Thank you. And the next question comes from the line of Andrew Lim from Societe Generale. Please ask your question. Your line is now open.
+
+Andrew Lim -- Societe Generale -- Analyst
+
+Hi. Good morning. Thanks for taking my questions. You said quite little about the litigation that you incurred.
+
+Just reading through the notes, it seems like it might have arisen due to a change in your settlement strategy for the legacy issues. I was wondering if you could give a bit more color on that and confirm that it is due to RMBS legacy issues? And if we still have any other outstanding cases going forward? So that's my first question. And then my second question is regarding your strategy for resolution of the SCF finance funds and the outstanding amount there, it's still quite material. In terms of timeline and strategy, are you looking to see what happens with your insurance claims.
+
+And then how long would that take to resolve? And then if you are unsuccessful in claiming against insurance, what would be your strategy then? Perhaps you might not be able to give an answer, but I guess my concern here is that you're having investors sitting on losses for several years now, and this is not good for your franchise, of course, it doesn't really give a great message here. So just keen to see what your thinking is here.
+
+David Mathers -- Chief Financial Officer
+
+Perhaps, if I kick off just on litigation. Look, I think there's a limit to what I'm going to be able to say. I mean, we do make a point of not commenting on issues which are clearly under active discussion, negotiation about this. What we clearly have said is the charge that we took in the fourth quarter primarily relates to current or former investment banking activities.
+
+And that clearly does include the RMBS cases, but I think it's also fair to say that we did sweep up a larger number of smaller cases, shall we say, if that's helpful. I'm not sure I'd necessarily define it as an entire change in terms of litigation strategy. But I think what we have seen in some of these cases are very long standing. And I think there has been a willingness on both sides, as you might say, to reach a resolution of these things at levels which are, shall we say, more satisfactory.
+
+And therefore, we have accrued toward closing out those transactions. So yes, I think that you will see the number of active cases actually dropping. But there still is some significant litigation outstanding. And I would just draw your attention to the fact we have disclosed the RPL in our earnings statement, that is 0 to 1.6 billion.
+
+And you will note that was 0 to 1.4 billion. I'm not going to comment, but I think just aware of that. So we still do have a significant litigations open and just to be aware of that point.
+
+Thomas Gottstein -- Chief Executive Officer
+
+And with respect to our strategy on the supply chain front, it continues what we have been describing also over the last few months. It's really on two levels. One is on the recovery. And within that, we also have two levels, namely the focus areas of the obligors and the non-focus areas plus the insurance.
+
+So that's a process that is ongoing. We have a large team of internal and external legal and other experts as we are pursuing the recovery of the underlying notes and balances. And secondly, we have, as you know, started a goodwill program for our wealth management clients who have been investing and that has been a very successful exercise where we provide fee waivers and other programs, which has had a lot of traction and where we're making very good progress. And in some instances, actually increased our share of wallet with these clients.
+
+So that is really the strategy to continue the work on both of these elements, i.e., recovery of the underlying assets under the goodwill program.
+
+Andrew Lim -- Societe Generale -- Analyst
+
+OK, that's great. Thank you very much.
+
+Operator
+
+Thank you. And the next question comes from the line of Amit Goel from Barclays. Please ask your question. Your line is now open.
+
+Amit Goel -- Barclays -- Analyst
+
+Hi. Thank you. So two questions. The first one, just in relation to the commentary or guidance for the start of this year.
+
+Please, could you just give a little bit more color in terms of -- I think the comment was the weak start to the year, across the -- just how that splits across the different businesses and potentially how it compares perhaps rather than to 2021, but 2020 or 2019? And the second question, maybe a clarification. But on the additional award, the 497 million, I wasn't sure if that was a kind of a fair value. So I was just wondering if the group were to hit its targets, would that number be considerably larger and/or how much could it potentially total? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Very good question, Amit. Shall I take the second one first? Just in terms of the award of 497 million I mean this will be disclosed in the compensation report. But just to dimension it, it's not actually a fair value, that's the par value. And the upside on this award is plus 50% and it's -- but it's -- that's at the discretion of the compensation committee.
+
+And basically -- and we will give more detail on March 10. But essentially, the criteria fall into delivery of the risk and compliance and control goals, point one. And obviously, delivery of some of the other key profit metrics, point two by 2024. So that's the upside in terms of this.
+
+It's not for those, obviously, you have a history of us, it's not a multiplier type instrument that you may have seen in the past, basically, but there is upside and it's clearly linked to both the risk remediation, risk culture point as well as the profit goals we actually laid out in GSR. And I would say there are also knockout clauses to the downside, but we'll give more details on that on March 10. So hopefully, that helps you in terms of thinking about that instrument basically. I think your second question was really about the sort of start of January.
+
+Look, I think we're still in it four or five weeks into the year. What certainly occurred to me, I think, is that there was a sort of weak start in terms of financing activity at the beginning of this year, and that was really kind of true across the bank. What we've seen, obviously, with this volatility is a pickup in terms of some of the sort of trading lines, the stronger performance by GTS and obviously, a stronger performance by equity derivatives, which is exactly what you expect in the circumstances. So it has picked up.
+
+But certainly, I think we're always to January starting very strongly, and that was not the case this year, and I think we did want to make that clear.
+
+Amit Goel -- Barclays -- Analyst
+
+OK, thank you.
+
+Operator
+
+Thank you. And the next question comes from the line of Adam Terelak from Mediobanca. Please ask your question. Your line is now open.
+
+Adam Terela -- Mediobanca -- Analyst
+
+Good morning. Thanks for the questions. I have one on capital and one on cost inflation. On capital, I mean, you finished the year at 14.4.
+
+You're two-thirds of the way is deleveraging the IP, but you've got strong growth plans opposite that. I'm just wondering how quickly you can be deploying capital back into wealth? You've clearly finished the year 5 billion lower on RWA since deleveraging. You've got some regulatory inflation coming. So I was just wondering how quick kind of the 3 billion back into the private bank can come through? And then secondly, on the cost walk into next year, the 700 million investment, is that pure investment? And how much of that is kind of rollover of run rates of investments year-to-date? And is there any kind of cost inflation underlying that, that we should think about also? Thank you.
+
+David Mathers -- Chief Financial Officer
+
+Perhaps, I start on the cost point first. I think what we're referring to there is additional investments that we're actually making across the bank. I mean clearly, if we're talking about our total investment spend, we're obviously talking more around 3 billion in terms of IT, for example, each year. So that's the additional investments we expect to coming through the expense line.
+
+Because as you know, certain investments are capitalized and then amortized. So that's the guidance, as you might say, to how much the cost run rate we'll incur as a consequence. I mean, and we are very focused on driving cost efficiency across our existing infrastructure and therefore, releasing reserves and resources for that investment program. So there's very much a bifurcation how we think about costs between these two components and these two elements.
+
+But it's obviously, we didn't -- we obviously invest more than 700 million every year, so you should see that as the margin or incremental investment spend. And that does include expenditure on risk and control initiatives as well, just to be clear. I think in terms of the capital point, I think, clearly, from a group point of view, I mean, I'd just repeat what we said back on the 4th of November, I think 2021 was a challenging and difficult year for us. And clearly, for our shareholders and for our clients, too.
+
+And I think we feel it is only appropriate to operate at a ratio above 14% and around four and a half percent on leverage ratio because I think we have to be seen as unquestioned in terms of our capital position, and that's very much our capital strategy. Quite clearly, we've outlined the plan to actually reinvest. So we're obviously reducing capital investment bank by 3 billion, of which 2 billion has already been accomplished, obviously largely through the exit at the majority of prime. That does release reserves for the wealth management businesses.
+
+But I think we were very clear back on the 4th of November that we would expect that to be delivered in a measured and balanced way compatible with our risk appetite and risk goals. So it's not all going to come out and we're going to go back in again. That would not be. But clearly, we do have capacity to support that wealth management growth provided it meets our risk criteria.
+
+Adam Terela -- Mediobanca -- Analyst
+
+And underlying cost inflation in the '22 cost then?
+
+David Mathers -- Chief Financial Officer
+
+Yeah. I mean, yes, and so forth, we've got 6.6, I think, of our expected methodology just under half is off risk. So that will absorb some capital, and that's obviously primarily at the group level. Our cost inflation, we're watching it closely.
+
+I wouldn't -- I think we're obviously conscious of what's going on out there in terms of the movement in inflation. I think it's reflected properly in our cost guidance, I think is the best way of summing that. I think there's plenty of things we can do. I think the Chain IQ deal is a very good deal and it's -- let's be clear, it's something we should have done before.
+
+So there is potential and I think there are other things we can do as well.
+
+Adam Terela -- Mediobanca -- Analyst
+
+All good. Thank you.
+
+Operator
+
+Thank you. And the next question comes from the line of Anke Reingen from Royal Bank of Canada. Please ask your question. Your line is now open.
+
+Anke Reingen -- Royal Bank of Canada -- Analyst
+
+Thank you very much for taking my question. The first is coming back to the investment bank and what you described a more normalization of the environment. And I guess given the change in the business, it's somewhat harder to see what that could be. In that context, would you think Q4 is like a reasonable base considering that there's more prime brokerage business going out according to plan? And then on the fee waiver, thank you very much for giving us the financial impact.
+
+Is it sort of like now implemented across the clients and assets you're planning to or should we expect a further step up in the next quarter? Thank you very much.
+
+Thomas Gottstein -- Chief Executive Officer
+
+Maybe I'll kick off with the first question, and then David will do the second question. I mean 2021 saw clearly a very elevated investment banking activities in -- across the board, frankly. But in particular, in areas such as equity capital markets, IPOs, SPACs but also in other areas like SP, credit and LevFin. Some of this will probably more normalize now in 2022 on the other side.
+
+So other areas like FX, where we have clearly more volatility, which is a good thing, I guess, for our business. And the same is true for some other GTS businesses we have. And equity derivatives, we think, will continue to be a source of opportunity in these volatile markets. So that's an area where we had already very strong results in '21, and we continue to see a good opportunity there.
+
+And then there are certain macro businesses that will probably also benefit from more volatile markets around interest rate hikes. So but clearly, compared to '21, overall investment banking revenues to the Street will normalize more toward 2020 and '19 levels.
+
+David Mathers -- Chief Financial Officer
+
+I think on the fee waiver program, Anke, I think, firstly, I think interest in this has been high and I think take-up among the clients has been high as well. As we said, the -- we saw an adverse impact on revenues of about 28 million in the fourth quarter, the majority of which was in respect of IWM. Just to be helpful, I don't think you should take 28 million and multiply it by four for '22, that would not be correct. I would expect the number probably somewhere between, say, 50 million and 100 million, maybe let's pick 75 million at that, difficult to be exact.
+
+And that's mainly because, of course, as clients' losses or potential losses in respect of the SCF fund are actually absorbed, obviously, the program becomes irrelevant at that point. And that's clearly very good because I think it is good to see the take-up. It does, obviously, I think, demonstrate our support for clients, and this is very important in respect to this matter. But clearly, essentially, it's also resolving this issue, which I think is actually important in terms of that.
+
+So did they get and then clearly, one would expect the number to be less in '23 and '24, I think that hopefully helps.
+
+Anke Reingen -- Royal Bank of Canada -- Analyst
+
+Thank you very much.
+
+Thank you. And the next question comes from the line of Piers Brown from HSBC. Please ask your question. Your line is now open.
+
+Piers Brown -- HSBC -- Analyst
+
+Yeah. Good morning. Thanks for taking my question. I've just got a couple of -- that are actually just detailed number of questions.
+
+But first of all, on wealth management net loans, you gave a number on Slide 9 of 203 billion at the end of Q4. Can you -- have you got the number for the end of Q3 because there was a figure of 184 million given that the nine-month stage in the November investor day pack, which just seems a very large quarter-on-quarter increase. So maybe that's not like-for-like. So if you could just give us the corresponding Q3 number that relates to that 203 billion that you've shown for the fourth quarter? And the second question is just on the distribution guidance for 2022 that you gave back in November of 25%.
+
+Forgive me if I'm mistaken, I can't see any reference for that in the slide pack today, but is that still the intention in terms of the level at which you accrue the dividend through this year? Thanks.
+
+David Mathers -- Chief Financial Officer
+
+Thanks very much. I think on the first point, I think we'll revert to you and indeed, if everybody else wants a number, we're more than happy to give that to you afterwards, but we need to do a detailed reconciliation to that 203 billion, but we'll get back to you and give you those numbers later today, basically. In terms of distribution, yes, we're not changing what we said on the 4th of November. As you know, the board of directors recommends to shareholders a 0.10 dividend in respect to 2021, which is unchanged from the lowered level in respect to 2020.
+
+And we certainly confirm our guidance of 25% of net income for 2022. So no change from what we've said previously.
+
+Piers Brown -- HSBC -- Analyst
+
+OK. That's very clear. Thanks.
+
+Thank you. Kinner, please continue.
+
+Kinner Lakhani -- Head of Investor Relations and Group Strategy and Development
+
+Great. So thank you, everyone, for your time and your good questions. Do feel free to follow up with the IR team if you have any other questions, and have a great day. Thank you.
