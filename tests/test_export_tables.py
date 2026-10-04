@@ -30,6 +30,16 @@ def db(tmp_path, monkeypatch):
         "substitution_measurable": [True, True],
         "topic_substitution": [1, 0],
     }))
+    store.save_df("qa_pairs", pd.DataFrame({
+        "pair_id": ["a", "b"],
+        "bank": ["hsbc", "hsbc"],
+        "quarter": ["2024-q1", "2024-q1"],
+        "source": ["call.pdf", "call.pdf"],
+        "analyst": ["A", "B"],
+        "question_text": ["What about CET1?", "And costs?"],
+        "answer_text": ["Strong.", "Down."],
+        "extra": ["drop me", "drop me"],
+    }))
     return tmp_path
 
 
@@ -43,6 +53,12 @@ def test_export_writes_every_table_and_manifest(db):
 
     beh = pd.read_csv(out / "behavioural_signals.csv")
     assert not {"question_text", "answer_text"} & set(beh.columns)
+
+    qa = pd.read_csv(out / "qa_pairs.csv")
+    assert list(qa.columns) == [
+        "pair_id", "bank", "quarter", "source", "analyst", "question_text", "answer_text",
+    ]
+    assert qa["question_text"].tolist() == ["What about CET1?", "And costs?"]
 
     manifest = (out / "MANIFEST.md").read_text(encoding="utf-8")
     assert "[123](https://github.com/org/repo/actions/runs/123)" in manifest
