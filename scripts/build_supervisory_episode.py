@@ -209,7 +209,7 @@ def impairment_asked_not_covered(qa: pd.DataFrame | None, bank: str, quarter: st
     """True when this quarter has at least 3 impairment questions and coverage is below 50%.
 
     An empty answer is missing (metric_coverage_for returns None) and does not count.
-    The 3-question and 50% cutoffs are the proposed thresholds, pending J.
+    The 3-question and 50% cutoffs are the proposed thresholds, pending Aidan (@ACdot89).
     """
     if qa is None or qa.empty or "question_text" not in qa.columns:
         return False
