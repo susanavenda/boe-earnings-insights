@@ -410,3 +410,29 @@ def test_split_mixed_ranks_buckets_and_keeps_duplicate_pair_ids():
     # "cost" and "costs" share a pattern; one word is one mention
     assert long.loc[long["seed_bucket"] == "efficiency", "n_mentions"].iloc[0] == 2
     assert resolve_seed(qa, pairs).tolist() == ["efficiency", "capital", "untagged"]
+
+
+def test_untagged_reasons_labels_and_keeps_every_row():
+    from build_a1_evidence import reasons_untagged, untagged_reason
+
+    assert untagged_reason("Thank you. The next question comes from Kian Abouhossein from JPMorgan. Please go ahead.") == "operator_handover"
+    assert untagged_reason("Very helpful. Thank you.") == "courtesy_or_fragment"
+    assert untagged_reason("Was the 60bps gross or net, adjusting for the Pillar 2?") == "short_follow_up"
+    assert untagged_reason("Could you talk about deposit outflows and how you see the liquidity buffer into next year?",
+                           coder1="liquidity_funding") == "coder1_tagged"
+    assert untagged_reason("My question is about tariffs. How are your major corporate clients reacting "
+                           "to the April announcements, and is demand for trade finance falling?") == "off_seed"
+
+    qa = pd.DataFrame(
+        [
+            {"question_text": "Very helpful. Thank you.", "answer_text": "", "seed_topic_q": "untagged", "prudential8_q": "untagged"},
+            {"question_text": "What about CET1? Your next question comes from Citi. Please go ahead.",
+             "answer_text": "It is 14%.", "seed_topic_q": "capital", "prudential8_q": "capital_adequacy"},
+        ]
+    )
+    out = reasons_untagged(qa)
+    assert len(out) == 2
+    assert out["untagged_reason"].tolist() == ["courtesy_or_fragment", ""]
+    assert out["in_analysis"].tolist() == [False, True]
+    assert out["operator_bleed"].tolist() == [False, True]
+    assert out["answer_missing"].tolist() == [True, False]
