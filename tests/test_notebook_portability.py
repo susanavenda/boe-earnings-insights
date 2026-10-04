@@ -33,3 +33,17 @@ def test_stage0_stubs_parametric_umap():
     src = _code_source()
     assert "umap.parametric_umap" in src
     assert "USE_TF" in src
+
+
+def test_every_code_cell_compiles():
+    import ast
+    nb = json.loads(NB.read_text(encoding="utf-8"))
+    for i, cell in enumerate(nb["cells"]):
+        if cell.get("cell_type") != "code":
+            continue
+        src = "".join(cell.get("source") or [])
+        src = "\n".join(l for l in src.splitlines() if not l.lstrip().startswith(("%", "!")))
+        try:
+            ast.parse(src)
+        except SyntaxError as e:
+            raise AssertionError(f"cell {i} does not compile: {e}") from e
