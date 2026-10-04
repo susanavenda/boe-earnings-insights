@@ -1,18 +1,10 @@
-# Answer-side disagreements: Alfred vs Taz (n=43 of 82 answers both coded)
+# Answer-side re-coding pack: Alfred vs Taz disagreements (n=43 of 82 answers both coded)
 
-Re-code **the answer only** for each pair below, independently, using the tightened rule. Fill `a_label_new` in `sentiment_answer_recode_template.csv` and save as `sentiment_answer_recode_<name>.csv`.
+Re-code **the answer only** for each pair below, independently and blind, using the tightened rule. Previous labels are deliberately not shown; do not look up your own or the other coder's earlier labels while coding. Fill `a_label_new` in `sentiment_answer_recode_template.csv` and save as `sentiment_answer_recode_<name>.csv`.
 
 **Proposed rule (agree wording between coders before starting):** score what is *new* in the answer, not how confident it sounds. An answer is *positive* only if it gives new good news or a firmer commitment than the question assumed ("now expect", "ahead of", "better than"). Confident tone or restating existing guidance ("as we said", "remain", "reiterate", "unchanged") is *neutral*. *Negative* = new bad news, a downgrade, or a weaker commitment.
 
-| Alfred \ Taz | negative | neutral | positive |
-|---|---|---|---|
-| negative | 0 | 7 | 7 |
-| neutral | 1 | 0 | 21 |
-| positive | 1 | 6 | 0 |
-
 ### 1. PAIR barclays_2011-q3_002
-**Alfred: negative · Taz: positive**
-
 bank=barclays quarter=2011-q3 analyst=Peter Toeman
 Q: Morning. I was just trying to see if you could give some more colour
 on this £559 million of hedging activities, that particular gain, and
@@ -79,8 +71,6 @@ strange?
 Answer : Chris Lucas
 
 ### 2. PAIR barclays_2012-q3_004
-**Alfred: positive · Taz: negative**
-
 bank=barclays quarter=2012-q3 analyst=J P Crutchley
 Q: Morning all, two questions, if I can, maybe a technical one on capital for Chris and a
 broader business one for Antony. Chris, the capital one was just looking at the pro
@@ -117,8 +107,6 @@ both reputation and return and our expectation is that, as a result of that revi
 be able to talk to you in February about what we're doing with each of those units.
 
 ### 3. PAIR barclays_2013-q1_001
-**Alfred: negative · Taz: neutral**
-
 bank=barclays quarter=2013-q1 analyst=John-Paul Crutchley
 Q: Morning, chaps. JP here. Two questions if I can. The first is on impairment, particularly in the Retail
 business, which I just wonder if you could maybe just give a slightly broader colour on that, clearly both
@@ -169,8 +157,6 @@ Thank you.
 Question 3
 
 ### 4. PAIR barclays_2014-q2_001
-**Alfred: negative · Taz: neutral**
-
 bank=barclays quarter=2014-q2 analyst=Raul Sinha
 Q: Morning, Antony, morning, Tushar maybe I‟ll start with the IB first and then on Non-Core. Obviously
 this quarter was supposed to be the one where you had the brunt of the restructuring and dislocation
@@ -211,8 +197,6 @@ Raul Sinha
 Thanks very much.
 
 ### 5. PAIR barclays_2019-q2_010
-**Alfred: positive · Taz: neutral**
-
 bank=barclays quarter=2019-q2 analyst=Robin Down
 Q: Can I ask you a variation on the question I asked you at Q119 about the consensus? It is 1st August now
 and you’re still repeating the 9%-plus RoTE target for this year, and I think, as Tushar said earlier,
@@ -241,8 +225,6 @@ can and without putting the franchise at risk anywhere, to use the cost number a
 deliver the level of profitability that we’ve committed to our shareholders.
 
 ### 6. PAIR barclays_2020-q1_009
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2020-q1 analyst=Chris Cant
 Q: If I could just round out the discussion on the Barclays UK piece? Just crunching through some numbers
 very simplistically here, your 250bps to 260bps NIM guidance for the full year, if I apply that to your Q1
@@ -273,8 +255,6 @@ way you get to £5bn is probably a bit lower than I would guide you to. It’ll 
 but I’ll let you run your models.
 
 ### 7. PAIR barclays_2020-annual_003
-**Alfred: neutral · Taz: negative**
-
 bank=barclays quarter=2020-annual analyst=Jonathan Pierce
 Q: So, sat here today, is the message then, based on what you see here right now, that you could do a bit
 better than 2.4% [all else equal]?
@@ -318,8 +298,6 @@ we continue to capture market share. I’m sure you saw the commentary this morn
 and Deutsche Bank, so I’ll leave it there.
 
 ### 8. PAIR barclays_2022-q3_001
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2022-q3 analyst=Alvaro Serrano
 Q: One question on costs, another on asset quality. On costs Anna, you’ve said you’re not going to talk about 2023, and
 I don’t expect you to give a hard number, but if I take your guidance for this year, it looks like operating expenses are
@@ -360,8 +338,6 @@ well, and therefore you should consider that strength of customer balance sheet,
 on that as we see it happen, but to date, no sign.
 
 ### 9. PAIR barclays_2023-q3_008
-**Alfred: negative · Taz: neutral**
-
 bank=barclays quarter=2023-q3 analyst=Edward Firth
 Q: Can I just ask you, just trying to get the implications right for sort of ‘24 and ‘25 now, because if I look at
 the math correctly, and I suppose I’m just checking my maths here, it looks like you’ve got an exit margin
@@ -427,8 +403,6 @@ quarter-on-quarter, which slightly bucks the trend versus what we've seen at US 
 could elaborate on what drove the quarter-on-quarter decline there.
 
 ### 10. PAIR barclays_2024-q2_001
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2024-q2 analyst=Alvaro Serrano
 Q: Thanks for taking my questions. Good morning. One on costs, please. Anna, in the roundtable, I think it
 was in May, you mentioned there would be structural costs in Q2.
@@ -453,8 +427,6 @@ you'll note that our retail deposits are now 67% [of total USCB deposits]. We're
 towards greater than 75% to deliver that 12% NIM.
 
 ### 11. PAIR barclays_2024-q2_005
-**Alfred: positive · Taz: neutral**
-
 bank=barclays quarter=2024-q2 analyst=Ed Firth
 Q: Yes, morning, everybody. I had two questions, please. The first one was US cards credit quality. I think it's
 good to see the provision charge has turned, but if I look at your non-performing loans in the quarter, they
@@ -492,8 +464,6 @@ moderate that RoTE.
 C.S. Venkatakrishnan
 
 ### 12. PAIR barclays_2024-annual_001
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2024-annual analyst=Perlie Mong
 Q: Hello. Thank you, Venkat. Thank you, Anna, for taking my question.
 A: So, our focus is management, Perlie. What you should expect us to do is to execute the
@@ -532,8 +502,6 @@ delivery is volume, capital e�ciency, cost e�ciency, and NIM.
 C.S. Venkatakrishnan
 
 ### 13. PAIR barclays_2024-annual_003
-**Alfred: negative · Taz: positive**
-
 bank=barclays quarter=2024-annual analyst=Andrew Coombs
 Q: Morning.
 If I could just start with costs. Thank you for Slide 47. I'm just going to rephrase the slide, I guess,
@@ -558,8 +526,6 @@ happen as quickly as if, for example, we bought a mortgage portfolio, and that's
 you're seeing here.
 
 ### 14. PAIR barclays_2025-annual_003
-**Alfred: positive · Taz: neutral**
-
 bank=barclays quarter=2025-annual analyst=Ben Toms
 Q: First one is on Private Banking Wealth Management. What products are you currently missing
 from your Premier Banking proposition? And how easy is it for you to build those yourself?
@@ -587,8 +553,6 @@ were lengthening out and we were getting more con�dence around that. So, it's 
 re�ection of that change.
 
 ### 15. PAIR barclays_2026-q1_008
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2026-q1 analyst=Edward Firth
 Q: Thanks very much. Yes, I had two sort of related questions, and I guess you partly covered it in the
 answer to Rob's.
@@ -642,8 +606,6 @@ Results Announcements for each of the periods ended 31 March 2021, 31 March 2023
 Reporting Changes 2023 Results Resegmentation Document, respectively, which are available at
 
 ### 16. PAIR barclays_2026-q2_004
-**Alfred: neutral · Taz: positive**
-
 bank=barclays quarter=2026-q2 analyst=Benjamin Toms
 Q: Thank you.
 Anna Cross
@@ -679,8 +641,6 @@ you for the questions.
 Can we go to the next questions, please?
 
 ### 17. PAIR hsbc_2013-q1_004
-**Alfred: negative · Taz: neutral**
-
 bank=hsbc quarter=2013-q1 analyst=Mike Trippitt
 Q: Just a couple of detailed questions on North America. Just looking at page 26 of the release, I'm
 just trying to get your view of overall trading conditions in Retail Banking clean, i.e., ex the Cards,
@@ -709,8 +669,6 @@ continue to be on the high side. Cost/income ratio in Europe 67%; cost/income ra
 America 75%.
 
 ### 18. PAIR hsbc_2020-interim_007
-**Alfred: negative · Taz: positive**
-
 bank=hsbc quarter=2020-interim analyst=JOE DICKERSON
 Q: Hi. Just a quick one: you’ve taken this extra provision charge
 in the UK and noted the downside risks to the economy. I think you made some similar
@@ -737,8 +695,6 @@ of England ACS results. What you see there is relatively strong outperformance i
 still outperforming in Wholesale, versus UK peers. That’s very helpful; thank you.
 
 ### 19. PAIR hsbc_2021-interim_005
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2021-interim analyst=ANDREW COOMBS
 Q: Good morning. One on costs and then one on Wealth please. Just
 firstly on costs, you flagged the step up in variable pay this quarter, but your full-year cost
@@ -784,8 +740,6 @@ into our full-year 2022 cost target. So the other thing, again just for all of y
 was based on constant FX, so what was $31 billion today is about $31.5 billion of cost for 2022.
 
 ### 20. PAIR hsbc_2022-interim_001
-**Alfred: negative · Taz: positive**
-
 bank=hsbc quarter=2022-interim analyst=RAUL SINHA
 Q: Good morning, everybody. I’ve got two, one on capital and one
 on strategy, please. On capital, when we look at the second half of the year, you’ve got, it looks
@@ -866,8 +820,6 @@ of cost to implement, complexity to implement and ongoing de-synergies, we just 
 to come up with any form of value case that we could put in front of shareholders.
 
 ### 21. PAIR hsbc_2022-q3_001
-**Alfred: negative · Taz: neutral**
-
 bank=hsbc quarter=2022-q3 analyst=ROBERT NOBLE
 Q: I was wondering if we could just walk through the NII
 guidance? You’re saying the $37 billion had gone down $1.2 billion for FX. My understanding
@@ -907,8 +859,6 @@ Hong Kong we are getting towards peak NIM during the fourth quarter, I think. In
 other markets, I still think there’s further expansion of NIM. Alright, thank you very much.
 
 ### 22. PAIR hsbc_2024-q1_003
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2024-q1 analyst=JEREMY HOU
 Q: Good morning. Thank you for taking my questions. The first question is
 on deposits. We’re glad to see that the CASA migration in Hong Kong is slowing down, but it’s
@@ -952,8 +902,6 @@ into our guidance of ‘at least $41 billion Banking NII’, and obviously facto
 tangible equity mid-teens guidance.
 
 ### 23. PAIR hsbc_2024-interim_006
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2024-interim analyst=AMAN RAKKAR
 Q: Good morning, gents, Noel I just wanted to start off and
 congratulate you on your excellent tenure at HSBC.
@@ -1032,8 +980,6 @@ so there will be a delay in pass-throughs on the way down, and that’s 60 to 90
 for instance, in the UK. Thank you.
 
 ### 24. PAIR hsbc_2024-interim_007
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2024-interim analyst=ED FIRTH
 Q: Thanks very much. Again, good morning, everybody. I’d just echo Aman’s
 comments and thank you, particularly to you, Noel, because it’s been a pretty turbulent period
@@ -1087,8 +1033,6 @@ cost growth to around 5%. We’re absolutely committed to our circa 5% cost-grow
 We’re confident we can deliver it, and we are on track to deliver it.
 
 ### 25. PAIR hsbc_2024-q3_008
-**Alfred: positive · Taz: neutral**
-
 bank=hsbc quarter=2024-q3 analyst=ED FIRTH
 Q: Morning, everybody. Thanks for taking the questions. I just have two
 questions. One was just a clarification. Just to be clear, the $1.1 billion increase in stage three
@@ -1142,8 +1086,6 @@ answer any questions, and I look forward to speaking with you again very soon. P
 the rest of the day wherever you are and thank you again.
 
 ### 26. PAIR hsbc_2024-annual_002
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2024-annual analyst=KIAN ABOUHOSSEIN
 Q: Hi. Thanks for taking my questions. The first one is
 related to the $1.5 billion reallocation of costs. I just wanted to understand a bit if you could talk
@@ -1197,8 +1139,6 @@ quickly. We will react. We will make sure that we’re supporting our customers 
 journeys. Thank you, Kian. Let’s take one more from the call. Ben Toms, from RBC.
 
 ### 27. PAIR hsbc_2024-annual_008
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2024-annual analyst=KATHERINE LEI
 Q: I just want to clarify on the cost questions. I would like to ask
 about the second $1.5 billion. Have we factored that in in the mid-teens RoTE guidance?
@@ -1264,8 +1204,6 @@ material change in the ECL trajectory at this point of time, and we are very com
 all well within our mid-term guidance of 30-40 basis points. Thank you, Katherine. Thank you. Let’s go to Joe Dickerson from Jefferies, please.
 
 ### 28. PAIR hsbc_2024-annual_009
-**Alfred: negative · Taz: neutral**
-
 bank=hsbc quarter=2024-annual analyst=JOE DICKERSON
 Q: Thank you for taking my question. Just a quick one following
 on from the Hong Kong CRE question. If I look at the ECL allowance to stage 3, it was 67%
@@ -1280,8 +1218,6 @@ China CRE exposure overall, and you should think in terms of total exposures tha
 and that’s also reducing the ECL coverage. Thank you. Our next question is from Aman Rakkar at Barclays.
 
 ### 29. PAIR hsbc_2025-q1_002
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-q1 analyst=JOSEPH DICKERSON
 Q: Hi. Thank you for taking my question. Congrats on a
 strong set of numbers and some clarity on your thinking on the path forward. Can I just ask on
@@ -1332,8 +1268,6 @@ acquired 800,000 new-to-bank customers in the full year 2024, and we continue to
 trend ongoing. Thank you very much, Joseph.
 
 ### 30. PAIR hsbc_2025-q1_003
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-q1 analyst=KUNPENG MA
 Q: Hi, Georges. Hi, Pam. This is Kunpeng of China
 Securities. Thank you for taking my question. I have two questions. The first is also some
@@ -1360,8 +1294,6 @@ names up or down on the credit curve, with very modest impact on RWAs, but no si
 impact on ECLs.
 
 ### 31. PAIR hsbc_2025-q1_006
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-q1 analyst=AMIT GOEL
 Q: Hi. Thank you. A potential follow-up, actually, to Kian’s question.
 Thank you, and I understand essentially that plausible downside tariff scenarios are pretty
@@ -1400,8 +1332,6 @@ and all these factors, bottom-line, are part of the scenario analysis which we d
 downside before we reaffirm our RoTE guidance and target. Okay, thank you, Amit.
 
 ### 32. PAIR hsbc_2025-q1_011
-**Alfred: negative · Taz: positive**
-
 bank=hsbc quarter=2025-q1 analyst=YAN JIAHUI
 Q: Thanks for taking my questions. My question is also about tariffs. Could
 you give an example of how your major clients react to tariff policy in April? Are they facing a
@@ -1435,8 +1365,6 @@ the rest of the day. Thank you.
 Page 13 of 13
 
 ### 33. PAIR hsbc_2025-interim_003
-**Alfred: positive · Taz: neutral**
-
 bank=hsbc quarter=2025-interim analyst=KUNPENG MA
 Q: I have two questions on impairments. The first one is
 related to the BoCom impairment, especially that one with the VIU test. It seems that you
@@ -1506,8 +1434,6 @@ have no impact of this on our distribution or dividend policy and the model will
 model does. Every quarter, we look at it and make changes accordingly.
 
 ### 34. PAIR hsbc_2025-interim_008
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-interim analyst=KATHERINE LEI
 Q: I have three questions. The first is that I would want to ask
 about what are the outstanding parts of the threshold deduction related to the BoCom, if there
@@ -1547,8 +1473,6 @@ up questions. Meanwhile, Pam and I look forward to speaking with you again soon.
 enjoy the rest of the day. Thank you very much.
 
 ### 35. PAIR hsbc_2025-q3_005
-**Alfred: positive · Taz: neutral**
-
 bank=hsbc quarter=2025-q3 analyst=JOSEPH DICKERSON
 Q: Great, thanks. It’s just more of a conceptual question,
 really, in terms of the return profile of the bank. Why isn’t HSBC post-Hang Seng integration
@@ -1573,8 +1497,6 @@ go into next year, and give greater details on our forward-looking guidance. But
 a target is something that you have to achieve or better. Target is not where you stop.
 
 ### 36. PAIR hsbc_2025-q3_010
-**Alfred: negative · Taz: neutral**
-
 bank=hsbc quarter=2025-q3 analyst=ALASTAIR WARR
 Q: Morning, Pam. Thanks for making the time for us. I just
 wanted to quickly return to that Hong Kong CRE question. You saw, as you touched on, some
@@ -1599,8 +1521,6 @@ it may be, in terms of ‘A’-type properties going into the rest of the office
 that challenge will continue.
 
 ### 37. PAIR hsbc_2025-annual_005
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-annual analyst=AMAN RAKKAR
 Q: I had two questions, please. One is around capital. There looks
 like a decent chance that you’ll be within your target CET1 range in Q1, based on historical
@@ -1659,8 +1579,6 @@ on, as you can imagine, the timing of those rate changes, particularly in the US
 sterling.
 
 ### 38. PAIR hsbc_2025-annual_007
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2025-annual analyst=KIAN ABOUHOSSEIN
 Q: Thanks for taking my questions. First of all, Georges,
 congratulations. I have to say you’re really driving the bank to a better process and discipline
@@ -1783,8 +1701,6 @@ offset each other. In that broader picture, we feel very comfortable with the 40
 guidance.
 
 ### 39. PAIR hsbc_2026-q1_002
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2026-q1 analyst=AMIT GOEL
 Q: Hi. Thank you. Two questions from me. One was on the cost
 growth. It seemed like the cost growth was a bit higher this quarter, even ex the VP, than the
@@ -1819,8 +1735,6 @@ inflation, the deposits come down because customers need to get money in order t
 through a very stressful economic scenario.
 
 ### 40. PAIR hsbc_2026-q1_005
-**Alfred: negative · Taz: positive**
-
 bank=hsbc quarter=2026-q1 analyst=KATHERINE LEI
 Q: Hi, Pam. I would like to ask about the fraud case. Can we
 have more colour about the fraud case - what is your total exposure? The key concern is
@@ -1855,8 +1769,6 @@ versus what you keep as part of a planning exercise in terms of the range of sce
 should always be aware of as a good management practice.
 
 ### 41. PAIR hsbc_2026-q1_008
-**Alfred: negative · Taz: positive**
-
 bank=hsbc quarter=2026-q1 analyst=ALASTAIR WARR
 Q: Good morning, Pam. Thank you for taking our questions.
 Just a couple of follow-ups on the credit costs and on the insurance that we touched on just a
@@ -1894,8 +1806,6 @@ business in Hong Kong. It is an iconic brand for us so, therefore, the demand fo
 from a distribution perspective remains extremely strong.
 
 ### 42. PAIR hsbc_2026-interim_001
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2026-interim analyst=KIAN ABOUHOSSEIN
 Q: I just wanted to come back to cost. I know you don’t give
 cost guidance in the outer years, but what I would like to understand is just the moving parts,
@@ -1973,8 +1883,6 @@ growth opportunity, as opposed to going away from the discipline of costs which 
 onto and we’ll continue to hold onto, in terms of run-the-bank cost.
 
 ### 43. PAIR hsbc_2026-interim_003
-**Alfred: neutral · Taz: positive**
-
 bank=hsbc quarter=2026-interim analyst=ALISTAIR WARR
 Q: Two questions, if I may. First is on wealth. Could you give
 us a little bit of a sense of how much of the wealth is transactional churn versus more annuity
