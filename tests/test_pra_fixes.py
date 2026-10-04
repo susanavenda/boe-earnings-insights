@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "demo"))
 
-from build_a1_evidence import behavioural_signals, prudential_map, state_summary
+from build_a1_evidence import behavioural_signals, cohort_of, prudential_map, state_summary
 from build_qa_browser_export import flatten_qa_pairs
 from pipeline.agreement import agree_row
 from generate_pra_note import render_note
@@ -109,6 +109,8 @@ def test_downstream_frames_keep_the_new_behaviour_columns():
     assert "directness_v2" in qa.columns
     ss = state_summary(qa, None)
     assert "mean_directness_v2" in ss.columns
+    assert cohort_of("hsbc") == "UK" and cohort_of("credit_suisse") == "CS"
+    assert ss["cohort"].iloc[0] == "UK"
     assert "n_substitution_measurable" in ss.columns
     mapped = prudential_map(qa)
     assert len(mapped) == 1

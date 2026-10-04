@@ -461,6 +461,11 @@ def substitution_headline(qa: pd.DataFrame) -> str:
     return f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%})"
 
 
+def cohort_of(bank) -> str:
+    """UK is HSBC and Barclays. Credit Suisse is the separate book."""
+    return "UK" if str(bank).lower() in {"hsbc", "barclays"} else "CS"
+
+
 def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFrame:
     counts = {}
     if "metric_coverage" in qa.columns:
@@ -487,6 +492,7 @@ def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFra
         left = left.merge(wide, on=["bank", "calendar_period"], how="left")
         agg = left.drop(columns=["calendar_period"])
     agg["n"] = agg["n_pairs"]
+    agg["cohort"] = agg["bank"].map(cohort_of)
     return agg
 
 
