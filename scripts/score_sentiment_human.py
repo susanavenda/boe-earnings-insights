@@ -114,7 +114,19 @@ def load_coders() -> dict[str, pd.DataFrame]:
         if filled == 0:
             print(f"skip {f}: no labels filled in")
             continue
-        coders[name] = df.set_index("pair_id")
+        df = df.set_index("pair_id")
+        # Answer-side re-code under the tightened rule (coding guide, 4 Oct) is canonical where present.
+        # The blind first-pass label is kept in a_label_first for the coder-vs-coder figure.
+        df["a_label_first"] = df["a_label"]
+        rc_path = HL / f"sentiment_answer_recode_{name}.csv"
+        if rc_path.is_file():
+            rc = pd.read_csv(rc_path, dtype=str).fillna("")
+            if {"pair_id", "a_label_new"}.issubset(rc.columns):
+                new = _norm(rc.set_index("pair_id")["a_label_new"])
+                new = new[new.isin(LABELS) & new.index.isin(df.index)]
+                df.loc[new.index, "a_label"] = new
+                df.attrs["n_answer_recoded"] = int(len(new))
+        coders[name] = df
     return coders
 
 
@@ -191,6 +203,7 @@ def main() -> None:
         "human_label_dist": {
             side: {k: int(v) for k, v in gold[side].value_counts().items()} for side in ("question", "answer")
         },
+        "answer_recode": {n: int(coders[n].attrs.get("n_answer_recoded", 0)) for n in names},
         "machine_vs_human": {},
         "coder_vs_coder": {},
         "krippendorff_alpha": {},
@@ -217,6 +230,13 @@ def main() -> None:
             for side, col in (("question", "q_label"), ("answer", "a_label")):
                 results["coder_vs_coder"][f"{a}_vs_{b}_{side}"] = block(
                     coders[a][col].reindex(pairs), coders[b][col].reindex(pairs), f"{a}_vs_{b}_{side}"
+                )
+            if any(coders[n].attrs.get("n_answer_recoded") for n in (a, b)):
+                # blind first pass, before any re-code: the independent agreement figure
+                results["coder_vs_coder"][f"{a}_vs_{b}_answer_first_pass"] = block(
+                    coders[a]["a_label_first"].reindex(pairs),
+                    coders[b]["a_label_first"].reindex(pairs),
+                    f"{a}_vs_{b}_answer_first_pass",
                 )
 
     # Krippendorff α: humans only, and humans + each machine unit

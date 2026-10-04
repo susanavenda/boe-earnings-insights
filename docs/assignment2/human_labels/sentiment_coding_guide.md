@@ -27,6 +27,7 @@ not politeness, not whether the speaker is friendly, not whether the number is b
    through the NII bridge?" → neutral. "Why is the NII guide so much weaker than peers?" → negative.
 5. **Answers:** label the *message about the metric / outlook*. "We don't guide on that" → neutral.
    "We expect impairments to normalise higher" → negative. "We're very confident in the 12% RoTE" → positive.
+   *(Superseded for answers on 4 Oct: restated confidence in an existing target is neutral. See the answer-side rule at the end.)*
 6. **Truncated or bleed text:** label what is there. If fewer than ~2 sentences of usable
    content, set `confidence=low` and still give your best label.
 7. **Two questions in one turn:** label the *lead* ask; note the other in `note`.

@@ -2,6 +2,8 @@
 
 **Owner:** Alfred (Qianyi) · sentiment lane · branch `alfred/sentiment-pipeline`
 **For:** whichever agent/LLM implements this next. Read this whole file, then `scripts/sentiment.py` and `scripts/finetune_sentiment.py`, before writing code.
+**Status (4 Oct):** the 857 answer labels in `llm_sentiment_labels.csv` were redone under the tightened answer rule (blind sub-agents, question as context); the first-pass answer labels are kept in `llm_sentiment_labels_answers_v1.csv`. Question labels are unchanged.
+
 **Status (23 Sep):** a first pass of Pipeline B exists — Claude labelled all 1,826 texts in-session (batches of 40, guide verbatim, K=0, blind) → `docs/assignment2/llm_sentiment_labels.csv`, and `score_sentiment_human.py` already reports it as the `llm` unit. The script in §2 should reproduce that via an API so it is re-runnable next quarter; Pipeline C can train on the existing CSV now.
 
 **Deadline context:** A2 pitch due Mon 28 Sep 17:00 UK. Both pipelines are **optional extras** — they must skip cleanly without an API key and must not change any number the deck already quotes.
@@ -51,7 +53,7 @@ python scripts/llm_score_sentiment.py [--provider gemini|openai|anthropic] [--mo
 
 ### 2.2 Prompt — same rubric as the humans
 
-System prompt = the **verbatim** body of `docs/assignment2/human_labels/sentiment_coding_guide.md` from "## What you are labelling" through rule 8. Load it from the file at run time; do not paste a paraphrase (the point is that machine and humans use one rubric).
+System prompt = the **verbatim** body of `docs/assignment2/human_labels/sentiment_coding_guide.md` from "## What you are labelling" through rule 8. **For answers, also include the section "Answer-side rule, tightened after the first two-coder pass (4 Oct)" and state that it overrides the table row and rule 5 for answers; show the analyst question as context (not to be labelled), because the rule depends on what the question assumed.** Load it from the file at run time; do not paste a paraphrase (the point is that machine and humans use one rubric).
 
 User turn, per text:
 
