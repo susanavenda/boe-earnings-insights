@@ -77,13 +77,10 @@ def score_finbert(texts: list[str]) -> tuple[list[str], list[float]]:
     return labels, scores
 
 
-def _direction(curr, prev, flat_tol=0.01) -> str:
-    if curr is None or prev is None or prev == 0:
-        return "flat"
-    chg = (curr - prev) / abs(prev)
-    if abs(chg) <= flat_tol:
-        return "flat"
-    return "up" if chg > 0 else "down"
+def _direction(curr, prev, flat_tol=0.01, metric: str | None = None) -> str:
+    from keywords import reported_direction
+
+    return reported_direction(curr, prev, metric=metric, flat_tol=flat_tol)
 
 
 def reported_rows() -> pd.DataFrame:
@@ -109,7 +106,7 @@ def reported_rows() -> pd.DataFrame:
                     "metric": key,
                     "value": curr,
                     "prior": prev,
-                    "direction": _direction(curr, prev),
+                    "direction": _direction(curr, prev, metric=key),
                     "source": xlsx.name,
                     "calendar_period": calendar_period(q),
                 }

@@ -12,6 +12,7 @@ from datetime import datetime
 import pandas as pd
 import streamlit as st
 
+from pipeline.agreement import agree_row
 from pipeline.auto import ensure_desk
 from pipeline.browse import _sort_browse_rows
 from pipeline.db import list_episodes, read_asset, read_document, read_table
@@ -224,20 +225,6 @@ def in_peer_window(label) -> bool:
         return False
     y = int(m.group(1))
     return 2012 <= y <= 2025
-
-
-def agree_row(row: pd.Series) -> str:
-    faith = row.get("faithful")
-    if faith is True:
-        return "yes"
-    if faith is False:
-        return "no"
-    nar = str(row.get("narrative_direction") or "").strip().lower()
-    hits = row.get("n_qa_hits")
-    if pd.isna(hits) or int(hits or 0) == 0 or nar in ("", "nan", "none"):
-        return "n/a"
-    rep = str(row.get("reported_direction") or "").lower()
-    return "yes" if rep == nar else "no"
 
 
 def pick_pra_section(text: str, ep: dict) -> str:

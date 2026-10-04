@@ -19,6 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+from keywords import any_keyword, directness_v2, keyword_in_text  # noqa: E402
 from periods import calendar_period, coverage_window, year_from_period  # noqa: E402
 from store import configure, has_df, load_df, save_df  # noqa: E402
 
@@ -49,7 +50,8 @@ METRIC_KW = {
     "total_income": ["revenue", "total income", "nii", "fee income", "net interest"],
     "operating_costs": ["cost", "costs", "efficiency", "opex", "expense"],
     "credit_impairment": ["impairment", "ecl", "loan loss", "credit loss", "cost of risk", "npl"],
-    "cet1_ratio": ["cet1", "capital ratio", "capital", "rwa", "tier 1"],
+    # "capital" alone is not CET1 ("capital markets"). "cost of risk" is impairment.
+    "cet1_ratio": ["cet1", "capital ratio", "rwa", "tier 1"],
 }
 
 # A1 M7: eight prudential categories (Aidan dual-codes later)
@@ -86,7 +88,7 @@ def seed_label(text: str) -> str:
             "asset_quality": METRIC_KW["credit_impairment"],
             "capital": METRIC_KW["cet1_ratio"],
         }.items()
-        if any(k in t for k in keys)
+        if any_keyword(t, keys)
     ]
     if not hits:
         return "untagged"
@@ -97,7 +99,7 @@ def prudential8_label(text: str) -> str:
     t = str(text).lower()
     scored = []
     for cat, keys in PRUDENTIAL_8.items():
-        n = sum(1 for k in keys if k in t)
+        n = sum(1 for k in keys if keyword_in_text(t, k))
         if n:
             scored.append((n, cat))
     if not scored:
@@ -333,13 +335,7 @@ def audit_sample(claims: pd.DataFrame, n: int = 50, seed: int = 9) -> pd.DataFra
     return out.reset_index(drop=True)
 
 
-# M6 matches METRIC_KW on whole words (plural allowed). Plain substring matching
-# read "forward" as RWA and "decline" as ECL. Kept private to M6 so seed_label,
-# seed_topic_q/a and the prudential_map coder2 fallback do not move.
-_M6_METRIC_RX = {
-    m: [re.compile(rf"\b{re.escape(k)}(?:s|es)?\b", re.I) for k in keys]
-    for m, keys in METRIC_KW.items()
-}
+# M6, seed_label and prudential8_label share whole-word matching (keywords.py).
 _M6_BUCKET = {
     "total_income": "profitability",
     "operating_costs": "efficiency",
@@ -349,7 +345,7 @@ _M6_BUCKET = {
 
 
 def _m6_metrics(text: str) -> list[str]:
-    return [m for m, rxs in _M6_METRIC_RX.items() if any(rx.search(text) for rx in rxs)]
+    return [m for m, keys in METRIC_KW.items() if any_keyword(text, keys)]
 
 
 def _m6_bucket(text: str) -> str:
@@ -361,17 +357,20 @@ def _m6_bucket(text: str) -> str:
 
 
 def _blank(text) -> bool:
-    return pd.isna(text) or not str(text).strip() or str(text).strip().lower() == "nan"
+    if pd.isna(text):
+        return True
+    return str(text).strip().lower() in ("", "nan", "none")
 
 
 def behavioural_signals(qa: pd.DataFrame) -> pd.DataFrame:
     """M6 per pair. An empty answer is missing (None), not an indirect answer."""
     out = qa.copy()
-    dirs, covs, subs, measurable = [], [], [], []
+    dirs, v2s, covs, subs, measurable = [], [], [], [], []
     for _, r in out.iterrows():
         qt, at = r["question_text"], r["answer_text"]
         if _blank(qt) or _blank(at):
             dirs.append(None)
+            v2s.append(None)
             covs.append(None)
             subs.append(None)
             measurable.append(False)
@@ -379,11 +378,12 @@ def behavioural_signals(qa: pd.DataFrame) -> pd.DataFrame:
         qt, at = str(qt), str(at)
         tq, ta = _tokens(qt), _tokens(at)
         dirs.append(round(len(tq & ta) / len(tq), 3) if tq and ta else None)
+        v2s.append(directness_v2(qt, at))
         req = _m6_metrics(qt)
         if not req:
             covs.append(None)
         else:
-            covs.append(float(any(any(rx.search(at) for rx in _M6_METRIC_RX[m]) for m in req)))
+            covs.append(float(any(keyword_in_text(at, k) for m in req for k in METRIC_KW[m])))
         qlab, alab = _m6_bucket(qt), _m6_bucket(at)
         # Unchanged definition: only single-bucket Q and A can substitute; the
         # rest score 0.0. substitution_measurable says which rows could.
@@ -391,6 +391,7 @@ def behavioural_signals(qa: pd.DataFrame) -> pd.DataFrame:
         measurable.append(can)
         subs.append(float(can and alab != qlab))
     out["directness"] = dirs
+    out["directness_v2"] = v2s
     out["metric_coverage"] = covs
     out["topic_substitution"] = subs
     out["substitution_measurable"] = measurable
@@ -411,6 +412,41 @@ def prudential_map(qa: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def machine_vs_machine(qa: pd.DataFrame) -> dict:
+    """coder1 vs coder2 on these pairs, using the current whole-word labels."""
+    rows = qa.drop_duplicates("pair_id").copy()
+    c1 = rows["question_text"].map(prudential8_label)
+    a8 = rows["answer_text"].map(prudential8_label)
+    seed = rows["question_text"].map(seed_label).map(SEED_TO_8)
+    c2 = a8.where(a8 != "untagged", seed)
+    n = int(len(rows))
+    n_agree = int((c1.to_numpy() == c2.fillna("untagged").to_numpy()).sum()) if n else 0
+    return {"n": n, "n_agree": n_agree, "pct": (n_agree / n) if n else None}
+
+
+def wilson_interval(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    if n <= 0:
+        return 0.0, 0.0
+    p = k / n
+    den = 1 + z**2 / n
+    centre = (p + z**2 / (2 * n)) / den
+    margin = z * ((p * (1 - p) / n + z**2 / (4 * n**2)) ** 0.5) / den
+    return max(0.0, centre - margin), min(1.0, centre + margin)
+
+
+def substitution_headline(qa: pd.DataFrame) -> str:
+    """Measurable pairs only. The all-pair mean counts non-measurable rows as 0."""
+    if qa is None or qa.empty or "substitution_measurable" not in qa.columns:
+        return "n/a"
+    flag = qa["substitution_measurable"].fillna(False).astype(bool)
+    n = int(flag.sum())
+    if n == 0:
+        return "no measurable pairs"
+    k = int(pd.to_numeric(qa.loc[flag, "topic_substitution"], errors="coerce").fillna(0).sum())
+    lo, hi = wilson_interval(k, n)
+    return f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%})"
+
+
 def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFrame:
     counts = {}
     if "metric_coverage" in qa.columns:
@@ -420,6 +456,7 @@ def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFra
     agg = qa.groupby(["bank", "quarter"], as_index=False).agg(
         n_pairs=("pair_id", "size"),
         mean_directness=("directness", "mean"),
+        **({"mean_directness_v2": ("directness_v2", "mean")} if "directness_v2" in qa.columns else {}),
         metric_coverage_rate=("metric_coverage", "mean"),
         substitution_rate=("topic_substitution", "mean"),
         **counts,
@@ -484,7 +521,8 @@ def main(*, configure_store: bool = True) -> None:
     beh = behavioural_signals(qa)
     save_df("qa_pairs", beh)
     save_df("behavioural_signals", beh)
-    print(beh[["directness", "topic_substitution"]].mean(numeric_only=True).to_string())
+    print(beh[["directness", "directness_v2", "topic_substitution"]].mean(numeric_only=True).to_string())
+    print("substitution", substitution_headline(beh))
 
     pmap = prudential_map(beh)
     save_df("prudential_map", pmap)

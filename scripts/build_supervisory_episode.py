@@ -12,6 +12,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from keywords import any_keyword, faith_label, narrative_direction  # noqa: E402
 from periods import calendar_period, matched_peer_gap, period_sort_key  # noqa: E402
 from store import load_df, save_df, save_json  # noqa: E402
 
@@ -54,7 +55,7 @@ REVIEWED_IDS = frozenset(e["id"] for e in EPISODES)
 METRIC_KW = {
     "credit_impairment": ["impairment", "ecl", "stage 2", "credit cost", "cost of risk", "viu", "npl"],
     "operating_costs": ["cost", "costs", "efficiency", "expense"],
-    "cet1_ratio": ["cet1", "capital"],
+    "cet1_ratio": ["cet1", "capital ratio", "rwa", "tier 1"],
     "total_income": ["nii", "income", "revenue", "hibor", "fee"],
 }
 
@@ -271,7 +272,7 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
 
     briefs = []
     for metric, kws in METRIC_KW.items():
-        hits = ep[ep["text"].str.lower().apply(lambda t: any(k in t for k in kws))]
+        hits = ep[ep["text"].fillna("").apply(lambda t: any_keyword(t, kws))]
         row_s = struct[struct["metric"] == metric]
         direction = row_s["direction"].iloc[0] if len(row_s) else "n/a"
         value = float(row_s["value"].iloc[0]) if len(row_s) else None
@@ -298,7 +299,7 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
             continue
         best = hits.sort_values("finbert_score", ascending=False).iloc[0]
         qa_net = float(hits["finbert_net"].mean())
-        narr = "up" if qa_net > 0.05 else "down" if qa_net < -0.05 else "flat"
+        narr = narrative_direction(qa_net, metric)
         agrees = narr == direction or (direction == "flat" and narr == "flat")
         briefs.append(
             {
@@ -326,15 +327,15 @@ def build_one(corp, reported, peer, spec: dict) -> dict:
     t1 = ep[ep["topic"] == 1]
     t1_neg = float((t1["finbert_sentiment"] == "negative").mean()) if len(t1) else 0.0
     impair = briefs_df[briefs_df["metric"] == "credit_impairment"]
-    impair_faithful = impair.iloc[0]["faithful"] if len(impair) else None
-    impair_disagree = (impair_faithful is False)  # None (no Q&A) is not disagreement
+    impair_flag = faith_label(impair.iloc[0]["faithful"]) if len(impair) else None
+    impair_disagree = impair_flag == "no"  # None (no Q&A) is not disagreement
 
     fired = []
     if t1_neg >= 0.2 and impair_disagree:
         fired.append("A1")
     if peer_usable_for_a2 and peer_gap is not None and peer_gap < -0.10:
         fired.append("A2")
-    if ep_net < -0.08 and impair_faithful is not False:
+    if ep_net < -0.08 and impair_flag != "no":
         # soft tone; only A3 when impairment does not actively disagree (True or None)
         fired.append("A3")
     if not fired:
