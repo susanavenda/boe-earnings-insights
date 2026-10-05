@@ -123,7 +123,8 @@ def parse_barclays_group_ph(path):
         # 2024 tables workbooks sometimes omit the Group PH tab name — scan for Total income
         for s in xl.sheet_names:
             preview = pd.read_excel(path, sheet_name=s, header=None, nrows=80)
-            blob = ' '.join(preview.astype(str).values.ravel()[:400]).lower()
+            # fillna first: pandas 3 keeps NaN as float through astype(str), which breaks join.
+            blob = ' '.join(preview.fillna('').astype(str).values.ravel()[:400]).lower()
             if 'total income' in blob:
                 sheet = s
                 break
