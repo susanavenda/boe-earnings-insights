@@ -224,15 +224,17 @@ def test_a1_main_writes_tables(tmp_path, monkeypatch):
         [{"bank": "hsbc", "quarter": "2025-q2", "metric": "cet1_ratio", "direction": "up"}]
     )
     monkeypatch.setattr(a1, "save_df", save_df)
-    monkeypatch.setattr(a1, "load_df", lambda n: _turns() if n == "all_turns" else reported)
-    monkeypatch.setattr(a1, "has_df", lambda n: n == "reported_metrics")
+    monkeypatch.setattr(a1, "load_df", lambda n: _turns() if n == "all_turns" else (_ for _ in ()).throw(FileNotFoundError))
+    monkeypatch.setattr(a1, "build_reported_metrics", lambda root: reported)
     a1.main(configure_store=False)
     assert "qa_pairs" in saved
     assert "state_summary" in saved
+    assert saved["reported_metrics"] is reported
 
-    monkeypatch.setattr(a1, "has_df", lambda n: False)
-    monkeypatch.setattr(a1, "load_df", lambda n: _turns() if n == "all_turns" else (_ for _ in ()).throw(FileNotFoundError))
+    saved.clear()
+    monkeypatch.setattr(a1, "build_reported_metrics", lambda root: pd.DataFrame())
     a1.main(configure_store=False)
+    assert "state_summary" in saved and "reported_metrics" not in saved
 
     monkeypatch.setattr(a1, "load_df", lambda n: pd.DataFrame())
     with pytest.raises(SystemExit):
