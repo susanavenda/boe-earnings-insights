@@ -9,6 +9,7 @@ Same four lines as Stage 2.0 / M3 — do not add ROA, NIM, NPL, LDR here.
 from __future__ import annotations
 
 import re
+from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
@@ -28,6 +29,9 @@ def _norm(s):
 def _to_float(v):
     if isinstance(v, (int, float)) and not pd.isna(v):
         return float(v)
+    # Some older packs store figures as text, e.g. "31,440 " (Barclays 2010 FY).
+    if isinstance(v, str) and re.fullmatch(r'\s*-?[\d,]+(\.\d+)?\s*', v):
+        return float(v.replace(',', ''))
     return None
 
 def _direction(curr, prev, metric=None, flat_tol=0.01):
@@ -55,6 +59,59 @@ def _quarter_from_name(path):
     mapping = {'h1': 'interim', 'fy': 'annual', '1q': 'q1', '2q': 'q2', '3q': 'q3', '4q': 'q4'}
     return f'{y}-{mapping.get(p, p)}'
 
+_PERIOD_END = {'q1': '03-31', 'interim': '06-30', 'q2': '06-30', 'q3': '09-30', 'annual': '12-31', 'q4': '12-31'}
+_POUND_M = re.compile(r'^£\s*m$', re.I)
+_DATE_TEXT = re.compile(r'\b(\d{2})\.(\d{2})\.(\d{2}|\d{4})\b')
+CET1_ALIASES = ['common equity tier 1 ratio', 'cet1 ratio']
+
+
+def _header_layout(df, max_rows=15):
+    """(label, current, prior) columns from the first row with two '£m' headings.
+
+    Older Barclays sheets put a Notes column (2011-12 FY) or blank spacer columns
+    (2011 Q3) between the label and the figures, so fixed layouts miss them (#90).
+    """
+    for i in range(min(max_rows, len(df))):
+        cols = [j for j, v in enumerate(df.iloc[i]) if isinstance(v, str) and _POUND_M.match(v.strip())]
+        if len(cols) < 2:
+            continue
+        below = df.iloc[i + 1:, :cols[0]]
+        if below.shape[1] == 0:
+            return None
+        text = below.apply(lambda c: c.map(lambda v: isinstance(v, str) and _to_float(v) is None).sum())
+        return int(text.idxmax()), cols[0], cols[1]
+    return None
+
+
+def _first_header_date(df, max_rows=8):
+    for v in df.iloc[:max_rows].to_numpy().ravel():
+        if isinstance(v, datetime):
+            return v.strftime('%Y-%m-%d')
+        if isinstance(v, str):
+            m = _DATE_TEXT.search(v)
+            if m:
+                d, mo, y = m.groups()
+                return f"{'20' + y if len(y) == 2 else y}-{mo}-{d}"
+    return None
+
+
+def _cet1_from_summary(xl, path, max_sheets=3):
+    """CET1 (current, prior) from a summary sheet's capital block, when the P&L sheet has none.
+
+    2013-15 packs print it lower down the first sheet with its own columns. Rows with a
+    single value are skipped: a direction needs a prior, and a missing prior reads as flat.
+    """
+    for sheet in xl.sheet_names[:max_sheets]:
+        df = pd.read_excel(path, sheet_name=sheet, header=None, nrows=80)
+        for _, row in df.iterrows():
+            texts = [_norm(v) for v in row if isinstance(v, str) and _to_float(v) is None]
+            if not texts or not any(a in texts[0] for a in CET1_ALIASES):
+                continue
+            nums = [x for x in (_to_float(v) for v in row) if x is not None and 0 < abs(x) <= 30]
+            return (nums[0], nums[1]) if len(nums) >= 2 else None
+    return None
+
+
 def parse_barclays_group_ph(path):
     xl = pd.ExcelFile(path)
     needles = (
@@ -74,8 +131,17 @@ def parse_barclays_group_ph(path):
         print(f"WARN: no P&L sheet in {Path(path).name}: {xl.sheet_names}")
         return {}
     df = pd.read_excel(path, sheet_name=sheet, header=None)
+    # A pack whose header date is another period is the wrong file (2014 and 2015 H1
+    # hold the 2013 FY tables, #90). Skip it rather than file its figures under the name.
+    q = _quarter_from_name(path)
+    expected = f"{q[:4]}-{_PERIOD_END[q[5:]]}" if q[5:] in _PERIOD_END else None
+    found = _first_header_date(df)
+    if expected and found and found != expected:
+        print(f"WARN: skip {Path(path).name}: header period ends {found}, filename says {expected}")
+        return {}
     label_map = {}
-    layouts = [(1, 2, 3), (0, 1, 2)]
+    header = _header_layout(df)
+    layouts = ([header] if header else []) + [(1, 2, 3), (0, 1, 2)]
     for lab_i, a_i, b_i in layouts:
         trial = {}
         for _, row in df.iterrows():
@@ -94,10 +160,12 @@ def parse_barclays_group_ph(path):
         if len(trial) > len(label_map):
             label_map = trial
     return {
-        'total_income': _first_match(label_map, ['total income']),
+        # The 2011-12 statutory sheets print gross "total income" above the net line; the
+        # net line is what every other pack of that era reports, so prefer it.
+        'total_income': _first_match(label_map, ['total income net of insurance claims']) or _first_match(label_map, ['total income']),
         'operating_costs': _first_match(label_map, ['operating costs', 'operating expenses', 'total operating expenses']),
         'credit_impairment': _first_match(label_map, ['credit impairment charges', 'credit impairment', 'impairment charges']),
-        'cet1_ratio': _first_match(label_map, ['common equity tier 1 ratio', 'cet1 ratio']),
+        'cet1_ratio': _first_match(label_map, CET1_ALIASES) or _cet1_from_summary(xl, path),
     }
 
 def parse_credit_suisse_pack(path):
