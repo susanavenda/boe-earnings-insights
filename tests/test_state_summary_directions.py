@@ -58,8 +58,9 @@ def test_packs_parse_for_all_three_banks(reported):
 @pytest.mark.slow
 def test_every_tracked_pack_parses():
     full = build_reported_metrics(STRUCTURED_ROOT)
-    n_packs = sum(1 for _ in STRUCTURED_ROOT.rglob("*.xlsx"))
-    assert full["source"].nunique() == n_packs
+    # Barclays and Credit Suisse share file names, so count (bank, file) pairs.
+    packs = {(p.parent.name, p.name) for p in STRUCTURED_ROOT.rglob("*.xlsx") if not p.name.startswith("~$")}
+    assert set(zip(full["bank"], full["source"])) == packs
     assert set(full["direction"].dropna()) <= DIRECTIONS
 
 
