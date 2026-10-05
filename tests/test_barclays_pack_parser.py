@@ -48,11 +48,34 @@ def test_core_tier_1_is_not_read_as_cet1():
     assert _parse("2011-q3")["cet1_ratio"] is None
 
 
-@pytest.mark.parametrize("stem", ["2014-h1", "2015-h1"])
-def test_pack_holding_another_period_is_skipped(stem, capsys):
-    # Both files contain the 2013 full-year tables.
-    assert _parse(stem) == {}
-    assert "header period ends 2013-12-31" in capsys.readouterr().out
+# Both workbooks put the 2013 FY tables first and the H1 tables after them.
+H1 = {
+    "2014-h1": {"total_income": (13332.128, 15071), "credit_impairment": (-1086, -1631), "cet1_ratio": (0.099, 0.091)},
+    "2015-h1": {"total_income": (12982, 13332), "credit_impairment": (-973, -1086), "cet1_ratio": (0.111, 0.103)},
+}
+
+
+@pytest.mark.parametrize("stem", sorted(H1))
+def test_h1_read_from_the_h1_sheet_not_the_2013_tables(stem):
+    got = _parse(stem)
+    for metric, want in H1[stem].items():
+        assert got[metric] == pytest.approx(want, abs=1e-3), metric
+
+
+def test_pack_without_a_sheet_for_its_period_is_skipped(tmp_path, capsys):
+    path = tmp_path / "2014-h1-financial-tables.xlsx"
+    pd.DataFrame(
+        [["Perf Highlights", "31.12.13", "31.12.12"], [None, "£m", "£m"], ["Total income", 28155, 29361]]
+    ).to_excel(path, sheet_name="Perf Highlights", header=False, index=False)
+    assert rm.parse_barclays_group_ph(path) == {}
+    assert "header period ends 2013-12-31, filename says 2014-06-30" in capsys.readouterr().out
+
+
+def test_excel_lock_files_are_ignored(tmp_path, capsys):
+    (tmp_path / "barclays").mkdir()
+    (tmp_path / "barclays" / "~$2014-h1-financial-tables.xlsx").write_bytes(b"lock")
+    assert rm.build_reported_metrics(tmp_path).empty
+    assert "WARN" not in capsys.readouterr().out
 
 
 def test_to_float_reads_numbers_stored_as_text():

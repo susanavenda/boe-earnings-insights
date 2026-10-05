@@ -58,12 +58,9 @@ def test_packs_parse_for_all_three_banks(reported):
 @pytest.mark.slow
 def test_every_tracked_pack_parses():
     full = build_reported_metrics(STRUCTURED_ROOT)
-    # Barclays 2014 and 2015 H1 hold the 2013 FY tables and are skipped (#90).
-    wrong_period = {"2014-h1-financial-tables.xlsx", "2015-h1-financial-tables.xlsx"}
     # Barclays and Credit Suisse share file names, so count (bank, file) pairs.
-    packs = {(p.parent.name, p.name) for p in STRUCTURED_ROOT.rglob("*.xlsx")}
-    expected = {(b, n) for b, n in packs if not (b == "barclays" and n in wrong_period)}
-    assert set(zip(full["bank"], full["source"])) == expected
+    packs = {(p.parent.name, p.name) for p in STRUCTURED_ROOT.rglob("*.xlsx") if not p.name.startswith("~$")}
+    assert set(zip(full["bank"], full["source"])) == packs
     assert set(full["direction"].dropna()) <= DIRECTIONS
 
 

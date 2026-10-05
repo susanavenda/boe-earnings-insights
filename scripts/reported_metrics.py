@@ -95,14 +95,34 @@ def _first_header_date(df, max_rows=8):
     return None
 
 
-def _cet1_from_summary(xl, path, max_sheets=3):
+def _sheet_for_period(xl, path, expected):
+    """First sheet dated `expected` that prints a total income line, or None.
+
+    The 2014 and 2015 H1 workbooks put the 2013 FY tables first and the H1 tables
+    after them, so the first P&L-looking sheet is the wrong period (#90).
+    """
+    for sheet in xl.sheet_names:
+        df = pd.read_excel(xl, sheet_name=sheet, header=None, nrows=80)
+        if _first_header_date(df) != expected:
+            continue
+        if 'total income' in ' '.join(_norm(v) for v in df.to_numpy().ravel() if isinstance(v, str)):
+            return sheet
+    return None
+
+
+def _cet1_from_summary(xl, path, expected=None, first=None, max_sheets=3):
     """CET1 (current, prior) from a summary sheet's capital block, when the P&L sheet has none.
 
-    2013-15 packs print it lower down the first sheet with its own columns. Rows with a
-    single value are skipped: a direction needs a prior, and a missing prior reads as flat.
+    2013-15 packs print it lower down the first sheet with its own columns. Sheets dated
+    another period are ignored. Rows with a single value are skipped: a direction needs
+    a prior, and a missing prior reads as flat.
     """
-    for sheet in xl.sheet_names[:max_sheets]:
-        df = pd.read_excel(path, sheet_name=sheet, header=None, nrows=80)
+    sheets = ([first] if first else []) + [s for s in xl.sheet_names[:max_sheets] if s != first]
+    for sheet in sheets:
+        df = pd.read_excel(xl, sheet_name=sheet, header=None, nrows=80)
+        found = _first_header_date(df)
+        if expected and found and found != expected:
+            continue
         for _, row in df.iterrows():
             texts = [_norm(v) for v in row if isinstance(v, str) and _to_float(v) is None]
             if not texts or not any(a in texts[0] for a in CET1_ALIASES):
@@ -122,7 +142,7 @@ def parse_barclays_group_ph(path):
     if sheet is None:
         # 2024 tables workbooks sometimes omit the Group PH tab name — scan for Total income
         for s in xl.sheet_names:
-            preview = pd.read_excel(path, sheet_name=s, header=None, nrows=80)
+            preview = pd.read_excel(xl, sheet_name=s, header=None, nrows=80)
             # fillna first: pandas 3 keeps NaN as float through astype(str), which breaks join.
             blob = ' '.join(preview.fillna('').astype(str).values.ravel()[:400]).lower()
             if 'total income' in blob:
@@ -131,15 +151,18 @@ def parse_barclays_group_ph(path):
     if sheet is None:
         print(f"WARN: no P&L sheet in {Path(path).name}: {xl.sheet_names}")
         return {}
-    df = pd.read_excel(path, sheet_name=sheet, header=None)
-    # A pack whose header date is another period is the wrong file (2014 and 2015 H1
-    # hold the 2013 FY tables, #90). Skip it rather than file its figures under the name.
+    df = pd.read_excel(xl, sheet_name=sheet, header=None)
+    # If that sheet is dated another period, look for the sheet of the filename's period
+    # (2014 and 2015 H1 put the 2013 FY tables first, #90). Skip the pack if there is none.
     q = _quarter_from_name(path)
     expected = f"{q[:4]}-{_PERIOD_END[q[5:]]}" if q[5:] in _PERIOD_END else None
     found = _first_header_date(df)
     if expected and found and found != expected:
-        print(f"WARN: skip {Path(path).name}: header period ends {found}, filename says {expected}")
-        return {}
+        sheet = _sheet_for_period(xl, path, expected)
+        if sheet is None:
+            print(f"WARN: skip {Path(path).name}: header period ends {found}, filename says {expected}")
+            return {}
+        df = pd.read_excel(xl, sheet_name=sheet, header=None)
     label_map = {}
     header = _header_layout(df)
     layouts = ([header] if header else []) + [(1, 2, 3), (0, 1, 2)]
@@ -166,7 +189,7 @@ def parse_barclays_group_ph(path):
         'total_income': _first_match(label_map, ['total income net of insurance claims']) or _first_match(label_map, ['total income']),
         'operating_costs': _first_match(label_map, ['operating costs', 'operating expenses', 'total operating expenses']),
         'credit_impairment': _first_match(label_map, ['credit impairment charges', 'credit impairment', 'impairment charges']),
-        'cet1_ratio': _first_match(label_map, CET1_ALIASES) or _cet1_from_summary(xl, path),
+        'cet1_ratio': _first_match(label_map, CET1_ALIASES) or _cet1_from_summary(xl, path, expected, first=sheet),
     }
 
 def parse_credit_suisse_pack(path):
@@ -202,6 +225,8 @@ def build_reported_metrics(structured_root: Path = STRUCTURED_ROOT) -> pd.DataFr
             continue
         n_files, n_parsed = 0, 0
         for path in sorted(folder.glob('*.xlsx')):
+            if path.name.startswith('~$'):  # Excel lock file while a pack is open
+                continue
             n_files += 1
             try:
                 parsed = parser(path)
