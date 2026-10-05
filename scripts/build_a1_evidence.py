@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from keywords import any_keyword, directness_v2, keyword_in_text, keyword_spans  # noqa: E402
 from periods import calendar_period, coverage_window, year_from_period  # noqa: E402
-from store import configure, has_df, load_df, save_df  # noqa: E402
+from reported_metrics import METRICS_OF_INTEREST, build_reported_metrics  # noqa: E402
+from store import configure, load_df, save_df  # noqa: E402
 
 MONTHS = (
     "January|February|March|April|May|June|July|August|"
@@ -672,6 +673,18 @@ def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFra
     return agg
 
 
+def require_reported_directions(ss: pd.DataFrame, reported: pd.DataFrame | None) -> None:
+    """Fail when packs were parsed but no bank-quarter picked up a direction (#86)."""
+    if reported is None or reported.empty:
+        return
+    cols = [m for m in METRICS_OF_INTEREST if m in ss.columns]
+    if not cols or ss[cols].isna().all().all():
+        raise ValueError(
+            f"state_summary has no reported directions although {len(reported)} "
+            "reported_metrics rows were parsed — check the calendar_period join"
+        )
+
+
 def main(*, configure_store: bool = True) -> None:
     if configure_store:
         configure(memory=False)
@@ -725,14 +738,16 @@ def main(*, configure_store: bool = True) -> None:
     save_df("prudential_map", pmap)
     print("prudential disagreements", int(pmap["disagreement"].sum()), "/", len(pmap))
 
-    reported = load_df("reported_metrics") if has_df("reported_metrics") else None
+    # Parse the packs here, before state_summary (#86). Reading the table Stage 6.3
+    # wrote gave a fresh run no directions and a local run the previous run's.
+    reported = build_reported_metrics(structured) if structured.exists() else None
     if reported is None or reported.empty:
-        print(
-            "reported_metrics not in sqlite yet — state_summary without Excel "
-            "directions. Stage 6.3 parses the packs."
-        )
+        print("no parsable Excel packs under data/structured — state_summary without reported directions")
         reported = None
+    else:
+        save_df("reported_metrics", reported)
     ss = state_summary(beh, reported)
+    require_reported_directions(ss, reported)
     save_df("state_summary", ss)
     print("state_summary\n", ss.to_string(index=False))
 
