@@ -1,0 +1,51 @@
+{
+  "n": 90,
+  "seed": 2026,
+  "banks": [
+    "hsbc",
+    "barclays"
+  ],
+  "pool_size": 673,
+  "excluded_in_order": {
+    "out_of_scope_bank": 231,
+    "not_results_call": 13,
+    "duplicate_pair_id": 9,
+    "empty_answer": 76,
+    "bleed_split": 192,
+    "short_question": 35,
+    "short_answer": 9,
+    "too_long": 69
+  },
+  "strata_target": {
+    "subst_yes": 22,
+    "subst_no": 14,
+    "coverage_no": 15,
+    "coverage_yes": 12,
+    "directness_low": 14,
+    "directness_high": 13
+  },
+  "strata_actual": {
+    "subst_yes": 22,
+    "coverage_no": 15,
+    "directness_low": 14,
+    "subst_no": 14,
+    "directness_high": 13,
+    "coverage_yes": 12
+  },
+  "strata_available": {
+    "coverage_yes": 209,
+    "subst_no": 100,
+    "coverage_no": 92,
+    "directness_high": 82,
+    "directness_low": 81,
+    "directness_mid": 81,
+    "subst_yes": 28
+  },
+  "by_bank": {
+    "hsbc": 47,
+    "barclays": 43
+  },
+  "note": "Stratified on machine M6 values (substitution first, then coverage, then directness terciles), balanced by bank. Substitution 'yes' is oversampled, so agreement rates describe this sample, not corpus prevalence. Excludes Credit Suisse, non-results-call events, duplicate pair_ids, empty or bleed-split answers, turns under 12 words and pairs over 1200 words (mostly merged answer turns). Coders see Q and A only.",
+  "source": "pdfs (in-memory rebuild)",
+  "corpus_pairs": 1307
+}
