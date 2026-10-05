@@ -134,5 +134,5 @@ def test_consensus_drops_pairs_the_coders_disagree_on():
     b = validate(_labels(("yes", "partly", "partly")), "b", ["p1", "p2", "p3"])
     gold = consensus({"a": a, "b": b}, "addressed")
     assert gold["p1"] == "yes"
-    assert gold["p2"] is None
+    assert pd.isna(gold["p2"])  # None on pandas 2, NaN on pandas 3
     assert gold["p3"] == "partly"
