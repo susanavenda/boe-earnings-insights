@@ -1,0 +1,239 @@
+{
+  "n_pairs": 90,
+  "coders": [
+    "bupathi",
+    "rafael"
+  ],
+  "sample_note": "Stratified sample (substitution 'yes' oversampled): rates describe the sample, not corpus prevalence.",
+  "human_vs_human": {
+    "bupathi_vs_rafael": {
+      "addressed": {
+        "n": 90,
+        "raw": 0.689,
+        "raw_95": [
+          0.587,
+          0.775
+        ],
+        "kappa": 0.404
+      },
+      "changed_topic": {
+        "n": 90,
+        "raw": 0.856,
+        "raw_95": [
+          0.768,
+          0.914
+        ],
+        "kappa": 0.534
+      },
+      "metric_given": {
+        "n": 90,
+        "raw": 0.689,
+        "raw_95": [
+          0.587,
+          0.775
+        ],
+        "kappa": 0.464
+      },
+      "answer_clean": {
+        "n": 90,
+        "raw": 0.867,
+        "raw_95": [
+          0.781,
+          0.922
+        ],
+        "kappa": 0.72
+      }
+    }
+  },
+  "agreed_pairs": {
+    "addressed": 62,
+    "changed_topic": 77,
+    "metric_given": 62,
+    "answer_clean": 78
+  },
+  "machine_vs_human_gold": {
+    "directness": {
+      "n": 62,
+      "mean_by_label": {
+        "no": 0.195,
+        "partly": 0.242,
+        "yes": 0.376
+      },
+      "spearman_rho": 0.447,
+      "auc_yes_vs_no": 0.839,
+      "n_yes_no": 57
+    },
+    "directness_v2": {
+      "n": 62,
+      "mean_by_label": {
+        "no": 0.069,
+        "partly": 0.111,
+        "yes": 0.132
+      },
+      "spearman_rho": 0.378,
+      "auc_yes_vs_no": 0.822,
+      "n_yes_no": 57
+    },
+    "substitution_measurable_pairs": {
+      "n": 31,
+      "raw": 0.484,
+      "raw_95": [
+        0.32,
+        0.652
+      ],
+      "kappa": 0.078
+    },
+    "human_topic_change_on_unmeasurable": {
+      "n": 46,
+      "share_yes": 0.13
+    },
+    "metric_asked": {
+      "n": 62,
+      "raw": 0.806,
+      "raw_95": [
+        0.691,
+        0.886
+      ],
+      "kappa": 0.495
+    },
+    "metric_given_when_both_asked": {
+      "n": 40,
+      "raw": 0.625,
+      "raw_95": [
+        0.47,
+        0.758
+      ],
+      "kappa": 0.25
+    }
+  },
+  "machine_vs_each_coder": {
+    "bupathi": {
+      "directness": {
+        "n": 90,
+        "mean_by_label": {
+          "no": 0.239,
+          "partly": 0.315,
+          "yes": 0.342
+        },
+        "spearman_rho": 0.195,
+        "auc_yes_vs_no": 0.696,
+        "n_yes_no": 70
+      },
+      "directness_v2": {
+        "n": 90,
+        "mean_by_label": {
+          "no": 0.072,
+          "partly": 0.121,
+          "yes": 0.123
+        },
+        "spearman_rho": 0.18,
+        "auc_yes_vs_no": 0.77,
+        "n_yes_no": 70
+      },
+      "substitution_measurable_pairs": {
+        "n": 36,
+        "raw": 0.444,
+        "raw_95": [
+          0.295,
+          0.604
+        ],
+        "kappa": 0.053
+      },
+      "human_topic_change_on_unmeasurable": {
+        "n": 54,
+        "share_yes": 0.111
+      },
+      "metric_asked": {
+        "n": 90,
+        "raw": 0.722,
+        "raw_95": [
+          0.622,
+          0.804
+        ],
+        "kappa": 0.346
+      },
+      "metric_given_when_both_asked": {
+        "n": 50,
+        "raw": 0.56,
+        "raw_95": [
+          0.423,
+          0.688
+        ],
+        "kappa": 0.194
+      }
+    },
+    "rafael": {
+      "directness": {
+        "n": 90,
+        "mean_by_label": {
+          "no": 0.214,
+          "partly": 0.245,
+          "yes": 0.382
+        },
+        "spearman_rho": 0.476,
+        "auc_yes_vs_no": 0.807,
+        "n_yes_no": 78
+      },
+      "directness_v2": {
+        "n": 90,
+        "mean_by_label": {
+          "no": 0.078,
+          "partly": 0.099,
+          "yes": 0.135
+        },
+        "spearman_rho": 0.444,
+        "auc_yes_vs_no": 0.808,
+        "n_yes_no": 78
+      },
+      "substitution_measurable_pairs": {
+        "n": 36,
+        "raw": 0.528,
+        "raw_95": [
+          0.37,
+          0.68
+        ],
+        "kappa": 0.15
+      },
+      "human_topic_change_on_unmeasurable": {
+        "n": 54,
+        "share_yes": 0.259
+      },
+      "metric_asked": {
+        "n": 90,
+        "raw": 0.789,
+        "raw_95": [
+          0.694,
+          0.86
+        ],
+        "kappa": 0.444
+      },
+      "metric_given_when_both_asked": {
+        "n": 58,
+        "raw": 0.638,
+        "raw_95": [
+          0.509,
+          0.749
+        ],
+        "kappa": 0.324
+      }
+    }
+  },
+  "answer_not_clean": {
+    "n": 78,
+    "share": 0.359,
+    "share_95": [
+      0.261,
+      0.47
+    ]
+  },
+  "summary": [
+    "Coders bupathi_vs_rafael: addressed agree 69% (\u03ba=0.404), n=90.",
+    "Directness separates human 'addressed yes' from 'no' with AUC 0.839 (n=57; 0.5 = chance).",
+    "Directness v2 AUC 0.822 (n=57).",
+    "Substitution vs human 'changed topic' on 31 measurable pairs: 48% agree (\u03ba=0.078).",
+    "Humans saw a topic change on 13% of 46 pairs the machine cannot measure.",
+    "Coverage vs human 'metric given' where both say a metric was asked: 62% agree (n=40).",
+    "Answer text not clean (parser bleed or garbled) on 36% of 78 coded pairs.",
+    "Stratified sample (substitution 'yes' oversampled): rates describe the sample, not corpus prevalence."
+  ]
+}
