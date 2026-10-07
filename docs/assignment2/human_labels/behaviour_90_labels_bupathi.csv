@@ -1,0 +1,91 @@
+pair_id,addressed,changed_topic,metric_given,answer_clean,note
+barclays_2011-q3_002,yes,no,na,no,"The reply distinguishes the £559m overall hedging benefit from the £711m product-hedge changes, but the A text also contains later questions/answers."
+barclays_2012-q2_003,yes,no,yes,yes,
+barclays_2012-q3_007,partly,no,na,no,"It explains the leverage basis and Basel 3 tangible equity, but does not directly answer the scope to reduce low-yielding assets; follow-ups are included."
+barclays_2012-annual_005,yes,no,yes,no,"The provision question is answered, but the A text also contains the start of another question/answer."
+barclays_2012-annual_006,yes,no,na,no,"It answers the lead forbearance-definition question, but the A text also contains follow-up exchanges and another question."
+barclays_2013-q1_006,yes,no,yes,no,"The answer explains the investment-bank cost/income commitment, but the A text also includes later questions/answers."
+barclays_2013-q2_004,yes,no,na,yes,It directly answers whether Q2 FICC was a new base and gives the drivers.
+barclays_2014-q1_007,no,yes,yes,yes,The lead question on Q1 IB compensation/cost-income ratio is met with “Next question”; the response instead answers another analyst’s cost/leverage questions.
+barclays_2014-q2_001,yes,no,yes,yes,"It addresses both the IB impact/July performance and Non-Core capital release, including the £80bn RWA guidance."
+barclays_2015-annual_001,yes,no,yes,yes,"It addresses the capital trajectory and the 95% LDR question, including a view on >100% LDR."
+barclays_2016-q2_004,partly,no,yes,no,"It answers the RWA/allocated-equity lead, but the US cards impairment follow-up is left unanswered in the supplied text."
+barclays_2016-q3_001,yes,no,yes,yes,It answers competitive share directly and also gives impairment commentary.
+barclays_2016-q3_006,yes,no,na,yes,"It explains the Europe/UK commitment and available alternatives, though it does not give a hard-vs-soft Brexit quantified impact."
+barclays_2017-q3_008,partly,no,na,no,"It clarifies the 100bps scenario is mainly UK, but does not answer the deposit-beta part; the A text also contains an Important Notice."
+barclays_2017-annual_011,partly,no,na,no,"The response addresses the interest-rate-sensitivity point, but the supplied A text then contains another analyst question and answer."
+barclays_2018-q1_004,yes,no,na,yes,"It directly answers the IB size/capital question, the London property question, and the PayPal clarification."
+barclays_2018-q1_006,partly,no,na,yes,"It directly answers the credit-risk-loan disclosure point, but the main business-mix question is answered only broadly rather than with the requested forward view."
+barclays_2018-q2_007,yes,no,no,no,It gives the rationale for the CIB capital allocation but does not itself provide a CET1 number/direction; the supplied A text also runs into another question.
+barclays_2018-q3_007,yes,no,na,yes,"It addresses what can change investor views by discussing recapitalisation, profitability focus, PPI complaints and CIB trajectory."
+barclays_2019-q1_011,yes,no,na,yes,It directly explains why Apple Card is distinct from Barclays’ point-of-sale financing.
+barclays_2019-q2_006,yes,no,na,yes,
+barclays_2019-q2_010,yes,no,yes,yes,
+barclays_2019-q3_001,partly,no,na,yes,It gives competitive/CIB commentary but only limited response to the forward-looking 2020 visibility part.
+barclays_2019-q3_007,yes,no,yes,yes,
+barclays_2019-annual_003,yes,no,yes,yes,
+barclays_2019-annual_004,yes,no,yes,yes,
+barclays_2020-q1_002,partly,no,yes,yes,It directly answers the transitional-relief question but the supplied answer segment does not fully answer the RWA follow-up.
+barclays_2020-q2_003,yes,no,yes,yes,It directly says a numerical RWA forecast is too difficult and explains the conditional direction.
+barclays_2021-q1_006,yes,no,yes,yes,
+barclays_2021-q1_012,yes,no,yes,yes,
+barclays_2021-q3_004,yes,no,yes,yes,
+barclays_2021-annual_005,partly,no,yes,yes,"The answer starts with credit-card growth, but the supplied excerpt does not fully cover the CIB pipeline/second question."
+barclays_2022-q1_004,yes,no,na,yes,
+barclays_2022-q2_001,partly,no,yes,yes,"It declines to give the requested FX revenue equivalent, but addresses the broader revenue/cost outlook."
+barclays_2023-q2_006,yes,no,yes,yes,It explains the CC&P revenue pressure and gives relevant income/risk commentary.
+barclays_2023-q2_009,partly,no,yes,no,The supplied answer is garbled/misaligned and does not clearly answer the Transaction Banking margin question; it also contains unrelated material.
+barclays_2023-annual_009,no,yes,na,no,"The supplied A text answers a different question about government support/regulation rather than Barclays UK deposit migration, and is garbled."
+barclays_2024-annual_002,partly,no,na,yes,"It discusses the regulatory backdrop and ring-fencing generally, but does not clearly answer which proposed changes would be material tailwinds."
+barclays_2025-q1_005,yes,no,yes,yes,It addresses the US cards margin/rate-cut question and gives loan-loss-rate guidance.
+barclays_2025-q2_002,yes,no,yes,yes,It directly gives BUK NII guidance and explains the H2 phasing.
+barclays_2025-q2_006,yes,no,yes,no,"The answer directly addresses organic RWA deployment and says it will not compromise lending quality to hit the target, but the A text also contains an extra cost question and an Important Notice."
+barclays_2025-q3_003,yes,no,na,yes,
+barclays_2026-q2_005,partly,no,yes,no,The supplied answer is a fragment about competitiveness and does not clearly answer the lead BUK cost-commitment question; it is also incomplete/garbled.
+hsbc_2007-interim_004,no,yes,no,no,The supplied A text is garbled and mainly discusses UK business positioning/legal clarity rather than the US delinquency question.
+hsbc_2011-interim_008,no,yes,no,no,The supplied A text is garbled/misaligned and does not clearly answer the lead cost-reduction run-rate question.
+hsbc_2011-q3_002,partly,no,yes,no,"The supplied answer is heavily garbled, but includes commentary on loan impairment charges and says there is not more to give; it also contains unrelated text."
+hsbc_2012-q3_002,partly,no,yes,no,The answer appears to address the regional outlook/impairments only in fragments and is interleaved with other questions and answers.
+hsbc_2012-q3_004,partly,no,no,no,The supplied Q/A is garbled and only partially addresses the legacy-drag question; no specific in-scope impairment metric is clearly supplied.
+hsbc_2013-interim_001,no,yes,yes,no,The visible A segment answers a different impairment question rather than the lead interest-rate-sensitivity question; it is also garbled.
+hsbc_2015-interim_006,no,yes,yes,no,The visible A text answers ring-fencing rather than the lead loan-growth question; the source is interleaved/garbled.
+hsbc_2015-q3_002,no,yes,no,no,"The visible A text is a response to a different follow-up about the $96bn, not the lead NIM/volume question."
+hsbc_2015-annual_006,no,yes,no,no,"The lead is the progressive-dividend question, but the visible A text answers TLAC issuance/costs instead; the block is interleaved."
+hsbc_2016-q3_005,yes,no,yes,no,"Management directly says surplus capital can be moved back to the parent for dividends/buy-backs, but the A text also includes further questions and answers."
+hsbc_2016-annual_002,yes,no,yes,no,"The first management segment answers the NIM question with a 160bp figure, but the A text also contains subsequent questions/answers."
+hsbc_2016-annual_005,yes,no,yes,no,"The bank-levy question is answered with a $1bn-$1.1bn expectation, but the A text continues into further analyst questions and answers."
+hsbc_2017-q1_004,yes,no,yes,yes,It answers the average-interest-earning-assets point and the sustainability of non-interest income; the latter is addressed with a revenue-direction assessment.
+hsbc_2017-interim_006,partly,no,yes,no,The supplied answer is interleaved and does not clearly resolve the RWA-reduction timing; it does provide non-interest-income commentary and some direction.
+hsbc_2017-annual_008,partly,no,yes,no,It addresses the FX effect on costs/constant-currency presentation but does not cleanly answer the lead consensus-cost question; the block contains further questions.
+hsbc_2017-annual_009,no,yes,no,no,The supplied A text is essentially a forward-looking-statements disclaimer and does not answer the mortgage-market-share question.
+hsbc_2018-q1_001,yes,no,yes,yes,It addresses IFRS 9 coverage/provisions and the capital-buffer implications.
+hsbc_2019-q1_010,no,yes,no,no,The supplied A text is a call-closing statement rather than an answer to the lead growth/capital question.
+hsbc_2020-q1_006c,yes,no,yes,yes,It directly confirms the $100bn RWA-reduction programme and expected timing.
+hsbc_2020-annual_003,yes,no,yes,yes,It directly answers that actions in French Retail/North America are incremental to the cost targets.
+hsbc_2020-annual_003c,yes,no,na,yes,
+hsbc_2020-annual_005,yes,no,no,yes,It explains the Commercial Banking RoTE drivers and intended actions; the in-scope RWA-recycling follow-up is not clearly quantified in the visible answer.
+hsbc_2021-q1_005b,yes,no,yes,yes,
+hsbc_2021-q3_008,yes,no,na,yes,It directly explains the hedging structures; the mortgage-margin portion is not fully visible but remains on subject.
+hsbc_2021-q3_009b,yes,no,na,yes,It answers the concern by pointing to the interest-rate-sensitivity disclosure as guidance.
+hsbc_2021-q3_010,yes,no,na,yes,It directly discusses scope for additional structural-hedging/liquidity income and then addresses capital.
+hsbc_2021-annual_001,yes,no,yes,yes,It directly addresses the rate-benefit versus credit-risk trade-off and ECL normalisation.
+hsbc_2022-q1_004b,yes,no,yes,yes,It explains the gross/net NII sensitivity and the role of the hedge portfolio.
+hsbc_2022-q1_005c,yes,no,yes,yes,It directly says the benefit appears through NII/NIM as rates stabilise.
+hsbc_2022-q1_009b,yes,no,yes,yes,
+hsbc_2022-interim_004,partly,no,yes,yes,"The response gives the second-question credit-cost view and says Ewen will address the Prime Rate/mortgage-cap point, but the lead question is not answered in the supplied text."
+hsbc_2022-interim_008,yes,no,na,yes,It directly declines to give an NFI forecast while giving relevant context on one-offs.
+hsbc_2022-q3_005,yes,no,yes,yes,
+hsbc_2022-q3_005b,partly,no,na,yes,The supplied answer directly addresses the China CRE portion but does not clearly answer the lead clarification on the starting cost base.
+hsbc_2023-interim_009,yes,no,na,yes,
+hsbc_2023-q3_003,yes,no,yes,yes,"It explains the hedge losses, CET1 treatment and intended NII payback."
+hsbc_2023-q3_007,yes,no,yes,yes,It addresses the hedge-strategy lead and provides the CET1 treatment; it also moves to the second question as invited.
+hsbc_2023-annual_006,yes,no,na,yes,"It answers the hedge-size/currency/duration lead question, though the cashflow-hedge reclassification portion is not fully answered in the supplied excerpt."
+hsbc_2024-q1_002,yes,no,yes,yes,"It gives the RWA growth decomposition and outlook, including the $24bn quarterly increase."
+hsbc_2024-annual_005,yes,no,na,yes,It directly addresses capital distribution policy and then the loan-growth question.
+hsbc_2025-q1_001,partly,no,yes,yes,"It directly addresses the cost-savings target, but the lead question about other geographies under strategic review is not clearly answered in the supplied reply."
+hsbc_2025-q1_008,yes,no,yes,yes,"It answers the restructuring-cost/savings timing and the wealth disclosure point, including the $16bn figure."
+hsbc_2025-interim_003,yes,no,yes,yes,"It directly addresses both impairment timing/VIU triggers and Hong Kong CRE ECL outlook, including ECL figures."
+hsbc_2025-interim_005,yes,no,na,yes,The answer addresses stablecoins directly and then discusses non-NII sustainability/growth.
+hsbc_2025-interim_006,yes,no,yes,yes,It explains timing via model change and valuations and gives ECL/coverage-related figures and context.
+hsbc_2025-q3_006,yes,no,na,yes,It directly addresses wealth growth/sustainability and private-credit/NBFI exposure concerns.
+hsbc_2025-q3_007,yes,no,yes,yes,"It answers the NBFI exposure point and says tariff-impact guidance is unchanged, with ECL implications."
