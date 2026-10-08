@@ -65,6 +65,47 @@ def any_keyword(text: str, keywords) -> bool:
     return any(keyword_in_text(text, k) for k in keywords)
 
 
+# Weak-label keyword vote for scripts/finetune_sentiment.py. Each entry is one vote; a tuple is one
+# vote for any of its forms (the old substring test matched "deteriorat", "weak", "improve" ... as
+# prefixes, so their inflections are listed explicitly). Substring matching counted "risk" in "brisk",
+# "charge" in "discharge", "solid" in "consolidated" and "beat" in "downbeat".
+SENTIMENT_NEG_KW = (
+    "impairment", "headwind", "headwinds", "risk", "risks", "loss", "losses", "downgrade",
+    ("deteriorate", "deteriorated", "deteriorating", "deterioration"),
+    ("uncertain", "uncertainty", "uncertainties"),
+    "pressure", "npl", ("default", "defaulted"),
+    ("weak", "weaker", "weakest", "weakness", "weaken", "weakened", "weakening"),
+    ("decline", "declined", "declining"), ("stress", "stressed"), ("charge", "charged"),
+)
+SENTIMENT_POS_KW = (
+    "growth", ("strong", "stronger", "strongest", "strongly"), "resilient", "robust",
+    ("improve", "improved", "improving", "improvement"), "upside", "momentum", ("beat", "beating"),
+    "record", "healthy", ("solid", "solidly"), ("confident", "confidently"),
+    ("progress", "progressed", "progressing"), ("outperform", "outperformed", "outperforming", "outperformance"),
+)
+# Mechanical phrases that contain a sentiment word but carry no stance.
+_SENTIMENT_NEUTRAL_PHRASES = re.compile(r"\b(?:risk[- ]weight\w*|de-?risk\w*|stress[- ]test\w*)", re.I)
+
+
+def keyword_votes(text: str, entries) -> int:
+    """Number of entries with a whole-word hit; a tuple entry counts once."""
+    return sum(
+        1 for e in entries
+        if (any_keyword(text, e) if isinstance(e, tuple) else keyword_in_text(text, e))
+    )
+
+
+def sentiment_keyword_vote(text: str, neg=SENTIMENT_NEG_KW, pos=SENTIMENT_POS_KW) -> str | None:
+    """negative / positive when one side leads by two or more votes (and has at least two), else None."""
+    t = _SENTIMENT_NEUTRAL_PHRASES.sub(" ", str(text or ""))
+    n, p = keyword_votes(t, neg), keyword_votes(t, pos)
+    if n >= p + 2 and n >= 2:
+        return "negative"
+    if p >= n + 2 and p >= 2:
+        return "positive"
+    return None
+
+
 def faith_label(faith) -> str | None:
     """yes/no when a flag was stored; None when the cell is empty.
 

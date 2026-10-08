@@ -1,0 +1,246 @@
+{
+  "basis": "blind first-pass labels; FinBERT whole-turn; Cohen's kappa, 3 classes",
+  "issue_85_pairs": [
+    "hsbc_2020-annual_004",
+    "hsbc_2020-interim_007",
+    "hsbc_2021-interim_005",
+    "hsbc_2021-q1_001",
+    "hsbc_2022-q3_001",
+    "hsbc_2023-q3_002",
+    "hsbc_2024-interim_006",
+    "hsbc_2024-interim_007",
+    "hsbc_2025-q1_009"
+  ],
+  "sets": {
+    "round1_90": {
+      "pooled": {
+        "alfred_vs_taz": {
+          "n": 172,
+          "raw": 0.57,
+          "kappa": 0.292
+        },
+        "finbert_vs_alfred": {
+          "n": 172,
+          "raw": 0.605,
+          "kappa": 0.282
+        },
+        "finbert_vs_taz": {
+          "n": 171,
+          "raw": 0.538,
+          "kappa": 0.195
+        }
+      },
+      "question": {
+        "alfred_vs_taz": {
+          "n": 90,
+          "raw": 0.656,
+          "kappa": 0.37
+        },
+        "finbert_vs_alfred": {
+          "n": 90,
+          "raw": 0.6,
+          "kappa": 0.244
+        },
+        "finbert_vs_taz": {
+          "n": 90,
+          "raw": 0.644,
+          "kappa": 0.271
+        }
+      },
+      "answer": {
+        "alfred_vs_taz": {
+          "n": 82,
+          "raw": 0.476,
+          "kappa": 0.148
+        },
+        "finbert_vs_alfred": {
+          "n": 82,
+          "raw": 0.61,
+          "kappa": 0.336
+        },
+        "finbert_vs_taz": {
+          "n": 81,
+          "raw": 0.42,
+          "kappa": 0.126
+        }
+      }
+    },
+    "round1_minus_issue85": {
+      "pooled": {
+        "alfred_vs_taz": {
+          "n": 154,
+          "raw": 0.571,
+          "kappa": 0.291
+        },
+        "finbert_vs_alfred": {
+          "n": 154,
+          "raw": 0.591,
+          "kappa": 0.244
+        },
+        "finbert_vs_taz": {
+          "n": 153,
+          "raw": 0.542,
+          "kappa": 0.188
+        }
+      },
+      "question": {
+        "alfred_vs_taz": {
+          "n": 81,
+          "raw": 0.654,
+          "kappa": 0.365
+        },
+        "finbert_vs_alfred": {
+          "n": 81,
+          "raw": 0.593,
+          "kappa": 0.19
+        },
+        "finbert_vs_taz": {
+          "n": 81,
+          "raw": 0.642,
+          "kappa": 0.244
+        }
+      },
+      "answer": {
+        "alfred_vs_taz": {
+          "n": 73,
+          "raw": 0.479,
+          "kappa": 0.141
+        },
+        "finbert_vs_alfred": {
+          "n": 73,
+          "raw": 0.589,
+          "kappa": 0.302
+        },
+        "finbert_vs_taz": {
+          "n": 72,
+          "raw": 0.431,
+          "kappa": 0.125
+        }
+      }
+    },
+    "round2_43_blind": {
+      "pooled": {
+        "alfred_vs_taz": {
+          "n": 85,
+          "raw": 0.553,
+          "kappa": 0.246
+        },
+        "finbert_vs_alfred": {
+          "n": 86,
+          "raw": 0.535,
+          "kappa": 0.113
+        },
+        "finbert_vs_taz": {
+          "n": 85,
+          "raw": 0.459,
+          "kappa": 0.111
+        }
+      },
+      "question": {
+        "alfred_vs_taz": {
+          "n": 43,
+          "raw": 0.605,
+          "kappa": 0.29
+        },
+        "finbert_vs_alfred": {
+          "n": 43,
+          "raw": 0.628,
+          "kappa": 0.268
+        },
+        "finbert_vs_taz": {
+          "n": 43,
+          "raw": 0.512,
+          "kappa": 0.123
+        }
+      },
+      "answer": {
+        "alfred_vs_taz": {
+          "n": 42,
+          "raw": 0.5,
+          "kappa": 0.142
+        },
+        "finbert_vs_alfred": {
+          "n": 43,
+          "raw": 0.442,
+          "kappa": -0.012
+        },
+        "finbert_vs_taz": {
+          "n": 42,
+          "raw": 0.405,
+          "kappa": 0.124
+        }
+      }
+    },
+    "both_rounds_blind": {
+      "pooled": {
+        "alfred_vs_taz": {
+          "n": 257,
+          "raw": 0.564,
+          "kappa": 0.273
+        },
+        "finbert_vs_alfred": {
+          "n": 258,
+          "raw": 0.581,
+          "kappa": 0.224
+        },
+        "finbert_vs_taz": {
+          "n": 256,
+          "raw": 0.512,
+          "kappa": 0.167
+        }
+      },
+      "question": {
+        "alfred_vs_taz": {
+          "n": 133,
+          "raw": 0.639,
+          "kappa": 0.339
+        },
+        "finbert_vs_alfred": {
+          "n": 133,
+          "raw": 0.609,
+          "kappa": 0.246
+        },
+        "finbert_vs_taz": {
+          "n": 133,
+          "raw": 0.602,
+          "kappa": 0.223
+        }
+      },
+      "answer": {
+        "alfred_vs_taz": {
+          "n": 124,
+          "raw": 0.484,
+          "kappa": 0.143
+        },
+        "finbert_vs_alfred": {
+          "n": 125,
+          "raw": 0.552,
+          "kappa": 0.222
+        },
+        "finbert_vs_taz": {
+          "n": 123,
+          "raw": 0.415,
+          "kappa": 0.126
+        }
+      }
+    }
+  },
+  "round1_pooled_bootstrap_95ci": {
+    "alfred_vs_taz": [
+      0.19,
+      0.4
+    ],
+    "finbert_vs_alfred": [
+      0.15,
+      0.41
+    ],
+    "finbert_vs_taz": [
+      0.08,
+      0.31
+    ],
+    "humans_minus_finbert_alfred": [
+      -0.13,
+      0.14
+    ]
+  }
+}
