@@ -57,6 +57,7 @@ from transformers import (
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from keywords import SENTIMENT_NEG_KW, SENTIMENT_POS_KW, sentiment_keyword_vote  # noqa: E402
 from score_sentiment_human import iter_coder_label_files  # noqa: E402
 from sentiment import LABELS as _LABELS  # noqa: E402
 from sentiment import build_vocab, management_names_from_turns, normalise_for_sentiment  # noqa: E402
@@ -72,26 +73,13 @@ ID2LAB = {i: l for l, i in LAB2ID.items()}
 MIN_HUMAN = 40
 MARGIN = 0.05
 
-NEG_KW = [
-    "impairment", "headwind", "headwinds", "risk", "risks", "loss", "losses",
-    "downgrade", "deteriorat", "uncertain", "pressure", "npl", "default",
-    "weak", "decline", "stress", "charge",
-]
-POS_KW = [
-    "growth", "strong", "resilient", "robust", "improve", "upside", "momentum",
-    "beat", "record", "healthy", "solid", "confident", "progress", "outperform",
-]
+# Weak-label keyword lists and the whole-word vote live in keywords.py (issue #84).
+NEG_KW = SENTIMENT_NEG_KW
+POS_KW = SENTIMENT_POS_KW
 
 
 def keyword_vote(text: str):
-    t = str(text).lower()
-    neg = sum(1 for k in NEG_KW if k in t)
-    pos = sum(1 for k in POS_KW if k in t)
-    if neg >= pos + 2 and neg >= 2:
-        return "negative"
-    if pos >= neg + 2 and pos >= 2:
-        return "positive"
-    return None
+    return sentiment_keyword_vote(text, NEG_KW, POS_KW)
 
 
 def assign_label(row) -> tuple[str, str]:
