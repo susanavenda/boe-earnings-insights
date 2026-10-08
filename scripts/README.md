@@ -29,7 +29,7 @@ Full stage → table map: [`../docs/code.md`](../docs/code.md).
 | `build_qa_browser_export.py` | Flatten scored Q&A for the desk Browse tab | `python scripts/build_qa_browser_export.py` |
 | `export_tables.py` | Headline tables → `data/exports/*.csv` + `MANIFEST.md` (run ID, commit) for submission | `python scripts/export_tables.py` |
 
-Run from **repo root** so `ROOT = Path(__file__).parents[1]` finds `data/` and `docs/`.
+Run from **repo root** so `ROOT = Path(__file__).parents[1]` finds `data/` and `docs/`. Use the uv environment (`uv sync --all-extras`, or `--extra test` when torch is not needed).
 
 Needs `data/boe.sqlite` already built (notebook Stage 0+ or a previous script run), except the pure helpers (`periods`, `segment_transcripts`, `topic_modeling`).
 

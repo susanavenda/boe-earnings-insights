@@ -54,11 +54,15 @@ Logical names (`corpus_analyst`, `qa_pairs`, …) are aliases in `store._TABLE_A
 ## Run
 
 ```bash
-# Factory (GPU/IR) — from repo root, venv on
+# once from repo root — pins live in pyproject.toml / uv.lock
+uv sync --all-extras          # factory + desk (torch, BERTopic, streamlit)
+# uv sync --extra test        # lightweight pytest only (no torch)
+
+# Factory (GPU/IR) — venv on
 .venv/bin/python -c "import store; store.configure(); print(store.info())"
 
 # Lightweight tests (CI) — no torch
-.venv/bin/pytest tests/ -q -m "not slow" --cov=scripts --cov-config=.coveragerc
+uv run pytest tests/ -q -m "not slow" --cov=scripts --cov-config=.coveragerc
 
 # Desk (this repo)
 streamlit run demo/app.py

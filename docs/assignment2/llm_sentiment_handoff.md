@@ -138,7 +138,8 @@ Both cells: `FORCE_LLM = False` / `FORCE_DISTILL = False` guards; use cached res
 
 ```bash
 # 0. environment
-pip install -r requirements.txt          # add google-generativeai / openai / anthropic as OPTIONAL extras with a comment
+uv sync --all-extras                     # add google-generativeai / openai / anthropic as OPTIONAL extras, not hard deps
+# pip-only / Colab: pip install -r requirements.txt   # generated from uv.lock; do not hand-edit
 python -m py_compile scripts/llm_score_sentiment.py scripts/distill_sentiment.py scripts/finetune_sentiment.py scripts/score_sentiment_human.py
 
 # 1. no key → clean skip

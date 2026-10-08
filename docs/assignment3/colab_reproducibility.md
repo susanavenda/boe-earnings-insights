@@ -8,6 +8,8 @@ Use `notebooks/boe_earnings_insights.ipynb`. The repository is public and Stage 
 
 No GitHub token or other repository credential is required. Model API keys are optional and remain blank in the submitted path; the deterministic extractive pipeline runs without them.
 
+**Install:** hosted notebook CI uses `uv sync --frozen --all-extras` from `uv.lock` (CPU torch on Linux). Lightweight tests use `uv sync --frozen --extra test`. Google Colab does not use uv — Stage 0 / pip-only machines still run `pip install -r requirements.txt`, which is exported from the lock. Do not hand-edit that file.
+
 ## Verified evidence
 
 | Check | Evidence | Result |
@@ -16,7 +18,7 @@ No GitHub token or other repository credential is required. Model API keys are o
 | Public shallow clone | Fresh destination, no local database, no GitHub credential | Pass |
 | Full hosted clean run | GitHub Actions run `37339787866`, Ubuntu 24.04, Python 3.12, commit `63eb56f` | Pass in 2 h 29 min 11 s |
 | Notebook cells | Workflow checks every code cell for missing execution counts or error outputs | 0 unrun, 0 errors |
-| Tests after database build | `pytest tests/ -q -m "not slow"` inside the notebook workflow | Pass |
+| Tests after database build | `pytest tests/ -q -m "not slow"` inside the notebook workflow (that run used pip; current workflow is `uv run pytest` with the same args) | Pass |
 | Submission tables | `scripts/export_tables.py` after the green run | 16 CSV/manifest files uploaded with the executed notebook |
 
 The hosted run is strong reproducibility evidence, but it is not described as a Google Colab timing measurement. A final clean Colab Run All remains the one manual acceptance check for Issue #76.
@@ -39,7 +41,7 @@ Allow at least three hours. The clean GitHub Actions run took 2 h 29 min on an U
 If Colab disconnects before completion:
 
 1. Submit the latest green executed notebook as the reproducible IPYNB evidence.
-2. Download the `executed-notebook` artifact from run `37339787866` before it expires on 19 October 2026.
+2. Download the `executed-notebook` artifact from run `37339787866` before it expires on 19 October 2026, or from a later GitHub Release (`a3-final-<short-sha>`) created by a green notebook run on `main`.
 3. Include its `data/exports/` CSV files in the submission bundle.
 4. State clearly in the report that the recorded 2 h 29 min runtime is from GitHub Actions, not Colab.
 

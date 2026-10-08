@@ -71,7 +71,9 @@ A1 Appendix D. Use these names on the pitch, not the old placeholders.
 
 ```
 ├── README.md
-├── requirements.txt
+├── pyproject.toml
+├── uv.lock
+├── requirements.txt           # generated from the lock for Colab / pip
 ├── notebooks/boe_earnings_insights.ipynb
 ├── data/
 │   ├── raw/transcripts/       # INPUT — Q&A PDFs
@@ -128,8 +130,20 @@ known weakness on hedged, heavily-lawyered bank language is reported explicitly.
 ```bash
 git clone https://github.com/susanavenda/boe-earnings-insights.git
 cd boe-earnings-insights
-python3 -m venv .venv
+uv sync --all-extras
 source .venv/bin/activate
+```
+
+Python 3.12 is required (see `.python-version`). After editing `pyproject.toml`, refresh the lock and the Colab export:
+
+```bash
+uv lock
+uv export --frozen --no-hashes --no-emit-project --emit-index-url --extra ml -o requirements.txt
+```
+
+Google Colab and other pip-only environments still install from the generated file:
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -147,6 +161,6 @@ One-shot import of legacy files: `.venv/bin/python scripts/migrate_to_db.py`.
 
 Next-quarter ops: [`docs/assignment2/README.md`](docs/assignment2/README.md).  
 Code map (stages, sqlite, invariants): [`docs/code.md`](docs/code.md).  
-Tests: `pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
+Tests: `uv run pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
 
 Desk: `streamlit run demo/app.py` (copies `data/boe.sqlite` into `demo/data/desk.sqlite`).

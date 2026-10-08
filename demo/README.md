@@ -4,6 +4,7 @@ Output surface for the factory pack. The [A2 slides](https://docs.google.com/pre
 
 ```bash
 cd /path/to/boe-earnings-insights
+uv sync --all-extras          # once; streamlit is in the ml extra
 source .venv/bin/activate
 streamlit run demo/app.py
 # → http://localhost:8501
