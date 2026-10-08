@@ -21,6 +21,7 @@ a firm's prudential condition that reported financial metrics alone don't captur
 | **Desk** (`demo/`) | Stretch — PRA Earnings Desk. `streamlit run demo/app.py` |
 | **A2 pitch** | [`docs/assignment2/A2_pitch_outline.md`](docs/assignment2/A2_pitch_outline.md) — 15‑min Background → Approach → Conclusion |
 | **Technical report** | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
+| **A3 evidence** | [`docs/assignment3/`](docs/assignment3/) — reproducibility, summarisation, presentation and retrospective notes |
 | **A1 scope** | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
 
 Open this repo via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspace) (macOS/Linux). On Windows, open the repository folder directly so VS Code can pick `.venv\\Scripts\\python.exe`.
@@ -133,6 +134,8 @@ pip install -r requirements.txt
 ```
 
 Open `notebooks/boe_earnings_insights.ipynb` and run from Stage 0.
+
+[Open the submission notebook in Google Colab](https://colab.research.google.com/github/susanavenda/boe-earnings-insights/blob/main/notebooks/boe_earnings_insights.ipynb). The repository and inputs are public; no GitHub token is required. A clean full run rebuilds the SQLite database and can take more than 2.5 hours. See [`docs/assignment3/colab_reproducibility.md`](docs/assignment3/colab_reproducibility.md) for the verified run and fallback procedure.
 
 **Config is env vars, not a `config.yaml`.** Factory root is resolved by `_locate_root()` (cwd, parent, `BOE_ROOT` / `COLAB_ROOT`, Colab clone/Drive). Override the database with `BOE_DB`. Optional: `BOE_EXPORT_CSV=1`, `BOE_GEMINI_MODEL`, `BOE_LLM_PROVIDER`. API keys stay in a gitignored `.env` or the process environment.
 
