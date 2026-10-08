@@ -9,9 +9,15 @@ name: notebook
 # If every cell runs cleanly on a PR (or a manual run on a branch other than main),
 # the executed notebook is committed back to that branch, so the PR carries the outputs.
 # Pushes made with the workflow token do not trigger new workflow runs, so this cannot loop.
+# Manual run with a non-blank release_tag publishes executed.ipynb + data/exports as a GitHub Release.
 
 on:
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "After a green run, publish a release with this tag (blank = none)"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths:
@@ -127,6 +133,22 @@ jobs:
             executed.ipynb
             data/exports/
           retention-days: 14
+
+      - name: Publish release
+        if: success() && github.event_name == 'workflow_dispatch' && inputs.release_tag != ''
+        env:
+          # Job env blanks GITHUB_TOKEN so the notebook cannot call GitHub; restore it for gh.
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p release
+          cp executed.ipynb release/boe_earnings_insights_executed.ipynb
+          cp data/exports/MANIFEST.md release/
+          (cd data && zip -qr ../release/data_exports.zip exports)
+          gh release create "${{ inputs.release_tag }}" release/* \
+            --target "${{ github.sha }}" \
+            --title "${{ inputs.release_tag }}" \
+            --notes "Notebook run ${{ github.run_id }} (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), commit ${{ github.sha }}. See MANIFEST.md."
 
       - name: Commit executed notebook back to the branch
         # Only after a clean run; PRs from forks get a read-only token, so they are skipped.

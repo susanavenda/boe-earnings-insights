@@ -41,7 +41,7 @@ Allow at least three hours. The clean GitHub Actions run took 2 h 29 min on an U
 If Colab disconnects before completion:
 
 1. Submit the latest green executed notebook as the reproducible IPYNB evidence.
-2. Download the `executed-notebook` artifact from run `37339787866` before it expires on 19 October 2026.
+2. Download the `executed-notebook` artifact from run `37339787866` before it expires on 19 October 2026, or from a later GitHub Release created by a manual notebook run with a `release_tag`.
 3. Include its `data/exports/` CSV files in the submission bundle.
 4. State clearly in the report that the recorded 2 h 29 min runtime is from GitHub Actions, not Colab.
 
