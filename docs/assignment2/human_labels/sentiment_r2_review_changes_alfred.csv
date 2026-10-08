@@ -1,0 +1,4 @@
+pair_id,field,blind,revised,reason
+barclays_2014-q1_006,a_label,positive,neutral,changed 7 Oct after an LLM review of the labels
+hsbc_2013-q1_005,a_label,positive,negative,changed 7 Oct after an LLM review of the labels
+hsbc_2021-q3_002,a_label,neutral,positive,changed 7 Oct after an LLM review of the labels

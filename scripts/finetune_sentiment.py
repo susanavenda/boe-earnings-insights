@@ -44,7 +44,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Dataset
 from transformers import (
@@ -115,7 +115,9 @@ def _key(s: pd.Series) -> pd.Series:
 def load_human_gold() -> pd.DataFrame:
     """pair_id/text → human question label. Majority across coders; tie → first coder."""
     votes: dict[str, list[str]] = {}
-    for _name, f in iter_coder_label_files(HL):
+    # round 1 (90-pair pack) and round 2 (43 new pairs, sentiment_r2_labels_<coder>.csv); pair_ids do not overlap
+    r2 = sorted(f for f in HL.glob("sentiment_r2_labels_*.csv") if not f.stem.endswith("_template"))
+    for f in [f for _n, f in iter_coder_label_files(HL)] + r2:
         df = pd.read_csv(f)
         if not {"pair_id", "q_label"}.issubset(df.columns):
             continue
@@ -197,6 +199,8 @@ def _metrics(y_true, y_pred) -> dict:
         "accuracy": float(accuracy_score(y_true, y_pred)),
         "macro_f1": float(f1_score(y_true, y_pred, average="macro", labels=list(range(3)), zero_division=0)),
         "weighted_f1": float(f1_score(y_true, y_pred, average="weighted", labels=list(range(3)), zero_division=0)),
+        "recall_by_class": dict(zip(LABELS, (float(x) for x in recall_score(y_true, y_pred, average=None, labels=list(range(3)), zero_division=0)))),
+        "precision_by_class": dict(zip(LABELS, (float(x) for x in precision_score(y_true, y_pred, average=None, labels=list(range(3)), zero_division=0)))),
         "confusion": confusion_matrix(y_true, y_pred, labels=list(range(3))).tolist(),
     }
 
@@ -281,7 +285,8 @@ def main(argv=None):
         return [LAB2ID[base_id2lab[p]] for p in _predict(zs, tok, texts, device)]
 
     zs_dev = _metrics(dev_df["y"].tolist(), zs_pred(dev_df["train_text"].tolist()))
-    zs_hum = _metrics(human["y"].tolist(), zs_pred(human["train_text"].tolist())) if n_human else {"n": 0}
+    zs_hum_pred = zs_pred(human["train_text"].tolist()) if n_human else []
+    zs_hum = _metrics(human["y"].tolist(), zs_hum_pred) if n_human else {"n": 0}
     print("=== Zero-shot (silver dev) ===")
     if len(dev_df):
         print(classification_report(dev_df["y"], zs_pred(dev_df["train_text"].tolist()), target_names=LABELS, digits=3, zero_division=0))
@@ -332,7 +337,13 @@ def main(argv=None):
 
     model = trainer2.model.to(device).eval()
     ft_dev = _metrics(dev_df["y"].tolist(), _predict(model, tok, dev_df["train_text"].tolist(), device))
-    ft_hum = _metrics(human["y"].tolist(), _predict(model, tok, human["train_text"].tolist(), device)) if n_human else {"n": 0}
+    ft_hum_pred = _predict(model, tok, human["train_text"].tolist(), device) if n_human else []
+    ft_hum = _metrics(human["y"].tolist(), ft_hum_pred) if n_human else {"n": 0}
+    if n_human:  # per-row human-gold predictions, so subsets (e.g. coder-consensus rows) can be scored later
+        save_df("finetune_human_predictions", pd.DataFrame({
+            "text": human["text"].tolist(), "human_label": human["human_label"].tolist(),
+            "zero_shot": [ID2LAB[i] for i in zs_hum_pred], "finetuned": [ID2LAB[i] for i in ft_hum_pred],
+        }))
     print("=== Fine-tuned (silver dev) ===")
     if len(dev_df):
         print(classification_report(dev_df["y"], _predict(model, tok, dev_df["train_text"].tolist(), device), target_names=LABELS, digits=3, zero_division=0))
@@ -391,7 +402,7 @@ def main(argv=None):
         "label_method_dist": {k: int(v) for k, v in labeled["label_method"].value_counts().items()},
         "label_protocol": (
             "silver: FinBERT confident non-neutral → FinBERT∩LDSA agree → keyword override → LDSA signal → neutral; "
-            "human: M4 60-pair pack (question side) + hand_validation_sample.human_label, held out of training"
+            "human: M4 90-pair pack + round-2 43-pair pack (question side; majority of coders, tie -> first coder) + hand_validation_sample.human_label, held out of training"
         ),
         "training": (
             f"{BASE}; stage1 classifier-head-only {args.epochs_head} epochs lr=5e-4; "

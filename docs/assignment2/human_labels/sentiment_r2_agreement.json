@@ -1,0 +1,2520 @@
+{
+  "round": 2,
+  "n_pairs": 43,
+  "coders": [
+    "alfred",
+    "taz"
+  ],
+  "gold_rule": "majority across coders; tie -> first-listed coder",
+  "llm_sentence_rule": "sign of mean sentence net outside +/-0.15; in scope = management (answer) / analyst (question); fixed before scoring",
+  "label_dist": {
+    "alfred": {
+      "question": {
+        "neutral": 28,
+        "negative": 10,
+        "positive": 5
+      },
+      "answer": {
+        "neutral": 29,
+        "positive": 10,
+        "negative": 4
+      }
+    },
+    "taz": {
+      "question": {
+        "neutral": 23,
+        "negative": 15,
+        "positive": 5
+      },
+      "answer": {
+        "positive": 20,
+        "neutral": 18,
+        "negative": 4
+      }
+    }
+  },
+  "coder_vs_coder": {
+    "alfred_vs_taz_question": {
+      "name": "alfred_vs_taz_question",
+      "n": 43,
+      "raw_agreement": 0.6046511627906976,
+      "cohen_kappa": 0.2902912621359224,
+      "macro_f1": 0.5422222222222222,
+      "recall_by_class": {
+        "negative": 0.7,
+        "neutral": 0.6071428571428571,
+        "positive": 0.4
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          7,
+          3,
+          0
+        ],
+        [
+          8,
+          17,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ]
+      ],
+      "krippendorff_alpha": 0.2899262899262899
+    },
+    "alfred_vs_taz_answer": {
+      "name": "alfred_vs_taz_answer",
+      "n": 42,
+      "raw_agreement": 0.5,
+      "cohen_kappa": 0.15517241379310343,
+      "macro_f1": 0.4884057971014492,
+      "recall_by_class": {
+        "negative": 0.5,
+        "neutral": 0.4642857142857143,
+        "positive": 0.6
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          13,
+          13
+        ],
+        [
+          0,
+          4,
+          6
+        ]
+      ],
+      "krippendorff_alpha": 0.12323943661971826
+    },
+    "alfred_vs_taz_question_as_first_coded": {
+      "name": "alfred_vs_taz_question_as_first_coded",
+      "n": 43,
+      "raw_agreement": 0.6046511627906976,
+      "cohen_kappa": 0.2902912621359224,
+      "macro_f1": 0.5422222222222222,
+      "recall_by_class": {
+        "negative": 0.7,
+        "neutral": 0.6071428571428571,
+        "positive": 0.4
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          7,
+          3,
+          0
+        ],
+        [
+          8,
+          17,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ]
+      ],
+      "krippendorff_alpha": 0.2899262899262899
+    },
+    "alfred_vs_taz_answer_as_first_coded": {
+      "name": "alfred_vs_taz_answer_as_first_coded",
+      "n": 42,
+      "raw_agreement": 0.5,
+      "cohen_kappa": 0.142023346303502,
+      "macro_f1": 0.5079142456421559,
+      "recall_by_class": {
+        "negative": 0.6666666666666666,
+        "neutral": 0.4642857142857143,
+        "positive": 0.5454545454545454
+      },
+      "confusion_true_rows_pred_cols": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          13,
+          13
+        ],
+        [
+          0,
+          5,
+          6
+        ]
+      ],
+      "krippendorff_alpha": 0.11297709923664123
+    }
+  },
+  "machine_vs_human": {
+    "finbert_turn": {
+      "question": {
+        "vs_gold": {
+          "name": "finbert_turn_question_gold",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.26808510638297867,
+          "macro_f1": 0.5166666666666666,
+          "recall_by_class": {
+            "negative": 0.4,
+            "neutral": 0.75,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              5,
+              1
+            ],
+            [
+              5,
+              21,
+              2
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "finbert_turn_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.26808510638297867,
+          "macro_f1": 0.5166666666666666,
+          "recall_by_class": {
+            "negative": 0.4,
+            "neutral": 0.75,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              5,
+              1
+            ],
+            [
+              5,
+              21,
+              2
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "finbert_turn_question_taz",
+          "n": 43,
+          "raw_agreement": 0.5116279069767442,
+          "cohen_kappa": 0.12330097087378644,
+          "macro_f1": 0.3955555555555555,
+          "recall_by_class": {
+            "negative": 0.26666666666666666,
+            "neutral": 0.7391304347826086,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              10,
+              1
+            ],
+            [
+              3,
+              17,
+              3
+            ],
+            [
+              3,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "finbert_turn_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.6923076923076923,
+          "cohen_kappa": 0.3580246913580246,
+          "macro_f1": 0.5871794871794872,
+          "recall_by_class": {
+            "negative": 0.42857142857142855,
+            "neutral": 0.8235294117647058,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              4,
+              0
+            ],
+            [
+              2,
+              14,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 28,
+          "negative": 10,
+          "positive": 5
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "finbert_turn_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.46511627906976744,
+          "cohen_kappa": 0.019821605550049637,
+          "macro_f1": 0.3314167314167314,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.5862068965517241,
+            "positive": 0.1
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              10,
+              17,
+              2
+            ],
+            [
+              2,
+              7,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "finbert_turn_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.46511627906976744,
+          "cohen_kappa": 0.019821605550049637,
+          "macro_f1": 0.3314167314167314,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.5862068965517241,
+            "positive": 0.1
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              10,
+              17,
+              2
+            ],
+            [
+              2,
+              7,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "finbert_turn_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.40476190476190477,
+          "cohen_kappa": 0.12353923205342243,
+          "macro_f1": 0.3470771074411115,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.6666666666666666,
+            "positive": 0.15
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              6,
+              12,
+              0
+            ],
+            [
+              6,
+              11,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "finbert_turn_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.5238095238095238,
+          "cohen_kappa": 0.12863070539419086,
+          "macro_f1": 0.40079365079365076,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.6923076923076923,
+            "positive": 0.16666666666666666
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              4,
+              9,
+              0
+            ],
+            [
+              1,
+              4,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 26,
+          "negative": 14,
+          "positive": 3
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "finbert_turn_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.5465116279069767,
+        "cohen_kappa": 0.13153806317969963,
+        "macro_f1": 0.4204479078620955,
+        "recall_by_class": {
+          "negative": 0.42857142857142855,
+          "neutral": 0.6666666666666666,
+          "positive": 0.2
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            6,
+            7,
+            1
+          ],
+          [
+            15,
+            38,
+            4
+          ],
+          [
+            3,
+            9,
+            3
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "finbert_sentence": {
+      "question": {
+        "vs_gold": {
+          "name": "finbert_sentence_question_gold",
+          "n": 43,
+          "raw_agreement": 0.5348837209302325,
+          "cohen_kappa": 0.1493570722057368,
+          "macro_f1": 0.42875816993464055,
+          "recall_by_class": {
+            "negative": 0.2,
+            "neutral": 0.6428571428571429,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              6,
+              2
+            ],
+            [
+              3,
+              18,
+              7
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "finbert_sentence_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.5348837209302325,
+          "cohen_kappa": 0.1493570722057368,
+          "macro_f1": 0.42875816993464055,
+          "recall_by_class": {
+            "negative": 0.2,
+            "neutral": 0.6428571428571429,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              6,
+              2
+            ],
+            [
+              3,
+              18,
+              7
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "finbert_sentence_question_taz",
+          "n": 43,
+          "raw_agreement": 0.37209302325581395,
+          "cohen_kappa": -0.040322580645161255,
+          "macro_f1": 0.28275310124049624,
+          "recall_by_class": {
+            "negative": 0.13333333333333333,
+            "neutral": 0.5652173913043478,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              10,
+              3
+            ],
+            [
+              2,
+              13,
+              8
+            ],
+            [
+              1,
+              3,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "finbert_sentence_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.5,
+          "cohen_kappa": 0.05849582172701939,
+          "macro_f1": 0.36383442265795213,
+          "recall_by_class": {
+            "negative": 0.14285714285714285,
+            "neutral": 0.6470588235294118,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              5,
+              1
+            ],
+            [
+              1,
+              11,
+              5
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 26,
+          "positive": 12,
+          "negative": 5
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "finbert_sentence_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.4883720930232558,
+          "cohen_kappa": 0.05964214711729621,
+          "macro_f1": 0.4038461538461538,
+          "recall_by_class": {
+            "negative": 0.25,
+            "neutral": 0.5172413793103449,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              15,
+              11
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "finbert_sentence_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.4883720930232558,
+          "cohen_kappa": 0.05964214711729621,
+          "macro_f1": 0.4038461538461538,
+          "recall_by_class": {
+            "negative": 0.25,
+            "neutral": 0.5172413793103449,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              15,
+              11
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "finbert_sentence_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.5,
+          "cohen_kappa": 0.14700193423597685,
+          "macro_f1": 0.3693379790940767,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6111111111111112,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              2,
+              11,
+              5
+            ],
+            [
+              2,
+              8,
+              10
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "finbert_sentence_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.5714285714285714,
+          "cohen_kappa": 0.14479638009049756,
+          "macro_f1": 0.38888888888888884,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6923076923076923,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              9,
+              3
+            ],
+            [
+              0,
+              3,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 23,
+          "positive": 16,
+          "negative": 4
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "finbert_sentence_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.5116279069767442,
+        "cohen_kappa": 0.10968696080847917,
+        "macro_f1": 0.4185346993023891,
+        "recall_by_class": {
+          "negative": 0.21428571428571427,
+          "neutral": 0.5789473684210527,
+          "positive": 0.5333333333333333
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            3,
+            9,
+            2
+          ],
+          [
+            6,
+            33,
+            18
+          ],
+          [
+            0,
+            7,
+            8
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "lm_lexicon": {
+      "question": {
+        "vs_gold": {
+          "name": "lm_lexicon_question_gold",
+          "n": 43,
+          "raw_agreement": 0.4418604651162791,
+          "cohen_kappa": -0.03822937625754519,
+          "macro_f1": 0.3423024336888159,
+          "recall_by_class": {
+            "negative": 0.3,
+            "neutral": 0.5357142857142857,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              7,
+              0
+            ],
+            [
+              9,
+              15,
+              4
+            ],
+            [
+              1,
+              3,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "lm_lexicon_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.4418604651162791,
+          "cohen_kappa": -0.03822937625754519,
+          "macro_f1": 0.3423024336888159,
+          "recall_by_class": {
+            "negative": 0.3,
+            "neutral": 0.5357142857142857,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              7,
+              0
+            ],
+            [
+              9,
+              15,
+              4
+            ],
+            [
+              1,
+              3,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "lm_lexicon_question_taz",
+          "n": 43,
+          "raw_agreement": 0.5116279069767442,
+          "cohen_kappa": 0.14326375711574957,
+          "macro_f1": 0.4706349206349206,
+          "recall_by_class": {
+            "negative": 0.4,
+            "neutral": 0.6086956521739131,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              6,
+              9,
+              0
+            ],
+            [
+              6,
+              14,
+              3
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "lm_lexicon_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.5,
+          "cohen_kappa": 0.04519774011299427,
+          "macro_f1": 0.41569541569541574,
+          "recall_by_class": {
+            "negative": 0.2857142857142857,
+            "neutral": 0.5882352941176471,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              5,
+              0
+            ],
+            [
+              4,
+              10,
+              3
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 25,
+          "negative": 13,
+          "positive": 5
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "lm_lexicon_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.4418604651162791,
+          "cohen_kappa": -0.17406143344709912,
+          "macro_f1": 0.2404268675455116,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6206896551724138,
+            "positive": 0.1
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              3,
+              1
+            ],
+            [
+              5,
+              18,
+              6
+            ],
+            [
+              0,
+              9,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "lm_lexicon_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.4418604651162791,
+          "cohen_kappa": -0.17406143344709912,
+          "macro_f1": 0.2404268675455116,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6206896551724138,
+            "positive": 0.1
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              3,
+              1
+            ],
+            [
+              5,
+              18,
+              6
+            ],
+            [
+              0,
+              9,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "lm_lexicon_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.42857142857142855,
+          "cohen_kappa": 0.05084745762711862,
+          "macro_f1": 0.3633344590791399,
+          "recall_by_class": {
+            "negative": 0.25,
+            "neutral": 0.6666666666666666,
+            "positive": 0.25
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              12,
+              3
+            ],
+            [
+              1,
+              14,
+              5
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "lm_lexicon_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.42857142857142855,
+          "cohen_kappa": -0.1351351351351351,
+          "macro_f1": 0.26455026455026454,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6153846153846154,
+            "positive": 0.16666666666666666
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              3,
+              8,
+              2
+            ],
+            [
+              0,
+              5,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 30,
+          "positive": 8,
+          "negative": 5
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "lm_lexicon_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.4418604651162791,
+        "cohen_kappa": -0.08232826428945983,
+        "macro_f1": 0.30654761904761907,
+        "recall_by_class": {
+          "negative": 0.21428571428571427,
+          "neutral": 0.5789473684210527,
+          "positive": 0.13333333333333333
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            3,
+            10,
+            1
+          ],
+          [
+            14,
+            33,
+            10
+          ],
+          [
+            1,
+            12,
+            2
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "llm_turn": {
+      "question": {
+        "vs_gold": {
+          "name": "llm_turn_question_gold",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3545966228893058,
+          "macro_f1": 0.5201814058956916,
+          "recall_by_class": {
+            "negative": 0.9,
+            "neutral": 0.6071428571428571,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              9,
+              0,
+              1
+            ],
+            [
+              8,
+              17,
+              3
+            ],
+            [
+              0,
+              4,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_turn_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3545966228893058,
+          "macro_f1": 0.5201814058956916,
+          "recall_by_class": {
+            "negative": 0.9,
+            "neutral": 0.6071428571428571,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              9,
+              0,
+              1
+            ],
+            [
+              8,
+              17,
+              3
+            ],
+            [
+              0,
+              4,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_turn_question_taz",
+          "n": 43,
+          "raw_agreement": 0.6744186046511628,
+          "cohen_kappa": 0.4456721915285451,
+          "macro_f1": 0.6049242424242425,
+          "recall_by_class": {
+            "negative": 0.7333333333333333,
+            "neutral": 0.6956521739130435,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              11,
+              2,
+              2
+            ],
+            [
+              6,
+              16,
+              1
+            ],
+            [
+              0,
+              3,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_turn_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.7692307692307693,
+          "cohen_kappa": 0.5772357723577236,
+          "macro_f1": 0.6629032258064517,
+          "recall_by_class": {
+            "negative": 0.8571428571428571,
+            "neutral": 0.7647058823529411,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              6,
+              0,
+              1
+            ],
+            [
+              3,
+              13,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": true
+        },
+        "pred_dist": {
+          "neutral": 21,
+          "negative": 17,
+          "positive": 5
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "llm_turn_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.7441860465116279,
+          "cohen_kappa": 0.4294330518697226,
+          "macro_f1": 0.6488854193772227,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.8620689655172413,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              1,
+              25,
+              3
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": true
+        },
+        "vs_alfred": {
+          "name": "llm_turn_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.7441860465116279,
+          "cohen_kappa": 0.4294330518697226,
+          "macro_f1": 0.6488854193772227,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.8620689655172413,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              1,
+              25,
+              3
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": true
+        },
+        "vs_taz": {
+          "name": "llm_turn_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.40476190476190477,
+          "cohen_kappa": -0.015473887814313247,
+          "macro_f1": 0.4251700680272108,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.6666666666666666,
+            "positive": 0.15
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              1,
+              12,
+              5
+            ],
+            [
+              0,
+              17,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_turn_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.6666666666666666,
+          "cohen_kappa": 0.2898550724637682,
+          "macro_f1": 0.6084291187739463,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.8461538461538461,
+            "positive": 0.3333333333333333
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              11,
+              2
+            ],
+            [
+              0,
+              4,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 32,
+          "positive": 8,
+          "negative": 3
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "llm_turn_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.686046511627907,
+        "cohen_kappa": 0.4046153846153846,
+        "macro_f1": 0.6130888719124014,
+        "recall_by_class": {
+          "negative": 0.7857142857142857,
+          "neutral": 0.7368421052631579,
+          "positive": 0.4
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            11,
+            2,
+            1
+          ],
+          [
+            9,
+            42,
+            6
+          ],
+          [
+            0,
+            9,
+            6
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "llm_sentence": {
+      "question": {
+        "vs_gold": {
+          "name": "llm_sentence_question_gold",
+          "n": 43,
+          "raw_agreement": 0.5581395348837209,
+          "cohen_kappa": 0.29931389365351624,
+          "macro_f1": 0.5414141414141415,
+          "recall_by_class": {
+            "negative": 0.8,
+            "neutral": 0.4642857142857143,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              12,
+              13,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.5581395348837209,
+          "cohen_kappa": 0.29931389365351624,
+          "macro_f1": 0.5414141414141415,
+          "recall_by_class": {
+            "negative": 0.8,
+            "neutral": 0.4642857142857143,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              8,
+              1,
+              1
+            ],
+            [
+              12,
+              13,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_question_taz",
+          "n": 43,
+          "raw_agreement": 0.5348837209302325,
+          "cohen_kappa": 0.24956369982547988,
+          "macro_f1": 0.4896214896214896,
+          "recall_by_class": {
+            "negative": 0.6666666666666666,
+            "neutral": 0.4782608695652174,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              10,
+              4,
+              1
+            ],
+            [
+              8,
+              11,
+              4
+            ],
+            [
+              2,
+              1,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.6153846153846154,
+          "cohen_kappa": 0.3401015228426396,
+          "macro_f1": 0.5370745999549246,
+          "recall_by_class": {
+            "negative": 0.7142857142857143,
+            "neutral": 0.5882352941176471,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              5,
+              1,
+              1
+            ],
+            [
+              5,
+              10,
+              2
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "negative": 20,
+          "neutral": 16,
+          "positive": 7
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "llm_sentence_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3484848484848484,
+          "macro_f1": 0.6061538461538462,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.5862068965517241,
+            "positive": 0.7
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              3,
+              17,
+              9
+            ],
+            [
+              0,
+              3,
+              7
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3484848484848484,
+          "macro_f1": 0.6061538461538462,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.5862068965517241,
+            "positive": 0.7
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              3,
+              17,
+              9
+            ],
+            [
+              0,
+              3,
+              7
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.5,
+          "cohen_kappa": 0.16792452830188687,
+          "macro_f1": 0.5245614035087719,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.5,
+            "positive": 0.45
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              2,
+              9,
+              7
+            ],
+            [
+              1,
+              10,
+              9
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.6190476190476191,
+          "cohen_kappa": 0.3170731707317074,
+          "macro_f1": 0.5793650793650793,
+          "recall_by_class": {
+            "negative": 0.5,
+            "neutral": 0.6153846153846154,
+            "positive": 0.6666666666666666
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              8,
+              4
+            ],
+            [
+              0,
+              2,
+              4
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 21,
+          "positive": 16,
+          "negative": 6
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "llm_sentence_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.5930232558139535,
+        "cohen_kappa": 0.34250764525993893,
+        "macro_f1": 0.5715378872713699,
+        "recall_by_class": {
+          "negative": 0.7857142857142857,
+          "neutral": 0.5263157894736842,
+          "positive": 0.6666666666666666
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            11,
+            2,
+            1
+          ],
+          [
+            15,
+            30,
+            12
+          ],
+          [
+            0,
+            5,
+            10
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "llm_sentence_all": {
+      "question": {
+        "vs_gold": {
+          "name": "llm_sentence_all_question_gold",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.38406445837063563,
+          "macro_f1": 0.6115657392253137,
+          "recall_by_class": {
+            "negative": 0.7,
+            "neutral": 0.5714285714285714,
+            "positive": 0.8
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              7,
+              2,
+              1
+            ],
+            [
+              9,
+              16,
+              3
+            ],
+            [
+              0,
+              1,
+              4
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_all_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.38406445837063563,
+          "macro_f1": 0.6115657392253137,
+          "recall_by_class": {
+            "negative": 0.7,
+            "neutral": 0.5714285714285714,
+            "positive": 0.8
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              7,
+              2,
+              1
+            ],
+            [
+              9,
+              16,
+              3
+            ],
+            [
+              0,
+              1,
+              4
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_all_question_taz",
+          "n": 43,
+          "raw_agreement": 0.6046511627906976,
+          "cohen_kappa": 0.35424028268551233,
+          "macro_f1": 0.5752491236362204,
+          "recall_by_class": {
+            "negative": 0.6666666666666666,
+            "neutral": 0.5652173913043478,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              10,
+              4,
+              1
+            ],
+            [
+              6,
+              13,
+              4
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_all_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.6923076923076923,
+          "cohen_kappa": 0.4786967418546366,
+          "macro_f1": 0.6516830870279146,
+          "recall_by_class": {
+            "negative": 0.7142857142857143,
+            "neutral": 0.6470588235294118,
+            "positive": 1.0
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              5,
+              1,
+              1
+            ],
+            [
+              4,
+              11,
+              2
+            ],
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 19,
+          "negative": 16,
+          "positive": 8
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "llm_sentence_all_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3022312373225151,
+          "macro_f1": 0.5751162417829084,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.6551724137931034,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              19,
+              6
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_all_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.627906976744186,
+          "cohen_kappa": 0.3022312373225151,
+          "macro_f1": 0.5751162417829084,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.6551724137931034,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              19,
+              6
+            ],
+            [
+              0,
+              5,
+              5
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_all_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.5,
+          "cohen_kappa": 0.18634686346863472,
+          "macro_f1": 0.5460596750919332,
+          "recall_by_class": {
+            "negative": 1.0,
+            "neutral": 0.6111111111111112,
+            "positive": 0.3
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              2,
+              11,
+              5
+            ],
+            [
+              1,
+              13,
+              6
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_all_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.6666666666666666,
+          "cohen_kappa": 0.3950617283950617,
+          "macro_f1": 0.6733333333333333,
+          "recall_by_class": {
+            "negative": 1.0,
+            "neutral": 0.6923076923076923,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              1,
+              9,
+              3
+            ],
+            [
+              0,
+              3,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 25,
+          "positive": 11,
+          "negative": 7
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "llm_sentence_all_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.627906976744186,
+        "cohen_kappa": 0.3571595421630459,
+        "macro_f1": 0.5876738707257053,
+        "recall_by_class": {
+          "negative": 0.7142857142857143,
+          "neutral": 0.6140350877192983,
+          "positive": 0.6
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            10,
+            3,
+            1
+          ],
+          [
+            13,
+            35,
+            9
+          ],
+          [
+            0,
+            6,
+            9
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "llm_sentence_turn": {
+      "question": {
+        "vs_gold": {
+          "name": "llm_sentence_turn_question_gold",
+          "n": 43,
+          "raw_agreement": 0.5813953488372093,
+          "cohen_kappa": 0.219758064516129,
+          "macro_f1": 0.4084249084249085,
+          "recall_by_class": {
+            "negative": 0.8,
+            "neutral": 0.6071428571428571,
+            "positive": 0.0
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              8,
+              2,
+              0
+            ],
+            [
+              10,
+              17,
+              1
+            ],
+            [
+              0,
+              5,
+              0
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_turn_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.5813953488372093,
+          "cohen_kappa": 0.219758064516129,
+          "macro_f1": 0.4084249084249085,
+          "recall_by_class": {
+            "negative": 0.8,
+            "neutral": 0.6071428571428571,
+            "positive": 0.0
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              8,
+              2,
+              0
+            ],
+            [
+              10,
+              17,
+              1
+            ],
+            [
+              0,
+              5,
+              0
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_turn_question_taz",
+          "n": 43,
+          "raw_agreement": 0.7441860465116279,
+          "cohen_kappa": 0.5371819960861057,
+          "macro_f1": 0.629056522673544,
+          "recall_by_class": {
+            "negative": 0.8666666666666667,
+            "neutral": 0.782608695652174,
+            "positive": 0.2
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              13,
+              2,
+              0
+            ],
+            [
+              5,
+              18,
+              0
+            ],
+            [
+              0,
+              4,
+              1
+            ]
+          ],
+          "meets_m4_bar": true
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_turn_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.7692307692307693,
+          "cohen_kappa": 0.5185185185185186,
+          "macro_f1": 0.5245098039215687,
+          "recall_by_class": {
+            "negative": 0.8571428571428571,
+            "neutral": 0.8235294117647058,
+            "positive": 0.0
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              6,
+              1,
+              0
+            ],
+            [
+              3,
+              14,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ],
+          "meets_m4_bar": true
+        },
+        "pred_dist": {
+          "neutral": 24,
+          "negative": 18,
+          "positive": 1
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "llm_sentence_turn_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.6046511627906976,
+          "cohen_kappa": 0.2991371045062321,
+          "macro_f1": 0.5707070707070706,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.5862068965517241,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              17,
+              8
+            ],
+            [
+              0,
+              4,
+              6
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "llm_sentence_turn_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.6046511627906976,
+          "cohen_kappa": 0.2991371045062321,
+          "macro_f1": 0.5707070707070706,
+          "recall_by_class": {
+            "negative": 0.75,
+            "neutral": 0.5862068965517241,
+            "positive": 0.6
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              17,
+              8
+            ],
+            [
+              0,
+              4,
+              6
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "llm_sentence_turn_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.47619047619047616,
+          "cohen_kappa": 0.1428571428571428,
+          "macro_f1": 0.5335252982311806,
+          "recall_by_class": {
+            "negative": 1.0,
+            "neutral": 0.5,
+            "positive": 0.35
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              2,
+              9,
+              7
+            ],
+            [
+              1,
+              12,
+              7
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "llm_sentence_turn_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.6190476190476191,
+          "cohen_kappa": 0.32800000000000007,
+          "macro_f1": 0.6427350427350428,
+          "recall_by_class": {
+            "negative": 1.0,
+            "neutral": 0.6153846153846154,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              1,
+              8,
+              4
+            ],
+            [
+              0,
+              3,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 22,
+          "positive": 14,
+          "negative": 7
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "llm_sentence_turn_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.5930232558139535,
+        "cohen_kappa": 0.28316265777566085,
+        "macro_f1": 0.5414322462866151,
+        "recall_by_class": {
+          "negative": 0.7857142857142857,
+          "neutral": 0.5964912280701754,
+          "positive": 0.4
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            11,
+            3,
+            0
+          ],
+          [
+            14,
+            34,
+            9
+          ],
+          [
+            0,
+            9,
+            6
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    },
+    "keyword_rule": {
+      "question": {
+        "vs_gold": {
+          "name": "keyword_rule_question_gold",
+          "n": 43,
+          "raw_agreement": 0.5813953488372093,
+          "cohen_kappa": 0.2786579683131407,
+          "macro_f1": 0.5060317460317459,
+          "recall_by_class": {
+            "negative": 0.6,
+            "neutral": 0.6071428571428571,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              6,
+              2,
+              2
+            ],
+            [
+              5,
+              17,
+              6
+            ],
+            [
+              0,
+              3,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "keyword_rule_question_alfred",
+          "n": 43,
+          "raw_agreement": 0.5813953488372093,
+          "cohen_kappa": 0.2786579683131407,
+          "macro_f1": 0.5060317460317459,
+          "recall_by_class": {
+            "negative": 0.6,
+            "neutral": 0.6071428571428571,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              6,
+              2,
+              2
+            ],
+            [
+              5,
+              17,
+              6
+            ],
+            [
+              0,
+              3,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "keyword_rule_question_taz",
+          "n": 43,
+          "raw_agreement": 0.5116279069767442,
+          "cohen_kappa": 0.19946808510638292,
+          "macro_f1": 0.46096866096866096,
+          "recall_by_class": {
+            "negative": 0.4666666666666667,
+            "neutral": 0.5652173913043478,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              7,
+              6,
+              2
+            ],
+            [
+              4,
+              13,
+              6
+            ],
+            [
+              0,
+              3,
+              2
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "keyword_rule_question_consensus",
+          "n": 26,
+          "raw_agreement": 0.5769230769230769,
+          "cohen_kappa": 0.3091787439613527,
+          "macro_f1": 0.5016799292661361,
+          "recall_by_class": {
+            "negative": 0.5714285714285714,
+            "neutral": 0.5882352941176471,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              4,
+              1,
+              2
+            ],
+            [
+              2,
+              10,
+              5
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 22,
+          "negative": 11,
+          "positive": 10
+        }
+      },
+      "answer": {
+        "vs_gold": {
+          "name": "keyword_rule_answer_gold",
+          "n": 43,
+          "raw_agreement": 0.6046511627906976,
+          "cohen_kappa": 0.10526315789473684,
+          "macro_f1": 0.3737704918032787,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.7586206896551724,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              22,
+              6
+            ],
+            [
+              0,
+              6,
+              4
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_alfred": {
+          "name": "keyword_rule_answer_alfred",
+          "n": 43,
+          "raw_agreement": 0.6046511627906976,
+          "cohen_kappa": 0.10526315789473684,
+          "macro_f1": 0.3737704918032787,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.7586206896551724,
+            "positive": 0.4
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              22,
+              6
+            ],
+            [
+              0,
+              6,
+              4
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_taz": {
+          "name": "keyword_rule_answer_taz",
+          "n": 42,
+          "raw_agreement": 0.4523809523809524,
+          "cohen_kappa": 0.03592814371257491,
+          "macro_f1": 0.31020408163265306,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.7222222222222222,
+            "positive": 0.3
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              13,
+              4
+            ],
+            [
+              0,
+              14,
+              6
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "vs_consensus": {
+          "name": "keyword_rule_answer_consensus",
+          "n": 21,
+          "raw_agreement": 0.5714285714285714,
+          "cohen_kappa": 0.14479638009049756,
+          "macro_f1": 0.38888888888888884,
+          "recall_by_class": {
+            "negative": 0.0,
+            "neutral": 0.6923076923076923,
+            "positive": 0.5
+          },
+          "confusion_true_rows_pred_cols": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              9,
+              3
+            ],
+            [
+              0,
+              3,
+              3
+            ]
+          ],
+          "meets_m4_bar": false
+        },
+        "pred_dist": {
+          "neutral": 32,
+          "positive": 10,
+          "negative": 1
+        }
+      },
+      "pooled_vs_gold": {
+        "name": "keyword_rule_pooled_gold",
+        "n": 86,
+        "raw_agreement": 0.5930232558139535,
+        "cohen_kappa": 0.21818181818181825,
+        "macro_f1": 0.5023661023661025,
+        "recall_by_class": {
+          "negative": 0.42857142857142855,
+          "neutral": 0.6842105263157895,
+          "positive": 0.4
+        },
+        "confusion_true_rows_pred_cols": [
+          [
+            6,
+            6,
+            2
+          ],
+          [
+            6,
+            39,
+            12
+          ],
+          [
+            0,
+            9,
+            6
+          ]
+        ],
+        "meets_m4_bar": false
+      }
+    }
+  },
+  "machine_vs_machine_answer": {
+    "llm_turn_vs_llm_sentence": {
+      "n": 43,
+      "raw_agreement": 0.7441860465116279,
+      "cohen_kappa": 0.5412221144519884
+    },
+    "llm_turn_vs_llm_sentence_all": {
+      "n": 43,
+      "raw_agreement": 0.7441860465116279,
+      "cohen_kappa": 0.4968085106382979
+    },
+    "llm_turn_vs_llm_sentence_turn": {
+      "n": 43,
+      "raw_agreement": 0.7674418604651163,
+      "cohen_kappa": 0.575098814229249
+    },
+    "llm_turn_vs_keyword_rule": {
+      "n": 43,
+      "raw_agreement": 0.5813953488372093,
+      "cohen_kappa": -0.043126684636118684
+    },
+    "llm_sentence_vs_llm_sentence_all": {
+      "n": 43,
+      "raw_agreement": 0.8372093023255814,
+      "cohen_kappa": 0.7278481012658229
+    },
+    "llm_sentence_vs_llm_sentence_turn": {
+      "n": 43,
+      "raw_agreement": 0.8372093023255814,
+      "cohen_kappa": 0.7314897413024086
+    },
+    "llm_sentence_vs_keyword_rule": {
+      "n": 43,
+      "raw_agreement": 0.46511627906976744,
+      "cohen_kappa": 0.021760633036597476
+    },
+    "llm_sentence_all_vs_llm_sentence_turn": {
+      "n": 43,
+      "raw_agreement": 0.7674418604651163,
+      "cohen_kappa": 0.6076642335766425
+    },
+    "llm_sentence_all_vs_keyword_rule": {
+      "n": 43,
+      "raw_agreement": 0.5116279069767442,
+      "cohen_kappa": 0.0311158798283262
+    },
+    "llm_sentence_turn_vs_keyword_rule": {
+      "n": 43,
+      "raw_agreement": 0.46511627906976744,
+      "cohen_kappa": 0.009018036072144353
+    }
+  },
+  "review_changes": {
+    "alfred": 3
+  },
+  "round1_coder_vs_coder": {
+    "alfred_vs_taz_question": {
+      "n": 90,
+      "raw_agreement": 0.6555555555555556,
+      "cohen_kappa": 0.3697763722611249
+    },
+    "alfred_vs_taz_answer": {
+      "n": 82,
+      "raw_agreement": 0.6951219512195121,
+      "cohen_kappa": 0.4702842377260982
+    },
+    "alfred_vs_taz_answer_first_pass": {
+      "n": 82,
+      "raw_agreement": 0.47560975609756095,
+      "cohen_kappa": 0.1478975350410826
+    }
+  }
+}

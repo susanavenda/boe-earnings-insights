@@ -65,9 +65,11 @@ MACHINE_UNITS = {
     "finbert_sentence": ("question_sent_label", "answer_sent_label"),
     "lm_lexicon": ("question_ldsa_sentiment", "answer_ldsa_sentiment"),
     "llm": ("question_llm_label", "answer_llm_label"),            # Stage 3.8 LLM annotator (docs/assignment2/llm_sentiment_labels.csv)
+    "llm_codex": ("question_llm_codex_label", "answer_llm_codex_label"),  # second blind LLM coder (gpt-5), 90-pack only
     "distilled": ("question_distill_label", "answer_distill_label"),  # Stage 3.9 student, when present
 }
 LLM_CSV = ROOT / "docs" / "assignment2" / "llm_sentiment_labels.csv"
+LLM_CODEX_CSV = ROOT / "docs" / "assignment2" / "llm_sentiment_labels_codex.csv"
 EXEMPLAR_JSON = HL / "llm_exemplar_ids.json"
 
 
@@ -114,7 +116,19 @@ def load_coders() -> dict[str, pd.DataFrame]:
         if filled == 0:
             print(f"skip {f}: no labels filled in")
             continue
-        coders[name] = df.set_index("pair_id")
+        df = df.set_index("pair_id")
+        # Answer-side re-code under the tightened rule (coding guide, 4 Oct) is canonical where present.
+        # The blind first-pass label is kept in a_label_first for the coder-vs-coder figure.
+        df["a_label_first"] = df["a_label"]
+        rc_path = HL / f"sentiment_answer_recode_{name}.csv"
+        if rc_path.is_file():
+            rc = pd.read_csv(rc_path, dtype=str).fillna("")
+            if {"pair_id", "a_label_new"}.issubset(rc.columns):
+                new = _norm(rc.set_index("pair_id")["a_label_new"])
+                new = new[new.isin(LABELS) & new.index.isin(df.index)]
+                df.loc[new.index, "a_label"] = new
+                df.attrs["n_answer_recoded"] = int(len(new))
+        coders[name] = df
     return coders
 
 
@@ -150,6 +164,12 @@ def main() -> None:
     if not KEY.is_file():
         raise SystemExit("machine key missing — run scripts/build_sentiment_gold_pack.py first")
     key = pd.read_csv(KEY, dtype={"pair_id": str}).set_index("pair_id")
+    if LLM_CODEX_CSV.is_file() and "question_llm_codex_label" not in key.columns:
+        cx = pd.read_csv(LLM_CODEX_CSV, dtype=str).fillna("")
+        for side in ("question", "answer"):
+            m = cx[cx["side"] == side].drop_duplicates("pair_id").set_index("pair_id")["label"]
+            key[f"{side}_llm_codex_label"] = _norm(key.index.map(m).to_series(index=key.index).fillna(""))
+
     # LLM annotator labels live in a tracked CSV (the key predates them); merge if present
     if LLM_CSV.is_file() and "question_llm_label" not in key.columns:
         llm = pd.read_csv(LLM_CSV, dtype=str).fillna("")
@@ -191,6 +211,7 @@ def main() -> None:
         "human_label_dist": {
             side: {k: int(v) for k, v in gold[side].value_counts().items()} for side in ("question", "answer")
         },
+        "answer_recode": {n: int(coders[n].attrs.get("n_answer_recoded", 0)) for n in names},
         "machine_vs_human": {},
         "coder_vs_coder": {},
         "krippendorff_alpha": {},
@@ -218,6 +239,13 @@ def main() -> None:
                 results["coder_vs_coder"][f"{a}_vs_{b}_{side}"] = block(
                     coders[a][col].reindex(pairs), coders[b][col].reindex(pairs), f"{a}_vs_{b}_{side}"
                 )
+            if any(coders[n].attrs.get("n_answer_recoded") for n in (a, b)):
+                # blind first pass, before any re-code: the independent agreement figure
+                results["coder_vs_coder"][f"{a}_vs_{b}_answer_first_pass"] = block(
+                    coders[a]["a_label_first"].reindex(pairs),
+                    coders[b]["a_label_first"].reindex(pairs),
+                    f"{a}_vs_{b}_answer_first_pass",
+                )
 
     # Krippendorff α: humans only, and humans + each machine unit
     for side, col in (("question", "q_label"), ("answer", "a_label")):
@@ -239,6 +267,7 @@ def main() -> None:
     ft = results["machine_vs_human"].get("finbert_turn", {}).get("pooled", {})
     fs = results["machine_vs_human"].get("finbert_sentence", {}).get("pooled", {})
     lm_ = results["machine_vs_human"].get("llm", {}).get("pooled", {})
+    cx_ = results["machine_vs_human"].get("llm_codex", {}).get("pooled", {})
     results["headline"] = {
         "finbert_turn_raw": ft.get("raw_agreement"),
         "finbert_turn_kappa": ft.get("cohen_kappa"),
@@ -249,6 +278,9 @@ def main() -> None:
         "llm_kappa": lm_.get("cohen_kappa"),
         "llm_macro_f1": lm_.get("macro_f1"),
         "llm_meets_m4_bar": lm_.get("meets_m4_bar"),
+        "llm_codex_raw": cx_.get("raw_agreement"),
+        "llm_codex_kappa": cx_.get("cohen_kappa"),
+        "llm_codex_macro_f1": cx_.get("macro_f1"),
         "best_unit_by_macro_f1": best_unit,
         "m4_met_by_turn": ft.get("meets_m4_bar"),
         "m4_met_by_sentence": fs.get("meets_m4_bar"),
@@ -259,6 +291,7 @@ def main() -> None:
         f"{(ft.get('raw_agreement') or 0):.0%} raw / macro-F1 {(ft.get('macro_f1') or 0):.2f}; "
         f"sentence-level {(fs.get('raw_agreement') or 0):.0%} / {(fs.get('macro_f1') or 0):.2f}"
         + (f"; LLM annotator {(lm_.get('raw_agreement') or 0):.0%} / {(lm_.get('macro_f1') or 0):.2f}" if lm_.get("n") else "")
+        + (f"; second LLM (Codex) {(cx_.get('raw_agreement') or 0):.0%} / {(cx_.get('macro_f1') or 0):.2f}" if cx_.get("n") else "")
         + f". M4 bar 70% {'met' if (ft.get('meets_m4_bar') or fs.get('meets_m4_bar') or lm_.get('meets_m4_bar')) else 'not met'}."
     )
 
