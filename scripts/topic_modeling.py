@@ -210,3 +210,51 @@ def score_lda(corpus_df: pd.DataFrame, n_topics: int | None = None):
 def docs_from_corpus(corpus_df: pd.DataFrame) -> list[str]:
     col = get_bertopic_input_column(corpus_df)
     return corpus_df[col].fillna("").astype(str).tolist()
+
+import numpy as np
+import pandas as pd
+
+def get_nmf_topic_info(nmf_model, feature_names, doc_topic_matrix, corpus_df, top_n_words=4):
+    """
+    Generates BERTopic-style topic info DataFrame from NMF model results.
+    """
+    # 1. Assign dominant topic to each document
+    # doc_topic_matrix shape: (n_docs, n_topics)
+    dominant_topics = np.argmax(doc_topic_matrix, axis=1)
+    corpus_df['topic'] = dominant_topics
+
+    # 2. Extract topic statistics & keyword names
+    topic_counts = corpus_df['topic'].value_counts()
+    
+    topic_info_list = []
+    
+    # Handle components depending on model type (sklearn vs gensim)
+    if hasattr(nmf_model, 'components_'):  # Sklearn NMF
+        components = nmf_model.components_
+        n_topics = len(components)
+    else:  # Gensim NMF
+        n_topics = nmf_model.num_topics
+        components = None
+
+    for topic_idx in range(n_topics):
+        count = topic_counts.get(topic_idx, 0)
+        
+        # Extract top keywords
+        if components is not None:  # Sklearn
+            top_idx = components[topic_idx].argsort()[:-10 - 1:-1]
+            words = [feature_names[i] for i in top_idx]
+        else:  # Gensim
+            words = [w for w, _ in nmf_model.show_topic(topic_idx, topn=10)]
+            
+        top_name_words = "_".join(words[:top_n_words])
+        topic_name = f"{topic_idx}_{top_name_words}"
+        
+        topic_info_list.append({
+            'Topic': topic_idx,
+            'Count': count,
+            'Name': topic_name,
+            'Representation': words,
+        })
+
+    topic_info = pd.DataFrame(topic_info_list).sort_values(by='Topic', ascending=False).reset_index(drop=True)
+    return topic_info, corpus_df
