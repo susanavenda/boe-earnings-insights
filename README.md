@@ -161,6 +161,6 @@ One-shot import of legacy files: `.venv/bin/python scripts/migrate_to_db.py`.
 
 Next-quarter ops: [`docs/assignment2/README.md`](docs/assignment2/README.md).  
 Code map (stages, sqlite, invariants): [`docs/code.md`](docs/code.md).  
-Tests: `pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
+Tests: `uv run pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
 
 Desk: `streamlit run demo/app.py` (copies `data/boe.sqlite` into `demo/data/desk.sqlite`).

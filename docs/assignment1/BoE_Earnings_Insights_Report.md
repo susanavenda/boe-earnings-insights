@@ -216,7 +216,7 @@ Concrete case study for Assignment 2 pitch (`docs/assignment2/A2_pitch_outline.m
 
 - Repo: https://github.com/susanavenda/boe-earnings-insights  
 - Notebook: `notebooks/boe_earnings_insights.ipynb`  
-- Kernel: Python 3.12 (BoE Earnings) · `requirements.txt`  
+- Kernel: Python 3.12 (BoE Earnings) · `pyproject.toml` / `uv.lock` (`requirements.txt` is generated for Colab/pip)  
 - Fine-tune: `scripts/finetune_sentiment.py` · metrics in `data/boe.sqlite` (`finetune_metrics`)  
 - Outputs: `data/boe.sqlite` · `docs/hand_validation_sample.csv`  
 - Local model weights: `models/finbert-domain-ft/` (gitignored; rebuild via script)

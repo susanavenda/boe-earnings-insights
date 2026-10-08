@@ -3,8 +3,9 @@
 Lightweight checks for the factory. They do **not** re-run BERTopic or FinBERT (those need GPU and live models). The notebook is read as JSON for stage-presence assertions.
 
 ```bash
-# from repo root
-.venv/bin/pytest tests/ -q -m "not slow"
+# from repo root — no torch
+uv sync --extra test
+uv run pytest tests/ -q -m "not slow"
 ```
 
 CI (`.github/workflows/ci.yml`) runs `uv sync --frozen --extra test` (pandas / numpy / scikit-learn / openpyxl + pytest; no torch) and the same command with coverage.
@@ -14,7 +15,7 @@ CI (`.github/workflows/ci.yml`) runs `uv sync --frozen --extra test` (pandas / n
 Factory gate is **80%** of `scripts/` after omitting GPU / one-shot CLIs (see `.coveragerc`).
 
 ```bash
-.venv/bin/pytest tests/ -q -m "not slow" --cov=scripts --cov-config=.coveragerc --cov-report=term-missing
+uv run pytest tests/ -q -m "not slow" --cov=scripts --cov-config=.coveragerc --cov-report=term-missing
 ```
 
 Omitted on purpose: `finetune_sentiment.py`, `score_qa_sentiment.py`, `download_cs_years.py`, `ingest_credit_suisse.py`, `build_credit_suisse_inputs.py`, `generate_a2_outputs.py`, `migrate_to_db.py`, `label_agreement.py`.
