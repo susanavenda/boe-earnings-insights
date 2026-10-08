@@ -1,76 +1,81 @@
-Rafael/Assignment 3 summarisation contribution
-Working base: main commit 3ef202e, 3 October 2026. Local branch:
-rafael/a3-summary-validation. Proposed changes for review; full Colab execution and human validation remain pending.
-Rafael owns Stage 4 evidence-grounded metric briefs. Bupathi owns Stage 3.5
-behavioural measures. Summaries can explain behavioural findings, but metric
-mention does not establish answer directness or factual adequacy. Confirm the
-report-section boundary when Taz shares the outline.
-Changes and reasons
-- Require a metric match explicitly in each selected evidence sentence. This is
-  a clarity improvement: the previous bonuses totalled at most 0.95, below the
-  1.0 threshold, so they could not admit a sentence without a metric match.
-- Reject optional generative polish if it removes a figure present in the
-  extracted evidence, as well as if it introduces an unsupported figure.
-  This remains a lexical guard, not a guarantee of factual correctness.
-- Compare optional generated text with selected evidence, not the entire Q&A,
-  so it cannot borrow an unselected figure belonging to another topic.
-- Handle pandas missing text values without evaluating their truth value.
-  A missing answer remains an explicit unanswered case.
-- Preserve bank and metric fields when sampling the routine review queue.
-  The former groupby/apply call removed those fields from sampled rows.
-- Store missing support and number-check values for abstentions. The legacy
-  script also returns missing overlap for absent metrics. Absence must not raise
-  a mean quality score.
-- Describe the legacy script's printed score as source-token overlap rather
-  than factual accuracy. Retain existing column names for compatibility.
-- Add tests that execute the actual notebook helper cell without model downloads.
-- Clear old outputs in cells 4.1–4.3 because they predate the changes.
-Draft report text — method and refinement
-We summarised analyst Q&A using deterministic extractive briefs for four scoped
-metrics: income, operating costs, credit impairment and CET1. Each brief retains
-the Q&A identifier and source evidence, allowing a reviewer to inspect the
-underlying exchange. We selected extraction as the primary method because it
-preserves source wording and reduces opportunities to invent financial claims.
-Optional generative compression remains secondary and subject to rejection.
-During refinement, we made the metric-match requirement explicit before ranking
-sentences. We strengthened the optional compression check to reject omitted
-figures and numbers imported from unselected parts of the exchange. We also
-represented quality diagnostics as missing when no evidence was extracted,
-handled missing answer values safely, and retained bank and metric identifiers
-in sampled review records. Integration tests exercise the notebook cells and
-verify that these records survive persistence to SQLite.
-Source-token overlap measures lexical support; it does not establish whether a
-brief preserves the meaning, qualifications or complete answer. Consequently,
-human validation must assess faithfulness and completeness separately. Missing
-answers require inspection of the transcript and parser before being interpreted
-as management behaviour. The business recommendation is to use these briefs to
-prioritise evidence review, with human confirmation before supervisory use.
-Remaining evidence before final submission
-Post-review local verification: the repository's non-slow CI command passed with
-146 tests, five skipped, three deselected and 85.04% script coverage (80% required).
-There was one warning about the existing regex fallback when NLTK punkt is
-unavailable. This verifies code behaviour; it is not a fresh full-corpus Colab
-execution or a measure of summary accuracy.
-Review reproduced three failures before correction: pandas nullable answers
-raised an exception; routine review rows lost bank/metric fields; optional
-generation accepted a number from outside the selected evidence. Regression
-checks now cover all three. Numeric and lexical checks still cannot detect all
-changes in meaning, attribution, negation or units. Human review remains required.
-1. Run the current full notebook in a fresh Google Colab runtime. Save outputs
-   and record the code version, inputs and optional model settings.
-2. Review a reproducible sample across banks, periods, metrics and brief statuses.
-   Rafael must inspect the original Q&A and record his own assessments. Any
-   independent second reviewer should be identified separately.
-3. Record faithfulness, completeness, number/qualifier errors, sample size and
-   selection procedure. Targeted error cases are not representative accuracy.
-4. Select at least three traceable Q&A IDs for each headline finding. Reconcile
-   coverage claims with Bupathi's behavioural definitions and denominators.
-5. Add verified results to Taz's report outline and prepare a findings slide
-   plus a short technical demonstration of cells 4.1–4.3.
-Submission requirements from the provided brief
-The group report has a suggested 1,500-word structure (200 background, 1,100
-development, 200 results). The live presentation is 15 minutes and includes both
-a general-audience deck and a technical notebook walkthrough. Deliver report
-and slides as PDF, a reproducible Google Colab notebook as IPYNB, and data files
-as CSV. The group's SQLite working store does not replace the required CSV
-submission files. One designated member submits for the group.
+# Rafael — Assignment 3 summarisation contribution
+
+**Working base:** `main` commit `91cb1d6`, 8 October 2026.
+
+**Owner:** Rafael Navas, Stage 4 evidence-grounded metric briefs.
+
+**Current state:** the full notebook and tests pass in GitHub Actions. Rafael's independent M6 behaviour labels have been merged and scored with Bupathi's labels. Stage 4 human validation is prepared but must be completed by Rafael before its results are reported.
+
+## Scope boundary
+
+Stage 4 creates traceable metric briefs for total income, operating costs, credit impairment and CET1. Bupathi owns the separate answering-behaviour measures. A metric mention does not establish answer directness or factual adequacy, so the report must not use Stage 4 labels as behavioural ground truth.
+
+## Changes and rationale
+
+- Require a metric match in every selected evidence sentence.
+- Reject optional generative compression when it removes a figure from selected evidence or imports a figure from elsewhere in the Q&A.
+- Compare generated text with selected evidence rather than the entire exchange.
+- Treat a missing answer as an explicit unanswered case instead of evaluating a pandas missing value as a Boolean.
+- Preserve bank and metric fields in the deterministic review sample.
+- Store diagnostics as missing when the pipeline abstains. Absence of evidence must not inflate mean quality.
+- Describe source-token overlap as a diagnostic rather than factual accuracy.
+- Exercise the real notebook helper cell in regression tests without downloading a summarisation model.
+
+## Full-corpus execution evidence
+
+GitHub Actions run `37339787866` completed successfully on commit `63eb56f` in 2 h 29 min 11 s. The executed Stage 4 output contains:
+
+| Measure | Result |
+|---|---:|
+| Q&A pairs | 1,307 |
+| Pair × metric audit rows | 5,228 |
+| Relevant metric briefs | 1,362 |
+| Answered on metric | 1,020 |
+| Answer off metric | 318 |
+| Unanswered | 24 |
+| Automatic review queue | 366 |
+
+The 366 rows are a triage queue, not a human accuracy score. Human fields remain blank until a reviewer inspects the full question and answer.
+
+## Human validation design
+
+The prepared file `stage4_human_review_rafael.csv` contains 48 deterministic rows: four observations for each of the 12 bank × metric strata. It includes two routine on-metric cases and up to two priority off-metric cases per stratum. One Credit Suisse impairment stratum required a deterministic top-up because only one priority case was available. The sample contains 25 `answered_on_metric` and 23 `answer_off_metric` rows.
+
+Rafael must code the following fields independently from the machine status:
+
+| Field | Coding rule |
+|---|---|
+| `human_faithful` | `yes` if the brief is supported by the Q&A; `no` if it adds or changes a claim; `n/a` if no brief is present. |
+| `human_complete` | `yes` if selected evidence captures the material metric answer; `no` if an important point is omitted; `n/a` if unanswered. |
+| `number_or_qualifier_error` | `yes` if a number, unit, direction, horizon or qualifier is wrong or missing; `no` if preserved; `n/a` if none appears. |
+| `human_status_correct` | `yes` if the machine status is correct; otherwise `no`. |
+| `human_note` | Brief reason for every `no` and any ambiguity. |
+| `reviewer` | `Rafael` after the row has been reviewed. |
+
+## Report-ready method text
+
+We summarised analyst Q&A using deterministic extractive briefs for four scoped metrics: total income, operating costs, credit impairment and CET1. Each brief retains the Q&A identifier and source evidence, allowing reviewers to inspect the underlying exchange. Extraction was selected as the primary method because it preserves source wording and limits opportunities to invent financial claims. Optional generative compression is secondary and is rejected when lexical support or number-preservation gates fail.
+
+During refinement, we made the metric-match requirement explicit before ranking sentences. We strengthened the optional compression check to reject omitted figures and numbers imported from unselected parts of the exchange. We also represented diagnostics as missing when no evidence was extracted, handled missing answers safely and retained bank and metric identifiers in sampled review records. Integration tests exercise the notebook cells and verify persistence to SQLite.
+
+Source-token overlap measures lexical support; it does not establish whether a brief preserves meaning, qualifications or completeness. Human validation therefore assesses faithfulness, completeness, number and qualifier preservation, and machine status separately. Missing answers must be checked against the transcript and parser before they are interpreted as management behaviour. The recommended use is evidence triage with human confirmation before supervisory use.
+
+## Results paragraph — complete after Stage 4 human coding
+
+The current full-corpus run produced 1,362 relevant metric briefs from 1,307 Q&A pairs. Of these, 1,020 were classified as answered on metric, 318 as answer off metric and 24 as unanswered. In the deterministic 48-row human sample, **[x/48; x%]** were faithful, **[x/48; x%]** were complete, **[x/48; x%]** contained a number or qualifier error and **[x/48; x%]** had the correct machine status. The most common reviewed error was **[insert coded theme]**. These figures describe the sample only and should not be presented as population accuracy.
+
+## Completed M6 second-coder contribution
+
+Rafael independently coded 90 Q&A pairs before viewing the machine key or Bupathi's labels. Human agreement was 68.9% for addressed, 85.6% for changed topic, 68.9% for metric given and 86.7% for answer cleanliness. Cohen's κ ranged from 0.404 to 0.720. On the 57 agreed yes/no directness cases, the original machine score achieved AUC 0.839. Topic-substitution agreement remained weak, so it should remain human-reviewed. Because the sample oversampled substitution candidates, sample label proportions are not corpus prevalence estimates.
+
+## Remaining Rafael actions
+
+1. Complete all 48 rows in `stage4_human_review_rafael.xlsx` or the equivalent CSV.
+2. Calculate the four validation rates and replace the bracketed placeholders above.
+3. Run the final clean Colab check and complete `colab_reproducibility.md`.
+4. Add the approved slide content from `rafael_final_presentation.md` to the shared deck.
+5. Participate in the team retrospective using `rafael_team_retrospective.md`.
+
+## Assignment 3 submission reminder
+
+The group submits a report PDF, presentation-slides PDF, reproducible IPYNB notebook and required CSV files. The 15-minute live presentation must include both a general-audience summary and a technical notebook walkthrough. One designated team member submits for the group.
