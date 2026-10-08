@@ -9,14 +9,15 @@ name: notebook
 # If every cell runs cleanly on a PR (or a manual run on a branch other than main),
 # the executed notebook is committed back to that branch, so the PR carries the outputs.
 # Pushes made with the workflow token do not trigger new workflow runs, so this cannot loop.
-# Manual run with a non-blank release_tag publishes executed.ipynb + data/exports
-# as GitHub Release prefix-<short-sha> (re-run of the same commit appends the run id).
+# A green run on main publishes GitHub Release a3-final-<short-sha>.
+# Manual dispatch with a non-blank release_tag does the same on any branch
+# (re-run of the same commit appends the run id).
 
 on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: "Release prefix (blank = none). Tag becomes prefix-plus-short-sha, e.g. a3-final-dd98ac9"
+        description: "Release prefix (blank = a3-final on main, none on other branches). Tag is prefix-plus-short-sha"
         required: false
         default: ""
   push:
@@ -136,18 +137,23 @@ jobs:
           retention-days: 14
 
       - name: Publish release
-        if: success() && github.event_name == 'workflow_dispatch' && inputs.release_tag != ''
+        if: >-
+          success() && (
+            github.ref_name == 'main' ||
+            (github.event_name == 'workflow_dispatch' && inputs.release_tag != '')
+          )
         env:
           # Job env blanks GITHUB_TOKEN so the notebook cannot call GitHub; restore it for gh.
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_PREFIX: ${{ inputs.release_tag || 'a3-final' }}
         run: |
           mkdir -p release
           cp executed.ipynb release/boe_earnings_insights_executed.ipynb
           cp data/exports/MANIFEST.md release/
           (cd data && zip -qr ../release/data_exports.zip exports)
           SHORT_SHA="${GITHUB_SHA:0:7}"
-          TAG="${{ inputs.release_tag }}-${SHORT_SHA}"
+          TAG="${RELEASE_PREFIX}-${SHORT_SHA}"
           # Same commit re-run: keep the job green with a unique suffix.
           if gh release view "$TAG" >/dev/null 2>&1; then
             TAG="${TAG}-${{ github.run_id }}"

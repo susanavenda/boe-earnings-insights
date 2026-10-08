@@ -14,6 +14,6 @@ Rebuild the DB by running the notebook (Stage 0+) or product scripts under `scri
 
 `scripts/export_tables.py` writes one CSV per headline table from `boe.sqlite` and a `MANIFEST.md` with the run and commit they came from. `qa_pairs.csv` is slim (pair_id, bank, quarter, source, analyst, question, answer) so the Assignment 3 submission includes the text; every other table drops question/answer text. The notebook workflow runs it after every clean run and uploads `data/exports/` with `executed.ipynb` in the `executed-notebook` artifact.
 
-To publish those files as a GitHub Release (no download step): Actions → notebook → Run workflow, choose `main`, and set **release_tag** (for example `a3-final`). After a green run the tag is `a3-final-<short-sha>` (a same-commit re-run appends the run id). The release has the executed notebook, `MANIFEST.md`, and `data_exports.zip`. Leave the field blank to skip.
+A green notebook run on `main` publishes a GitHub Release `a3-final-<short-sha>` (executed notebook, `MANIFEST.md`, `data_exports.zip`). Merging a PR that touches the notebook, scripts, data or lock is enough; no extra Actions click. A same-commit re-run appends the run id. Manual dispatch with **release_tag** still works on other branches.
 
 Commit the CSVs **once**, from the artifact of the final green run, so the submitted files match the cited run. Don't edit them by hand; to refresh, re-export from a new green run and commit that artifact's `data/exports/` instead.
