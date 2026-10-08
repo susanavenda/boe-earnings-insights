@@ -7,7 +7,7 @@ Lightweight checks for the factory. They do **not** re-run BERTopic or FinBERT (
 .venv/bin/pytest tests/ -q -m "not slow"
 ```
 
-CI (`.github/workflows/ci.yml`) installs pytest, pytest-cov, pandas, numpy, scikit-learn and runs the same command with coverage.
+CI (`.github/workflows/ci.yml`) runs `uv sync --frozen --extra test` (pandas / numpy / scikit-learn / openpyxl + pytest; no torch) and the same command with coverage.
 
 ## Coverage
 
