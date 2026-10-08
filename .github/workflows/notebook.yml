@@ -9,13 +9,14 @@ name: notebook
 # If every cell runs cleanly on a PR (or a manual run on a branch other than main),
 # the executed notebook is committed back to that branch, so the PR carries the outputs.
 # Pushes made with the workflow token do not trigger new workflow runs, so this cannot loop.
-# Manual run with a non-blank release_tag publishes executed.ipynb + data/exports as a GitHub Release.
+# Manual run with a non-blank release_tag publishes executed.ipynb + data/exports
+# as GitHub Release prefix-<short-sha> (re-run of the same commit appends the run id).
 
 on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: "After a green run, publish a release with this tag (blank = none)"
+        description: "Release prefix (blank = none). Tag becomes prefix-plus-short-sha, e.g. a3-final-dd98ac9"
         required: false
         default: ""
   push:
@@ -145,10 +146,17 @@ jobs:
           cp executed.ipynb release/boe_earnings_insights_executed.ipynb
           cp data/exports/MANIFEST.md release/
           (cd data && zip -qr ../release/data_exports.zip exports)
-          gh release create "${{ inputs.release_tag }}" release/* \
+          SHORT_SHA="${GITHUB_SHA:0:7}"
+          TAG="${{ inputs.release_tag }}-${SHORT_SHA}"
+          # Same commit re-run: keep the job green with a unique suffix.
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            TAG="${TAG}-${{ github.run_id }}"
+          fi
+          gh release create "$TAG" release/* \
             --target "${{ github.sha }}" \
-            --title "${{ inputs.release_tag }}" \
+            --title "$TAG" \
             --notes "Notebook run ${{ github.run_id }} (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), commit ${{ github.sha }}. See MANIFEST.md."
+          echo "Published release $TAG"
 
       - name: Commit executed notebook back to the branch
         # Only after a clean run; PRs from forks get a read-only token, so they are skipped.
