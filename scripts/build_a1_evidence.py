@@ -19,9 +19,10 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from keywords import any_keyword, directness_v2, keyword_in_text  # noqa: E402
+from keywords import any_keyword, directness_v2, keyword_in_text, keyword_spans  # noqa: E402
 from periods import calendar_period, coverage_window, year_from_period  # noqa: E402
-from store import configure, has_df, load_df, save_df  # noqa: E402
+from reported_metrics import METRICS_OF_INTEREST, build_reported_metrics  # noqa: E402
+from store import configure, load_df, save_df  # noqa: E402
 
 MONTHS = (
     "January|February|March|April|May|June|July|August|"
@@ -78,18 +79,18 @@ def _tokens(text: str) -> set[str]:
     return set(re.findall(r"[a-z]{3,}", str(text).lower()))
 
 
+# Four-line seed buckets (Stage 2.0). split_mixed reads the same lists.
+SEED_KW = {
+    "profitability": METRIC_KW["total_income"],
+    "efficiency": METRIC_KW["operating_costs"],
+    "asset_quality": METRIC_KW["credit_impairment"],
+    "capital": METRIC_KW["cet1_ratio"],
+}
+
+
 def seed_label(text: str) -> str:
     t = str(text).lower()
-    hits = [
-        b
-        for b, keys in {
-            "profitability": METRIC_KW["total_income"],
-            "efficiency": METRIC_KW["operating_costs"],
-            "asset_quality": METRIC_KW["credit_impairment"],
-            "capital": METRIC_KW["cet1_ratio"],
-        }.items()
-        if any_keyword(t, keys)
-    ]
+    hits = [b for b, keys in SEED_KW.items() if any_keyword(t, keys)]
     if not hits:
         return "untagged"
     return hits[0] if len(hits) == 1 else "mixed"
@@ -475,6 +476,125 @@ def machine_vs_machine(qa: pd.DataFrame) -> dict:
     return {"n": n, "n_agree": n_agree, "pct": (n_agree / n) if n else None}
 
 
+# Stage 3.6b. "mixed" has no SEED_TO_8 entry, so ~1 in 5 questions never reach the
+# eight-way. Split them back into the buckets that fired. Same keywords, no new ones.
+def seed_hits(text: str) -> list[dict]:
+    """Buckets that fire, ranked: most mentions, then first mention, then SEED_KW order."""
+    t = str(text or "").lower()
+    out = []
+    for i, (bucket, keys) in enumerate(SEED_KW.items()):
+        spans, used = set(), []
+        for k in keys:
+            new = keyword_spans(t, k) - spans
+            if new:
+                used.append(f"{k}x{len(new)}")
+                spans |= new
+        if spans:
+            out.append({"seed_bucket": bucket, "n_mentions": len(spans),
+                        "first_pos": min(a for a, _ in spans), "keywords": ", ".join(used), "_order": i})
+    out.sort(key=lambda h: (-h["n_mentions"], h["first_pos"], h["_order"]))
+    return out
+
+
+def split_mixed(qa: pd.DataFrame, text_col: str = "question_text",
+                label_col: str = "seed_topic_q") -> tuple[pd.DataFrame, pd.DataFrame]:
+    """long = one row per mixed row x bucket; pairs = one row per mixed row.
+
+    Keyed on row position (row_key). pair_id repeats when two PDFs share a
+    bank-quarter (HSBC 2026 interim: results call + equity-analysts meeting).
+    """
+    qa = qa.reset_index(drop=True)
+    keep = [c for c in ("pair_id", "bank", "quarter", "source") if c in qa.columns]
+    rows = []
+    for key, r in qa[qa[label_col] == "mixed"].iterrows():
+        hits = seed_hits(r[text_col])
+        total = sum(h["n_mentions"] for h in hits)
+        tied = sum(h["n_mentions"] == hits[0]["n_mentions"] for h in hits) > 1
+        for rank, h in enumerate(hits, 1):
+            rows.append({
+                "row_key": key, **{c: r[c] for c in keep},
+                "rank": rank, "seed_bucket": h["seed_bucket"],
+                "pra8_category": SEED_TO_8[h["seed_bucket"]],
+                "keywords": h["keywords"], "n_mentions": h["n_mentions"],
+                "share": round(h["n_mentions"] / total, 3),
+                "primary_by": ("first_mention" if tied else "count") if rank == 1 else "",
+            })
+    long = pd.DataFrame(rows)
+    if long.empty:
+        return long, pd.DataFrame()
+    g = long.groupby("row_key", sort=False)
+    top = long[long["rank"] == 1].set_index("row_key")
+    pairs = pd.DataFrame({
+        "n_buckets": g.size(),
+        "bucket_combo": g["seed_bucket"].agg(lambda s: " + ".join(sorted(s))),
+        "primary_bucket": top["seed_bucket"],
+        "primary_pra8": top["pra8_category"],
+        "primary_share": top["share"],
+        "primary_by": top["primary_by"],
+    })
+    # Ties and weak primaries go to the human check, not to a rule change
+    pairs["review"] = (pairs["primary_by"] == "first_mention") | (pairs["primary_share"] < 0.5)
+    pairs = qa.loc[pairs.index, keep].join(pairs)
+    pairs.index.name = "row_key"
+    return long, pairs.reset_index()
+
+
+def resolve_seed(qa: pd.DataFrame, pairs: pd.DataFrame, label_col: str = "seed_topic_q") -> pd.Series:
+    """Seed label with mixed replaced by the split primary. Same row order as split_mixed."""
+    out = qa[label_col].reset_index(drop=True).copy()
+    if len(pairs):
+        out.loc[pairs["row_key"]] = pairs["primary_bucket"].to_numpy()
+    return out
+
+
+# Stage 3.6c. "untagged" is not one thing. Label why, keep every row, and only
+# hold out operator text and pleasantries. Order matters: first match wins.
+_OPERATOR = re.compile(
+    r"[^.?!]*\b(?:next question|please go ahead|your line is (?:now )?open|"
+    r"please ask your question|that concludes|no further questions)\b[^.?!]*[.?!]?",
+    re.I,
+)
+UNTAGGED_REASONS = {
+    "operator_handover": "operator text with no real question left once it is removed",
+    "courtesy_or_fragment": "under 15 words and no question mark (thanks, headers, mic checks)",
+    "coder1_tagged": "no seed keyword, but the eight-way coder1 tags it",
+    "short_follow_up": "under 15 words with a question mark; leans on the previous turn",
+    "off_seed": "real question outside both keyword lists",
+}
+HOLD_OUT = ("operator_handover", "courtesy_or_fragment")
+
+
+def untagged_reason(question: str, coder1: str = "untagged", min_words: int = 15) -> str:
+    q = str(question or "")
+    left = _OPERATOR.sub(" ", q)
+    n, n_left = len(q.split()), len(left.split())
+    if n_left < n and n_left < min_words and "?" not in left:
+        return "operator_handover"
+    if n < min_words and "?" not in q:
+        return "courtesy_or_fragment"
+    if coder1 and coder1 != "untagged":
+        return "coder1_tagged"
+    if n < min_words:
+        return "short_follow_up"
+    return "off_seed"
+
+
+def reasons_untagged(qa: pd.DataFrame, label_col: str = "seed_topic_q") -> pd.DataFrame:
+    """Adds untagged_reason, operator_bleed, answer_missing, in_analysis. Rows are never dropped."""
+    out = qa.reset_index(drop=True).copy()
+    is_u = out[label_col] == "untagged"
+    c1 = out["prudential8_q"] if "prudential8_q" in out.columns else pd.Series("untagged", index=out.index)
+    out["untagged_reason"] = ""
+    out.loc[is_u, "untagged_reason"] = [
+        untagged_reason(q, c) for q, c in zip(out.loc[is_u, "question_text"], c1[is_u])
+    ]
+    # Real questions can carry the operator's next-caller line; flag it, keep the row
+    out["operator_bleed"] = out["question_text"].fillna("").str.contains(_OPERATOR)
+    out["answer_missing"] = out["answer_text"].map(_blank)
+    out["in_analysis"] = ~out["untagged_reason"].isin(HOLD_OUT)
+    return out
+
+
 def wilson_interval(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
     if n <= 0:
         return 0.0, 0.0
@@ -495,7 +615,27 @@ def substitution_headline(qa: pd.DataFrame) -> str:
         return "no measurable pairs"
     k = int(pd.to_numeric(qa.loc[flag, "topic_substitution"], errors="coerce").fillna(0).sum())
     lo, hi = wilson_interval(k, n)
-    return f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%})"
+    answered = int(pd.to_numeric(qa["topic_substitution"], errors="coerce").notna().sum())
+    return (
+        f"{k / n:.0%} of {n} measurable pairs (~{lo:.0%}–{hi:.0%}); "
+        f"{answered - n} of {answered} answered pairs could not be measured"
+    )
+
+
+def directness_length_corr(qa: pd.DataFrame) -> float | None:
+    """Pearson r between directness (v1) and answer length in words.
+
+    v1 is token overlap, so it rises with answer length; v2 caps the answer at
+    100 words. Report r next to both measures.
+    """
+    if qa is None or qa.empty or "directness" not in qa.columns:
+        return None
+    d = pd.to_numeric(qa["directness"], errors="coerce")
+    n_words = qa["answer_text"].fillna("").astype(str).str.split().str.len()
+    ok = d.notna()
+    if ok.sum() < 3:
+        return None
+    return round(float(d[ok].corr(n_words[ok])), 2)
 
 
 def cohort_of(bank) -> str:
@@ -531,6 +671,18 @@ def state_summary(qa: pd.DataFrame, reported: pd.DataFrame | None) -> pd.DataFra
     agg["n"] = agg["n_pairs"]
     agg["cohort"] = agg["bank"].map(cohort_of)
     return agg
+
+
+def require_reported_directions(ss: pd.DataFrame, reported: pd.DataFrame | None) -> None:
+    """Fail when packs were parsed but no bank-quarter picked up a direction (#86)."""
+    if reported is None or reported.empty:
+        return
+    cols = [m for m in METRICS_OF_INTEREST if m in ss.columns]
+    if not cols or ss[cols].isna().all().all():
+        raise ValueError(
+            f"state_summary has no reported directions although {len(reported)} "
+            "reported_metrics rows were parsed — check the calendar_period join"
+        )
 
 
 def main(*, configure_store: bool = True) -> None:
@@ -580,19 +732,22 @@ def main(*, configure_store: bool = True) -> None:
     save_df("behavioural_signals", beh)
     print(beh[["directness", "directness_v2", "topic_substitution"]].mean(numeric_only=True).to_string())
     print("substitution", substitution_headline(beh))
+    print("directness v1 vs answer length r =", directness_length_corr(beh))
 
     pmap = prudential_map(beh)
     save_df("prudential_map", pmap)
     print("prudential disagreements", int(pmap["disagreement"].sum()), "/", len(pmap))
 
-    reported = load_df("reported_metrics") if has_df("reported_metrics") else None
+    # Parse the packs here, before state_summary (#86). Reading the table Stage 6.3
+    # wrote gave a fresh run no directions and a local run the previous run's.
+    reported = build_reported_metrics(structured) if structured.exists() else None
     if reported is None or reported.empty:
-        print(
-            "reported_metrics not in sqlite yet — state_summary without Excel "
-            "directions. Stage 6.3 parses the packs."
-        )
+        print("no parsable Excel packs under data/structured — state_summary without reported directions")
         reported = None
+    else:
+        save_df("reported_metrics", reported)
     ss = state_summary(beh, reported)
+    require_reported_directions(ss, reported)
     save_df("state_summary", ss)
     print("state_summary\n", ss.to_string(index=False))
 

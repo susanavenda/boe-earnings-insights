@@ -35,6 +35,16 @@ def test_stage0_stubs_parametric_umap():
     assert "USE_TF" in src
 
 
+def test_public_colab_bootstrap_does_not_request_credentials():
+    """The submitted public notebook must never invite a marker to paste a PAT."""
+    src = _code_source()
+    assert '_REPO_SLUG = "susanavenda/boe-earnings-insights"' in src
+    assert '_REPO_HTTPS = f"https://github.com/{_REPO_SLUG}.git"' in src
+    assert "GITHUB_TOKEN" not in src
+    assert "x-access-token" not in src
+    assert "paste a GitHub PAT" not in src
+
+
 def test_every_code_cell_compiles():
     import ast
     nb = json.loads(NB.read_text(encoding="utf-8"))

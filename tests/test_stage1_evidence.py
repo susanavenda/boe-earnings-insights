@@ -384,3 +384,75 @@ def test_equity_analysts_meeting_is_other_not_results_call():
 def test_notebook_tags_event_type_and_filters_results_call(nb_code):
     assert "event_type_from_source" in nb_code
     assert "results_call" in nb_code
+
+
+def test_substitution_headline_states_unmeasured_and_length_corr():
+    from build_a1_evidence import directness_length_corr, substitution_headline
+
+    qa = behavioural_signals(
+        pd.DataFrame(
+            [
+                {"question_text": "What about the CET1 ratio this quarter?",
+                 "answer_text": "Revenue and fee income were very strong this quarter."},
+                {"question_text": "Good morning, a broader question on strategy.",
+                 "answer_text": "Thank you, we remain focused on execution."},
+                {"question_text": "And on impairment?", "answer_text": ""},
+            ]
+        )
+    )
+    head = substitution_headline(qa)
+    assert "of 1 measurable pairs" in head
+    assert "1 of 2 answered pairs could not be measured" in head
+    assert directness_length_corr(qa) is None  # fewer than 3 answered rows
+
+
+def test_split_mixed_ranks_buckets_and_keeps_duplicate_pair_ids():
+    from build_a1_evidence import resolve_seed, split_mixed
+
+    qa = pd.DataFrame(
+        [
+            # costs twice, income once: efficiency wins on count
+            {"pair_id": "x_001", "question_text": "Costs are up and costs keep rising, but what about NII?"},
+            # one each: first mention wins the tie
+            {"pair_id": "x_001", "question_text": "On CET1, and then on impairment."},
+            {"pair_id": "x_002", "question_text": "Thanks for taking my question."},
+        ]
+    )
+    qa["seed_topic_q"] = qa["question_text"].map(seed_label)
+    assert qa["seed_topic_q"].tolist() == ["mixed", "mixed", "untagged"]
+
+    long, pairs = split_mixed(qa)
+    assert len(pairs) == 2  # same pair_id, two rows
+    assert pairs["primary_bucket"].tolist() == ["efficiency", "capital"]
+    assert pairs["primary_by"].tolist() == ["count", "first_mention"]
+    assert pairs["review"].tolist() == [False, True]
+    assert long.groupby("row_key")["share"].sum().round(2).eq(1).all()
+    # "cost" and "costs" share a pattern; one word is one mention
+    assert long.loc[long["seed_bucket"] == "efficiency", "n_mentions"].iloc[0] == 2
+    assert resolve_seed(qa, pairs).tolist() == ["efficiency", "capital", "untagged"]
+
+
+def test_untagged_reasons_labels_and_keeps_every_row():
+    from build_a1_evidence import reasons_untagged, untagged_reason
+
+    assert untagged_reason("Thank you. The next question comes from Kian Abouhossein from JPMorgan. Please go ahead.") == "operator_handover"
+    assert untagged_reason("Very helpful. Thank you.") == "courtesy_or_fragment"
+    assert untagged_reason("Was the 60bps gross or net, adjusting for the Pillar 2?") == "short_follow_up"
+    assert untagged_reason("Could you talk about deposit outflows and how you see the liquidity buffer into next year?",
+                           coder1="liquidity_funding") == "coder1_tagged"
+    assert untagged_reason("My question is about tariffs. How are your major corporate clients reacting "
+                           "to the April announcements, and is demand for trade finance falling?") == "off_seed"
+
+    qa = pd.DataFrame(
+        [
+            {"question_text": "Very helpful. Thank you.", "answer_text": "", "seed_topic_q": "untagged", "prudential8_q": "untagged"},
+            {"question_text": "What about CET1? Your next question comes from Citi. Please go ahead.",
+             "answer_text": "It is 14%.", "seed_topic_q": "capital", "prudential8_q": "capital_adequacy"},
+        ]
+    )
+    out = reasons_untagged(qa)
+    assert len(out) == 2
+    assert out["untagged_reason"].tolist() == ["courtesy_or_fragment", ""]
+    assert out["in_analysis"].tolist() == [False, True]
+    assert out["operator_bleed"].tolist() == [False, True]
+    assert out["answer_missing"].tolist() == [True, False]

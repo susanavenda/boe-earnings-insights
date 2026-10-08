@@ -21,6 +21,7 @@ a firm's prudential condition that reported financial metrics alone don't captur
 | **Desk** (`demo/`) | Stretch — PRA Earnings Desk. `streamlit run demo/app.py` |
 | **A2 pitch** | [`docs/assignment2/A2_pitch_outline.md`](docs/assignment2/A2_pitch_outline.md) — 15‑min Background → Approach → Conclusion |
 | **Technical report** | [`docs/assignment1/BoE_Earnings_Insights_Report.md`](docs/assignment1/BoE_Earnings_Insights_Report.md) |
+| **A3 evidence** | [`docs/assignment3/`](docs/assignment3/) — reproducibility, summarisation, presentation and retrospective notes |
 | **A1 scope** | [`docs/assignment1/Group9_CAM_EP_Assignment1.pdf`](docs/assignment1/Group9_CAM_EP_Assignment1.pdf) |
 
 Open this repo via [`Boe_Earnings.code-workspace`](Boe_Earnings.code-workspace) (macOS/Linux). On Windows, open the repository folder directly so VS Code can pick `.venv\\Scripts\\python.exe`.
@@ -70,13 +71,16 @@ A1 Appendix D. Use these names on the pitch, not the old placeholders.
 
 ```
 ├── README.md
-├── requirements.txt
+├── pyproject.toml
+├── uv.lock
+├── requirements.txt           # generated from the lock for Colab / pip
 ├── notebooks/boe_earnings_insights.ipynb
 ├── data/
 │   ├── raw/transcripts/       # INPUT — Q&A PDFs
 │   ├── structured/            # INPUT — Excel packs
 │   ├── boe.sqlite             # system of record (gitignored; rebuild via notebook/scripts)
-│   └── processed/             # empty placeholder (legacy CSVs removed)
+│   ├── processed/             # internal scratch CSVs (gitignored)
+│   └── exports/               # submission tables + MANIFEST.md (run ID, commit) — scripts/export_tables.py
 ├── docs/
 │   ├── code.md                # factory code map (stages, sqlite, invariants)
 │   ├── assignment1/           # A1 PDF/DOCX + technical report
@@ -126,12 +130,26 @@ known weakness on hedged, heavily-lawyered bank language is reported explicitly.
 ```bash
 git clone https://github.com/susanavenda/boe-earnings-insights.git
 cd boe-earnings-insights
-python3 -m venv .venv
+uv sync --all-extras
 source .venv/bin/activate
+```
+
+Python 3.12 is required (see `.python-version`). After editing `pyproject.toml`, refresh the lock and the Colab export:
+
+```bash
+uv lock
+uv export --frozen --no-hashes --no-emit-project --emit-index-url --extra ml -o requirements.txt
+```
+
+Google Colab and other pip-only environments still install from the generated file:
+
+```bash
 pip install -r requirements.txt
 ```
 
 Open `notebooks/boe_earnings_insights.ipynb` and run from Stage 0.
+
+[Open the submission notebook in Google Colab](https://colab.research.google.com/github/susanavenda/boe-earnings-insights/blob/main/notebooks/boe_earnings_insights.ipynb). The repository and inputs are public; no GitHub token is required. A clean full run rebuilds the SQLite database and can take more than 2.5 hours. See [`docs/assignment3/colab_reproducibility.md`](docs/assignment3/colab_reproducibility.md) for the verified run and fallback procedure.
 
 **Config is env vars, not a `config.yaml`.** Factory root is resolved by `_locate_root()` (cwd, parent, `BOE_ROOT` / `COLAB_ROOT`, Colab clone/Drive). Override the database with `BOE_DB`. Optional: `BOE_EXPORT_CSV=1`, `BOE_GEMINI_MODEL`, `BOE_LLM_PROVIDER`. API keys stay in a gitignored `.env` or the process environment.
 
@@ -143,6 +161,6 @@ One-shot import of legacy files: `.venv/bin/python scripts/migrate_to_db.py`.
 
 Next-quarter ops: [`docs/assignment2/README.md`](docs/assignment2/README.md).  
 Code map (stages, sqlite, invariants): [`docs/code.md`](docs/code.md).  
-Tests: `pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
+Tests: `uv run pytest tests/ -q -m "not slow"` — see [`tests/README.md`](tests/README.md).
 
 Desk: `streamlit run demo/app.py` (copies `data/boe.sqlite` into `demo/data/desk.sqlite`).
