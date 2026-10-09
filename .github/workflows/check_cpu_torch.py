@@ -9,7 +9,7 @@ print("cuda_available", torch.cuda.is_available())
 print("cuda_version", getattr(torch.version, "cuda", None))
 
 if "+cpu" not in version:
-    raise SystemExit(f"expected CPU wheel (2.8.0+cpu), got {version}")
+    raise SystemExit(f"expected CPU wheel (*+cpu), got {version}")
 if torch.cuda.is_available():
     raise SystemExit("CUDA is available; this runner should be CPU-only")
 

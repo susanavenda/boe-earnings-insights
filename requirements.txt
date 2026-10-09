@@ -17,6 +17,8 @@ aiosignal==1.4.0
     # via aiohttp
 altair==6.3.0
     # via streamlit
+annotated-doc==0.0.5
+    # via typer
 anyio==4.15.1
     # via
     #   httpx
@@ -35,7 +37,7 @@ attrs==26.1.0
     #   referencing
 beautifulsoup4==4.15.0
     # via yfinance
-bertopic==0.17.3
+bertopic==0.17.4
     # via boe-earnings-insights
 certifi==2026.7.22
     # via
@@ -54,6 +56,7 @@ charset-normalizer==3.5.2
     #   requests
 click==8.5.0
     # via
+    #   huggingface-hub
     #   nltk
     #   streamlit
     #   uvicorn
@@ -63,6 +66,7 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   ipython
     #   tqdm
+    #   typer
 comm==0.2.3
     # via ipykernel
 contourpy==1.4.0
@@ -73,12 +77,14 @@ curl-cffi==0.16.3
     # via yfinance
 cycler==0.12.1
     # via matplotlib
-datasets==5.0.1
+datasets==5.1.0
     # via
     #   boe-earnings-insights
     #   evaluate
 debugpy==1.8.22
     # via ipykernel
+defusedxml==0.7.1
+    # via nltk
 dill==0.4.1
     # via
     #   datasets
@@ -95,7 +101,6 @@ filelock==4.0.12
     #   datasets
     #   huggingface-hub
     #   torch
-    #   transformers
 flatbuffers==25.12.19
     # via tensorflow
 fonttools==4.66.1
@@ -104,7 +109,7 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec==2026.6.0
+fsspec==2026.7.0
     # via
     #   datasets
     #   evaluate
@@ -126,19 +131,19 @@ h5py==3.14.0
     # via
     #   keras
     #   tensorflow
-hdbscan==0.8.42
+hdbscan==0.8.44
     # via
     #   bertopic
     #   boe-earnings-insights
-hf-xet==1.7.0 ; platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
+hf-xet==1.7.0 ; platform_machine == 'AMD64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
     # via huggingface-hub
 httpcore==1.0.9
     # via httpx
 httptools==0.8.0
     # via streamlit
 httpx==0.28.1
-    # via datasets
-huggingface-hub==0.36.2
+    # via huggingface-hub
+huggingface-hub==1.33.0
     # via
     #   accelerate
     #   datasets
@@ -152,7 +157,7 @@ idna==3.20
     #   httpx
     #   requests
     #   yarl
-ipykernel==6.31.0
+ipykernel==7.4.0
     # via boe-earnings-insights
 ipython==9.17.1
     # via ipykernel
@@ -200,7 +205,7 @@ markdown-it-py==4.2.0
     # via rich
 markupsafe==3.0.4
     # via jinja2
-matplotlib==3.9.4
+matplotlib==3.11.2
     # via
     #   boe-earnings-insights
     #   seaborn
@@ -232,11 +237,12 @@ narwhals==2.26.0
     # via
     #   altair
     #   plotly
-nest-asyncio==1.6.0
+    #   scikit-learn
+nest-asyncio2==1.7.4
     # via ipykernel
 networkx==3.7
     # via torch
-nltk==3.9.2
+nltk==3.10.3
     # via
     #   boe-earnings-insights
     #   pysentiment2
@@ -244,7 +250,7 @@ numba==0.68.0
     # via
     #   pynndescent
     #   umap-learn
-numpy==2.0.2
+numpy==2.5.3
     # via
     #   accelerate
     #   bertopic
@@ -264,6 +270,7 @@ numpy==2.0.2
     #   scikit-learn
     #   scipy
     #   seaborn
+    #   sentence-transformers
     #   streamlit
     #   tensorflow
     #   transformers
@@ -290,7 +297,7 @@ packaging==26.3
     #   tensorflow
     #   transformers
     #   wheel
-pandas==2.3.3
+pandas==3.0.6
     # via
     #   bertopic
     #   boe-earnings-insights
@@ -314,13 +321,12 @@ pillow==12.3.0
     # via
     #   matplotlib
     #   pdfplumber
-    #   sentence-transformers
     #   streamlit
 platformdirs==4.12.4
     # via
     #   jupyter-core
     #   yfinance
-plotly==6.8.0
+plotly==7.1.0
     # via
     #   bertopic
     #   boe-earnings-insights
@@ -338,7 +344,6 @@ protobuf==7.36.2
 psutil==7.2.2
     # via
     #   accelerate
-    #   ipykernel
     #   ipython
 ptyprocess==0.7.0 ; sys_platform != 'emscripten' and sys_platform != 'win32'
     # via pexpect
@@ -349,7 +354,7 @@ pyarrow==25.0.1
     #   boe-earnings-insights
     #   datasets
     #   streamlit
-pycparser==3.0 ; implementation_name != 'PyPy'
+pycparser==3.1 ; implementation_name != 'PyPy'
     # via cffi
 pydeck==0.9.3
     # via streamlit
@@ -362,7 +367,7 @@ pynndescent==0.6.0
     # via umap-learn
 pyparsing==3.3.3
     # via matplotlib
-pypdf==6.14.2
+pypdf==6.19.0
     # via boe-earnings-insights
 pypdfium2==5.14.0
     # via pdfplumber
@@ -376,9 +381,7 @@ python-dateutil==2.9.0.post0
 python-multipart==0.0.32
     # via streamlit
 pytz==2026.5
-    # via
-    #   pandas
-    #   yfinance
+    # via yfinance
 pyyaml==6.0.3
     # via
     #   accelerate
@@ -399,15 +402,14 @@ regex==2026.9.29
     #   transformers
 requests==2.34.2
     # via
-    #   datasets
     #   evaluate
-    #   huggingface-hub
     #   streamlit
     #   tensorflow
-    #   transformers
     #   yfinance
 rich==15.0.0
-    # via keras
+    # via
+    #   keras
+    #   typer
 rpds-py==2026.9.1
     # via
     #   jsonschema
@@ -416,7 +418,7 @@ safetensors==0.8.0
     # via
     #   accelerate
     #   transformers
-scikit-learn==1.6.1
+scikit-learn==1.9.1
     # via
     #   bertopic
     #   boe-earnings-insights
@@ -434,7 +436,7 @@ scipy==1.18.1
     #   umap-learn
 seaborn==0.13.2
     # via boe-earnings-insights
-sentence-transformers==5.1.2
+sentence-transformers==6.1.0
     # via
     #   bertopic
     #   boe-earnings-insights
@@ -442,6 +444,8 @@ setuptools==84.0.0
     # via
     #   tensorflow
     #   torch
+shellingham==1.5.4
+    # via typer
 six==1.17.0
     # via
     #   astunparse
@@ -468,16 +472,18 @@ tf-keras==2.21.0
     # via boe-earnings-insights
 threadpoolctl==3.7.0
     # via scikit-learn
-tokenizers==0.22.2
-    # via transformers
+tokenizers==0.23.2
+    # via
+    #   sentence-transformers
+    #   transformers
 toml==0.10.2
     # via streamlit
-torch==2.8.0 ; sys_platform != 'linux'
+torch==2.14.1 ; sys_platform != 'linux'
     # via
     #   accelerate
     #   boe-earnings-insights
     #   sentence-transformers
-torch==2.8.0+cpu ; sys_platform == 'linux'
+torch==2.14.1+cpu ; sys_platform == 'linux'
     # via
     #   accelerate
     #   boe-earnings-insights
@@ -503,10 +509,12 @@ traitlets==5.16.1
     #   jupyter-client
     #   jupyter-core
     #   matplotlib-inline
-transformers==4.57.6
+transformers==5.19.0
     # via
     #   boe-earnings-insights
     #   sentence-transformers
+typer==0.27.3
+    # via transformers
 typing-extensions==4.16.0
     # via
     #   aiohttp
@@ -524,7 +532,7 @@ typing-extensions==4.16.0
     #   streamlit
     #   tensorflow
     #   torch
-tzdata==2026.5
+tzdata==2026.5 ; sys_platform == 'emscripten' or sys_platform == 'win32'
     # via pandas
 umap-learn==0.5.12
     # via
