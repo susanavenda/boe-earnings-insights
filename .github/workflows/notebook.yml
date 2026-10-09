@@ -9,7 +9,9 @@ name: notebook
 # If every cell runs cleanly on a PR (or a manual run on a branch other than main),
 # the executed notebook is committed back to that branch, so the PR carries the outputs.
 # Pushes made with the workflow token do not trigger new workflow runs, so this cannot loop.
-# A green run on main publishes GitHub Release a3-final-<short-sha>.
+# A green run on main publishes GitHub Release Group9_CAM_EP_Assignment3-<short-sha>
+# (title: Group9_CAM_EP_Assignment3 #<short-sha>). The tag cannot contain # —
+# GitHub would treat it as a URL fragment.
 # Manual dispatch with a non-blank release_tag does the same on any branch
 # (re-run of the same commit appends the run id).
 
@@ -17,7 +19,7 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: "Release prefix (blank = a3-final on main, none on other branches). Tag is prefix-plus-short-sha"
+        description: "Release prefix (blank = Group9_CAM_EP_Assignment3 on main, none on other branches). Tag is prefix-plus-short-sha"
         required: false
         default: ""
   push:
@@ -146,23 +148,25 @@ jobs:
           # Job env blanks GITHUB_TOKEN so the notebook cannot call GitHub; restore it for gh.
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}
-          RELEASE_PREFIX: ${{ inputs.release_tag || 'a3-final' }}
+          RELEASE_PREFIX: ${{ inputs.release_tag || 'Group9_CAM_EP_Assignment3' }}
         run: |
           mkdir -p release
-          cp executed.ipynb release/boe_earnings_insights_executed.ipynb
+          cp executed.ipynb release/Group9_CAM_EP_Assignment3_notebook.ipynb
           cp data/exports/MANIFEST.md release/
           (cd data && zip -qr ../release/data_exports.zip exports)
           SHORT_SHA="${GITHUB_SHA:0:7}"
           TAG="${RELEASE_PREFIX}-${SHORT_SHA}"
+          TITLE="${RELEASE_PREFIX} #${SHORT_SHA}"
           # Same commit re-run: keep the job green with a unique suffix.
           if gh release view "$TAG" >/dev/null 2>&1; then
             TAG="${TAG}-${{ github.run_id }}"
+            TITLE="${TITLE} (${{ github.run_id }})"
           fi
           gh release create "$TAG" release/* \
             --target "${{ github.sha }}" \
-            --title "$TAG" \
+            --title "$TITLE" \
             --notes "Notebook run ${{ github.run_id }} (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), commit ${{ github.sha }}. See MANIFEST.md."
-          echo "Published release $TAG"
+          echo "Published release $TAG ($TITLE)"
 
       - name: Commit executed notebook back to the branch
         # Only after a clean run; PRs from forks get a read-only token, so they are skipped.
